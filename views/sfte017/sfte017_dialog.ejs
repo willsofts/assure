@@ -1,0 +1,41 @@
+
+<div id="fsmodaldialog_layer" class="modal fade pt-page pt-page-item" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content portal-area" style="margin-left:15px; padding-top: 10px; padding-left: 5px; padding-bottom:15px;">
+			<div class="modal-header">
+				<h4 class="modal-title" id="modalheadertitle">
+					<%=label.get("modalheadertitle_show","Show History")%>
+				</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div id="entrydialoglayer" class="entry-dialog-layer">
+				<form id="fsentryform" role="form" data-toggle="validator" name="fsentryform" method="post">
+					<input type="hidden" name="ajax" value="true"/>
+					<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
+					<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
+					<input type="hidden" name="page" value="1"/>
+					<input type="hidden" name="orderBy" value=""/>
+					<input type="hidden" name="orderDir" value=""/>
+					<div class="row row-height">
+						<div class="col-md-12 col-height">
+							<div class="table-layer-class">
+								<div class="row row-height">
+									<div class="col-height col-md-4">
+									<span>
+		<label for="userid" id="userid_label" class="control-label"><%=label.get('userid_label','Username')%></label> : <%=data.meta?.userfullname%></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>	
+				<div id="listpanelhistory" class="table-responsive" style="padding-top: 0px;">
+					<%- include('./sfte017_history_data') %>
+				</div>			
+			</div>
+			<div class="row-heighter modal-footer" >
+				<input type="button" id="canceldialogbutton" class="btn btn-dark btn-sm" data-dismiss="modal" value="<%=label.get('canceldialogbutton','Close')%>"/>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,77 @@
+<div id="permit_dialog_layer" class="modal fade pt-page pt-page-item" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-xm">
+		<div class="modal-content portal-area" style="margin-left:15px; padding-top: 10px; padding-left: 5px; padding-bottom:15px;">
+			<div class="modal-header">
+				<h4 class="modal-title" id="modalheader"><%=label.get('permit_dialog_title','Program Permission')%></h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<form id="fspermitform" role="form" data-toggle="validator" name="fspermitform" method="post">
+				<input type="hidden" name="ajax" value="true"/>
+				<input type="hidden" name="groupname" id="permitgroupname" value="<%=data.dataset?.groupname%>" />
+				<input type="hidden" name="programid" id="permitprogramid" value="<%=data.dataset?.programid%>" />
+				<input type="hidden" name="seqno" id="permitprogseqno" value="0" />
+				<div class="row center-block" style="padding-top:10px; padding-bottom:0px;">
+					<div class="col-md-10">
+						<label id="program_info" class="control-label" style="padding-left:15px;"></label>
+					</div>
+				</div>
+				<%
+				let permmap = data.entity?.tpermit;
+				if(permmap) {
+					let permits = data.dataset?.permits;
+					let permkey = Object.keys(permmap);
+					let isz = permkey.length;
+					if(isz > 0) {
+						let index = -1;
+						let counter = isz;
+						let max = 3;
+						do {
+						%>
+						<div class="row row-heighter center-block">
+						<%	
+						for(let k = 0; k < max; k++ ) {
+							index++;
+							if(index < isz) {
+								let key = permkey[index];
+								let permtitle = permmap[key];
+								let permobject = null;
+								if(permits && permits.hasOwnProperty(key)) permobject = permits[key];
+								let permvalue = permobject==null || permobject==undefined?"":permobject;
+								let boxvalue = permvalue=="true"?"true":"false";
+								let boxcheck = permvalue=="true"?"checked":"";
+						%>
+								<input type="hidden" id="permitname<%=key%>" name="permname" value="<%=key%>"/>
+								<input type="hidden" id="permitvalue<%=key%>" name="permvalue" class="permit-input" value="<%=boxvalue%>"/>
+								<div class="col-md-4 col-height">						
+									<div class="checkbox form-check">
+									<input type="checkbox" id="permitbox<%=key%>" class="permit-checkbox" onclick="toggleValueClick(this,'permitvalue<%=key%>')" <%=boxcheck%> />
+									<label id="permitbox<%=key%>_label" class="control-label" for="permitbox<%=key%>"><%=permtitle%></label>
+									</div>
+								</div>
+						<%							
+							}
+						}
+						%>
+						</div>
+						<%
+							counter -= max;
+						} while( counter > 0 );
+					}
+				}
+				%>				
+				<div class="row row-heighter center-block">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="parameters_label" class="control-label"><%=label.get('parameters_label','Parameters')%></label>
+						</div>
+						<div class="col-md-5 col-height">
+							<input class="form-control input-sm" id="parameters" name="parameters" placeholder="" autocomplete="off" size="15"/>
+						</div>
+				</div>
+			</form>			
+			<div class="row-heighter modal-footer" >
+					<input type="button" id="savebuttondialogpermit" class="btn btn-dark btn-sm" value="<%=label.get('savebuttondialogpermit','Save')%>"/>
+					<input type="button" id="cancelbuttondialogpermit" class="btn btn-dark btn-sm" data-dismiss="modal" value="<%=label.get('cancelbuttondialogpermit','Cancel')%>"/>
+			</div>
+		</div>
+	</div>
+</div>

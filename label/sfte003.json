@@ -1,0 +1,48 @@
+[
+	{
+		"language": "TH",
+		"label": [
+			{"name": "sequenceno_headerlabel", "value": "ลำดับ"},
+			{"name": "nameth_alert", "value": "กรุณากรอกข้อมูล"},
+			{"name": "nameen_label", "value": "ชื่อผลิตภัณฑ์ (ภาษาอังกฤษ)"},
+			{"name": "seqno_headerlabel", "value": "ลำดับที่"},
+			{"name": "product_headerlabel", "value": "รหัสผลิตภัณฑ์"},
+			{"name": "nameen_headerlabel", "value": "ชื่อผลิตภัณฑ์"},
+			{"name": "nameens_label", "value": "ชื่อผลิตภัณฑ์"},
+			{"name": "action_headerlabel", "value": " "},
+			{"name": "url_label", "value": "ที่ตั้งหรือแหล่งที่มา"},
+			{"name": "seqno_label", "value": "ลำดับ"},
+			{"name": "products_label", "value": "รหัสผลิตภัณฑ์"},
+			{"name": "product_alert", "value": "กรุณากรอกข้อมูล"},
+			{"name": "centerflag_label", "value": "สงวนสิทธิสำหรับการตั้งค่าจากส่วนกลาง"},
+			{"name": "product_label", "value": "รหัสผลิตภัณฑ์"},
+			{"name": "verified_label", "value": "ตรวจสอบการใช้งานผลิตภัณฑ์"},
+			{"name": "seqno_alert", "value": "กรุณากรอกข้อมูล"},
+			{"name": "iconfile_label", "value": "ไอคอนไฟล์"},
+			{"name": "nameth_label", "value": "ผลิตภัณฑ์ (ภาษาไทย)"},
+			{"name": "nameen_alert", "value": "กรุณากรอกข้อมูล"}		]
+	},
+	{
+		"language": "EN",
+		"label": [
+			{"name": "sequenceno_headerlabel", "value": "Sequence"},
+			{"name": "nameth_alert", "value": "You can not leave this empty"},
+			{"name": "nameen_label", "value": "Product Name (English)"},
+			{"name": "seqno_headerlabel", "value": "No."},
+			{"name": "product_headerlabel", "value": "Product Code"},
+			{"name": "nameen_headerlabel", "value": "Product Name"},
+			{"name": "nameens_label", "value": "Product Name"},
+			{"name": "action_headerlabel", "value": "Action"},
+			{"name": "url_label", "value": "URL or Project Context"},
+			{"name": "seqno_label", "value": "Sequence"},
+			{"name": "products_label", "value": "Product Code"},
+			{"name": "product_alert", "value": "You can not leave this empty"},
+			{"name": "centerflag_label", "value": "Reserved for center setting"},
+			{"name": "product_label", "value": "Product Code"},
+			{"name": "verified_label", "value": "Verify Product Permission"},
+			{"name": "seqno_alert", "value": "You can not leave this empty"},
+			{"name": "iconfile_label", "value": "Icon File"},
+			{"name": "nameth_label", "value": "Product Name (Thai)"},
+			{"name": "nameen_alert", "value": "You can not leave this empty"}		]
+	}
+]

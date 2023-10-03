@@ -1,0 +1,20 @@
+[
+	{
+		"language": "TH",
+		"label": [
+			{"name": "caption", "value": "การตรวจสอบ"},
+			{"name": "factor_label", "value": "เพิ่ม 2FA"},
+			{"name": "submitbutton", "value": "ยอมรับ"},
+			{"name": "factorcode_label", "value": "รหัสตรวจสอบ"},
+			{"name": "factorcode_alert", "value": "กรุณากรอกข้อมูล"}		]
+	},
+	{
+		"language": "EN",
+		"label": [
+			{"name": "caption", "value": "Verification"},
+			{"name": "factor_label", "value": "Add 2FA"},
+			{"name": "submitbutton", "value": "Submit"},
+			{"name": "factorcode_label", "value": "Verify Code"},
+			{"name": "factorcode_alert", "value": "You can not leave this empty"}		]
+	}
+]

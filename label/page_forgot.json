@@ -1,0 +1,34 @@
+[
+	{
+		"language": "TH",
+		"label": [
+			{"name": "caption", "value": "ลืมรหัสผ่าน"},
+			{"name": "page_forgot_savebutton", "value": "ส่ง"},
+			{"name": "securecode_info", "value": "โปรดระบุผลลัพธ์จากการบวกเลขทั้งสองจำนวนตามภาพที่กำหนด"},
+			{"name": "email_placeholder", "value": "อีเมล์"},
+			{"name": "securecode_placeholder", "value": "คำตอบลับจากภาพ"},
+			{"name": "resetpwd_label", "value": "การตั้งรหัสผ่านใหม่สำเร็จ"},
+			{"name": "requestmsg_label", "value": "โปรดตรวจสอบ  ระบบได้ส่งการยืนยันคำร้องไปยังอีเมล์ของท่าน"},
+			{"name": "email_alert", "value": "ท่านต้องไม่ปล่อยให้เป็นค่าว่าง"},
+			{"name": "securecode_alert", "value": "ท่านต้องไม่ปล่อยให้เป็นค่าว่าง"},
+			{"name": "resetmsg_label", "value": "โปรดตรวจสอบ  ระบบได้ส่งรหัสผ่านใหม่ไปยังอีเมล์ของท่าน"},
+			{"name": "requestpwd_label", "value": "คำร้องการขอตั้งรหัสผ่านใหม่สำเร็จ"},
+			{"name": "forgotpassword_info", "value": "โปรดระบุรหัสผู้ใช้งานกับที่อยู่อีเมล์พร้อมรหัสลับจากภาพที่กำหนด"}		]
+	},
+	{
+		"language": "EN",
+		"label": [
+			{"name": "caption", "value": "Forgot Password"},
+			{"name": "page_forgot_savebutton", "value": "Send"},
+			{"name": "securecode_info", "value": "Please specify the result of two value operate from image"},
+			{"name": "email_placeholder", "value": "Email"},
+			{"name": "securecode_placeholder", "value": "Answer Code"},
+			{"name": "resetpwd_label", "value": "Reset password success"},
+			{"name": "requestmsg_label", "value": "Please verify your email for request and activation changed"},
+			{"name": "email_alert", "value": "You can not leave this empty"},
+			{"name": "securecode_alert", "value": "You can not leave this empty"},
+			{"name": "resetmsg_label", "value": "Please verify your email for new password changed"},
+			{"name": "requestpwd_label", "value": "Request reset password success"},
+			{"name": "forgotpassword_info", "value": "Please identify your email address with secure code from image"}		]
+	}
+]

@@ -1,0 +1,74 @@
+	<div id="entrylayer" class="entry-layer">
+		<form id="fsentryform" name="fsentryform" method="post">
+			<input type="hidden" id="useruuid" name="useruuid" />
+			<input type="hidden" id="userid" name="userid" />
+			<div class="portal-area sub-entry-layer">
+				<% if(page.context.params?.changed) { %>
+				<div class="row row-height">
+					<div class="col-md-3 col-height col-label text-right">&nbsp;</div>
+					<div class="col-md-7 col-height">
+						<% if(page.context.params?.changed=="force") { %>
+						<%=label.get('passwordforce_label','The system force you to change password, please specify your new password.')%>
+						<% }%>
+						<% if(page.context.params?.changed=="expire") { %>
+						<%=label.get('passwordexpire_label','Your password was expired, please specify your new password.')%>
+						<% }%>
+					</div>
+				</div>
+				<% }%>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="oldpassword_label" class="control-label" required="true"><%=label.get('oldpassword_label','Old Password')%></label>
+						</div>
+						<div class="col-md-3 col-height">
+							<input type="password" class="form-control input-md alert-input" id="oldpassword" name="oldpassword" placeholder="<%=label.get('oldpassword_placeholder','Old Password')%>" autocomplete="off" size="8" />
+							<div id="oldpassword_alert" role="alert" class="has-error" style="display:none;"><%=label.get('oldpassword_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="userpassword_label" class="control-label" required="true"><%=label.get('userpassword_label','New Password')%></label>
+						</div>
+						<div class="col-md-3 col-height">
+							<input type="password" class="form-control input-md alert-input" id="userpassword" name="userpassword" placeholder="<%=label.get('userpassword_placeholder','New Password')%>" autocomplete="off" size="8" data-toggle="tooltip" title="Password can combine with alphabets and numeric sign not over 8 characters"/>
+							<div id="userpassword_alert" role="alert" class="has-error" style="display:none;"><%=label.get('userpassword_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="confirmpassword_label" class="control-label" required="true"><%=label.get('confirmpassword_label','Confirm Password')%></label>
+						</div>
+						<div class="col-md-3 col-height">
+							<input type="password" class="form-control input-md alert-input" id="confirmpassword" name="confirmpassword" placeholder="<%=label.get('confirmpassword_placeholder','Confirm Password')%>" autocomplete="off" size="8" data-toggle="tooltip" title="Password can combine with alphabets and numeric sign not over 8 characters"/>
+							<div id="confirmpassword_alert" role="alert" class="has-error" style="display:none;"><%=label.get('confirmpassword_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label text-right"></div>
+						<div class="col-md-6 col-height">
+							<div id="matchpassword_alert" role="alert" class="has-error" style="display:none;"><%=label.get('matchpassword_alert','New Password does not match to Confirm Password')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+					<div class="col-md-3 col-height col-label text-right"></div>
+					<div class="col-md-8 col-height" id="fspolicylayer">
+						<%
+						let policy = data.dataset?.policy;
+						if(policy) {
+							for(let p of policy) {
+						%>
+							<span><%=p%></span><br/>
+						<%
+							}
+						}
+						%>
+					</div>
+				</div>
+				<div class="row row-height">
+					<div class="col-md-12 float-right pull-right text-right" style="margin-right: 10px;">
+						<input type="button" id="savebutton" class="btn btn-dark btn-sm" value="<%=label.get('savebutton','Save')%>"/>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>

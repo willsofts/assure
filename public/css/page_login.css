@@ -1,0 +1,61 @@
+#page_login_toplayer {
+	width: 100%;
+	height: 180px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	/*background-color: #034686;*/
+}
+
+#page_login_toplogo {
+	width: 180px;
+	height: 170px;
+	opacity: 1;
+}
+
+#page_login_entry {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+#loginformlayer {
+	width: 300px;
+}
+
+#login_button_layer {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+#login_button {
+	width: 120px;
+	/*
+	background-color: #DDB201;
+	color: white;
+	*/
+}
+
+#login_success_label {
+	font-size: 2.5rem;
+}
+
+.menu-span {
+	padding-left: 10px;
+}
+
+.topnav a {
+	color: #CC9900;
+	text-decoration: none;
+}
+.topnav a:hover {
+	color: black;
+}
+
+#play_link {
+	font-size: 1.5rem;
+}
+
+#fspolicylayer { color: navy; font-size: 0.8rem; }
+#fspolicylayer span:first-child { text-decoration: underline; }

@@ -1,0 +1,135 @@
+/* user color */
+.login_form input[type="button"]{
+	background-color: whitesmoke;
+	border-color: #5385C1;
+}
+.login_form input[type="button"]:focus,
+.login_form input[type="button"]:hover{
+	background: #5385C1;
+	color: white;
+}
+.login_form label {
+	color: #5385C1;
+	font-weight : bold;
+}
+#login_logo_label {
+	font-size: 85px;
+	font-weight: bold;
+	color: #5385C1;
+	/*text-shadow: 3px 7px 7px #959BCE;*/
+	text-shadow: 3px 7px 7px whitesmoke;
+}
+#page_login_toplayer {	
+	background-image: -webkit-linear-gradient(white, #B0C4DE);
+	background-image: -o-linear-gradient(white, #B0C4DE);
+	background-image: -moz-linear-gradient(white, #B0C4DE);
+	background-image: linear-gradient(white, #B0C4DE);
+}
+
+.navigatebar-top {
+	background-color: #5385C1;
+}
+#footerbar { 
+	background-color: #5385C1;
+}
+.sidebar-menu {
+	background-color: #5385C1;
+}
+.pt-page h1 { background-color: #5385C1;  }
+.pt-page th { background-color: #5385C1; }
+.pt-page-header { 
+	background-color: #5385C1; 
+}
+.btn-primary {
+	border: 1px solid #315989;
+	background-color: #315989;	
+}
+.btn-dark {
+	border: 1px solid #315989;
+	background-color: #315989;	
+}
+.btn-spot {
+	border: 1px solid #315989;
+	background-color: #315989;		
+}
+.btn-spot:hover,
+.btn-spot:focus,
+.btn-spot:active,
+.btn-spot.active,
+.open > .dropdown-toggle.btn-spot {
+ background-color: #5385C1;
+}
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active,
+.btn-dark.active,
+.open > .dropdown-toggle.btn-dark {
+ background-color: #5385C1;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primay:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+	background-color: #5385C1;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+	background-color: #5385C1;
+	border-color: #5385C1;
+}
+.page-item.active .page-link {
+	background-color: #5385C1;
+	border-color: #5385C1;	
+}
+.favor-navbox-tiles .tile {
+  background-color: #5385C1;
+}
+.favor-dropdown-menu { 
+	background-color: #5385C1;
+}
+#favordropdownmenu {
+	background-color: #5385C1;
+}
+
+body {
+	background-color: #DEE8F4;
+}
+.table-striped > tbody > tr:nth-child(even) > td,
+.table-striped > tbody > tr:nth-child(even) > th {
+  background-color: #EBF2FA;
+}
+.navbox-tiles .tile {
+  background-color: #87CEFA;
+}
+#loginformarea {	
+	background-image: -webkit-linear-gradient(white,#A3C9DF);
+	background-image: -o-linear-gradient(white,#A3C9DF);
+	background-image: -moz-linear-gradient(white,#A3C9DF);
+	background-image: linear-gradient(white, #A3C9DF);
+}
+.portal-area {
+	background-color: #DEE8F4;
+}
+table.partition-table { background-color: #5385C1; }
+.topic-row { background-color: #5385C1; }
+
+.sidebar li a.active { 
+	background-color: #315989;
+}
+.sidebar ul li > a.active:hover {
+	background-color: #315989;
+}
+.sidebar ul li .sub-menu li a:hover { 
+	background-color: #2E75B8;
+}
+#sidebarheader { 
+	background-color: #315989;
+}
+#fsprogramcontrolbar {
+	background-color: #5385C1; 
+}

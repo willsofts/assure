@@ -1,0 +1,212 @@
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-8">
+<label for="username" id="username_label" class="control-label"><%=label.get('username_label','User')%></label>
+<div class="input-group">
+<input type="text" id="username" name="username" class="form-control input-md irequired alert-input" maxlength="50" value="<%=data.dataset?.username%>" />
+	<div class="input-group-required"><label class="required">*</label></div>
+</div>
+<div id="username_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('username_alert','You can not leave this empty')%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-4">
+<input type="text" id="usertname" name="usertname" class="form-control input-md" value="<%=data.dataset?.usertname%>" readonly />
+						</div>
+						<div class="col-height col-md-4">
+<input type="text" id="usertsurname" name="usertsurname" class="form-control input-md" value="<%=data.dataset?.usertsurname%>" readonly />
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-8">
+<label for="email" id="email_label" class="control-label"><%=label.get('email_label','Email')%></label><input type="text" id="email" name="email" class="form-control input-md" value="<%=data.dataset?.email%>" readonly />
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-4">
+<label for="status" id="status_label" class="control-label"><%=label.get('status_label','Status')%></label>
+<%-page.html('select',{map: data.entity?.tuserstatus, value: data.dataset?.status, id: "status", name: "status", class: "form-control input-md"})%>
+						</div>
+						<% if(data.dataset?.factorflag=="1") {%>
+						<div class="col-height col-md-7">
+						<br/>
+<input type="button" id="resetfactorbutton" class="btn btn-dark btn-sm pull-right" style="margin-top:12px;" value="<%=label.get('resetfactorbutton','Reset 2FA')%>"/>						
+						</div>
+						<% } %>
+					</div>
+				</div>
+		</div>
+	</div>
+
+	<div class="row row-height">
+		<div id="accessalls" class="col-md-12 col-height">
+				<fieldset id="accessallsheaderinfo" style="min-height: 35px; padding-left: 5px;">
+					<legend style="margin-bottom:0px;">
+						<label id="accessalls_sectionlabel" class="control-label"><%=label.get('accessalls_sectionlabel','Accessing')%></label>
+					</legend>
+				</fieldset>							
+				<div class="table-layer-class" style="padding-left: 5px;">
+					<div class="row row-height">
+						<div class="col-height col-md-8">
+<div class="checkbox checkbox form-check"><input type="checkbox" value="1" id="branchflag" name="branchflag" class="form-control input-md form-check-input" <%=page.checked('1',data.dataset?.branchflag)%> /><label for="branchflag" id="branchflag_label" class="control-label form-check-label"><%=label.get('branchflag_label','Access Branch')%></label></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+
+	<div class="row row-height">
+		<div id="accessbranches" class="col-md-12 col-height">
+			<fieldset id="accessbranchesfieldset">
+				<div class="table-layer-class" style="padding-left: 40px;">
+<%	let branchmap = data.entity?.tcompbranch;
+	if(branchmap) {
+		let branchkey = Object.keys(branchmap);
+		let isz = branchkey.length;
+		if(isz > 0) {
+			let index = -1;
+			let counter = isz;
+			let max = 2;
+			do {
+	%>
+						<div class="row row-height">
+	<%			
+				for(let k = 0; k < max; k++ ) {
+					index++;
+					if(index < isz) {
+						let key = branchkey[index];
+						let branchname = branchmap[key];
+	%>
+							<div class="col-height col-md-5">
+	<div class="checkbox checkbox form-check"><input type="checkbox" value="<%=key%>" id="userbranches_<%=index%>" name="userbranches" class="form-control input-md branch-class form-check-input" <%=page.checked(key,data.dataset?.userbranches)%> /><label for="userbranches_<%=index%>" class="control-label form-check-label"><%=branchname%></label></div>
+							</div>
+	<%					
+					}
+				}
+	%>
+						</div>
+	<%
+				counter -= max;
+			}while(counter>0);
+		}
+	}
+%>				
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<div class="row row-height">
+		<div id="accessroles" class="col-md-12 col-height">
+				<fieldset id="accessrolesheaderinfo" style="min-height: 35px; padding-left: 5px;">
+					<legend style="margin-bottom:0px;">
+						<label id="accessroles_sectionlabel" class="control-label"><%=label.get('accessroles_sectionlabel','Roles')%></label>
+					</legend>
+				</fieldset>									
+				<div id="rolelayer" class="table-layer-class" style="padding-left: 5px;">				
+<%	let rolemap = data.entity?.trole;
+	if(rolemap) {
+		let rolekey = Object.keys(rolemap);
+		let isz = rolekey.length;
+		if(isz > 0) {
+			let index = -1;
+			let counter = isz;
+			let max = 3;
+			do {
+	%>
+						<div class="row row-height">
+	<%			
+				for(let k = 0; k < max; k++ ) {
+					index++;
+					if(index < isz) {
+						let key = rolekey[index];
+						let rolename = rolemap[key];
+	%>  
+							<div class="col-height col-md-4">
+	<div class="checkbox form-check"><input type="checkbox" value="<%=key%>" id="userroles_<%=index%>" name="userroles" class="form-control input-md form-check-input" <%=page.checked(key,data.dataset?.userroles)%> /><label for="userroles_<%=index%>" class="control-label form-check-label"><%=rolename%></label></div>
+							</div>
+	<%					
+					}
+				}
+	%>
+						</div>
+	<%
+				counter -= max;
+			}while(counter>0);
+		}
+	}
+%>								 
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div id="accessroles_alert" role="alert" class="has-feedback has-error alert-layer" style="display:none;"><%=label.get('accessroles_alert','You can not leave this empty')%></div>
+	</div>
+
+	<div class="row row-height">
+		<div id="accessgroups" class="col-md-12 col-height">
+				<fieldset id="accessgroupsheaderinfo" style="min-height: 35px; padding-left: 5px;">
+					<legend style="margin-bottom:0px;">
+						<label id="accessgroups_sectionlabel" class="control-label"><%=label.get('accessgroups_sectionlabel','Privileges')%></label>
+					</legend>
+				</fieldset>									
+				<div class="table-layer-class" style="padding-left: 5px;">
+<%	let groupmap = data.entity?.tgroup;
+	if(groupmap) {
+		let groupkey = Object.keys(groupmap);
+		let isz = groupkey.length;
+		if(isz > 0) {
+			let index = -1;
+			let counter = isz;
+			let max = 3;
+			do {
+	%>
+						<div class="row row-height">
+	<%			
+				for(let k = 0; k < max; k++ ) {
+					index++;
+					if(index < isz) {
+						let key = groupkey[index];
+						let groupname = groupmap[key];
+	%>
+							<div class="col-height col-md-4">
+	<div class="checkbox form-check"><input type="checkbox" value="<%=key%>" id="usergroups_<%=index%>" name="usergroups" class="form-control input-md form-check-input" <%=page.checked(key,data.dataset?.usergroups)%> /><label for="usergroups_<%=index%>" class="control-label form-check-label"><%=groupname%></label></div>
+							</div>
+	<%					
+					}
+				}
+	%>
+						</div>
+	<%
+				counter -= max;
+			}while(counter>0);
+		}
+	}
+%>				
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div id="accessgroups_alert" role="alert" class="has-feedback has-error alert-layer" style="display:none;"><%=label.get('accessgroups_alert','You can not leave this empty')%></div>
+	</div>
+	<input type="hidden" id="siteflag" name="siteflag" value="<%=data.dataset?.siteflag%>" />

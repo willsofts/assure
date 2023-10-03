@@ -1,0 +1,100 @@
+<div id="insert_dialog_layer" class="modal fade pt-page pt-page-item" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-xm">
+		<div class="modal-content portal-area" style="margin-left:15px; padding-top: 10px; padding-left: 5px; padding-bottom:15px;">
+			<div class="modal-header">
+				<h4 class="modal-title" id="modalheader"><%=label.get('insert_dialog_title','New Group')%></h4>
+				<h4 class="modal-title" id="modalheaderedit" style="display:none;"><%=label.get('edit_dialog_title','Edit Group')%></h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<form id="fsinsertform" role="form" data-toggle="validator" name="fsinsertform" method="post">
+				<input type="hidden" name="ajax" value="true"/>
+				<div class="row row-heighter center-block" style="margin-top: 15px;">
+							<div class="col-md-3 col-height col-label text-right">
+								<label id="groupnamedialog_label" class="control-label" required="true"><%=label.get('groupnamedialog_label','Group Name')%></label>
+							</div>
+							<div class="col-md-4 col-height">
+								<input type="text" class="form-control input-sm ikeyclass alert-input groupname" id="groupnamedialog" name="groupname" placeholder="" autocomplete="off" size="20" picture="(20)X" />
+							</div>
+				</div>
+				<div class="row row-heighter center-block">
+							<div class="col-md-3 col-height text-right"></div>
+							<div class="col-md-6 col-height">
+								<span id="groupnamedialog_alert" role="alert" class="alert-span has-feedback has-error groupname-alert" style="display:none;"><%=label.get('groupnamedialog_alert','You can not leave this empty')%></span>
+							</div>
+				</div>
+				<div class="row row-heighter center-block">
+							<div class="col-md-3 col-height col-label text-right">
+								<label id="nameendialog_label" class="control-label" required="true"><%=label.get('nameendialog_label','Name(English)')%></label>
+							</div>
+							<div class="col-md-8 col-height">
+								<input class="form-control input-sm alert-input nameen" id="nameendialog" name="nameen" placeholder="" autocomplete="off" size="50"/>
+								<span id="nameendialog_alert" role="alert" class="alert-span has-feedback has-error nameen-alert" style="display:none;"><%=label.get('nameendialog_alert','You can not leave this empty')%></span>
+							</div>
+				</div>
+				<div class="row row-heighter center-block">
+							<div class="col-md-3 col-height col-label text-right">
+								<label id="namethdialog_label" class="control-label" required="true"><%=label.get('namethdialog_label','Name(Thai)')%></label>
+							</div>
+							<div class="col-md-8 col-height">
+								<input class="form-control input-sm alert-input nameth" id="namethdialog" name="nameth" placeholder="" autocomplete="off" size="50"/>
+								<span id="namethdialog_alert" role="alert" class="alert-span has-feedback has-error nameth-alert" style="display:none;"><%=label.get('namethdialog_alert','You can not leave this empty')%></span>
+							</div>
+				</div>
+				<div class="row row-heighter center-block">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="usertypedialog_label" class="control-label" required="true"><%=label.get('usertypedialog_label','User Type')%></label>
+						</div>
+						<div class="col-md-5 col-height">
+							<fieldset id="usertypedialogfieldset"><legend style="display:none;"></legend>
+								<%-page.html('select',{map: data.entity?.tusertype, value: data.dataset?.usertype, id: "usertypedialog", name: "usertype", class: "form-control input-md alert-input"})%>
+							</fieldset>
+							<div id="usertypedialog_alert" role="alert" class="has-feedback has-error usertype-alert" style="display:none;"><%=label.get('usertypedialog_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-heighter center-block">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="mobilegroupdialog_label" class="control-label" required="false"><%=label.get('mobilegroupdialog_label','Mobile Group')%></label>
+						</div>
+						<div class="col-md-5 col-height">
+							<%-page.html('select',{map: data.entity?.tgroupmobile, value: data.dataset?.mobilegroup, id: "mobilegroupdialog", name: "mobilegroup", class: "form-control input-md alert-input"})%>
+							<div id="mobilegroupdialog_alert" role="alert" class="has-feedback has-error usertype-alert" style="display:none;"><%=label.get('mobilegroupdialog_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-heighter center-block">
+						<div class="col-md-3 col-height col-label text-right">
+						</div>
+						<div class="col-md-8 col-height radio my-radio currenting-field form-check">
+								<table><tr><td>
+										<input type="checkbox" class="form-control input-md" id="privateflagdialog" name="privateflag" value="1" />
+								</td><td valign="middle">
+										<label class="lclass control-label" id="privateflagdialog_label" for="privateflagdialog"><%=label.get('privateflagdialog_label','Reserved for Private Group')%></label>
+								</td></tr></table>
+						</div>
+				</div>				
+				<div class="row row-heighter center-block">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="iconstyledialog_label" class="control-label" required="false"><%=label.get('iconstyledialog_label','Icon Style')%></label>
+						</div>
+						<div class="col-md-5 col-height">
+							<div id="iconstyleswitcher"></div>
+							<input type="hidden" id="iconstyledialog" name="iconstyle"/>
+						</div>
+				</div>
+				<div class="row row-heighter center-block">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="sequencenodialog_label" class="control-label" required="false"><%=label.get('sequencenodialog_label','Sequence')%></label>
+						</div>
+						<div class="col-md-3 col-height">
+							<%-page.html('int',{value: data.dataset?.seqno, id: "sequencenodialog", name: "seqno", class: "form-control input-md alert-input sequenceno"})%>
+							<div id="sequencenodialog_alert" role="alert" class="has-feedback has-error sequenceno-alert" style="display:none;"><%=label.get('sequencenodialog_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+			</form>			
+			<div class="row-heighter modal-footer" >
+					<input type="button" id="savebuttondialoginsert" class="btn btn-dark btn-sm" value="<%=label.get('savebuttondialoginsert','Save')%>"/>
+					<input type="button" id="updatebuttondialoginsert" class="btn btn-dark btn-sm" value="<%=label.get('updatebuttondialoginsert','Update')%>" style="display:none;"/>
+					<input type="button" id="cancelbuttondialoginsert" class="btn btn-dark btn-sm" data-dismiss="modal" value="<%=label.get('cancelbuttondialoginsert','Cancel')%>"/>
+			</div>
+		</div>
+	</div>
+</div>

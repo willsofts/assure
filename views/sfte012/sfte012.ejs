@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Configuration Setting</title>
+		<%- include('../asset/meta') %>		
+		<%- include('../asset/styles') %>		
+		<%- include('../asset/scripts') %>	
+		<link rel="stylesheet" type="text/css" href="<%=meta.base_url%>/sfte012/sfte012.css" />
+		<script type="text/javascript" src="<%=meta.base_url%>/sfte012/sfte012.js"></script>
+	</head>
+	<body class="portalbody portalbody-off">
+		<%- include('../partials/page_waiting') %>
+		<div id="ptmainpager" class="pt-page pt-page-current pt-page-controller sfte012-entry-pager">
+			<%- page.createHeader({pid: 'sfte012', title: label.get('caption','Configuration Setting')}) %>
+			<div id="entrypanel">
+				<div id="entrylayer" class="entry-layer">
+					<form id="fsentryform" name="fsentryform" method="post">	
+						<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
+						<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
+						<input type="hidden" name="page" value="<%=page.setting?.page%>"/>
+						<div class="portal-area sub-entry-layer" style="padding-left:5px;">
+							<%- include('./sfte012_kit') %>
+							<div class="row">
+								<div id="fs_controlbuttonfooterlayer" class="col-md-12 pull-right text-right" style="margin-right: 20px; margin-bottom:5px; margin-top: 10px;">
+									<% if(page.isUpdateMode()) {%>
+										<input type="button" id="updatebutton" class="btn btn-dark btn-sm" value="<%=label.get('updatebutton','Update')%>"/>
+									<% } %>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

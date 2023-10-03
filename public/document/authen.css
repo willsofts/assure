@@ -1,0 +1,15 @@
+html {
+	scroll-behavior: smooth;
+}
+body {
+	margin: 10px;
+}
+table.code-table {
+	width: 100%;
+}
+a.copy-button {
+	text-decoration: none;
+}
+table.code-table tr th { background-color: #d2d2d2; padding: 3px; }
+pre { border-radius: 0px; text-align: left; }
+textarea { position: absolute; left: -100%; } 

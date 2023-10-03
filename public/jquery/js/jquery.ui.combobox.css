@@ -1,0 +1,45 @@
+/* 
+ * vim: noexpandtab
+ */
+img.ui-combobox-arrow {
+	position: relative;
+	vertical-align: text-bottom;
+	top: 2px;
+}
+
+* html img.ui-combobox-arrow {
+	top: -3px;
+}
+
+.ui-combobox-list {
+	border: 1px solid black;
+}
+
+.ui-combobox-list, .ui-combobox-item {
+	display: block;
+	font-family: sans-serif;
+	font-size:  12px;
+	background-color: white; 
+}
+
+.ui-combobox-list .selected {
+	background-color: #eeeeff;
+	border-top: 1px solid blue;
+	border-bottom: 1px solid blue;
+	font-weight: bold;
+}
+
+span.odd { background-color: #eeeeee; }
+span.even { background-color: #ffffff;}
+
+.fsx_combo_input{
+	border-style: none;
+}
+.fsx_combo_box{
+	text-align: left;
+	height: 22px;
+	overflow: hidden;
+    background-color: white;
+	border: 1px solid #7F9DB9;
+	padding-right: 1px;
+}

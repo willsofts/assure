@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Authenticate Information</title>
+		<link href="../img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="authen.css" />
+		<script>
+		function copyCode(srcid) {
+			var copyText = document.getElementById(srcid).textContent;
+			var copyArea = document.getElementById("copyarea");
+			copyArea.value = copyText;
+			copyArea.select();
+			copyArea.setSelectionRange(0, 999999);
+			document.execCommand("copy");
+		}		
+		</script>
+	</head>
+<body>
+	<h2>How to Authenticate</h2>
+	<p>In order to authenticate into the system from client applications. 
+	This article describes how to make authentication. 
+	</p>
+	<h3>Client Registration</h3>
+	<p>
+	Your client application needs to trust the security by the system. 
+	First step create your own client with public keys provided. 	
+	</p>
+	<p>
+	Two of the most referenced client registration setting are : 
+	</p>
+	<ul>
+		<li><strong>Client ID</strong> - this unique value is assigned to your application to identify what is client.</li>
+		<li><strong>Public Key</strong> - this value is the key to encrypt your access user and password when authenticate.</li>
+	</ul>
+	<h3>Request Authentication</h3>
+	<p>
+	Your client application can access by 3 way : 	
+	</p>
+	<h4>Simple Authentication</h4>
+	<table class="code-table">
+		<tr>
+			<th>Simple</th>
+			<th></th>
+		</tr>
+	</table>
+	<pre tabindex="-1">
+	POST with parameters username={username}&password={password}
+	</pre>
+	<p>
+	This is the simple way to authenticate by make request with POST method specified by parameters passing username and password.	
+	</p>
+	<h4>Basic Authentication</h4>
+	<table class="code-table">
+		<tr>
+			<th>Basic</th>
+			<th></th>
+		</tr>
+	</table>
+	<pre tabindex="-1">
+	Authorization: Basic user:password
+	</pre>
+	<p>
+	This can make authentication by adding request header with Authorization specified by Basic username:password encoding in base64 format.	
+	</p>
+	<h4>RSA With Basic Authentication</h4>
+	<p>
+	To use RSA with basic authenticate must encrypt data in format username:password by public key from client register including header with Client ID.  
+	</p>
+	<table class="code-table">
+		<tr>
+			<th>RSA</th>
+			<th></th>
+		</tr>
+	</table>
+	<pre tabindex="-1">
+	Client: Client-ID
+	Authorization: Basic user:password
+	</pre>
+	<h3>Encrypt With Public Key</h3>
+	<textarea id="copyarea"></textarea>
+	<table class="code-table">
+		<tr>
+			<th><span>Java</span></th>
+			<th><a href="javascript:void(0)" tabindex="-1" class="copy-button" style="float:right;" onclick="copyCode('javacode')">Copy</a></th>
+		</tr>
+	</table>
+	<pre tabindex="-1" id="javacode">
+	
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.security.KeyException;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.AlgorithmParameterSpec;
+import java.security.spec.EncodedKeySpec;
+import java.security.spec.MGF1ParameterSpec;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.spec.OAEPParameterSpec;
+import javax.crypto.spec.PSource;
+import java.util.Base64;
+
+public class EncryptText {
+	public static final String RSA_ALGORITHM = "RSA/ECB/OAEPWithSHA-256AndMGF1Padding";
+	public static final AlgorithmParameterSpec RSA_ALGORITHM_SPEC = new OAEPParameterSpec("SHA-256", "MGF1", MGF1ParameterSpec.SHA256, PSource.PSpecified.DEFAULT);
+
+  	public static byte[] encrypt(PublicKey publicKey,byte[] clearbyte) throws Exception {
+		if(publicKey==null) {
+			throw new KeyException("Public key is undefined");
+		}
+		Cipher cipher = Cipher.getInstance(RSA_ALGORITHM);
+		cipher.init(Cipher.ENCRYPT_MODE,publicKey,RSA_ALGORITHM_SPEC);        
+		return cipher.doFinal(clearbyte);
+	}
+	
+	public static PublicKey getPublicKey(byte[] publicKeyBytes) throws Exception {
+		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+		EncodedKeySpec publicKeySpec = new X509EncodedKeySpec(publicKeyBytes);
+		return keyFactory.generatePublic(publicKeySpec);
+	}
+	
+	public static String loadKeyFile(String fileName) throws Exception {
+		try(FileInputStream fis = new FileInputStream(fileName);
+			BufferedReader br = new BufferedReader(new InputStreamReader(fis))) {
+			StringBuilder buf = new StringBuilder();
+			String str = null;
+			while ((str = br.readLine()) != null) {
+		    	buf.append(str); 
+		    }
+		    String key = buf.toString();
+		    //in case of pem file, try to remove header and trailer
+		    if(key.contains("BEGIN PUBLIC KEY")) {
+		    	String keycontents = key
+		    		.replace("-----BEGIN PUBLIC KEY-----", "")
+		    		.replaceAll(System.lineSeparator(), "")
+		    		.replace("-----END PUBLIC KEY-----", "");
+		    
+		    	return keycontents;
+		    }
+		    return key;
+		}
+	}
+	
+	public static String encryptText(String publicKeyFile,String clearText) throws Exception {
+		//load public key from file
+		String publicKeyContents = loadKeyFile(publicKeyFile);
+		//public key file is base64, then decode it 
+		byte[] publicKeyBytes = Base64.getDecoder().decode(publicKeyContents);
+		//then get public key from byte array
+		PublicKey publicKey = getPublicKey(publicKeyBytes);
+		//try to encrypt clear text with public key
+		byte[] clearbytes = clearText.getBytes();
+		byte[] cyphered = encrypt(publicKey, clearbytes);
+		//need to encode with base64 text
+		return Base64.getEncoder().encodeToString(cyphered);		
+	}
+	
+	public static void main(String[] args) throws Exception {
+		String clearText = "user:password";
+		String publicKeyFile = "my_public.key";
+		String encryptMessage = encryptText(publicKeyFile, clearText);
+		System.out.println("encrypt message = "+encryptMessage);
+	}
+
+}	
+	</pre>
+	
+	<table class="code-table">
+		<tr>
+			<th><span>Node</span></th>
+			<th><a href="javascript:void(0)" tabindex="-1" class="copy-button" style="float:right;" onclick="copyCode('nodejs')">Copy</a></th>
+		</tr>
+	</table>
+	<pre tabindex="-1" id="nodejs">
+const fs = require("fs");
+const crypto = require("crypto");
+
+const dataToEncrypt = "user:password";
+
+let publicKeyFileName = "path/to/my_public.key";
+
+const publicKey = Buffer.from(
+  fs.readFileSync(publicKeyFileName, { encoding: "utf-8" })
+);
+console.log("public key",publicKey.toString());
+
+let publicKeyStr = publicKey.toString();
+if(!publicKeyStr.includes("BEGIN PUBLIC KEY")) {
+    publicKeyStr = "-----BEGIN PUBLIC KEY-----\n"+publicKey.toString()+"\n-----END PUBLIC KEY-----\n";
+}
+
+const encryptedData = crypto.publicEncrypt({
+    key: publicKeyStr,
+    padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
+    oaepHash: "sha256",
+  },
+  //convert the data string to a buffer using `Buffer.from`
+  Buffer.from(dataToEncrypt)
+);
+
+console.log("encrypt",encryptedData.toString("base64"));
+	</pre>	
+	<table class="code-table">
+		<tr>
+			<th><span>C#</span></th>
+			<th><a href="javascript:void(0)" tabindex="-1" class="copy-button" style="float:right;" onclick="copyCode('csharp')">Copy</a></th>
+		</tr>
+	</table>
+	<pre tabindex="-1" id="csharp">
+    using System;
+    using System.Text;
+    using System.Security.Cryptography;
+    using System.IO;
+	
+    public class RSAEncrypter
+    {
+        RSA rsa;
+        public RSAEncrypter()
+        {
+            rsa = RSA.Create();
+        }
+
+        public void ImportPublicKey(string fileName)
+        {
+            // reading file contents
+            string text = File.ReadAllText(fileName);
+            // try to remove header and trailer
+            text = text.Replace("-----BEGIN PUBLIC KEY-----", "");
+            text = text.Replace("-----END PUBLIC KEY-----", "");
+            text = text.Replace("\r", "");
+            text = text.Replace("\n", "");
+            // decode from base64
+            var publicKeyBytes = Convert.FromBase64String(text);
+            // then import key info
+            int bytesRead;
+            rsa.ImportSubjectPublicKeyInfo(publicKeyBytes, out bytesRead);
+        }
+
+        public string Encrypt(String s)
+        {
+            byte[] dataToEncrypt = Encoding.UTF8.GetBytes(s);
+            var encryptedData = rsa.Encrypt(dataToEncrypt, RSAEncryptionPadding.OaepSHA256);
+            return Convert.ToBase64String(encryptedData);
+        }
+        
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string publicKeyFileName = "my_public.key";
+            string str = "user:password";
+            if(args.Length>0) publicKeyFileName = args[0];
+            if(args.Length> 1) str = args[1];
+            RSAEncrypter rsa = new RSAEncrypter();
+            rsa.ImportPublicKey(publicKeyFileName);
+            string encryptedMessage = rsa.Encrypt(str);
+            Console.WriteLine("encrypt message = " + encryptedMessage);
+        }
+    }
+	</pre>
+</body>
+</html>

@@ -1,0 +1,30 @@
+[
+	{
+		"language": "TH",
+		"label": [
+			{"name": "templates_label", "value": "ชื่อแบบ"},
+			{"name": "templatetype_headerlabel", "value": "ชนิดแบบ"},
+			{"name": "contents_label", "value": "ข้อความ"},
+			{"name": "templatetype_label", "value": "ชนิดแบบ"},
+			{"name": "subjecttitle_label", "value": "หัวข้อ"},
+			{"name": "caption", "value": "จัดตั้งแบบข้อความ"},
+			{"name": "templatetypes_label", "value": "ชนิดแบบ"},
+			{"name": "template_label", "value": "ชื่อแบบ"},
+			{"name": "template_headerlabel", "value": "ชื่อแบบ"},
+			{"name": "subjecttitle_headerlabel", "value": "หัวข้อ"}		]
+	},
+	{
+		"language": "EN",
+		"label": [
+			{"name": "templates_label", "value": "Template Name"},
+			{"name": "templatetype_headerlabel", "value": "Template Type"},
+			{"name": "contents_label", "value": "Message"},
+			{"name": "templatetype_label", "value": "Template Type"},
+			{"name": "subjecttitle_label", "value": "Title"},
+			{"name": "caption", "value": "Template Configuration"},
+			{"name": "templatetypes_label", "value": "Template Type"},
+			{"name": "template_label", "value": "Template Name"},
+			{"name": "template_headerlabel", "value": "Template Name"},
+			{"name": "subjecttitle_headerlabel", "value": "Title"}		]
+	}
+]

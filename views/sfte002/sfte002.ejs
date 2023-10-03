@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Privilege Information</title>	
+		<%- include('../asset/meta') %>		
+		<%- include('../asset/styles') %>		
+		<%- include('../asset/scripts') %>	
+		<script type="text/javascript" src="<%=meta.base_url%>/jquery/js/jquery.ui.styleswitcher.js"></script>
+		<script type="text/javascript" src="<%=meta.base_url%>/jquery/ui/jquery.ui.sortable.js"></script>
+		<link rel="stylesheet" type="text/css" href="<%=meta.base_url%>/sfte002/sfte002.css" />
+		<script type="text/javascript" src="<%=meta.base_url%>/sfte002/sfte002.js"></script>
+	</head>
+	<body class="portalbody portalbody-off">
+		<%- include('../partials/page_waiting') %>
+		<div id="sfte002" class="pt-page pt-page-current pt-page-controller">
+			<%- page.createHeader({pid: 'sfte002', title: label.get('caption','Privilege Information')}) %>
+			<div id="searchpanel" class="panel-body">
+				<form id="fssearchform" name="fssearchform" method="post" onsubmit="return false;">	
+					<input type="hidden" name="ajax" value="true"/>
+					<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
+					<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
+					<input type="hidden" name="page" value="1"/>
+					<input type="hidden" name="orderBy" value=""/>
+					<input type="hidden" name="orderDir" value=""/>
+					<div class="row filter-layer">
+							<div class="col-md-3 col-height search-group">
+								<label id="groupnames_label" class="control-label"><%=label.get('groupnames_label','Group Name')%></label>
+								<input class="form-control input-sm" id="groupnames" name="groupname" placeholder="" autocomplete="off">
+							</div>
+							<div class="col-md-2 search-group">
+								<br/>
+								<button type="button" id="searchbutton" class="btn btn-dark btn-sm" style="margin-top: 10px;"><i class="fa fa-search" aria-hidden="true" style="margin-right:10px;"></i><%=label.get('searchbutton','Search')%></button>
+							</div>
+							<div class="col-md-7 pull-right float-right text-right">
+								<br/>
+								<button type="button" id="insertbutton" class="btn btn-dark btn-sm" style="margin-top: 10px;"><i class="fa fa-plus" aria-hidden="true" style="margin-right:10px;"></i><%=label.get('insertbutton','Insert')%></button>
+							</div>
+					</div>
+				</form>
+				<div id="listpanel" class="table-responsive" style="padding-top: 20px;">
+					<%- include('./sfte002_data') %>
+				</div>
+			</div>
+			<div id="entrypanel" style="display:none;">
+				<%- include('./sfte002_kit') %>
+			</div>
+		</div>
+		<div id="insertpanel">
+			<%- include('./sfte002_insert_dialog') %>
+		</div>
+		<div id="permitpanel">
+			<%- include('./sfte002_permit_dialog') %>
+		</div>
+	</body>
+</html>

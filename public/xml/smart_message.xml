@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<msg code="QS0001"><TH>คุณต้องการลบรายการนี้ใช่หรือไม่ %s</TH><EN>Do you want to delete this transaction? %s</EN></msg>
+	<msg code="QS0002"><TH>คุณต้องการบันทึกรายการนี้ใช่หรือไม่</TH><EN>Do you want to save this transaction?</EN></msg>
+	<msg code="QS0003"><TH>คุณต้องการยกเลิกรายการนี้ใช่หรือไม่</TH><EN>Do you want to cancel this transaction?</EN></msg>
+	<msg code="QS0004"><TH>บันทึกรายการเรียบร้อยแล้ว %s</TH><EN>Save Completed %s</EN></msg>
+	<msg code="QS0005"><TH>ท่านต้องการลบรายการนี้ใช่หรือไม่ %s</TH><EN>Do you want to delete this record? %s</EN></msg>
+	<msg code="QS0006"><TH>คุณต้องการส่งรายการนี้ใช่หรือไม่</TH><EN>Do you want to send this transaction?</EN></msg>
+	<msg code="QS0007"><TH>คุณต้องการบันทึกและสร้างโปรแกรมนี้ใช่หรือไม่</TH><EN>Do you want to save and generate this program?</EN></msg>
+	<msg code="QS0008"><TH>คุณต้องการลบรายการ filter นี้ใช่หรือไม่ %s</TH><EN>Do you want to delete this filter %s ?</EN></msg>
+	<msg code="QS0009"><TH>คุณต้องการลบรายการ section นี้ใช่หรือไม่ %s</TH><EN>Do you want to delete this section %s ?</EN></msg>
+	<msg code="QS0010"><TH>คุณต้องการบันทึกเป็นรายการนี้ใช่หรือไม่</TH><EN>Do you want to save as this transaction ?</EN></msg>
+	<msg code="QS0011"><TH>คุณต้องการลบรายการ field นี้ใช่หรือไม่ %s</TH><EN>Do you want to delete this field %s ?</EN></msg>
+	<msg code="QS0012"><TH>คุณต้องการลบแถวนี้ใช่หรือไม่</TH><EN>Do you want to delete this row ?</EN></msg>
+	<msg code="QS0013"><TH>บันทึกและสร้างรายการเรียบร้อยแล้ว %s</TH><EN>Process and generate success %s</EN></msg>
+	<msg code="QS0014"><TH>คุณต้องการปรับปรุงรายการนี้ใช่หรือไม่</TH><EN>Do you want to update this transaction?</EN></msg>
+	<msg code="QS0015"><TH>คุณต้องการล้างรายการนี้ใช่หรือไม่</TH><EN>Do you want to clear this?</EN></msg>
+	<msg code="QS0016"><TH>คุณต้องการยกเลิกรายการใบลานี้ใช่หรือไม่</TH><EN>Do you want to cancel this absence transaction?</EN></msg>
+	<msg code="QS0017"><TH>คุณต้องการส่งรายการใบลานี้ใช่หรือไม่</TH><EN>Do you want to send this absence transaction?</EN></msg>
+	<msg code="QS0018"><TH>คุณต้องการดำเนินการ รายการนี้ใช่หรือไม่</TH><EN>Do you want to process this transaction?</EN></msg>
+	<msg code="QS0019"><TH>เนื่องจากอีเมลเปลี่ยน  คุณต้องการเปลี่ยนรหัสผู้ใช้งานตามอีเมลหรือไม่</TH><EN>Email was changed, Do you want to change user login as new email?</EN></msg>
+	<msg code="QS0020"><TH>คุณต้องการยืนยันการรับรายการนี้ใช่หรือไม่</TH><EN>Do you want to receive this transaction?</EN></msg>
+	<msg code="QS0021"><TH>คุณต้องการล้างและเริ่มใหม่รายการนี้ใช่หรือไม่</TH><EN>Do you want to reset this transaction?</EN></msg>
+	<msg code="QS0022"><TH>คุณต้องการลบ %s รายการใช่หรือไม่</TH><EN>Do you want to delete %s row(s)?</EN></msg>
+	<msg code="QS0023"><TH>คุณต้องการล้างและเริ่มใหม่การตรวจสอบเพิ่มเติมใช่หรือไม่</TH><EN>Do you want to reset two factor authentication?</EN></msg>
+	
+	<msg code="fsconfirmbtn"><TH>ตกลง</TH><EN>OK</EN></msg>
+	<msg code="fscancelbtn"><TH>ยกเลิก</TH><EN>Cancel</EN></msg>
+	<msg code="fssavebtn"><TH>บันทึก</TH><EN>Save</EN></msg>
+	<msg code="fsclosebtn"><TH>ปิด</TH><EN>Close</EN></msg>
+	<msg code="fsokbtn"><TH>ตกลง</TH><EN>OK</EN></msg>
+	<msg code="fsmessagetitle"><TH>ข้อความ</TH><EN>Message</EN></msg>
+	<msg code="fsaccepttitle"><TH>ยืนยัน</TH><EN>Confirm</EN></msg>
+	<msg code="fssuccessmsg"><TH>การดำเนินการสำเร็จ</TH><EN>Process success</EN></msg>
+	<msg code="fsfailmsg"><TH>การดำเนินการไม่สำเร็จ</TH><EN>Process fail</EN></msg>
+
+	<msg code="8021"><TH>ท่านไม่มีสิทธิ์ดูรายการนี้</TH><EN>No permission to retrieve this transaction</EN></msg>
+	<msg code="8022"><TH>ท่านไม่มีสิทธิ์แก้ไขรายการนี้</TH><EN>No permission to edit this transaction</EN></msg>
+	<msg code="8023"><TH>ท่านไม่มีสิทธิ์ลบรายการนี้</TH><EN>No permission to delete this transaction</EN></msg>
+	<msg code="8024"><TH>ท่านไม่มีสิทธิ์สร้างรายการนี้</TH><EN>No permission to add this transaction</EN></msg>
+	<msg code="8025"><TH>ท่านไม่มีสิทธิ์นำเข้ารายการนี้</TH><EN>No permission to import this transaction</EN></msg>
+	<msg code="8026"><TH>ท่านไม่มีสิทธิ์นำออกรายการนี้</TH><EN>No permission to export this transaction</EN></msg>
+
+	<msg code="QS0100"><TH>ไม่พบข้อมูลที่ต้องการ โปรดกรุณาระบุและค้นหาใหม่</TH><EN>Record not found</EN></msg>
+	<msg code="QS0101"><TH>นำเข้าข้อมูลไม่ถูกต้อง</TH><EN>Invalid input</EN></msg>
+	<msg code="QS0102"><TH>ข้อมูลไม่ได้ระบุ</TH><EN>Value is undefined</EN></msg>
+	<msg code="QS0103"><TH>ไม่สามารถลบฟิลด์สำคัญนี้ได้</TH><EN>Can not remove reserved field</EN></msg>
+	<msg code="QS0104"><TH>ปรับปรุงข้อมูลเรียบร้อย</TH><EN>Update success</EN></msg>
+	<msg code="QS0105"><TH>ชื่อฟิลด์ไม่ได้ระบุ</TH><EN>Invalid input, Field Name can not blank</EN></msg>
+	<msg code="QS0106"><TH>ชื่อฟิลด์ห้ามซ้ำ</TH><EN>Invalid input, Duplicate Field Name</EN></msg>
+	<msg code="QS0107"><TH>ID ฟิลด์ห้ามซ้ำ</TH><EN>Invalid input, Duplicate ID</EN></msg>
+	<msg code="QS0108"><TH>ข้อมูลชนิด radio หรือ checkbox ต้องมีการกำหนดค่า value</TH><EN>Radio or checkbox require input value</EN></msg>
+	<msg code="QS0109"><TH>เพิ่มหรือว่าเลือกแถวข้อมูลก่อน</TH><EN>Add new row or select active row first!</EN></msg>
+	<msg code="QS0110"><TH>ไม่ได้ระบุชื่อตารางจัดเก็บข้อมูล</TH><EN>Table name is undefined</EN></msg>
+	<msg code="QS0111"><TH>ไม่ได้ระบุชื่อโปรแกรม</TH><EN>Program title is undefined</EN></msg>
+	<msg code="QS0112"><TH>ค่าของ option ซ้ำ</TH><EN>Duplicate option value</EN></msg>
+	<msg code="QS0113"><TH>นำเข้าข้อมูลไม่ถูกต้อง รหัสผู้ใช้ไม่ได้ระบุ</TH><EN>Invalid input, User ID is undefined</EN></msg>
+	<msg code="QS0114"><TH>นำเข้าข้อมูลไม่ถูกต้อง ชื่อผู้ใช้ไม่ได้ระบุ</TH><EN>Invalid input, User Name is undefined</EN></msg>
+	<msg code="QS0115"><TH>นำเข้าข้อมูลไม่ถูกต้อง นามสกุลผู้ใช้ไม่ได้ระบุ</TH><EN>Invalid input, User Surname is undefined</EN></msg>
+	<msg code="QS0116"><TH>นำเข้าข้อมูลไม่ถูกต้อง รหัสผ่านเดิมไม่ได้ระบุ</TH><EN>Invalid input, Old Password is undefined</EN></msg>
+	<msg code="QS0117"><TH>นำเข้าข้อมูลไม่ถูกต้อง รหัสผ่านใหม่ไม่ได้ระบุ</TH><EN>Invalid input, New Password is undefined</EN></msg>
+	<msg code="QS0118"><TH>นำเข้าข้อมูลไม่ถูกต้อง ยืนยันรหัสผ่านใหม่ไม่ได้ระบุ</TH><EN>Invalid input, Confirm Password is undefined</EN></msg>
+	<msg code="QS0119"><TH>นำเข้าข้อมูลไม่ถูกต้อง รหัสผ่านใหม่ไม่ตรงกับยืนยันรหัสผ่าน</TH><EN>Invalid input, New Password does not match to Confirm Password</EN></msg>
+	<msg code="QS0120"><TH>, ขอบคุณสำหรับความร่วมมือ</TH><EN>, Thank you for your collaboration</EN></msg>
+	<msg code="QS0121"><TH>นำเข้าข้อมูลซ้ำซ้อน</TH><EN>Duplicate record</EN></msg>
+	<msg code="QS0122"><TH>ไม่พบผู้ใช้</TH><EN>User not found</EN></msg>
+	<msg code="QS0123"><TH>ไม่ได้ระบุโปรแกรม ID</TH><EN>Program ID is undefined</EN></msg>
+	
+	<msg code="QS0200"><TH>Reset password success, Please verify email for new password changed</TH><EN>Reset password success, Please verify email for new password changed</EN></msg>
+	<msg code="QS0201"><TH>Reset password success, Please verify your email for new password changed</TH><EN>Reset password success, Please verify your email for new password changed</EN></msg>
+	<msg code="QS0202"><TH>ท่านต้องการยกเลิกตัวเลือกนี้ใช่หรือไม่? โปรแกรมจะลบออกจากกลุ่มทั้งหมดหลังบันทึก</TH><EN>Are you sure to uncheck this flag? Program will delete all groups in this type after saving</EN></msg>
+	<msg code="QS0203"><TH>Reset Two Factor Success</TH><EN>Reset Two Factor Success</EN></msg>
+
+	<msg code="QS0301"><TH>กรุณากรอกข้อมูลให้ครบถ้วน</TH><EN>Please fill in all information.</EN></msg>
+	<msg code="QS0302"><TH>กรุณาระบุข้อมูลกลุ่มพนักงาน ระดับพนักงาน หรืออายุงาน</TH><EN>Please input employment group, level or age</EN></msg>
+	<msg code="QS0303"><TH>กรุณาระบุจำนวนวันที่ได้รับสิทธิ</TH><EN>Please input number of entitlement days</EN></msg>
+	<msg code="QS0304"><TH>กรุณาระบุบริษัท</TH><EN>Please specified company</EN></msg>
+	<msg code="QS0305"><TH>ไม่พบรายการที่ต้องการลบ</TH><EN>No select transactions to be removed</EN></msg>
+</root>

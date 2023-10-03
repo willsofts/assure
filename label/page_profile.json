@@ -1,0 +1,42 @@
+[
+	{
+		"language": "TH",
+		"label": [
+			{"name": "caption", "value": "ข้อมูลส่วนตัว"},
+			{"name": "gender_label", "value": "เพศ"},
+			{"name": "userename_label", "value": "ชื่อ(อังกฤษ)"},
+			{"name": "useresurname_alert", "value": "ท่านต้องไม่ปล่อยให้เป็นค่าว่าง"},
+			{"name": "usertsurname_label", "value": "นามสกุล(ไทย)"},
+			{"name": "displayname_label", "value": "ชื่อที่ใช้แสดง"},
+			{"name": "email_alert", "value": "ท่านต้องไม่ปล่อยให้เป็นค่าว่าง"},
+			{"name": "userename_alert", "value": "ท่านต้องไม่ปล่อยให้เป็นค่าว่าง"},
+			{"name": "usertname_label", "value": "ชื่อ(ไทย)"},
+			{"name": "lineid_label", "value": "ไอดีไลน์"},
+			{"name": "email_label", "value": "อีเมล์"},
+			{"name": "usertsurname_alert", "value": "ท่านต้องไม่ปล่อยให้เป็นค่าว่าง"},
+			{"name": "useresurname_label", "value": "นามสกุล(อังกฤษ)"},
+			{"name": "langcode_label", "value": "แสดงภาษา"},
+			{"name": "mobile_label", "value": "โทรศัพท์"},
+			{"name": "usertname_alert", "value": "ท่านต้องไม่ปล่อยให้เป็นค่าว่าง"}		]
+	},
+	{
+		"language": "EN",
+		"label": [
+			{"name": "caption", "value": "User Information"},
+			{"name": "gender_label", "value": "Gender"},
+			{"name": "userename_label", "value": "First Name(English)"},
+			{"name": "useresurname_alert", "value": "You can not leave this empty"},
+			{"name": "usertsurname_label", "value": "Last Name(Thai)"},
+			{"name": "displayname_label", "value": "Display Name"},
+			{"name": "email_alert", "value": "You can not leave this empty"},
+			{"name": "userename_alert", "value": "You can not leave this empty"},
+			{"name": "usertname_label", "value": "First Name(Thai)"},
+			{"name": "lineid_label", "value": "Line ID"},
+			{"name": "email_label", "value": "Email"},
+			{"name": "usertsurname_alert", "value": "You can not leave this empty"},
+			{"name": "useresurname_label", "value": "Last Name(English)"},
+			{"name": "langcode_label", "value": "Display Language"},
+			{"name": "mobile_label", "value": "Mobile"},
+			{"name": "usertname_alert", "value": "You can not leave this empty"}		]
+	}
+]

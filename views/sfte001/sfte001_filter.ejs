@@ -1,0 +1,23 @@
+			<div class="row row-height">
+				<div class="col-md-12 col-height">
+						<div class="table-layer-class">
+							<div class="row row-height">
+								<div class="col-height col-md-3">
+<label for="programids" id="programids_label" class="control-label"><%=label.get('programids_label','Program ID')%></label><input type="text" id="programids" name="programid" class="form-control input-md" value="<%=data.dataset?.programid%>" /><span></span>
+								</div>
+								<div class="col-height col-md-3">
+<label for="prognames" id="prognames_label" class="control-label"><%=label.get('prognames_label','Program Name')%></label><input type="text" id="prognames" name="progname" class="form-control input-md" value="<%=data.dataset?.progname%>" /><span></span>
+								</div>
+								<div class="col-height col-md-2">
+<label for="progtypes" id="progtypes_label" class="control-label"><%=label.get('progtypes_label','Program Type')%></label>
+<%-page.html('select',{map: data.entity?.tprogtype, value: data.dataset?.progtype, id: "progtypes", name: "progtype", class: "form-control input-md", empty: true })%>
+								</div>
+								<div class="col-height col-md">
+									<br/>
+									<button type="button" id="searchbutton" class="btn btn-dark btn-sm" style="margin-top: 10px; margin-left: 5px;"><i class="fa fa-search" aria-hidden="true" style="margin-right:10px;"></i><%=label.get('searchbutton','Search')%></button>
+									<button type="button" id="insertbutton" class="btn btn-dark btn-sm pull-right" style="margin-top: 10px; margin-right: 5px;"><i class="fa fa-plus" aria-hidden="true" style="margin-right:10px;"></i><%=label.get('insertbutton','Insert')%></button>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>

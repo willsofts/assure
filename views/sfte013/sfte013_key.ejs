@@ -1,0 +1,18 @@
+<% let fs_express_readonly = page.isRetrieveMode()?" readonly ":""; %>
+		<div class="row row-height">
+			<div class="col-md-12 col-height">
+					<div class="table-layer-class">
+						<div class="row row-height">
+							<div class="col-height col-md-5">
+<label for="template" id="template_label" class="control-label"><%=label.get('template_label','Template Name')%></label><div class="input-group"><input type="text" id="template" name="template" class="form-control input-md irequired ikeyclass alert-input" picture="(50)X" value="<%=data.dataset?.template%>" <%=fs_express_readonly%> /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="template_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('template_alert','You can not leave this empty')%></div>
+							</div>
+						</div>
+
+						<div class="row row-height">
+							<div class="col-height col-md-5">
+<label for="templatetype" id="templatetype_label" class="control-label"><%=label.get('templatetype_label','Template Type')%></label><div class="input-group"><input type="text" id="templatetype" name="templatetype" class="form-control input-md irequired ikeyclass alert-input" picture="(50)X" value="<%=data.dataset?.templatetype%>" <%=fs_express_readonly%> /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="templatetype_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('templatetype_alert','You can not leave this empty')%></div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
