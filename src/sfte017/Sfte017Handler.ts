@@ -97,9 +97,9 @@ export class Sfte017Handler extends TknOperateHandler {
         return super.buildFilterQuery(context, model, knsql, selector, action, subaction);
     }
 
-    protected override buildOrderQuery(context: any, model: KnModel, knsql: KnSQLInterface, KnPageSetting: KnPageSetting, action?: string, subaction?: string): KnSQLInterface {
-        let order = KnPageSetting.orderDir?KnPageSetting.orderDir:"";
-        if("username_surname"==KnPageSetting.orderBy) {
+    protected override buildOrderQuery(context: any, model: KnModel, knsql: KnSQLInterface, pageSetting: KnPageSetting, action?: string, subaction?: string): KnSQLInterface {
+        let order = pageSetting.orderDir?pageSetting.orderDir:"";
+        if("username_surname"==pageSetting.orderBy) {
             let eng = KnUtility.isEnglish(context);
             if(eng) {
                 knsql.append(" order by userename ").append(order).append(", useresurname ").append(order).append(" ");
@@ -107,14 +107,14 @@ export class Sfte017Handler extends TknOperateHandler {
                 knsql.append(" order by usertname ").append(order).append(", usertsurname ").append(order).append(" ");
             }    
             return knsql;
-        } else if("createdatetime"==KnPageSetting.orderBy) {
+        } else if("createdatetime"==pageSetting.orderBy) {
             knsql.append(" order by createdate ").append(order).append(", createtime ").append(order).append(" ");
             return knsql;
-        } else if("confirmdatetime"==KnPageSetting.orderBy) {
+        } else if("confirmdatetime"==pageSetting.orderBy) {
             knsql.append(" order by confirmdate ").append(order).append(", confirmtime ").append(order).append(" ");
             return knsql;
         }
-        return super.buildOrderQuery(context, model, knsql, KnPageSetting, action, subaction);
+        return super.buildOrderQuery(context, model, knsql, pageSetting, action, subaction);
     }
 
     protected override async doRetrieving(context: KnContextInfo, model: KnModel, action: string = KnOperation.RETRIEVE): Promise<KnDataTable> {

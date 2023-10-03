@@ -9,7 +9,7 @@ import { TknTwoFactorHandler } from "@willsofts/will-core";
 
 const qrcode = require('qrcode');
 
-export class TknFactorHandler extends TknOperateHandler {
+export class FactorHandler extends TknOperateHandler {
     public model : KnModel = { name: "tuserfactor", alias: { privateAlias: this.section } };
     public handlers = OPERATE_HANDLERS.concat([{name: "verify"}]);
 

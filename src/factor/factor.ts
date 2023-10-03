@@ -1,3 +1,3 @@
-import { TknFactorHandler } from "./TknFactorHandler";
+import { FactorHandler } from "./FactorHandler";
 
-export = new TknFactorHandler();
+export = new FactorHandler();

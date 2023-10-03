@@ -9,7 +9,7 @@ import { TknActivateHandler } from "@willsofts/will-core";
 import { TknOperateHandler } from '../handlers/TknOperateHandler';
 import { DEFAULT_ACCOUNT_INVALIDATE_TIMES } from "../utils/EnvironmentVariable";
 
-export class TknAccountHandler extends TknOperateHandler {
+export class AccountHandler extends TknOperateHandler {
 
     public progid = "account";
     public model : KnModel = { 

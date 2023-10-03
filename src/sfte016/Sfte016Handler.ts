@@ -8,7 +8,7 @@ import { KnCategory } from "../utils/KnCategory";
 import { DEFAULT_PRIVILEGES } from "../utils/EnvironmentVariable";
 import { OPERATE_HANDLERS } from "../models/EnsureAlias";
 import { TknOperateHandler } from '../handlers/TknOperateHandler';
-import { TknAccountHandler } from "../account/TknAccountHandler";
+import { AccountHandler } from "../account/AccountHandler";
 import { Sfte007Handler } from "../sfte007/Sfte007Handler";
 
 export class Sfte016Handler extends TknOperateHandler {
@@ -304,7 +304,7 @@ export class Sfte016Handler extends TknOperateHandler {
         let rs = await this.insertUserTable(context, model, db, found);
         if(rs && rs.rows.length>0) {
             let record = rs.rows[0];
-            let handler = new TknAccountHandler();
+            let handler = new AccountHandler();
             let info = handler.createActivateInfo({
                 activateuser: record.username,
                 activatecategory: record.username,
