@@ -28,7 +28,7 @@
     "@willsofts/will-core": "^1.0.67",
     "@willsofts/will-db": "^1.0.45",
     "@willsofts/will-dh": "^1.0.1",
-    "@willsofts/will-lib": "^1.0.21",
+    "@willsofts/will-lib": "^1.0.22",
     "@willsofts/will-run": "^1.0.4",
     "@willsofts/will-serv": "^1.0.2",
     "@willsofts/will-sql": "^1.0.27",
