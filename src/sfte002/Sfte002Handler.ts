@@ -4,8 +4,7 @@ import { HTTP } from "@willsofts/will-api";
 import { VerifyError, KnValidateInfo, KnContextInfo, KnDataEntity, KnDataTable } from '@willsofts/will-core';
 import { Utilities } from "@willsofts/will-util";
 import { TknOperateHandler } from '../handlers/TknOperateHandler';
-import { OPERATE_HANDLERS } from "../models/EnsureAlias";
-import { KnCategory } from "../utils/KnCategory";
+import { OPERATE_HANDLERS } from "@willsofts/will-serv";
 
 export class Sfte002Handler extends TknOperateHandler {
 
@@ -99,7 +98,7 @@ export class Sfte002Handler extends TknOperateHandler {
     }
 
     protected async performCategories(context: KnContextInfo, model: KnModel, db: KnDBConnector) : Promise<KnDataTable> {
-        let settings = KnCategory.getSetting(context, this.userToken, "tgroupmobile", "tusertype", "tprog", "tpermit");
+        let settings = this.getCategorySetting(context, "tgroupmobile", "tusertype", "tprog", "tpermit");
         return await this.getDataCategories(context, db, settings);
     }
 
@@ -205,7 +204,7 @@ export class Sfte002Handler extends TknOperateHandler {
         }
         let db = this.getPrivateConnector(model);
         try {
-            let settings = KnCategory.getSetting(context, this.userToken, "tpermit");
+            let settings = this.getCategorySetting(context, "tpermit");
             let dt = await this.getDataCategories(context, db, settings);
             let permmap = await this.getProgPermit(context, model, db);
             if(permmap.size==0) {

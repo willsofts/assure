@@ -1,3 +1,3 @@
-import { FactorHandler } from "./FactorHandler";
+import { TknFactorHandler } from "@willsofts/will-serv";
 
-export = new FactorHandler();
+export = new TknFactorHandler();

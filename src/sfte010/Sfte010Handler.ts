@@ -3,8 +3,8 @@ import { KnDBConnector, KnSQLInterface, KnResultSet, KnRecordSet, KnSQL } from "
 import { HTTP } from "@willsofts/will-api";
 import { VerifyError, KnValidateInfo, KnContextInfo, KnDataTable } from '@willsofts/will-core';
 import { TknOperateHandler } from '../handlers/TknOperateHandler';
-import { TknPasswordStrategyHandler } from "../handlers/TknPasswordStrategyHandler";
-import { OPERATE_HANDLERS } from "../models/EnsureAlias";
+import { TknPasswordStrategyHandler } from "@willsofts/will-serv";
+import { OPERATE_HANDLERS } from "@willsofts/will-serv";
 import { Sfte011Handler } from "../sfte011/Sfte011Handler";
 
 export class Sfte010Handler extends TknOperateHandler {

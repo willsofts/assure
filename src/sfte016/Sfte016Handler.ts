@@ -4,11 +4,10 @@ import { HTTP } from "@willsofts/will-api";
 import { KnUtility, KnPageUtility, VerifyError, KnValidateInfo, KnContextInfo, KnNotifyConfig, KnDataTable, KnTemplateInfo } from '@willsofts/will-core';
 import { Utilities } from "@willsofts/will-util";
 import { PasswordLibrary, MailLibrary, MailInfo } from "@willsofts/will-lib";
-import { KnCategory } from "../utils/KnCategory";
+import { TknAccountHandler } from "@willsofts/will-serv";
+import { OPERATE_HANDLERS } from "@willsofts/will-serv";
 import { DEFAULT_PRIVILEGES } from "../utils/EnvironmentVariable";
-import { OPERATE_HANDLERS } from "../models/EnsureAlias";
 import { TknOperateHandler } from '../handlers/TknOperateHandler';
-import { AccountHandler } from "../account/AccountHandler";
 import { Sfte007Handler } from "../sfte007/Sfte007Handler";
 
 export class Sfte016Handler extends TknOperateHandler {
@@ -139,7 +138,7 @@ export class Sfte016Handler extends TknOperateHandler {
     }
 
     protected async performCategories(context: KnContextInfo, model: KnModel, db: KnDBConnector) : Promise<KnDataTable> {
-        let settings = KnCategory.getSetting(context, this.userToken, "tactive");
+        let settings = this.getCategorySetting(context, "tactive");
         return await this.getDataCategories(context, db, settings);
     }
 
@@ -304,7 +303,7 @@ export class Sfte016Handler extends TknOperateHandler {
         let rs = await this.insertUserTable(context, model, db, found);
         if(rs && rs.rows.length>0) {
             let record = rs.rows[0];
-            let handler = new AccountHandler();
+            let handler = new TknAccountHandler();
             let info = handler.createActivateInfo({
                 activateuser: record.username,
                 activatecategory: record.username,

@@ -1,9 +1,7 @@
-import { KnContextInfo, VerifyError, KnDataMapEntitySetting, KnUtility } from "@willsofts/will-core";
-import { UserTokenInfo } from "@willsofts/will-lib";
-import { HTTP } from "@willsofts/will-api";
-import { KnCategorySetting } from "../models/EnsureAlias";
+import { KnDataMapEntitySetting } from "@willsofts/will-core";
+import { KnCategorySetting } from "@willsofts/will-serv";
 
-export class KnCategory {
+export class TheCategories {
     public static readonly categories : KnCategorySetting = {
         tlanguage: {tableName: "tlanguage", keyField: "langcode", setting: { keyName: "langcode", valueNames: ["nameen"]} },
         tactive : {tableName: "tactive", keyField: "activeid", addonFields: "seqno", orderFields: "seqno", setting: { keyName: "activeid", valueNames: ["nameen"]} },
@@ -26,30 +24,8 @@ export class KnCategory {
         ttemplatetag: {tableName: "ttemplatetag", keyField: "tagname", addonFields: "seqno", orderFields: "seqno", captionFields: "tagtitle", nameen: "tagtitle", nameth: "tagtitle", setting: { keyName: "tagname", valueNames: ["tagtitle"]} },
     };
 
-    public static getSetting(context: KnContextInfo, userToken?: UserTokenInfo, ...names: string[]) : KnDataMapEntitySetting[] {
-        let result : KnDataMapEntitySetting[] = [];
-        let eng = KnUtility.isEnglish(context);
-        for(let name of names) {
-            let setting = this.categories[name];
-            if(setting) {
-                let nameen = setting.nameen?setting.nameen:"nameen";
-                let nameth = setting.nameth?setting.nameth:"nameth";
-                let valuename = eng?nameen:nameth;
-                if(setting.checkSite) {
-                    setting.addonFilters = "site = '"+userToken?.site+"'";
-                }
-                if(!setting.orderFields) {
-                    setting.orderFields = valuename;
-                }
-                if(setting.setting?.valueNames.length==1) {
-                    setting.setting.valueNames = [valuename];
-                }
-                result.push(setting);
-            } else {
-                throw new VerifyError("Setting not found ("+name+")",HTTP.NOT_ACCEPTABLE,-16062);
-            }
-        }
-        return result;
+    public static getSetting(name: string) : KnDataMapEntitySetting | undefined {
+        return this.categories[name];
     }
-
+    
 }

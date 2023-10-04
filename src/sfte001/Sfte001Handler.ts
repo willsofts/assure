@@ -4,7 +4,6 @@ import { HTTP } from "@willsofts/will-api";
 import { TknDataTableHandler, VerifyError, KnValidateInfo, KnContextInfo, KnDataTable } from '@willsofts/will-core';
 import { Utilities } from "@willsofts/will-util";
 import { TknOperateHandler } from '../handlers/TknOperateHandler';
-import { KnCategory } from "../utils/KnCategory";
 
 export class Sfte001Handler extends TknOperateHandler {
 
@@ -103,7 +102,7 @@ export class Sfte001Handler extends TknOperateHandler {
     }
 
     protected async performCategories(context: KnContextInfo, model: KnModel, db: KnDBConnector) : Promise<KnDataTable> {
-        let settings = KnCategory.getSetting(context, this.userToken, "tprod", "tappstype", "tprogtype", "tsystemtype");
+        let settings = this.getCategorySetting(context, "tprod", "tappstype", "tprogtype", "tsystemtype");
         return await this.getDataCategories(context, db, settings);
     }
 
@@ -111,7 +110,7 @@ export class Sfte001Handler extends TknOperateHandler {
     protected override async doExecute(context: KnContextInfo, model: KnModel) : Promise<KnDataTable> {
         let db = this.getPrivateConnector(model);
         try {
-            let settings = KnCategory.getSetting(context, this.userToken, "tprogtype");
+            let settings = this.getCategorySetting(context, "tprogtype");
             let handler = new TknDataTableHandler();
             let dt = await handler.getDataCategory(db, settings, true, context);
             let ds = this.emptyDataSet();

@@ -1,10 +1,10 @@
 import KnService from "@willsofts/will-db";
 import { ServiceSchema } from "moleculer";
-import { FactorHandler } from "../factor/FactorHandler";
+import { TknFactorHandler } from "@willsofts/will-serv";
 
 const FactorService : ServiceSchema = {
     name: "factor",
     mixins: [KnService],
-    handler: new FactorHandler(), 
+    handler: new TknFactorHandler(), 
 }
 export = FactorService;

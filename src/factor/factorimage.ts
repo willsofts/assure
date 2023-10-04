@@ -1,8 +1,8 @@
 import { KnModel } from "@willsofts/will-db";
 import { KnContextInfo, KnDataTable } from "@willsofts/will-core";
-import { FactorHandler } from "./FactorHandler";
+import { TknFactorHandler } from "@willsofts/will-serv";
 
-class FactorImageHandler extends FactorHandler {
+class FactorImageHandler extends TknFactorHandler {
 
     protected override async doExecute(context: KnContextInfo, model: KnModel) : Promise<KnDataTable> {
         return this.getDataView(context, model);

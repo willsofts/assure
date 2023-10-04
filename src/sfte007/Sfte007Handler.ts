@@ -5,8 +5,7 @@ import { KnUtility, VerifyError, KnValidateInfo, KnContextInfo, KnNotifyConfig, 
 import { Utilities } from "@willsofts/will-util";
 import { MailLibrary, MailInfo } from "@willsofts/will-lib";
 import { TknOperateHandler } from '../handlers/TknOperateHandler';
-import { OPERATE_HANDLERS } from "../models/EnsureAlias";
-import { KnCategory } from "../utils/KnCategory";
+import { OPERATE_HANDLERS } from "@willsofts/will-serv";
 
 export interface KnUserTypeInfo {
     groupname: string;
@@ -127,7 +126,7 @@ export class Sfte007Handler extends TknOperateHandler {
     }
 
     protected async performCategories(context: KnContextInfo, model: KnModel, db: KnDBConnector) : Promise<KnDataTable> {
-        let settings = KnCategory.getSetting(context, this.userToken, "tcompbranch", "tuserstatus", "trole", "tgroup");
+        let settings = this.getCategorySetting(context, "tcompbranch", "tuserstatus", "trole", "tgroup");
         return await this.getDataCategories(context, db, settings);
     }
 

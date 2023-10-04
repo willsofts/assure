@@ -4,7 +4,8 @@ import { Utilities } from "@willsofts/will-util";
 import { HTTP } from "@willsofts/will-api";
 import { TknDataTableHandler, VerifyError } from '@willsofts/will-core';
 import { DB_SECTION } from "../utils/EnvironmentVariable";
-import { KnCategory } from "../utils/KnCategory";
+import { KnCategory } from "@willsofts/will-serv";
+import { TheCategories } from "../utils/TheCategories";
 
 const CategoryService : ServiceSchema = {
     name: "category",
@@ -29,7 +30,7 @@ const CategoryService : ServiceSchema = {
             }
             let handler = new TknDataTableHandler();
             let userToken = await handler.getUserTokenInfo(context, true);
-            let settings = KnCategory.getSetting(context, userToken, ...names);
+            let settings = KnCategory.getSetting(context, TheCategories.getSetting, userToken, ...names);
             let db = handler.getConnector(DB_SECTION);
             try {
                 return await handler.getDataCategory(db, settings, true, context); 
@@ -50,7 +51,7 @@ const CategoryService : ServiceSchema = {
             }
             let handler = new TknDataTableHandler();
             let userToken = await handler.getUserTokenInfo(context, true);
-            let settings = KnCategory.getSetting(context, userToken, ...names);
+            let settings = KnCategory.getSetting(context, TheCategories.getSetting, userToken, ...names);
             let db = handler.getConnector(DB_SECTION);
             try {
                 return await handler.getDataTable(db, settings, true, context); 

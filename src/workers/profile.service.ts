@@ -1,6 +1,6 @@
 import KnService from "@willsofts/will-db";
 import { ServiceSchema } from "moleculer";
-import { TknProfileHandler } from "../handlers/TknProfileHandler";
+import { TknProfileHandler } from "@willsofts/will-serv";
 
 const ProfileService : ServiceSchema = {
     name: "profile",

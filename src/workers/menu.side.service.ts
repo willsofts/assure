@@ -1,6 +1,6 @@
 import KnService from "@willsofts/will-db";
 import { ServiceSchema } from "moleculer";
-import { TknMenuSideBarHandler } from "../handlers/TknMenuSideBarHandler";
+import { TknMenuSideBarHandler } from "@willsofts/will-serv";
 
 const MenuSideBarService : ServiceSchema = {
     name: "menuside",

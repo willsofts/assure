@@ -1,6 +1,6 @@
 import KnService from "@willsofts/will-db";
 import { ServiceSchema } from "moleculer";
-import { TknPasswordStrategyHandler } from "../handlers/TknPasswordStrategyHandler";
+import { TknPasswordStrategyHandler } from "@willsofts/will-serv";
 
 const PasswordStrategyService : ServiceSchema = {
     name: "passwordstrategy",

@@ -1,6 +1,6 @@
-import { AccountHandler } from "./AccountHandler";
+import { TknAccountHandler } from "@willsofts/will-serv";
 
 /**
  * This for gui launch program screen
  */
-export = new AccountHandler();
+export = new TknAccountHandler();

@@ -1,3 +1,3 @@
-import { TknMenuSideBarHandler } from "../handlers/TknMenuSideBarHandler";
+import { TknMenuSideBarHandler } from "@willsofts/will-serv";
 
 export = new TknMenuSideBarHandler();

@@ -2,7 +2,7 @@ import KnAPI from "@willsofts/will-api";
 import { ServiceSchema } from "moleculer";
 import { KnExpress, KnRunner } from "@willsofts/will-run";
 import { TknAssureHandler } from "@willsofts/will-core";
-import { TknRouteManager } from './routers/TknRouteManager';
+import { TknRouteManager } from '@willsofts/will-serv';
 
 const ExpressService : ServiceSchema = {
     name: "api",

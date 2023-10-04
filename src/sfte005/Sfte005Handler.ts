@@ -4,7 +4,6 @@ import { HTTP } from "@willsofts/will-api";
 import { KnUtility, KnPageUtility, VerifyError, KnValidateInfo, KnContextInfo, KnNotifyConfig, KnDataTable, KnTemplateInfo } from '@willsofts/will-core';
 import { Utilities } from "@willsofts/will-util";
 import { PasswordLibrary, MailLibrary, MailInfo } from "@willsofts/will-lib";
-import { KnCategory } from "../utils/KnCategory";
 import { DEFAULT_PRIVILEGES } from "../utils/EnvironmentVariable";
 import { TknOperateHandler } from '../handlers/TknOperateHandler';
 
@@ -122,7 +121,7 @@ export class Sfte005Handler extends TknOperateHandler {
     }
 
     protected async performCategories(context: KnContextInfo, model: KnModel, db: KnDBConnector) : Promise<KnDataTable> {
-        let settings = KnCategory.getSetting(context, this.userToken, "tactive");
+        let settings = this.getCategorySetting(context, "tactive");
         return await this.getDataCategories(context, db, settings);
     }
 

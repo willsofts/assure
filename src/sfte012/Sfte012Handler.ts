@@ -3,7 +3,7 @@ import { KnDBConnector, KnRecordSet, KnSQL } from "@willsofts/will-sql";
 import { KnContextInfo, KnDataTable, KnDataSet } from '@willsofts/will-core';
 import { Utilities } from "@willsofts/will-util";
 import { TknOperateHandler } from '../handlers/TknOperateHandler';
-import { KnConfigMapperSetting } from '../models/EnsureAlias';
+import { KnConfigMapperSetting } from '@willsofts/will-serv';
 
 export class Sfte012Handler extends TknOperateHandler {
 

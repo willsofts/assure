@@ -6,7 +6,6 @@ import { VerifyError, KnValidateInfo, KnContextInfo, KnDataTable, KnPageUtility,
 import { Utilities } from "@willsofts/will-util";
 import { KeyTool } from '@willsofts/will-lib';
 import { TknOperateHandler } from '../handlers/TknOperateHandler';
-import { KnCategory } from "../utils/KnCategory";
 
 export class Sfte018Handler extends TknOperateHandler {
 
@@ -119,7 +118,7 @@ export class Sfte018Handler extends TknOperateHandler {
     }
 
     protected async performCategories(context: KnContextInfo, model: KnModel, db: KnDBConnector) : Promise<KnDataTable> {
-        let settings = KnCategory.getSetting(context, this.userToken, "tactive");
+        let settings = this.getCategorySetting(context, "tactive");
         return await this.getDataCategories(context, db, settings);
     }
 

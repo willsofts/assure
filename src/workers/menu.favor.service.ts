@@ -1,6 +1,6 @@
 import KnService from "@willsofts/will-db";
 import { ServiceSchema } from "moleculer";
-import { TknMenuFavorHandler } from "../handlers/TknMenuFavorHandler";
+import { TknMenuFavorHandler } from "@willsofts/will-serv";
 
 const MenuFavorService : ServiceSchema = {
     name: "menufavor",
