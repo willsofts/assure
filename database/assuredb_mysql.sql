@@ -806,6 +806,7 @@ INSERT INTO `tprog` (`product`, `programid`, `progname`, `prognameth`, `progtype
 	('PROMPT', 'sfte012', 'Configuration Setting', 'ตั้งค่าเบื้องต้น', 'F', 'W', 'Configuration Setting', NULL, 'F', 'sfte012.png', NULL, 'Configuration', 'ตั้งค่าเบื้องต้น', NULL, NULL, NULL, NULL),
 	('PROMPT', 'sfte013', 'Mail Template Setting', 'ตั้งค่าต้นแบบเมล', 'F', 'W', 'Mail Template Setting', NULL, 'F', 'sfte013.png', NULL, 'Mail Template', 'ตั้งค่าเมล', NULL, NULL, NULL, NULL),
 	('PROMPT', 'sfte016', 'User Information', 'ข้อมูลผู้ใช้', 'F', 'W', 'User', NULL, 'F', 'sfte016.png', NULL, 'User', 'ผู้ใช้งาน', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sfte017', 'Two Factor Authentication', 'Two Factor Authentication', 'F', 'W', 'Two Factor Authentication', NULL, 'F', 'sfte017.png', NULL, '2Factor', '2Factor', NULL, NULL, NULL, NULL),
 	('PROMPT', 'sfte018', 'Tenant Setting', 'Tenant Setting', 'F', 'W', 'Tenant', NULL, 'F', 'sfte018.png', NULL, 'Tenant', 'Tenant', NULL, NULL, NULL, NULL),
 	('PROMPT', 'sftq001', 'Tracking', 'การตรวจสอบ', 'F', 'W', 'Tracking', NULL, 'F', 'sftq001.png', NULL, 'Tracking', 'ตรวจสอบ', NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `tprog` ENABLE KEYS */;
@@ -869,8 +870,9 @@ INSERT INTO `tproggrp` (`groupname`, `programid`, `parameters`, `seqno`) VALUES
 	('ADMIN', 'sfte012', NULL, 6),
 	('ADMIN', 'sfte013', NULL, 7),
 	('ADMIN', 'sfte016', NULL, 8),
-	('ADMIN', 'sfte018', NULL, 9),
-	('ADMIN', 'sftq001', NULL, 10),
+	('ADMIN', 'sfte017', NULL, 9),
+	('ADMIN', 'sfte018', NULL, 10),
+	('ADMIN', 'sftq001', NULL, 11),
 	('CENTER', 'sfte001', NULL, 1),
 	('CENTER', 'sfte002', NULL, 3),
 	('CENTER', 'sfte003', NULL, 2),
@@ -890,8 +892,9 @@ INSERT INTO `tproggrp` (`groupname`, `programid`, `parameters`, `seqno`) VALUES
 	('TESTER', 'sfte012', NULL, 7),
 	('TESTER', 'sfte013', NULL, 8),
 	('TESTER', 'sfte016', NULL, 9),
-	('TESTER', 'sfte018', NULL, 10),
-	('TESTER', 'sftq001', NULL, 11);
+	('TESTER', 'sfte017', NULL, 10),
+	('TESTER', 'sfte018', NULL, 11),
+	('TESTER', 'sftq001', NULL, 12);
 /*!40000 ALTER TABLE `tproggrp` ENABLE KEYS */;
 
 -- Dumping structure for table assuredb2.tprogtype
@@ -987,6 +990,79 @@ INSERT INTO `trpwd` (`reservepwd`) VALUES
 	('Qaz12wsx'),
 	('Qwerty123');
 /*!40000 ALTER TABLE `trpwd` ENABLE KEYS */;
+
+-- Dumping structure for table assuredb2.trxlog
+CREATE TABLE IF NOT EXISTS `trxlog` (
+  `keyid` varchar(50) NOT NULL,
+  `curtime` bigint(15) unsigned DEFAULT NULL,
+  `trxtime` bigint(15) unsigned DEFAULT NULL,
+  `editdate` date DEFAULT NULL,
+  `edittime` time DEFAULT NULL,
+  `transtime` datetime DEFAULT NULL,
+  `caller` varchar(100) DEFAULT NULL,
+  `sender` varchar(100) DEFAULT NULL,
+  `owner` varchar(200) DEFAULT NULL,
+  `process` varchar(15) DEFAULT NULL,
+  `status` char(1) DEFAULT NULL,
+  `attachs` varchar(250) DEFAULT NULL,
+  `refer` varchar(50) DEFAULT NULL,
+  `note` varchar(250) DEFAULT NULL,
+  `package` varchar(50) DEFAULT NULL,
+  `action` varchar(50) DEFAULT NULL,
+  `quotable` varchar(150) DEFAULT NULL,
+  `remark` text,
+  `contents` text,
+  PRIMARY KEY (`keyid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table assuredb2.trxlog: ~0 rows (approximately)
+/*!40000 ALTER TABLE `trxlog` DISABLE KEYS */;
+/*!40000 ALTER TABLE `trxlog` ENABLE KEYS */;
+
+-- Dumping structure for table assuredb2.trxres
+CREATE TABLE IF NOT EXISTS `trxres` (
+  `keyid` varchar(50) NOT NULL,
+  `curtime` bigint(20) DEFAULT NULL,
+  `trxtime` bigint(20) DEFAULT NULL,
+  `editdate` date DEFAULT NULL,
+  `edittime` datetime DEFAULT NULL,
+  `transtime` datetime DEFAULT NULL,
+  `caller` varchar(100) DEFAULT NULL,
+  `sender` varchar(100) DEFAULT NULL,
+  `owner` varchar(100) DEFAULT NULL,
+  `process` varchar(15) DEFAULT NULL,
+  `status` char(1) DEFAULT NULL,
+  `remark` varchar(250) DEFAULT NULL,
+  `attachs` varchar(250) DEFAULT NULL,
+  `refer` varchar(50) DEFAULT NULL,
+  `note` varchar(250) DEFAULT NULL,
+  `package` varchar(50) DEFAULT NULL,
+  `action` varchar(50) DEFAULT NULL,
+  `quotable` varchar(50) DEFAULT NULL,
+  `contents` mediumtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='transaction response log';
+
+-- Dumping data for table assuredb2.trxres: ~0 rows (approximately)
+/*!40000 ALTER TABLE `trxres` DISABLE KEYS */;
+/*!40000 ALTER TABLE `trxres` ENABLE KEYS */;
+
+-- Dumping structure for table assuredb2.trxstatus
+CREATE TABLE IF NOT EXISTS `trxstatus` (
+  `statusid` varchar(1) NOT NULL,
+  `nameen` varchar(50) NOT NULL,
+  `nameth` varchar(50) NOT NULL,
+  `seqno` int(11) DEFAULT '0',
+  PRIMARY KEY (`statusid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep tracking status definition';
+
+-- Dumping data for table assuredb2.trxstatus: ~4 rows (approximately)
+/*!40000 ALTER TABLE `trxstatus` DISABLE KEYS */;
+INSERT INTO `trxstatus` (`statusid`, `nameen`, `nameth`, `seqno`) VALUES
+	('C', 'Completed', 'Completed', 1),
+	('E', 'Error', 'Error', 3),
+	('N', 'Not Complete', 'Not Complete', 2),
+	('R', 'Response', 'Response', 4);
+/*!40000 ALTER TABLE `trxstatus` ENABLE KEYS */;
 
 -- Dumping structure for table assuredb2.tstyle
 CREATE TABLE IF NOT EXISTS `tstyle` (
