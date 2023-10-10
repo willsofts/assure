@@ -25,8 +25,8 @@
   "license": "ISC",
   "dependencies": {
     "@willsofts/will-api": "^1.0.13",
-    "@willsofts/will-core": "^1.0.71",
-    "@willsofts/will-db": "^1.0.45",
+    "@willsofts/will-core": "^1.0.72",
+    "@willsofts/will-db": "^1.0.46",
     "@willsofts/will-dh": "^1.0.1",
     "@willsofts/will-lib": "^1.0.22",
     "@willsofts/will-run": "^1.0.4",

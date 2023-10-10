@@ -314,7 +314,7 @@ function submitOrder(src,sorter) {
 function submitDelete(src,fsParams) {
 	//#(310000) programmer code begin;
 	//#(310000) programmer code end;
-	confirmDelete([fsParams[0]],function() {
+	confirmDelete([fsParams[1]],function() {
 		deleteRecord(fsParams);
 	});
 	//#(320000) programmer code begin;

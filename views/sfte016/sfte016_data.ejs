@@ -39,7 +39,7 @@
 								<button name="btn-edit" type="button" class="btn-edit" title="<%=label.get('btnedit_tooltip')%>"
 										onclick="submitRetrieve(this,'<%=item?.userid%>');"></button>
 								<button type="button" class="btn-delete" title="<%=label.get('btndelete_tooltip')%>" 
-										onclick="submitDelete(this,['<%=item?.userid%>']);"></button>
+										onclick="submitDelete(this,['<%=item?.userid%>','<%=item?.username%>']);"></button>
 						</td>
 					</tr>
 		<%		}

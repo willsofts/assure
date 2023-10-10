@@ -19,6 +19,7 @@ export class Sftq001Handler extends TknOperateHandler {
             action: { type: "STRING" },
             remark: { type: "STRING" },
             progname: { type: "STRING", calculated: true },
+            username: { type: "STRING", calculated: true },
         },
         //prefix naming with table name when select ex. table.column1,table.column2,...
         prefixNaming: true
@@ -31,13 +32,20 @@ export class Sftq001Handler extends TknOperateHandler {
             knsql.append(selector);
             if(!counting) {
                 knsql.append(", tprog.progname ");
+                knsql.append(", tuser.username ");
             }
             knsql.append(" from ");
             knsql.append(model.name);
             if(!counting) {
                 knsql.append(" left join tprog on tprog.programid = tul.progid ");    
+                knsql.append(" left join tuser on tuser.userid = tul.userid ");    
+                if(params.userid && params.userid!="") {
+                    knsql.append("and tuser.username LIKE ?username ");
+                    knsql.set("username","%"+params.userid+"%");
+                }
             }
             let filter = " where ";
+            /*
             if(params.userid && params.userid!="") {
                 knsql.append(filter).append("( ").append(model.name).append(".userid LIKE ?userid ");
                 knsql.append("or ").append(model.name).append(".useralias LIKE ?useralias ) ");
@@ -45,6 +53,7 @@ export class Sftq001Handler extends TknOperateHandler {
                 knsql.set("useralias","%"+params.userid+"%");
                 filter = " and ";
             }
+            */
             if(params.progid && params.progid!="") {
                 knsql.append(filter).append(model.name).append(".progid LIKE ?progid");
                 knsql.set("progid","%"+params.progid+"%");

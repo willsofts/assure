@@ -1,9 +1,10 @@
+import { v4 as uuid } from 'uuid';
 import { KnModel, KnOperation } from "@willsofts/will-db";
 import { KnDBConnector, KnSQLInterface, KnRecordSet, KnSQL, KnResultSet } from "@willsofts/will-sql";
 import { HTTP } from "@willsofts/will-api";
 import { KnUtility, KnPageUtility, VerifyError, KnValidateInfo, KnContextInfo, KnNotifyConfig, KnDataTable, KnTemplateInfo } from '@willsofts/will-core';
 import { Utilities } from "@willsofts/will-util";
-import { PasswordLibrary, MailLibrary, MailInfo } from "@willsofts/will-lib";
+import { PasswordLibrary } from "@willsofts/will-lib";
 import { DEFAULT_PRIVILEGES } from "../utils/EnvironmentVariable";
 import { TknOperateHandler } from '../handlers/TknOperateHandler';
 
@@ -243,17 +244,19 @@ export class Sfte005Handler extends TknOperateHandler {
             found = rs.rows.length>0;
             if(found) return Promise.reject(new VerifyError("Email is already existed",HTTP.NOT_ACCEPTABLE,-18879));
             found = false;
+            /*
             knsql.clear();
             knsql.append("select userid ");
             knsql.append("from tuserinfo ");
             knsql.append("where userid = ?userid ");
-            knsql.set("userid",context.params.userid);
+            knsql.set("userid",context.params.username);
             rs = await knsql.executeQuery(db,context);
             found = rs.rows.length>0;
+            */
             rs = await this.insertUserTable(context, model, db, found);
             let record = rs.rows[0];
             let [msg,tmp] = await this.composeMailMessage(db, record, eng);
-            this.doSendMail(context, model, {email: record.email, subject: tmp?tmp.subjecttitle:"Confirm New Account", message: msg});
+            this.mailing(context, {email: record.email, subject: tmp?tmp.subjecttitle:"Confirm New Account", message: msg});
             return rs;
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
@@ -287,7 +290,7 @@ export class Sfte005Handler extends TknOperateHandler {
         let site = context.params.site;
         if(!site || site.trim()=="") site = this.userToken?.site;
         let curdate = Utilities.now();
-        context.params.userid = context.params.username;
+        context.params.userid = uuid();
         let plib = new PasswordLibrary();
         let passwordexpiredate = await plib.getUserExpireDate(db, context.params.userid, curdate);
         let userpassword = context.params.userpassword;
@@ -307,7 +310,7 @@ export class Sfte005Handler extends TknOperateHandler {
                 knsql.append("insert into tuserinfo(site,employeeid,userid,userename,useresurname,usertname,usertsurname,email,gender,mobile,lineid,inactive,editdate,edittime,edituser) ");
                 knsql.append("values(?site,?employeeid,?userid,?userename,?useresurname,?usertname,?usertsurname,?email,?gender,?mobile,?lineid,?inactive,?editdate,?edittime,?edituser) ");
                 knsql.set("site",site);
-                knsql.set("employeeid",context.params.userid);
+                knsql.set("employeeid",context.params.username);
                 knsql.set("userid",context.params.userid);
                 knsql.set("usertname",context.params.usertname);
                 knsql.set("usertsurname",context.params.usertsurname);
@@ -400,18 +403,6 @@ export class Sfte005Handler extends TknOperateHandler {
         return result;
     }
     
-	protected async doSendMail(context: KnContextInfo, model: KnModel, info: MailInfo) : Promise<void> {
-		let db = this.getPrivateConnector(model);
-		try {
-			await MailLibrary.sendMail(info, db);	
-		} catch(ex: any) {
-			this.logger.error(this.constructor.name,ex);
-            return Promise.reject(this.getDBError(ex));
-		} finally {
-			if(db) db.close();
-		}
-	}
-
     /**
      * Override in order to update records
      */

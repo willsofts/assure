@@ -1284,7 +1284,7 @@ CREATE TABLE IF NOT EXISTS `tul` (
   `seqno` bigint(15) NOT NULL DEFAULT '0',
   `curtime` datetime NOT NULL,
   `useralias` varchar(50) DEFAULT NULL,
-  `userid` varchar(60) DEFAULT NULL,
+  `userid` varchar(50) DEFAULT NULL,
   `site` varchar(50) DEFAULT NULL,
   `progid` varchar(25) DEFAULT NULL,
   `handler` varchar(50) DEFAULT NULL,
@@ -1294,7 +1294,8 @@ CREATE TABLE IF NOT EXISTS `tul` (
   `address` varchar(200) DEFAULT NULL,
   `paths` varchar(500) DEFAULT NULL,
   `headers` text,
-  `requests` text
+  `requests` text,
+  `contents` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user tracking';
 
 -- Dumping data for table assuredb2.tul: ~0 rows (approximately)
@@ -1305,7 +1306,7 @@ CREATE TABLE IF NOT EXISTS `tul` (
 CREATE TABLE IF NOT EXISTS `tupwd` (
   `serverdatetime` datetime DEFAULT NULL,
   `systemdate` date NOT NULL DEFAULT '0000-00-00',
-  `userid` varchar(60) NOT NULL DEFAULT '',
+  `userid` varchar(50) NOT NULL DEFAULT '',
   `userpassword` varchar(200) NOT NULL DEFAULT '',
   `edituserid` varchar(50) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1316,8 +1317,8 @@ CREATE TABLE IF NOT EXISTS `tupwd` (
 
 -- Dumping structure for table assuredb2.tuser
 CREATE TABLE IF NOT EXISTS `tuser` (
-  `userid` varchar(60) NOT NULL,
-  `username` varchar(60) NOT NULL,
+  `userid` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `site` varchar(50) NOT NULL COMMENT 'tcomp.site',
   `pinid` varchar(50) DEFAULT NULL,
   `pincode` varchar(100) DEFAULT NULL,
@@ -1379,7 +1380,7 @@ INSERT INTO `tuser` (`userid`, `username`, `site`, `pinid`, `pincode`, `startdat
 CREATE TABLE IF NOT EXISTS `tuserbranch` (
   `site` varchar(50) NOT NULL COMMENT 'tcomp.site',
   `branch` varchar(20) NOT NULL COMMENT 'tcompbranch.branch',
-  `userid` varchar(60) NOT NULL COMMENT 'tuser.userid',
+  `userid` varchar(50) NOT NULL COMMENT 'tuser.userid',
   PRIMARY KEY (`site`,`branch`,`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user access comp branchs';
 
@@ -1395,7 +1396,7 @@ INSERT INTO `tuserbranch` (`site`, `branch`, `userid`) VALUES
 -- Dumping structure for table assuredb2.tusercomp
 CREATE TABLE IF NOT EXISTS `tusercomp` (
   `site` varchar(50) NOT NULL COMMENT 'tcomp.site',
-  `userid` varchar(60) NOT NULL COMMENT 'tuser.userid',
+  `userid` varchar(50) NOT NULL COMMENT 'tuser.userid',
   PRIMARY KEY (`site`,`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user access comp info';
 
@@ -1457,7 +1458,7 @@ CREATE TABLE IF NOT EXISTS `tuserfactorhistory` (
 
 -- Dumping structure for table assuredb2.tusergrp
 CREATE TABLE IF NOT EXISTS `tusergrp` (
-  `userid` varchar(60) NOT NULL DEFAULT '' COMMENT 'tuser.userid',
+  `userid` varchar(50) NOT NULL DEFAULT '' COMMENT 'tuser.userid',
   `groupname` varchar(50) NOT NULL DEFAULT '' COMMENT 'tgroup.groupname',
   `rolename` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`userid`,`groupname`)
@@ -1477,7 +1478,7 @@ INSERT INTO `tusergrp` (`userid`, `groupname`, `rolename`) VALUES
 CREATE TABLE IF NOT EXISTS `tuserinfo` (
   `site` varchar(50) NOT NULL DEFAULT '' COMMENT 'tcomp.site',
   `employeeid` varchar(50) NOT NULL DEFAULT '',
-  `userid` varchar(60) DEFAULT NULL COMMENT 'tuser.userid',
+  `userid` varchar(50) DEFAULT NULL COMMENT 'tuser.userid',
   `cardid` varchar(50) DEFAULT NULL,
   `userbranch` varchar(20) DEFAULT NULL COMMENT 'tcompbranch.branch',
   `usertname` varchar(50) DEFAULT NULL,
@@ -1599,7 +1600,7 @@ INSERT INTO `tuserinfo` (`site`, `employeeid`, `userid`, `cardid`, `userbranch`,
 CREATE TABLE IF NOT EXISTS `tuserinfohistory` (
   `site` varchar(50) NOT NULL DEFAULT '' COMMENT 'tcomp.site',
   `employeeid` varchar(50) NOT NULL DEFAULT '',
-  `userid` varchar(60) DEFAULT NULL COMMENT 'tuser.userid',
+  `userid` varchar(50) DEFAULT NULL COMMENT 'tuser.userid',
   `cardid` varchar(50) DEFAULT NULL,
   `userbranch` varchar(20) DEFAULT NULL,
   `usertname` varchar(50) DEFAULT NULL,
@@ -1749,7 +1750,7 @@ CREATE TABLE IF NOT EXISTS `tuserpwdhistory` (
 
 -- Dumping structure for table assuredb2.tuserrole
 CREATE TABLE IF NOT EXISTS `tuserrole` (
-  `userid` varchar(60) NOT NULL COMMENT 'tuser.userid',
+  `userid` varchar(50) NOT NULL COMMENT 'tuser.userid',
   `roleid` varchar(50) NOT NULL COMMENT 'trole.roleid',
   PRIMARY KEY (`userid`,`roleid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user in roles';
