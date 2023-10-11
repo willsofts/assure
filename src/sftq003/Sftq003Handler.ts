@@ -64,7 +64,8 @@ export class Sftq003Handler extends TknOperateHandler {
             if(!counting) {
                 knsql.append(" left join trxstatus on trxstatus.statusid = trxlog.status ");    
             }
-            let filter = " where ";
+            let filter = " and ";
+            knsql.append(" where process = 'MAIL' ");
             if(params.datefrom && params.datefrom!="") {
                 let fromdate = Utilities.parseDate(params.datefrom);
                 if(fromdate) {
