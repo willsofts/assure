@@ -81,6 +81,7 @@ export class Sfte017HistoryHandler extends TknOperateHandler {
     public async performRetrieving(context: KnContextInfo, model: KnModel, db: KnDBConnector): Promise<KnRecordSet> {
         let knsql = new KnSQL();
         knsql.append("select ").append(this.buildSelectField(context,model)).append(" ");
+        knsql.append("from ").append(model.name).append(" ");
         knsql.append("where userid = ?userid ");
         knsql.set("userid",context.params.userid);
         let rs = await knsql.executeQuery(db);

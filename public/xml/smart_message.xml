@@ -23,6 +23,16 @@
 	<msg code="QS0021"><TH>คุณต้องการล้างและเริ่มใหม่รายการนี้ใช่หรือไม่</TH><EN>Do you want to reset this transaction?</EN></msg>
 	<msg code="QS0022"><TH>คุณต้องการลบ %s รายการใช่หรือไม่</TH><EN>Do you want to delete %s row(s)?</EN></msg>
 	<msg code="QS0023"><TH>คุณต้องการล้างและเริ่มใหม่การตรวจสอบเพิ่มเติมใช่หรือไม่</TH><EN>Do you want to reset two factor authentication?</EN></msg>
+	<msg code="QS0024"><TH>คุณต้องการยืนยันการอนุมัติ  %s รายการนี้ใช่หรือไม่</TH><EN>Are you sure to confirm approve the %s request?</EN></msg>
+	<msg code="QS0025"><TH>คุณต้องการยืนยันการปฏิเสธ  %s รายการนี้ใช่หรือไม่</TH><EN>Are you sure to reject %s?</EN></msg>
+	<msg code="QS0026"><TH>คุณต้องการยืนยันการนับใหม่  %s รายการนี้ใช่หรือไม่</TH><EN>Are you sure to recount %s?</EN></msg>
+	<msg code="QS0027"><TH>คุณต้องการยืนยันการสร้างใบคำร้องใช่หรือไม่</TH><EN>Do you want to create this request?</EN></msg>
+	<msg code="QS0028"><TH>คุณต้องการนำเข้ารายการนี้ใช่หรือไม่</TH><EN>Do you want to import this transaction?</EN></msg>
+	<msg code="QS0029"><TH>คุณต้องการนำออกรายการนี้ใช่หรือไม่</TH><EN>Do you want to export this transaction?</EN></msg>
+	<msg code="QS0030"><TH>คุณต้องการระงับการใช้งานระบบใช่หรือไม่</TH><EN>Do you want to lock the system?</EN></msg>
+	<msg code="QS0031"><TH>คุณต้องการยกเลิกระงับการใช้งานระบบใช่หรือไม่</TH><EN>Do you want to unlock the system?</EN></msg>
+	<msg code="QS0032"><TH>คุณต้องการส่งรายการนี้ใหม่ใช่หรือไม่?</TH><EN>Do you want to resend this transaction?</EN></msg>
+	<msg code="QS0033"><TH>คุณต้องการยืนยันการแก้ไขใหม่  %s รายการนี้ใช่หรือไม่</TH><EN>Are you sure to revise %s?</EN></msg>
 	
 	<msg code="fsconfirmbtn"><TH>ตกลง</TH><EN>OK</EN></msg>
 	<msg code="fscancelbtn"><TH>ยกเลิก</TH><EN>Cancel</EN></msg>

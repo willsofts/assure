@@ -22,6 +22,8 @@ export class TheCategories {
         tgroup : {tableName: "tgroup", keyField: "groupname", addonFilters: "(privateflag is null or privateflag != '1')", setting: { keyName: "groupname", valueNames: ["nameen"]} },
 
         ttemplatetag: {tableName: "ttemplatetag", keyField: "tagname", addonFields: "seqno", orderFields: "seqno", captionFields: "tagtitle", nameen: "tagtitle", nameth: "tagtitle", setting: { keyName: "tagname", valueNames: ["tagtitle"]} },
+
+        trxstatus: {tableName: "trxstatus", keyField: "statusid", addonFields: "seqno", orderFields: "seqno", setting: { keyName: "statusid", valueNames: ["nameen"]} },
     };
 
     public static getSetting(name: string) : KnDataMapEntitySetting | undefined {

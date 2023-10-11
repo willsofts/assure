@@ -26,8 +26,7 @@ export class Sfte018Handler extends TknOperateHandler {
             editdate: { type: "DATE", selected: false, created: true, updated: true, defaultValue: null },
             edittime: { type: "TIME", selected: false, created: true, updated: true, defaultValue: null },
             edituser: { type: "STRING", selected: false, created: true, updated: true, defaultValue: null },
-            fromdate: { type: "DATE", calculated: true },
-            todate: { type: "DATE", calculated: true },
+            activename: { type: "STRING", calculated: true },
         },
         //prefix naming with table name when select ex. table.column1,table.column2,...
         prefixNaming: true
@@ -63,9 +62,9 @@ export class Sfte018Handler extends TknOperateHandler {
             knsql.append(selector);
             if(!counting) {
                 if(eng) {
-                    knsql.append(", tactive.nameen as activedesc ");
+                    knsql.append(", tactive.nameen as activename ");
                 } else {
-                    knsql.append(", tactive.nameth as activedesc ");
+                    knsql.append(", tactive.nameth as activename ");
                 }
             }
             knsql.append(" from ");
@@ -140,9 +139,17 @@ export class Sfte018Handler extends TknOperateHandler {
     }
 
     protected async performRetrieving(context: KnContextInfo, model: KnModel, db: KnDBConnector): Promise<KnRecordSet> {
+        let eng = KnUtility.isEnglish(context);
         let knsql = new KnSQL();
-        knsql.append("select * from ttenant ");
-        knsql.append("where tenantid = ?tenantid ");
+        knsql.append("select ").append(this.buildSelectField(context,model)).append(",");
+        if(eng) {
+            knsql.append("tactive.nameen as activename ");
+        } else {
+            knsql.append("tactive.nameth as activename ");
+        }
+        knsql.append("from ttenant ");
+        knsql.append("left join tactive on tactive.activeid = ttenant.inactive ");
+        knsql.append("where ttenant.tenantid = ?tenantid ");
         knsql.set("tenantid",context.params.tenantid);
         let rs = await knsql.executeQuery(db,context);
         return this.createRecordSet(rs);

@@ -969,6 +969,34 @@ function confirmErase(params, okFn, cancelFn,  width, height) {
 	if(!confirmDialogBox("QS0022",params,"Do you want to delete %s row(s)?",okFn,cancelFn,width,height)) return false;
 	return true;
 }
+function confirmApprove(params, okFn, cancelFn,  width, height) {
+	if(!confirmDialogBox("QS0024",params,"Do you want to confirm approve the %s request?",okFn,cancelFn,width,height)) return false;
+	return true;
+}
+function confirmReject(params, okFn, cancelFn,  width, height) {
+	if(!confirmDialogBox("QS0025",params,"Do you want to reject %s?",okFn,cancelFn,width,height)) return false;
+	return true;
+}
+function confirmRequest(okFn, cancelFn, width, height) {
+	if(!confirmDialogBox("QS0027",null,"Do you want to create this request?",okFn,cancelFn,width,height)) return false;
+	return true;
+}
+function confirmImport(okFn, cancelFn, width, height) {
+	if(!confirmDialogBox("QS0028",null,"Do you want to import this transaction?",okFn,cancelFn,width,height)) return false;
+	return true;
+}
+function confirmExport(okFn, cancelFn, width, height) {
+	if(!confirmDialogBox("QS0029",null,"Do you want to export this transaction?",okFn,cancelFn,width,height)) return false;
+	return true;
+}
+function confirmResend(okFn, cancelFn, width, height) {
+	if(!confirmDialogBox("QS0032",null,"Do you want to resend this transaction?",okFn,cancelFn,width,height)) return false;
+	return true;
+}
+function confirmRevise(params, okFn, cancelFn,  width, height) {
+	if(!confirmDialogBox("QS0033",params,"Do you want to revise the %s request?",okFn,cancelFn,width,height)) return false;
+	return true;
+}
 function successbox(callback,params) {
 	alertbox("QS0004",callback,null,params);
 }

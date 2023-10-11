@@ -1,0 +1,27 @@
+<div id="fsrefermodaldialog_layer" class="modal fade pt-page pt-page-item" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-xml">
+		<div class="modal-content portal-area" style="margin-left:15px; padding-top: 10px; padding-left: 5px; padding-bottom:15px;">
+			<div class="modal-header">
+				<h4 class="modal-title" id="modalheadertitle">
+					<%=label.get("modalheadertitle_viewrefer","View")%>
+				</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div id="entrydialoglayer" class="entry-dialog-layer">
+			<form id="fsentryform" role="form" data-toggle="validator" name="fsentryform" method="post">
+				<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
+				<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
+				<input type="hidden" name="page" value="<%=page.setting?.page%>"/>
+				<%- include('./sftq003_key') %>
+				<%- include('./sftq003_kit') %>
+			</form>	
+			</div>
+			<div class="row-heighter modal-footer" >
+				<% if(!page.isEmpty(data.dataset?.refer)) {%>
+				<input type="button" class="btn btn-dark btn-sm pull-left" value="<%=label.get('referbutton','View Refer')%>" onclick="displayRefer(this,'<%=data.dataset?.refer%>')"/>
+				<% } %>
+				<input type="button" id="canceldialogbutton" class="btn btn-dark btn-sm" data-dismiss="modal" value="<%=label.get('canceldialogbutton','Cancel')%>"/>
+			</div>
+		</div>
+	</div>
+</div>

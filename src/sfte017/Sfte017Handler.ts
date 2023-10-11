@@ -146,8 +146,9 @@ export class Sfte017Handler extends TknOperateHandler {
             knsql.append(" tuserinfo.usertname as username, ");
             knsql.append(" tuserinfo.usertsurname as usersurname ");
         }
-        knsql.append("where tuser.userid = ?userid ");
-        knsql.append("and tuser.userid = tuserinfo.userid ");
+        knsql.append("from tuserfactor, tuserinfo ");
+        knsql.append("where tuserfactor.userid = ?userid ");
+        knsql.append("and tuserfactor.userid = tuserinfo.userid ");
         knsql.set("userid",context.params.userid);
         let rs = await knsql.executeQuery(db,context);
         return this.createRecordSet(rs);

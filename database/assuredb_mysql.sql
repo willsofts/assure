@@ -794,7 +794,7 @@ CREATE TABLE IF NOT EXISTS `tprog` (
   PRIMARY KEY (`programid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep program name';
 
--- Dumping data for table assuredb2.tprog: ~8 rows (approximately)
+-- Dumping data for table assuredb2.tprog: ~9 rows (approximately)
 /*!40000 ALTER TABLE `tprog` DISABLE KEYS */;
 INSERT INTO `tprog` (`product`, `programid`, `progname`, `prognameth`, `progtype`, `appstype`, `description`, `parameters`, `progsystem`, `iconfile`, `iconstyle`, `shortname`, `shortnameth`, `progpath`, `editdate`, `edittime`, `edituser`) VALUES
 	('PROMPT', 'sfte001', 'Program Information', 'ข้อมูลโปรแกรม', 'F', 'W', 'Program Information', NULL, 'F', 'sfte001.png', NULL, 'Program', 'โปรแกรม', NULL, NULL, NULL, NULL),
@@ -808,7 +808,8 @@ INSERT INTO `tprog` (`product`, `programid`, `progname`, `prognameth`, `progtype
 	('PROMPT', 'sfte016', 'User Information', 'ข้อมูลผู้ใช้', 'F', 'W', 'User', NULL, 'F', 'sfte016.png', NULL, 'User', 'ผู้ใช้งาน', NULL, NULL, NULL, NULL),
 	('PROMPT', 'sfte017', 'Two Factor Authentication', 'Two Factor Authentication', 'F', 'W', 'Two Factor Authentication', NULL, 'F', 'sfte017.png', NULL, '2Factor', '2Factor', NULL, NULL, NULL, NULL),
 	('PROMPT', 'sfte018', 'Tenant Setting', 'Tenant Setting', 'F', 'W', 'Tenant', NULL, 'F', 'sfte018.png', NULL, 'Tenant', 'Tenant', NULL, NULL, NULL, NULL),
-	('PROMPT', 'sftq001', 'Tracking', 'การตรวจสอบ', 'F', 'W', 'Tracking', NULL, 'F', 'sftq001.png', NULL, 'Tracking', 'ตรวจสอบ', NULL, NULL, NULL, NULL);
+	('PROMPT', 'sftq001', 'Tracking', 'การตรวจสอบ', 'F', 'W', 'Tracking', NULL, 'F', 'sftq001.png', NULL, 'Tracking', 'ตรวจสอบ', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sftq003', 'Mail Tracking', 'Mail Tracking', 'Q', 'W', 'Mail Tracking', NULL, 'F', 'sftq003.png', NULL, 'Mail Tracking', 'Mail Tracking', NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `tprog` ENABLE KEYS */;
 
 -- Dumping structure for table assuredb2.tprogconfig
@@ -859,7 +860,7 @@ CREATE TABLE IF NOT EXISTS `tproggrp` (
   PRIMARY KEY (`groupname`,`programid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep program by group';
 
--- Dumping data for table assuredb2.tproggrp: ~29 rows (approximately)
+-- Dumping data for table assuredb2.tproggrp: ~31 rows (approximately)
 /*!40000 ALTER TABLE `tproggrp` DISABLE KEYS */;
 INSERT INTO `tproggrp` (`groupname`, `programid`, `parameters`, `seqno`) VALUES
 	('ADMIN', 'sfte002', NULL, 1),
@@ -873,6 +874,7 @@ INSERT INTO `tproggrp` (`groupname`, `programid`, `parameters`, `seqno`) VALUES
 	('ADMIN', 'sfte017', NULL, 9),
 	('ADMIN', 'sfte018', NULL, 10),
 	('ADMIN', 'sftq001', NULL, 11),
+	('ADMIN', 'sftq003', NULL, 12),
 	('CENTER', 'sfte001', NULL, 1),
 	('CENTER', 'sfte002', NULL, 3),
 	('CENTER', 'sfte003', NULL, 2),
@@ -894,7 +896,8 @@ INSERT INTO `tproggrp` (`groupname`, `programid`, `parameters`, `seqno`) VALUES
 	('TESTER', 'sfte016', NULL, 9),
 	('TESTER', 'sfte017', NULL, 10),
 	('TESTER', 'sfte018', NULL, 11),
-	('TESTER', 'sftq001', NULL, 12);
+	('TESTER', 'sftq001', NULL, 12),
+	('TESTER', 'sftq003', NULL, 13);
 /*!40000 ALTER TABLE `tproggrp` ENABLE KEYS */;
 
 -- Dumping structure for table assuredb2.tprogtype
@@ -1010,6 +1013,7 @@ CREATE TABLE IF NOT EXISTS `trxlog` (
   `package` varchar(50) DEFAULT NULL,
   `action` varchar(50) DEFAULT NULL,
   `quotable` varchar(150) DEFAULT NULL,
+  `grouper` varchar(50) DEFAULT NULL,
   `remark` text,
   `contents` text,
   PRIMARY KEY (`keyid`)

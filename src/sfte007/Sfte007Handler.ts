@@ -255,18 +255,6 @@ export class Sfte007Handler extends TknOperateHandler {
         }
     }
     
-	protected async doSendMail(context: KnContextInfo, model: KnModel, info: MailInfo) : Promise<void> {
-		let db = this.getPrivateConnector(model);
-		try {
-			await MailLibrary.sendMail(info, db);	
-		} catch(ex: any) {
-			this.logger.error(this.constructor.name,ex);
-            return Promise.reject(this.getDBError(ex));
-		} finally {
-			if(db) db.close();
-		}
-	}
-
     /**
      * Override in order to update records
      */
@@ -319,7 +307,7 @@ export class Sfte007Handler extends TknOperateHandler {
                     msg += "Administrator<br/>";
                 }
                 msg = Utilities.translateVariables(msg, info);
-                this.doSendMail(context, model, {email: info.email, subject: tmp?tmp.subjecttitle:"Account Changed", message: msg});
+                this.mailing(context, {email: info.email, subject: tmp?tmp.subjecttitle:"Account Changed", message: msg});
             }
 		} catch(ex: any) {
 			this.logger.error(this.constructor.name,ex);
