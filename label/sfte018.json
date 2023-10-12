@@ -1,0 +1,38 @@
+[
+	{
+		"language": "TH",
+		"label": [
+			{"name": "createdate_headerlabel", "value": "วันที่"},
+			{"name": "caption", "value": "Tenant Setting"},
+			{"name": "createdate_label", "value": "วันที่"},
+			{"name": "tenantnames_label", "value": "ชื่อ"},
+			{"name": "todates_label", "value": "ถึงวันที่"},
+			{"name": "tenantname_headerlabel", "value": "ชื่อ"},
+			{"name": "publickeys_label", "value": "กุญแจสาธารณะ"},
+			{"name": "createtime_headerlabel", "value": "เวลา"},
+			{"name": "inactive_headerlabel", "value": "ใช้งาน"},
+			{"name": "tenantname_label", "value": "ชื่อ"},
+			{"name": "createtime_label", "value": "เวลา"},
+			{"name": "inactive_label", "value": "ใช้งาน"},
+			{"name": "fromdates_label", "value": "จากวันที่"},
+			{"name": "tenantid_label", "value": "รหัสลูกค้า"}		]
+	},
+	{
+		"language": "EN",
+		"label": [
+			{"name": "createdate_headerlabel", "value": "Date"},
+			{"name": "caption", "value": "Tenant Setting"},
+			{"name": "createdate_label", "value": "Date"},
+			{"name": "tenantnames_label", "value": "Name"},
+			{"name": "todates_label", "value": "To Date"},
+			{"name": "tenantname_headerlabel", "value": "Name"},
+			{"name": "publickeys_label", "value": "Public Keys"},
+			{"name": "createtime_headerlabel", "value": "Time"},
+			{"name": "inactive_headerlabel", "value": "Active"},
+			{"name": "tenantname_label", "value": "Name"},
+			{"name": "createtime_label", "value": "Time"},
+			{"name": "inactive_label", "value": "Active"},
+			{"name": "fromdates_label", "value": "From Date"},
+			{"name": "tenantid_label", "value": "Client"}		]
+	}
+]

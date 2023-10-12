@@ -1,0 +1,131 @@
+/* user color */
+.login-label { 
+	color: white;
+	font-weight: bold;
+}
+#page_login_toplayer {
+	background-color: #034686;
+}
+.login_form input[type="button"]:focus,
+.login_form input[type="button"]:hover{
+	background: #034686;
+	color: white;
+}
+.navigatebar-top {
+	/*background-color: #034686;*/
+}
+#footerbar { 
+	background-color: #034686;
+}
+.sidebar-menu {
+	background-color: #034686;
+}
+.pt-page h1 { background-color: #0047BA;  }
+.pt-page th { 
+	background-color: #034686;
+}
+.pt-page-header { 
+	background-color: #034686; 
+}
+.btn-primary {
+	border: 1px solid #034686;
+	background-color: #034686;	
+}
+.btn-dark {
+	border: 1px solid #034686;
+	background-color: #034686;	
+}
+.btn-spot {
+	border: 1px solid #034686;
+	background-color: #034686;		
+}
+.btn-spot:hover,
+.btn-spot:focus,
+.btn-spot:active,
+.btn-spot.active,
+.open > .dropdown-toggle.btn-spot {
+ /*background-color: #034686;*/
+ background-color: #315989;
+}
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active,
+.btn-dark.active,
+.open > .dropdown-toggle.btn-dark {
+ background-color: #315989;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primay:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+	background-color: #315989;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+	background-color: #034686;
+	border-color: #034686;
+}
+.page-item.active .page-link {
+	background-color: #034686;
+	border-color: #034686;	
+}
+.favor-navbox-tiles .tile {
+  background-color: #034686;
+}
+.favor-dropdown-menu { 
+	background-color: #034686;
+}
+
+body {
+	background-color: #0047BA;
+}
+.table-striped > tbody > tr:nth-child(even) > td,
+.table-striped > tbody > tr:nth-child(even) > th {
+  background-color: white;
+}
+.navbox-tiles .tile {
+  background-color: #0047BA;
+}
+.portal-area {
+	background-color: ghostwhite;
+}
+table.partition-table { background-color: #034686; }
+.topic-row { background-color: #034686; }
+
+.panel-body {
+	background-color: ghostwhite;
+}
+
+.navigatebar-top li > a > .label {
+    position: absolute;
+    top: 9px;
+    right: 7px;
+    text-align: center;
+    font-size: 9px;
+    padding: 2px 3px;
+    line-height: .9; 
+	border-radius: .25em;
+}
+
+.item-header-title {
+	background-color: #0047BA;
+}
+
+.sidebar li a.active { 
+	background-color: #0047BA;
+}
+
+.sidebar ul li > a.active:hover {
+	background-color: #315989;
+}
+.sidebar ul li .sub-menu li a:hover { 
+	background-color: #2E75B8;
+}
+#fsprogramcontrolbar {
+	background-color: #034686; 
+}

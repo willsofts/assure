@@ -1,0 +1,21 @@
+			<div class="row row-height">
+				<div class="col-md-12 col-height">
+						<div class="table-layer-class">
+							<div class="row row-height">
+								<div class="col-height col-md-3">
+<label for="templates" id="templates_label" class="control-label"><%=label.get('templates_label','Template Name')%></label>
+<input type="text" id="templates" name="template" class="form-control input-md" picture="(50)X" value="<%=data.dataset?.template%>" /><span></span>
+								</div>
+								<div class="col-height col-md-3">
+<label for="templatetypes" id="templatetypes_label" class="control-label"><%=label.get('templatetypes_label','Template Type')%></label>
+<input type="text" id="templatetypes" name="templatetype" class="form-control input-md" picture="(50)X" value="<%=data.dataset?.templatetype%>" /><span></span>
+								</div>
+								<div class="col-md">
+									<br/>
+									<button type="button" id="searchbutton" class="btn btn-dark btn-sm" style="margin-top: 10px; margin-left: 5px;"><i class="fa fa-search" aria-hidden="true" style="margin-right:10px;"></i><%=label.get('searchbutton','Search')%></button>
+									<button type="button" id="insertbutton" class="btn btn-dark btn-sm pull-right" style="margin-top: 10px; margin-right: 5px;"><i class="fa fa-plus" aria-hidden="true" style="margin-right:10px;"></i><%=label.get('insertbutton','Insert')%></button>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>

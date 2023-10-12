@@ -1,0 +1,97 @@
+	<% let rows = data.dataset?.rows;
+	if(rows && rows.length>0) { let record = rows[0]; %>
+	<div id="entrylayer" class="entry-layer">
+		<form id="fsentryform" name="fsentryform" method="post">	
+			<input type="hidden" id="userid" name="userid" value="<%=record.userid%>"/>
+			<div class="portal-area sub-entry-layer">
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="usertname_label" class="control-label" required="true"><%=label.get('usertname_label','First Name(Thai)')%></label>
+						</div>
+						<div class="col-md-5 col-height">
+							<input class="form-control input-md alert-input" id="usertname" name="usertname" placeholder="Last Name(Thai)" autocomplete="off" size="50" value="<%=record.usertname%>"/>
+							<div id="usertname_alert" role="alert" class="has-error" style="display:none;"><%=label.get('usertname_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="usertsurname_label" class="control-label" required="true"><%=label.get('usertsurname_label','Last Name(Thai)')%></label>
+						</div>
+						<div class="col-md-5 col-height">
+							<input class="form-control input-md alert-input" id="usertsurname" name="usertsurname" placeholder="Last Name(Thai)" autocomplete="off" size="50" value="<%=record.usertsurname%>"/>
+							<div id="usertsurname_alert" role="alert" class="has-error" style="display:none;"><%=label.get('usertsurname_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="userename_label" class="control-label" required="true"><%=label.get('userename_label','First Name(English)')%></label>
+						</div>
+						<div class="col-md-5 col-height">
+							<input class="form-control input-md alert-input" id="userename" name="userename" placeholder="First Name(English)" autocomplete="off" size="50" value="<%=record.userename%>"/>
+							<div id="userename_alert" role="alert" class="has-error" style="display:none;"><%=label.get('userename_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="useresurname_label" class="control-label" required="true"><%=label.get('useresurname_label','Last Name(English)')%></label>
+						</div>
+						<div class="col-md-5 col-height">
+							<input class="form-control input-md alert-input" id="useresurname" name="useresurname" placeholder="Last Name(English)" autocomplete="off" size="50" value="<%=record.useresurname%>"/>
+							<div id="useresurname_alert" role="alert" class="has-error" style="display:none;"><%=label.get('useresurname_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+					<div class="col-md-3 col-height col-label text-right">
+						<label id="displayname_label" class="control-label"><%=label.get('displayname_label','Display Name')%></label>
+					</div>
+					<div class="col-md-3 col-height">
+						<input class="form-control input-md alert-input" id="displayname" name="displayname" autocomplete="off" size="50" value="<%=record.displayname%>" />
+						<div id="displayname_alert" role="alert" class="has-error" style="display:none;"><%=label.get('displayname_alert','You can not leave this empty')%></div>
+					</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="email_label" class="control-label"><%=label.get('email_label','Email')%></label>
+						</div>
+						<div class="col-md-3 col-height">
+							<input class="form-control input-md alert-input" id="email" name="email" placeholder="Email" autocomplete="off" size="30" value="<%=record.email%>"/>
+							<div id="email_alert" role="alert" class="has-error" style="display:none;"><%=label.get('email_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="mobile_label" class="control-label"><%=label.get('mobile_label','Mobile')%></label>
+						</div>
+						<div class="col-md-3 col-height">
+							<input class="form-control input-md" id="mobile" name="mobile" placeholder="Mobile Phone" autocomplete="off" size="20" value="<%=record.mobile%>"/>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="lineid_label" class="control-label"><%=label.get('lineid_label','Line ID')%></label>
+						</div>
+						<div class="col-md-3 col-height">
+							<input class="form-control input-md" id="lineid" name="lineid" placeholder="Line ID" autocomplete="off" size="50" value="<%=record.lineid%>"/>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="langcode_label" class="control-label"><%=label.get('langcode_label','Display Language')%></label>
+						</div>
+						<div class="col-md-3 col-height">
+							<%-page.html('select',{map: data.entity.tklanguage, value: record.langcode, name: "langcode", class: "form-control input-md"})%>
+						</div>
+				</div>
+				<div class="row row-height">
+					<div class="col-md-12 float-right pull-right text-right" style="margin-right: 10px;">
+						<input type="button" id="savebutton" class="btn btn-dark btn-sm" value="<%=label.get('savebutton','Save')%>"/>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<% } else { %>
+	<div id="entrylayer" class="entry-layer" style="text-align:center; font-size:25px;">
+		<%=label.get('profilenotfound','Profile not found')%>
+	</div>
+	<% } %>

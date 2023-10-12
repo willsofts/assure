@@ -1,0 +1,111 @@
+Testing
+login
+curl -X POST http://localhost:8080/api/sign/signin -d "username=tso@freewill.com&password=tso"
+curl -X POST http://localhost:8080/sign/signin -d "username=tso@freewill.com&password=tso"
+or 
+basic authenticate
+curl -X POST -H "Authorization: Basic dHNvQGZyZWV3aWxsLmNvbTp0c28=" http://localhost:8080/sign/signin 
+curl -X POST -H "Authorization: Basic dHNvQGZyZWV3aWxsLmNvbTp0c28=" http://localhost:8080/api/sign/signin 
+or
+basic authenticate with RSA
+curl -X POST -H "Authorization: Basic WC07N8/G9Zqn/68+Am9H7X3CjLLPhP6vUCi2/FjKx8jYuEPlDoaDvc+hjiVWn9KwcmMLjjP2rbrurXoosRiHxztkFyxsIxmWyMZ1GfX3MSNmgOnXgiPH9apFRMikEQ0YAfxXS6Ktv6snUN2J+P6Z+9Fq6Z6ykPu7t9NrVjcDDgQ=" -H "Client: 018048fe-709d-11ed-809e-98fa9bd6bd8e" http://localhost:8080/api/sign/signin 
+curl -X POST -H "Authorization: Basic WC07N8/G9Zqn/68+Am9H7X3CjLLPhP6vUCi2/FjKx8jYuEPlDoaDvc+hjiVWn9KwcmMLjjP2rbrurXoosRiHxztkFyxsIxmWyMZ1GfX3MSNmgOnXgiPH9apFRMikEQ0YAfxXS6Ktv6snUN2J+P6Z+9Fq6Z6ykPu7t9NrVjcDDgQ=" -H "Client: 018048fe-709d-11ed-809e-98fa9bd6bd8e" http://localhost:8080/sign/signin 
+
+take anonymous login
+curl -X POST http://localhost:8080/api/login/anonymouslogin -d "site=FWS&accessor=tester"
+
+after login it response authtoken then using it as request header["authtoken"]
+
+get user info after login with token
+curl http://localhost:8080/login-callback?token=?
+curl http://localhost:8080/api/login/logincallback?token=?
+ex.
+curl http://localhost:8080/login-callback?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiYTExZmZkOWUtMjQwOC00OTI2LTkyZmYtZDk5YWI5MDlkYjlmIiwiaWF0IjoxNjY4NDEzNDg2LCJleHAiOjE2Njg0NzgyODZ9.OkHl8FmqNtD6TqYc3T32NLHpnhZTdKfXRIueylhYIV0
+curl http://localhost:8080/api/login/logincallback?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiYTExZmZkOWUtMjQwOC00OTI2LTkyZmYtZDk5YWI5MDlkYjlmIiwiaWF0IjoxNjY4NDEzNDg2LCJleHAiOjE2Njg0NzgyODZ9.OkHl8FmqNtD6TqYc3T32NLHpnhZTdKfXRIueylhYIV0
+
+get user info by token (accesstoken/account)
+curl http://localhost:8080/api/sign/accesstoken?authtoken=?
+curl -X POST http://localhost:8080/api/sign/accesstoken -d authtoken=?
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sign/accesstoken
+curl http://localhost:8080/api/sign/account?authtoken=?
+
+get user info by user uuid
+curl -X POST http://localhost:8080/api/sign/fetchtoken?useruuid=?
+curl -X POST http://localhost:8080/api/sign/fetchtoken/?
+
+validate token
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sign/validatetoken
+curl -X POST http://localhost:8080/api/sign/validatetoken -d authtoken=?
+
+get user info after login with code & nonce
+curl http://localhost:8080/login-callback?nonce=?&code=?
+ex.
+curl http://localhost:8080/login-callback?nonce=fee20488-52e0-44d5-9aec-d70e67e9002b&code=2c829f54-7867-433b-b9d6-949bf6287cce
+
+take log out
+curl http://localhost:8080/logout-callback?token=?
+ex.
+curl http://localhost:8080/logout-callback?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiYTExZmZkOWUtMjQwOC00OTI2LTkyZmYtZDk5YWI5MDlkYjlmIiwiaWF0IjoxNjY4NDEzNDg2LCJleHAiOjE2Njg0NzgyODZ9.OkHl8FmqNtD6TqYc3T32NLHpnhZTdKfXRIueylhYIV0
+
+check authorize
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/authorize/authorize
+curl -v -X POST http://localhost:8080/api/authorize/authorize
+
+health check
+curl http://localhost:8080/api/health/check
+
+get server current date/time
+curl -v -X POST http://localhost:8080/api/fetch/time/?name
+ex.
+curl -v -X POST http://localhost:8080/api/fetch/time/datetime
+
+create captcha
+curl -v -X POST http://localhost:8080/api/captcha/create
+
+upload file
+curl -X POST http://localhost:8080/upload/file
+ex.
+curl -X POST http://localhost:8080/upload/file -F filename=@D:\images\birth.png -F type=IMG -F no=123456
+
+data table
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/get -d "tablename=tactive&keyfield=activeid"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/category -d "tablename=tactive&keyfield=activeid&valuefield=nameen"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/apps/find -d "programid=sfte001"
+
+password policy
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/password/policy
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/password/policies
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/passwordpolicy/execute?language=EN
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/passwordpolicy/execute?language=TH
+
+menu
+curl "http://localhost:8080/gui/menu/favor?userid=tso"
+curl "http://localhost:8080/gui/menu/side?userid=tso"
+curl "http://localhost:8080/gui/menu/box?userid=tso"
+
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/menufavor/html -d "userid=tso"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/menuside/html -d "userid=tso"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/menubox/html -d "userid=tso"
+
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/menu/favor -d "userid=tso"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/menu/side -d "userid=tso"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/menu/box -d "userid=tso"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/menu/prog -d "userid=tso"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/menu/insert -d "userid=tso&programid=tso001&seqno=10"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/menu/remove -d "userid=tso&programid=tso001&seqno=10"
+
+label
+convert from xml file to json file
+java com.fs.bean.util.LabelConfig -f index.xml -dir D:\label\xml -json D:\label\json\index.json
+
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/label/get -d labelname=?
+return array
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/label/list -d labelname=?
+
+sfte001
+curl -H "AuthToken: ?" http://localhost:8080/api/sfte001/find
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sfte001/collect -d "programid=sfte001"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sfte001/retrieve -d "programid=tso001"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sfte001/insert -d "programid=tso001&product=PROMPT&progname=TSO Testing&prognameth=TSO Testing&progtype=F&appstype=W&description=TSO Testing&parameters=&progsystem=F&iconfile=tso001.png&iconstyle=&shortname=TSO&shortnameth=TSO&progpath="
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sfte001/insert -d "programid=tso001&product=PROMPT&progname=TSO Testing&prognameth=TSO Testing&progtype=F&appstype=W&description=TSO Testing&progsystem=F&iconfile=tso001.png&shortname=TSO&shortnameth=TSO&"
+

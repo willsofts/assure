@@ -1,0 +1,22 @@
+<div class="row row-height">
+	<div class="col-md-12 col-height">
+			<div class="table-layer-class">
+				<div class="row row-height">
+					<div class="col-height col-md-3">
+<label for="usernames" id="usernames_label" class="control-label"><%=label.get('usernames_label','User')%></label><input type="text" id="usernames" name="username" class="form-control input-md" value="<%=data.dataset?.username%>" />
+					</div>
+					<div class="col-height col-md-3">
+<label for="usertnames" id="usertnames_label" class="control-label"><%=label.get('usertnames_label','First Name')%></label><input type="text" id="usertnames" name="usertname" class="form-control input-md" value="<%=data.dataset?.usertname%>" />
+					</div>
+					<div class="col-height col-md-3">
+<label for="usertsurnames" id="usertsurnames_label" class="control-label"><%=label.get('usertsurnames_label','Last Name')%></label><input type="text" id="usertsurnames" name="usertsurname" class="form-control input-md" value="<%=data.dataset?.usertsurname%>" />
+					</div>
+					<div class="col-height col-md">
+						<br/>
+						<button type="button" id="searchbutton" class="btn btn-dark btn-sm" style="margin-left: 5px; margin-top: 10px;"><i class="fa fa-search" aria-hidden="true" style="margin-right:10px;"></i><%=label.get('searchbutton','Search')%></button>
+						<button type="button" id="insertbutton" class="btn btn-dark btn-sm pull-right" style="margin-top: 10px; margin-right: 5px;"><i class="fa fa-plus" aria-hidden="true" style="margin-right:10px;"></i><%=label.get('insertbutton','Insert')%></button>
+					</div>
+				</div>
+			</div>
+	</div>
+</div>

@@ -1,0 +1,38 @@
+[
+	{
+		"language": "TH",
+		"label": [
+			{"name": "passwordforce_label", "value": "ระบบบังคับให้ท่านต้องทำการเปลี่ยนรหัสผ่านใหม่  โปรดระบุรหัสผ่านใหม่ของท่าน"},
+			{"name": "passwordexpire_label", "value": "รหัสผ่านของท่านหมดอายุการใช้งาน โปรดระบุรหัสผ่านใหม่ของท่าน"},
+			{"name": "userpassword_placeholder", "value": "รหัสผ่านใหม่"},
+			{"name": "confirmpassword_alert", "value": "ท่านต้องไม่ปล่อยให้เป็นค่าว่าง"},
+			{"name": "page_change_savebutton", "value": "บันทึก"},
+			{"name": "matchpassword_alert", "value": "รหัสผ่านใหม่กับยืนยันรหัสผ่านไม่ตรงกัน"},
+			{"name": "oldpassword_alert", "value": "ท่านต้องไม่ปล่อยให้เป็นค่าว่าง"},
+			{"name": "caption", "value": "เปลี่ยนรหัสผ่าน"},
+			{"name": "oldpassword_label", "value": "รหัสผ่านเก่า"},
+			{"name": "confirmpassword_placeholder", "value": "ยืนยันรหัสผ่าน"},
+			{"name": "userpassword_alert", "value": "ท่านต้องไม่ปล่อยให้เป็นค่าว่าง"},
+			{"name": "oldpassword_placeholder", "value": "รหัสผ่านเก่า"},
+			{"name": "confirmpassword_label", "value": "ยืนยันรหัสผ่าน"},
+			{"name": "userpassword_label", "value": "รหัสผ่านใหม่"}		]
+	},
+	{
+		"language": "EN",
+		"label": [
+			{"name": "passwordforce_label", "value": "The system force you to change password, please specify your new password."},
+			{"name": "passwordexpire_label", "value": "Your password was expired, please specify your new password."},
+			{"name": "userpassword_placeholder", "value": "New Password"},
+			{"name": "confirmpassword_alert", "value": "You can not leave this empty"},
+			{"name": "page_change_savebutton", "value": "Save"},
+			{"name": "matchpassword_alert", "value": "New Password does not match to Confirm Password"},
+			{"name": "oldpassword_alert", "value": "You can not leave this empty"},
+			{"name": "caption", "value": "Change Password"},
+			{"name": "oldpassword_label", "value": "Old Password"},
+			{"name": "confirmpassword_placeholder", "value": "Confirm Password"},
+			{"name": "userpassword_alert", "value": "You can not leave this empty"},
+			{"name": "oldpassword_placeholder", "value": "Old Password"},
+			{"name": "confirmpassword_label", "value": "Confirm Password"},
+			{"name": "userpassword_label", "value": "New Password"}		]
+	}
+]

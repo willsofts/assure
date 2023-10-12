@@ -1,0 +1,34 @@
+[
+	{
+		"language": "TH",
+		"label": [
+			{"name": "programid_label", "value": "โปรแกรม"},
+			{"name": "dateto_label", "value": "ถึงวันที่"},
+			{"name": "useralias_headerlabel", "value": "ชื่อผู้ใช้"},
+			{"name": "seqno_headerlabel", "value": "ลำดับที่"},
+			{"name": "curtime_headerlabel", "value": "วันเวลา"},
+			{"name": "remark_headerlabel", "value": "หมายเหตุ"},
+			{"name": "progname_headerlabel", "value": "ชื่อโปรแกรม"},
+			{"name": "action_headerlabel", "value": "การกระทำ"},
+			{"name": "userid_headerlabel", "value": "ผู้ใช้"},
+			{"name": "programid_headerlabel", "value": "โปรแกรม"},
+			{"name": "userid_label", "value": "ผู้ใช้"},
+			{"name": "datefrom_label", "value": "จากวันที่"}		]
+	},
+	{
+		"language": "EN",
+		"label": [
+			{"name": "programid_label", "value": "Program"},
+			{"name": "dateto_label", "value": "To Date"},
+			{"name": "seqno_headerlabel", "value": "No."},
+			{"name": "curtime_headerlabel", "value": "Date Time"},
+			{"name": "useralias_headerlabel", "value": "User Alias"},
+			{"name": "remark_headerlabel", "value": "Remark"},
+			{"name": "progname_headerlabel", "value": "Program Name"},
+			{"name": "action_headerlabel", "value": "Action"},
+			{"name": "userid_headerlabel", "value": "User"},
+			{"name": "programid_headerlabel", "value": "Program"},
+			{"name": "userid_label", "value": "User"},
+			{"name": "datefrom_label", "value": "From Date"}		]
+	}
+]

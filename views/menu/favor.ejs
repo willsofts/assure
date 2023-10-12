@@ -1,0 +1,12 @@
+<%  let rows = data.dataset?.rows;
+    let len = rows?rows.length:0;
+    for(let idx = 0; idx < 9; idx++) {
+        if(idx < len) {
+            let r = rows[idx];
+%>
+<a href="javascript:void(0)" class="tile fa-box-title fav-app" seqno="<%=idx+1%>" pid="<%=r['programid']%>" url="<%=r['url']%>" title="<%=r['programid']%>"><div class="icon"><img class="fa fa-app-image" src="/img/apps/<%=r['iconfile']%>" alt=""/></div><span class="title"><%=r['progname']%></span></a>
+<%      } else { %>
+    <a href="javascript:void(0)" class="tile fa-box-title fav-blank" title="New Favorite" seqno="<%=idx+1%>"><div class="icon"><img class="fa fa-app-image" src="/img/apps/fs_icon.png" alt=""/></div><span class="title">Add New</span></a>
+<%      } 
+    }
+%>

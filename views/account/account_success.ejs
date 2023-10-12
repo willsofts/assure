@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Account Activation</title>
+		<style>
+			body { 
+  				font-family: Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif, "Courier New";
+  				line-height: 1.42857143;
+  				color: #333;
+  				background-color: #FFDAB9;
+			}
+			a { color: #428bca; }						
+			a:hover { text-decoration: none; color: #ff9933; }
+			label {
+			  display: inline-block;
+			  max-width: 100%;
+			  margin-bottom: 5px;
+			  font-weight: bold;
+			}
+			.sub-entry-layer {
+				margin-left: 0px;
+				margin-right: 3px;
+			}
+			.portal-area {
+				background-color: ghostwhite;
+			}			
+		</style>
+	</head>
+	<body class="portalbody portalbody-off">
+		<div class="row portal-area sub-entry-layer" style="margin-top: 10px; padding-top: 10px; padding-left: 5px; padding-bottom:15px;">
+		<table style="width:100%;">
+			<tbody>
+				<tr class="rclass">
+					<td height="40">&nbsp;</td>
+				</tr>
+				<tr class="rclass">
+					<td align="center" height="30"><label class="lclass" id="success_label"><%=label.get('success_label','Your account was activated successfully')%></label></td>
+				</tr>
+				<tr>
+					<td align="center" height="30"><label class="lclass" id="verify_label"><%=label.get('verify_label','Please verify your email address for new changed')%></label></td>
+				</tr>
+				<tr class="rclass">
+					<td height="20">&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="center" height="30"><a href="/" id="loginlink">Log In</a></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</body>
+</html>

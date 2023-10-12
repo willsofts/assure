@@ -1,0 +1,30 @@
+			<div class="row row-height">
+				<div class="col-md-12 col-height">
+						<div class="table-layer-class">
+							<div class="row row-height">
+								<div class="col-height col-md-3">
+<label for="usernames" id="usernames_label" class="control-label"><%=label.get('usernames_label','Username')%></label>
+<input type="text" id="usernames" name="username" class="form-control input-md" value="<%=data.dataset?.username%>" />
+								</div>
+								<div class="col-height col-md-3">
+<label for="emails" id="emails_label" class="control-label"><%=label.get('emails_label','Email')%></label>
+<input type="text" id="emails" name="email" class="form-control input-md" value="<%=data.dataset?.email%>" />
+								</div>
+								<div class="col-height col-md-3">
+<label for="fromdates" id="fromdates_label" class="control-label"><%=label.get('fromdates_label','From Date')%></label>
+<%-page.html('date',{id: "fromdates", name: "fromdate", class: "form-control input-md", current: true, value: data.dataset?.fromdate})%>
+								</div>
+								<div class="col-height col-md-3">
+<label for="todates" id="todates_label" class="control-label"><%=label.get('todates_label','To Date')%></label>
+<%-page.html('date',{id: "todates", name: "todate", class: "form-control input-md", current: true, value: data.dataset?.todate})%>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 pull-right text-right" style="padding-left: 0px; padding-right: 10px;">
+					<button type="button" id="searchbutton" class="btn btn-dark btn-sm"><i class="fa fa-search" aria-hidden="true" style="margin-right:10px;"></i><%=label.get('searchbutton','Search')%></button>
+					<button type="button" id="resetbutton" class="btn btn-dark btn-sm" style="margin-top:5px; margin-right: 5px;"><i class="fa fa-refresh" aria-hidden="true" style="margin-right:10px; "></i><%=label.get('resetbotton','Reset')%></button>	
+				</div>
+			</div>

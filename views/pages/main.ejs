@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Assure</title>		
+		<%- include('../asset/meta') %>		
+		<%- include('../asset/stylesmain') %>		
+		<%- include('../asset/scriptsmain') %>		
+		<script type="text/javascript" src="/js/index.js" defer></script>
+		<script type="text/javascript">
+			var API_URL = "<%=meta.api_url%>";
+			var BASE_URL = "<%=meta.base_url%>";
+		</script>
+	</head>
+	<body class="portalbody portalbody-off">
+		<nav id="navigatebar" class="navbar navbar-expand navigatebar-top" style="min-height: 30px; display:none;">
+			<%- include('../partials/main_header') %>		
+		</nav>
+		<nav id="sidebarmenu" class="sidebar sidebar-menu main sidebar-hide fliph navbar-expand" style="display:none;">
+			<div id="sidebarheader" class="sidebar-header">
+				<div class="input-group-search has-search">
+					<span id="searchspan" class="fa fa-search form-control-search" aria-hidden="true"></span>
+					<input type="text" id="sidemenusearchtext" class="form-control form-control-input-search input-md" placeholder="Search" />
+				</div>
+			</div>
+			<div id="sidebarlayer" class="sidebar-layer sidebar left">				
+			</div>
+		</nav>
+		<%- include('../partials/page_login') %>		
+		<div id="fsworkinglayer" class="working-class working-control-class">
+			<div id="pagecontainer" class="pt-pager"></div> 
+			<iframe id="workingframe" name="workingframe" width="100%" style="border:none; margin:0px; display:none;" onload="try{stopWaiting();}catch(ex){}" title=""></iframe>
+		</div>
+		<%- include('../partials/page_waiting') %>		
+	</body>
+</html>

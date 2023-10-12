@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Error</title>
+		<style>
+			body {
+				font-family: Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif, "Courier New"; 
+  				line-height: 1.42857143;
+  				background-color: #FFDAB9;
+			}
+			.sub-entry-layer {
+				margin-left: 0px;
+				margin-right: 3px;
+			}
+			.portal-area {
+				background-color: ghostwhite;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="row portal-area sub-entry-layer" style="margin-top: 10px; padding-top: 10px; padding-left: 5px; padding-bottom:15px;">
+		<br></br><br></br>
+		<div style="text-align:center; color: red; font-size: 20px; ">
+				Sorry, Account activation on your request has fail
+		</div>
+		<br></br>
+		<div style="text-align:center;">
+			<a href="javascript:window.history.back();">Go Back</a>
+		</div>
+		<br></br>
+		<div id="errorlayer" style="text-align:center; font-size: 16px;">			
+			<%=error%>
+		</div>
+		<br/>
+		</div>
+	</body>
+</html>

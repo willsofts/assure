@@ -1,0 +1,160 @@
+
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-11">
+<label for="progname" id="progname_label" class="control-label"><%=label.get('progname_label','Program Name (English)')%></label>
+<div class="input-group"><input type="text" id="progname" name="progname" class="form-control input-md irequired alert-input" maxlength="50" value="<%=data.dataset?.progname%>" /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="progname_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('progname_alert','You can not leave this empty')%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-11">
+<label for="prognameth" id="prognameth_label" class="control-label"><%=label.get('prognameth_label','Program Name (Thai)')%></label>
+<div class="input-group"><input type="text" id="prognameth" name="prognameth" class="form-control input-md irequired alert-input" maxlength="50" value="<%=data.dataset?.prognameth%>" /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="prognameth_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('prognameth_alert','You can not leave this empty')%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+							<div class="col-height col-md-5">
+<label for="product" id="product_label" class="control-label"><%=label.get('product_label','Product')%></label>
+<div class="input-group">
+	<%-page.html('select',{map: data.entity?.tprod, value: data.dataset?.product, id: "product", name: "product", class: "form-control input-md"})%>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="product_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('product_alert','You can not leave this empty')%></div>
+							</div>
+						<div class="col-height col-md-5">
+<label for="progtype" id="progtype_label" class="control-label"><%=label.get('progtype_label','Program Type')%></label>
+<div class="input-group">
+	<%-page.html('select',{map: data.entity?.tkprogtype, value: data.dataset?.progtype, id: "progtype", name: "progtype", class: "form-control input-md"})%>
+<div class="input-group-required"><label class="required">&nbsp;</label></div></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-5">
+<label for="progsystem" id="progsystem_label" class="control-label"><%=label.get('progsystem_label','System')%></label>
+<div class="input-group">
+	<%-page.html('select',{map: data.entity?.tksystemtype, value: data.dataset?.progsystem, id: "progsystem", name: "progsystem", class: "form-control input-md"})%>
+<div class="input-group-required"><label class="required">&nbsp;</label></div></div>
+						</div>
+						<div class="col-height col-md-5">
+<label for="appstype" id="appstype_label" class="control-label"><%=label.get('appstype_label','Application Type')%></label>
+<div class="input-group">
+	<%-page.html('select',{map: data.entity?.tkappstype, value: data.dataset?.appstype, id: "appstype", name: "appstype", class: "form-control input-md"})%>
+<div class="input-group-required"><label class="required">&nbsp;</label></div></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-11">
+<label for="shortname" id="shortname_label" class="control-label"><%=label.get('shortname_label','Short Name (English)')%></label>
+<div class="input-group"><input type="text" id="shortname" name="shortname" class="form-control input-md irequired alert-input" maxlength="50" value="<%=data.dataset?.shortname%>" /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="shortname_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('shortname_alert','You can not leave this empty')%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-11">
+<label for="shortnameth" id="shortnameth_label" class="control-label"><%=label.get('shortnameth_label','Short Name (Thai)')%></label>
+<div class="input-group"><input type="text" id="shortnameth" name="shortnameth" class="form-control input-md irequired alert-input" maxlength="50" value="<%=data.dataset?.shortnameth%>" /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="shortnameth_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('shortnameth_alert','You can not leave this empty')%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-11">
+<label for="description" id="description_label" class="control-label"><%=label.get('description_label','Description')%></label>
+<div class="input-group"><input type="text" id="description" name="description" class="form-control input-md" maxlength="100" value="<%=data.dataset?.description%>" /><span></span><div class="input-group-required"><label class="required">&nbsp;</label></div></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-11">
+<label for="parameters" id="parameters_label" class="control-label"><%=label.get('parameters_label','Parameters')%></label>
+<div class="input-group"><input type="text" id="parameters" name="parameters" class="form-control input-md" maxlength="50" value="<%=data.dataset?.parameters%>" /><span></span><div class="input-group-required"><label class="required">&nbsp;</label></div></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-11">
+<label for="progpath" id="progpath_label" class="control-label"><%=label.get('progpath_label','Program Path')%></label>
+<div class="input-group"><input type="text" id="progpath" name="progpath" class="form-control input-md" maxlength="100" value="<%=data.dataset?.progpath%>" /><span></span><div class="input-group-required"><label class="required">&nbsp;</label></div></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-md-7 col-height">
+							<label id="iconstyle_label" class="control-label" required="false"><%=label.get('iconstyle_label','Icon Style')%></label>
+							<div id="iconstyleswitcher"></div>							
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-md-5 col-height" id="iconfilelayer">
+							<label id="iconfile_label" class="control-label"><%=label.get('iconfile_label','Icon File')%></label>
+							<input type="hidden" class="form-control input-md" id="iconfile" name="iconfile" value="<%=data.dataset?.iconfile%>"/>
+						</div>
+					</div>
+					<div class="row row-height">
+						<div class="col-md-1"></div>
+						<div class="col-md-9 col-height">
+							<img id="iconfileimage" width="128px" height="128px" src="<%=data.dataset?.iconimage%>" alt="Program Image"/>
+						</div>
+					</div>					
+				</div>
+		</div>
+	</div>
+
+	<input type="hidden" id="iconstyle" name="iconstyle" value="<%=data.dataset?.iconstyle%>" />
+	

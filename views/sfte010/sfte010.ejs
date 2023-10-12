@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Password Policy Setting</title>
+		<%- include('../asset/meta') %>		
+		<%- include('../asset/styles') %>		
+		<%- include('../asset/scripts') %>	
+		<link rel="stylesheet" type="text/css" href="<%=meta.base_url%>/sfte010/sfte010.css" />
+		<script type="text/javascript" src="<%=meta.base_url%>/sfte010/sfte010.js"></script>
+		<script type="text/javascript" src="<%=meta.base_url%>/sfte010/sfte010_policy.js"></script>
+		<script type="text/javascript" src="<%=meta.base_url%>/sfte010/sfte010_number.js"></script>
+	</head>
+	<body class="portalbody portalbody-off">
+		<%- include('../partials/page_waiting') %>
+		<div id="ptmainpagerpolicy" class="pt-page pt-page-current pt-page-controller sfte010-entry-pager">
+			<%- page.createHeader({pid: 'sfte010', title: label.get('caption','Password Policy Setting')}) %>
+			<div id="fscontroltablayerpolicy" class="row">
+				<ul class="nav nav-tabs navbar-left" style="width:100%;">
+					  <li class="nav-item active">
+						<a class="nav-link active" href="#entrypanelpolicy" data-toggle="tab" onclick="policySettingClick()"><%=label.get('policy_setting','Policy Setting')%></a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#searchpanel" data-toggle="tab" onclick="reserveWordClick()"><%=label.get('reserve_setting','Reserve Word')%></a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#searchpanelnum" data-toggle="tab" onclick="reserveNumberClick()"><%=label.get('reservenumber_setting','Reserve Alphabet/Number')%></a>
+					  </li>
+				</ul>
+			</div>
+			<div id="entrypanelpolicy">
+				<div id="entrylayerpolicy" class="entry-layer">
+					<form id="fsentryformpolicy" name="fsentryformpolicy" method="post">	
+						<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
+						<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
+						<input type="hidden" name="page" value="<%=page.setting?.page%>"/>
+						<%- include('./sfte010_key_policy') %>
+						<%- include('./sfte010_kit_policy') %>
+						<div class="row">
+							<div id="fs_controlbuttonfooterlayerpolicy" class="col-md-12 pull-right text-right" style="margin-right: 10px; margin-bottom:5px;">
+								<% if(!page.isUpdateMode()) {%>
+									<input type="button" id="savebuttonpolicy" class="btn btn-dark btn-sm" value="<%=label.get('savebutton','Save')%>"/>
+								<%}%>
+								<% if(page.isUpdateMode()) {%>
+									<input type="button" id="updatebuttonpolicy" class="btn btn-dark btn-sm" value="<%=label.get('updatebutton','Update')%>"/>
+								<%}%>
+							</div>
+						</div>		
+					</form>
+				</div>
+			</div>
+			<%- include('./sfte010_reserve_word') %>
+			<%- include('./sfte010_reserve_num') %>
+		</div>
+		<div id="dialogpanel"></div>
+	</body>
+</html>

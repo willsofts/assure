@@ -1,0 +1,24 @@
+[
+	{
+		"language": "TH",
+		"label": [
+			{"name": "remarks_headerlabel", "value": "หมายเหตุ"},
+			{"name": "reservenumold_label", "value": "อักษร\/ตัวเลขสงวน"},
+			{"name": "reservenum_label", "value": "อักษร\/ตัวเลขสงวน"},
+			{"name": "reservenums_label", "value": "อักษร\/ตัวเลขสงวน"},
+			{"name": "caption", "value": "นโยบายการตั้งรหัสผ่าน"},
+			{"name": "remarks_label", "value": "หมายเหตุ"},
+			{"name": "reservenum_headerlabel", "value": "อักษร\/ตัวเลขสงวน"}		]
+	},
+	{
+		"language": "EN",
+		"label": [
+			{"name": "remarks_headerlabel", "value": "Remark"},
+			{"name": "reservenumold_label", "value": "Reserve Alphabet\/Number"},
+			{"name": "reservenum_label", "value": "Reserve Alphabet\/Number"},
+			{"name": "reservenums_label", "value": "Reserve Alphabet\/Number"},
+			{"name": "caption", "value": "Password Policy"},
+			{"name": "remarks_label", "value": "Remark"},
+			{"name": "reservenum_headerlabel", "value": "Reserve Alphabet\/Number"}		]
+	}
+]

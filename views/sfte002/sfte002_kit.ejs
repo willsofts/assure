@@ -1,0 +1,128 @@
+	<div id="entrylayer" class="entry-layer">
+		<form id="fsentryform" name="fsentryform" method="post">	
+			<input type="hidden" name="ajax" value="true"/>
+			<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
+			<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
+			<input type="hidden" name="page" value="<%=page.setting?.page%>"/>
+			<input type="hidden" name="orderBy" value=""/>
+			<input type="hidden" name="orderDir" value=""/>
+			<div class="portal-area sub-entry-layer">
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label">
+							<label id="groupname_label" class="control-label" required="true"><%=label.get('groupname_label','Group Name')%></label>
+						</div>
+						<div class="col-md-3 col-height">
+							<input type="text" class="form-control input-md ikeyclass alert-input groupname" id="groupname" name="groupname" placeholder="" autocomplete="off" size="20" picture="(20)X" />
+							<div id="groupname_alert" role="alert" class="has-feedback has-error groupname-alert" style="display:none;"><%=label.get('groupname_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label">
+							<label id="nameen_label" class="control-label" required="true"><%=label.get('nameen_label','Name(English)')%></label>
+						</div>
+						<div class="col-md-6 col-height">
+							<input class="form-control input-md alert-input nameen" id="nameen" name="nameen" placeholder="" autocomplete="off" size="50"/>
+							<div id="nameen_alert" role="alert" class="has-feedback has-error nameen-alert" style="display:none;"><%=label.get('nameen_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label">
+							<label id="nameth_label" class="control-label" required="true"><%=label.get('nameth_label','Name(Thai)')%></label>
+						</div>
+						<div class="col-md-6 col-height">
+							<input class="form-control input-md alert-input nameth" id="nameth" name="nameth" placeholder="" autocomplete="off" size="50"/>
+							<div id="nameth_alert" role="alert" class="has-feedback has-error nameth-alert" style="display:none;"><%=label.get('nameth_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label">
+							<label id="usertype_label" class="control-label" required="true"><%=label.get('usertype_label','User Type')%></label>
+						</div>
+						<div class="col-md-3 col-height">
+							<fieldset id="usertypefieldset" disabled><legend style="display:none;"></legend>
+								<%-page.html('select',{map: data.entity?.tkusertype, value: data.dataset?.usertype, id: "usertype", name: "usertype", class: "form-control input-md ikeyclass alert-input"})%>
+							</fieldset>
+							<div id="usertype_alert" role="alert" class="has-feedback has-error usertype-alert" style="display:none;"><%=label.get('usertype_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label">
+							<label id="mobilegroup_label" class="control-label" required="true"><%=label.get('mobilegroup_label','Mobile Group')%></label>
+						</div>
+						<div class="col-md-3 col-height">
+							<%-page.html('select',{map: data.entity?.tkgroupmobile, value: data.dataset?.mobilegroup, id: "mobilegroup", name: "mobilegroup", class: "form-control input-md alert-input"})%>
+							<div id="mobilegroup_alert" role="alert" class="has-feedback has-error usertype-alert" style="display:none;"><%=label.get('mobilegroup_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+						<div class="col-md-3 col-height col-label">
+						</div>
+						<div class="col-md-8 col-height radio my-radio currenting-field form-check">
+								<table><tr><td>
+										<input type="checkbox" class="form-control ikeyclass input-md" id="privateflag" name="privateflag" value="1" />
+								</td><td valign="middle">
+										<label class="lclass control-label" id="privateflag_label" for="privateflag"><%=label.get('privateflag_label','Reserved for Private Group')%></label>
+								</td></tr></table>
+						</div>
+				</div>		
+				<div class="row row-heighter center-block">
+						<div class="col-md-3 col-height col-label">
+							<label id="iconstyle_label" class="control-label" required="false"><%=label.get('iconstyle_label','Icon Style')%></label>
+						</div>
+						<div class="col-md-5 col-height">
+							<div id="iconstylelayer"></div>
+							<input type="hidden" id="iconstyle" name="iconstyle"/>
+						</div>
+				</div>
+				<div class="row row-heighter center-block">
+						<div class="col-md-3 col-height col-label">
+							<label id="sequenceno_label" class="control-label" required="false"><%=label.get('sequenceno_label','Sequence')%></label>
+						</div>
+						<div class="col-md-2 col-height">
+							<%-page.html('int',{value: data.dataset?.seqno, id: "sequenceno", name: "seqno", class: "form-control input-md alert-input sequenceno"})%>
+							<div id="sequenceno_alert" role="alert" class="has-feedback has-error sequenceno-alert" style="display:none;"><%=label.get('sequenceno_alert','You can not leave this empty')%></div>
+						</div>
+				</div>
+				<div class="row row-height">
+					<div class="col-md-12 pull-right text-right" style="margin-right: 10px;">
+						<input type="button" id="savebutton" class="btn btn-dark btn-sm" value="<%=label.get('savebutton','Save')%>"/>
+						&nbsp;&nbsp;
+						<input type="button" id="cancelbutton" class="btn btn-dark btn-sm" value="<%=label.get('cancelbutton','Cancel')%>"/>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="margin-left:0px; margin-right: 3px;">
+			<div id="proglayerheader" class="pt-page-header pt-page-corser"><label id="progtrans_label"><%=label.get('progtrans_label','Program In Group')%></label><a href="javascript:void(0)" class="pull-right up" onclick="exploreLayer(this,'proglayer')"><em class="fa fa-chevron-circle-up" style="margin-right: 5px;"></em></a></div>
+				<div id="proglayer" class="portal-area portal-area-layer">
+					<div class="row" style="padding-top:3px; padding-bottom:3px;">
+						<div class="col-md-3 col-height col-label text-right">
+							<label id="prog_progingroup_label" class="control-label"><%=label.get('prog_progingroup_label','Program ID')%></label>
+						</div>
+						<div class="col-md-3 col-height">
+							<%-page.html('select',{map: data.entity?.tprog, value: data.dataset?.programid, id: "progingroup", class: "form-control input-md", showing: "both"})%>
+						</div>
+						<div class="col-md-1 col-height">
+							<input type="button" id="addprogbutton" class="btn btn-dark btn-sm" value="+" style="width:30px;" title="Add Program"/>
+						</div>
+					</div>
+					<table id="progtable" class="table table-bordered table-hover table-striped tablesorter">
+						<thead id="progtableheader">
+							<tr>
+								<th width="10%"  class="text-center" style="cursor: default;"><label id="prog_seqno_headerlabel" ><%=label.get('prog_seqno_headerlabel','No.')%></label></th>
+								<th width="30%" class="text-center"><label id="prog_progid_headerlabel"><%=label.get('prog_progid_headerlabel','Program ID')%></label></th>
+								<th width="50%" class="text-center"><label id="prog_progname_headerlabel"><%=label.get('prog_progname_headerlabel','Program Name')%></label></th>
+								<th width="10%" class="text-center"><em class="fa fa-bolt" aria-hidden="true"></em></th>
+							</tr>
+						</thead>
+						<tbody id="aprogtablebody">
+						</tbody>
+					</table>
+					<div id="progtablelayer" style="margin-bottom: 50px;">
+						<ul id="progtablebody" class="ul-table-listing"> </ul>
+					</div>					
+				</div>
+			</div>
+			
+		</form>
+	</div>

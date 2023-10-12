@@ -1,0 +1,19 @@
+a.btn-edit-record { margin-right: 5px; vertical-align: top; }
+a.btn-edit-record i { padding-top: 5px; }
+#progtablebody { list-style-type: none; margin: 0; padding: 0; }
+#progtablebody li { margin-bottom: 2px; padding: 1px; float: left; min-width: 400px; min-height: 30px; text-align: center; vertical-align: center; cursor: pointer; padding-top: 5px; }
+li.prog-item-class { width: 99.8%; min-height: 55px; }
+table.prog-table-class td { font-size: 20px; padding-top: 10px; padding-bottom: 10px; }
+table.pro-table-class img { border: none; }
+table.prog-item-table-class { width: 100%; }
+
+td.progno-column { width: 10%; border-right: 1px solid gray;}
+td.progid-column { width: 30%; border-right: 1px solid gray;}
+td.progname-column { width: 50%; text-align: left; border-right: 1px solid gray;}
+td.progctrl-column { width: 10%; }
+
+#progtable { margin-bottom: 2px; }
+td.siteno-column { width: 50px; }
+td.sitename-column { width: 200px; }
+td.sitectrl-column { width: 50px; }
+#proglayer { width: 100%; }

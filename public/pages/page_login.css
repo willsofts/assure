@@ -1,0 +1,39 @@
+#page_login_toplayer {
+	width: 100%;
+	height: 200px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	/*background-color: #034686;*/
+}
+
+#page_login_toplogo {
+	width: 230px;
+	height: 100px;
+	opacity: 1;
+}
+
+#page_login_entry {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+#loginformlayer {
+	width: 300px;
+}
+
+#login_button_layer {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+#login_button {
+	width: 120px;
+}
+.link-button {
+	min-width: 220px;
+	text-align: center;
+	margin-bottom: 10px;
+}

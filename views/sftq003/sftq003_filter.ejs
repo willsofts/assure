@@ -1,0 +1,38 @@
+			<div class="row row-height">
+				<div class="col-md-12 col-height">
+						<div class="table-layer-class">
+							<div class="row row-height">
+								<div class="col-height col-md-2">
+<label for="trxstatuss" id="trxstatuss_label" class="control-label"><%=label.get('trxstatuss_label','Status')%></label>
+<%-page.html('select',{map: data.entity?.tkrxstatus, value: data.dataset?.status, id: "trxstatuss", name: "trxstatus", class: "form-control input-md", empty: true })%>
+								</div>
+								<div class="col-height col-md-2">
+<label for="datefroms" id="datefroms_label" class="control-label"><%=label.get('datefroms_label','From Date')%></label>
+<div class="input-group">
+	<%-page.html('date',{id: "datefroms", name: "datefrom", class: "form-control input-md irequired alert-input", value: data.dataset?.datefrom, current: true})%>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="fromdates_alert" role="alert" class="has-feedback has-error" style="display:none;">${fsLabel.getText('fromdates_alert','You can not leave this empty')}</div>
+								</div>
+								<div class="col-height col-md-2">
+<label for="datetos" id="datetos_label" class="control-label"><%=label.get('datetos_label','To Date')%></label>
+<div class="input-group">
+	<%-page.html('date',{id: "datetos", name: "dateto", class: "form-control input-md irequired alert-input", value: data.dataset?.dateto, current: true})%>	
+<div class="input-group-required"><label class="required">*</label></div></div><div id="todates_alert" role="alert" class="has-feedback has-error" style="display:none;">${fsLabel.getText('todates_alert','You can not leave this empty')}</div>
+								</div>
+								<div class="col-height col-md-3">
+<label for="emails" id="emails_label" class="control-label"><%=label.get('emails_label','Email')%></label><input type="text" id="owners" name="owner" class="form-control input-md" value="<%=data.dataset?.owner%>" />
+								</div>
+								<div class="col-height col-md-3">
+<label for="quotables" id="quotables_label" class="control-label"><%=label.get('quotables_label','Subject')%></label>
+<input type="text" id="quotables" name="quotable" class="form-control input-md" value="<%=data.dataset?.quotable%>" />
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12" style="padding-left: 0px; padding-right: 10px;">
+					<div class="pull-right">
+						<button type="button" id="searchbutton" class="btn btn-dark btn-sm" style="margin-right:10px;"><i class="fa fa-search" aria-hidden="true" style="margin-right:10px;"></i><%=label.get('searchbutton','Search')%></button>
+					</div>
+				</div>
+			</div>

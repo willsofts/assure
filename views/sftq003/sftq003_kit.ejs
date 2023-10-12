@@ -1,0 +1,61 @@
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-3">
+<label for="transtime" id="transtime_label" class="control-label"><%=label.get('transtime_label','Date/Time')%></label><input type="text" id="transtime" name="transtime" class="form-control input-md" value="<%=data.dataset?.transtime%>" disabled />
+						</div>
+						<div class="col-height col-md-7">
+<label for="quotable" id="quotable_label" class="control-label"><%=label.get('quotable_label','Subject')%></label><input type="text" id="quotable" name="quotable" class="form-control input-md" value="<%=data.dataset?.quotable%>" disabled />
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-5">
+<label for="email" id="email_label" class="control-label"><%=label.get('email_label','Email')%></label><input type="text" id="email" name="email" class="form-control input-md" value="<%=data.dataset?.owner%>" disabled />
+						</div>
+						<div class="col-height col-md-5">
+<label for="sender" id="sender_label" class="control-label"><%=label.get('sender_label','Sender')%></label><label for="sender" id="sender_label" class="control-label">Sender</label><input type="text" id="sender" name="sender" class="form-control input-md" value="<%=data.dataset?.sender%>" disabled />
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-3">
+<label for="statusname" id="statusname_label" class="control-label"><%=label.get('statusname_label','Status')%></label><label for="statusname" id="statusname_label" class="control-label">Status</label><input type="text" id="statusname" name="statusname" class="form-control input-md" value="<%=data.dataset?.statusname%>" disabled />
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-12">
+<label for="remark" id="remark_label" class="control-label"><%=label.get('remark_label','Remark')%></label><textarea id="remark" name="remark" class="form-control input-md" cols="100" rows="10" readonly><%=data.dataset?.remark%></textarea>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-12">
+<label for="contents" id="contents_label" class="control-label"><%=label.get('contents_label','Contents')%></label><div id="contents" class="form-control input-md" style="overflow: auto; min-height: 250px;"><%-data.dataset?.contents%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>

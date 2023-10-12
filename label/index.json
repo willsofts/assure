@@ -1,0 +1,50 @@
+[
+	{
+		"language": "TH",
+		"label": [
+			{"name": "login_pass_placeholder", "value": "รหัสผ่าน"},
+			{"name": "change_password_title", "value": "เปลี่ยนรหัสผ่าน"},
+			{"name": "savechangebutton", "value": "ยอมรับ"},
+			{"name": "profile_label", "value": "ข้อมูลส่วนตัว"},
+			{"name": "changepassword_info", "value": "ระบบบังคับเปลี่ยนรหัสผ่าน  กรุณาระบุรหัสผ่านของท่านใหม่แล้วกด ยอมรับ"},
+			{"name": "login_button", "value": "เข้าระบบ"},
+			{"name": "signin_label", "value": "เข้าสู่ระบบ"},
+			{"name": "loginmenutrigger", "value": "เข้าใช้งาน"},
+			{"name": "login_user_placeholder", "value": "ผู้ใช้"},
+			{"name": "thailanguage", "value": "ไทย"},
+			{"name": "lastaccess_label", "value": "เข้าใช้งานล่าสุด"},
+			{"name": "login_password_label", "value": "รหัสผ่าน"},
+			{"name": "newpassword_label", "value": "รหัสผ่านใหม่"},
+			{"name": "changepwd_label", "value": "เปลี่ยนรหัสผ่าน"},
+			{"name": "logout_label", "value": "ออกจากระบบ"},
+			{"name": "login_user_label", "value": "บัญชีผู้ใช้"},
+			{"name": "englishlanguage", "value": "อังกฤษ"},
+			{"name": "userpassword_alert", "value": "กรุณากรอกรหัสผ่าน"},
+			{"name": "login_label", "value": "เข้าสู่ระบบ"},
+			{"name": "forgot_password", "value": "ลืมรหัสผ่าน?"}		]
+	},
+	{
+		"language": "EN",
+		"label": [
+			{"name": "login_pass_placeholder", "value": "Password"},
+			{"name": "change_password_title", "value": "Change Password"},
+			{"name": "savechangebutton", "value": "Submit"},
+			{"name": "profile_label", "value": "Profile"},
+			{"name": "changepassword_info", "value": "The system force you to change password, please specified your new password and then submit."},
+			{"name": "login_button", "value": "Log In"},
+			{"name": "signin_label", "value": "Sign In"},
+			{"name": "loginmenutrigger", "value": "Sign In"},
+			{"name": "login_user_placeholder", "value": "User"},
+			{"name": "thailanguage", "value": "Thai"},
+			{"name": "lastaccess_label", "value": "Last Access"},
+			{"name": "login_password_label", "value": "Password"},
+			{"name": "newpassword_label", "value": "New Password"},
+			{"name": "changepwd_label", "value": "Change Password"},
+			{"name": "logout_label", "value": "Log Out"},
+			{"name": "login_user_label", "value": "User name"},
+			{"name": "englishlanguage", "value": "English"},
+			{"name": "userpassword_alert", "value": "You can not leave this empty"},
+			{"name": "login_label", "value": "Log In"},
+			{"name": "forgot_password", "value": "Forgot Password?"}		]
+	}
+]
