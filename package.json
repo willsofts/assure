@@ -1,5 +1,5 @@
 {
-  "name": "mext",
+  "name": "assure",
   "version": "1.0.0",
   "description": "This is project introduce to node application with http server and express framework under moleculer engine",
   "main": "index.js",
