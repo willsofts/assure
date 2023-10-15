@@ -1,0 +1,530 @@
+{
+  "name": "mext",
+  "version": "1.0.0",
+  "description": "services in mext",
+  "services": [
+    {
+      "id": 1,
+      "name": "fetch",
+      "handler": "fetch.service",
+      "group": "core",
+      "description": "service for fetch date/time/timestamp",
+      "tables": null
+    },
+    {
+      "id": 2,
+      "name": "health",
+      "handler": "health.service",
+      "group": "core",
+      "description": "service for health check",
+      "tables": null
+    },
+    {
+      "id": 3,
+      "name": "2fa",
+      "handler": "2fa.service",
+      "group": "core",
+      "description": "service for user factor authentication",
+      "tables": [
+        { "name": "tconfig" },
+        { "name": "tusertoken" },
+        { "name": "tuserfactorhistory" },
+        { "name": "tuserfactorhistory" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "activate",
+      "handler": "activate.service",
+      "group": "core",
+      "description": "service for user activate/approve account",
+      "tables": [
+        { "name": "tactivate" },
+        { "name": "tactivatehistory" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "attach",
+      "handler": "attach.service",
+      "group": "core",
+      "description": "service for attach file",
+      "tables": [
+        { "name": "tattach" }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "authen",
+      "handler": "authenticate.service",
+      "group": "core",
+      "description": "service for user authenticate",
+      "tables": [
+        { "name": "tusertoken" }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "authorize",
+      "handler": "authorize.service",
+      "group": "core",
+      "description": "service for user authorization",
+      "tables": [
+        { "name": "tusertoken" }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "captcha",
+      "handler": "captcha.service",
+      "group": "core",
+      "description": "service for create/verify captcha",
+      "tables": [
+        { "name": "tcaptcha" }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "password",
+      "handler": "changepassword.service",
+      "group": "core",
+      "description": "service for user change password",
+      "tables": [
+        { "name": "tuser" },
+        { "name": "tuserinfo" },
+        { "name": "tppwd" },
+        { "name": "tupwd" },
+        { "name": "trpwd" },
+        { "name": "tcpwd" },
+        { "name": "tuserpwd" },
+        { "name": "tuserpwdhistory" }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "datatable",
+      "handler": "datatable.service",
+      "group": "core",
+      "description": "service for scrape data from table by configuration",
+      "tables": [
+        { "name": "tconfig" }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "crypto",
+      "handler": "diffie.service",
+      "group": "core",
+      "description": "service for diffie-hellman encryption",
+      "tables": [
+        { "name": "tusertoken" }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "forgot",
+      "handler": "forgotpassword.service",
+      "group": "core",
+      "description": "service for user forgot password",
+      "tables": [
+        { "name": "tuser" },
+        { "name": "tuserinfo" },
+        { "name": "tuserpwd" },
+        { "name": "tuserpwdhistory" },
+        { "name": "tppwd" },
+        { "name": "tconfig" }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "label",
+      "handler": "label.service",
+      "group": "core",
+      "description": "service for labeling",
+      "tables": null
+    },
+    {
+      "id": 14,
+      "name": "logging",
+      "handler": "logging.service",
+      "group": "core",
+      "description": "service for user logging",
+      "tables": [
+        { "name": "tul" }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "login",
+      "handler": "login.service",
+      "group": "core",
+      "description": "service for login call back",
+      "tables": [
+        { "name": "tuserinfo" },
+        { "name": "tusertoken" }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "mail",
+      "handler": "mail.service",
+      "group": "core",
+      "description": "service for mailing",
+      "tables": [
+        { "name": "trxlog" }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "passwordpolicy",
+      "handler": "passwordpolicy.service",
+      "group": "core",
+      "description": "service for get password policy",
+      "tables": [
+        { "name": "tppwd" }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "program",
+      "handler": "program.service",
+      "group": "core",
+      "description": "service for get program info",
+      "tables": [
+        { "name": "tprog" }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "trailing",
+      "handler": "trailing.service",
+      "group": "core",
+      "description": "service for tracking",
+      "tables": [
+        { "name": "trxlog" }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "sign",
+      "handler": "signin.service",
+      "group": "core",
+      "description": "service for user signin",
+      "tables": [
+        { "name": "tuser" },
+        { "name": "tuserinfo" },
+        { "name": "tusertoken" },
+        { "name": "tuserfactor" },
+        { "name": "tuserpwd" },
+        { "name": "tuserpwdhistory" },
+        { "name": "tconfig" }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "apps",
+      "handler": "apps.service",
+      "group": "worker",
+      "description": "service for get program info",
+      "tables": [
+        { "name": "tprog" }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "category",
+      "handler": "category.service",
+      "group": "worker",
+      "description": "service for get data category from predefined settings",
+      "tables": null
+    },
+    {
+      "id": 23,
+      "name": "factor",
+      "handler": "factor.service",
+      "group": "worker",
+      "description": "service for two factor verify",
+      "tables": [
+        { "name": "tuserfactor" },
+        { "name": "tusertoken" }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "menubox",
+      "handler": "menu.box.service",
+      "group": "worker",
+      "description": "service for user menu box at first page or working space",
+      "tables": [
+        { "name": "tprog" },
+        { "name": "tprod" },
+        { "name": "tfavor" }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "menufavor",
+      "handler": "menu.favor.service",
+      "group": "worker",
+      "description": "service for user menu favorite",
+      "tables": [
+        { "name": "tprog" },
+        { "name": "tprod" },
+        { "name": "tfavor" }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "menu",
+      "handler": "menu.service",
+      "group": "worker",
+      "description": "service for user menu favorite",
+      "tables": [
+        { "name": "tprog" },
+        { "name": "tfavor" }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "menuside",
+      "handler": "menu.side.service",
+      "group": "worker",
+      "description": "service for user side bar menu",
+      "tables": [
+        { "name": "tprog" },
+        { "name": "tprod" },
+        { "name": "tgroup" },
+        { "name": "tproggrp" },
+        { "name": "tusergrp" },
+        { "name": "tfavor" }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "passwordstrategy",
+      "handler": "passwordstrategy.service",
+      "group": "worker",
+      "description": "service for password strategy setting",
+      "tables": [
+        { "name": "tppwd" }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "profile",
+      "handler": "profile.service",
+      "group": "worker",
+      "description": "service for user profile",
+      "tables": [
+        { "name": "tuserinfo" },
+        { "name": "tklanguage" }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "style",
+      "handler": "style.service",
+      "group": "worker",
+      "description": "service for program or group style",
+      "tables": [
+        { "name": "tstyle" }
+      ]
+    },
+    {
+      "id": 31,
+      "name": "sfte001",
+      "handler": "sfte001.service",
+      "group": "operator",
+      "description": "service for screen program info",
+      "tables": [
+        { "name": "tprog" },
+        { "name": "tprod" },
+        { "name": "tkprogtype" },
+        { "name": "tkappstype" },
+        { "name": "tksystemtype" }
+      ]
+    },
+    {
+      "id": 32,
+      "name": "sfte002",
+      "handler": "sfte002.service",
+      "group": "operator",
+      "description": "service for screen program group info",
+      "tables": [
+        { "name": "tgroup" },
+        { "name": "tpperm" },
+        { "name": "tproggrp" },
+        { "name": "tfavor" },
+        { "name": "tkgroupmobile" },
+        { "name": "tkusertype" },
+        { "name": "tkpermit" }
+      ]
+    },
+    {
+      "id": 33,
+      "name": "sfte003",
+      "handler": "sfte003.service",
+      "group": "operator",
+      "description": "service for screen product info",
+      "tables": [
+        { "name": "tprod" }
+      ]
+    },
+    {
+      "id": 34,
+      "name": "sfte005",
+      "handler": "sfte005.service",
+      "group": "operator",
+      "description": "service for screen user info (admin)",
+      "tables": [
+        { "name": "tuser" },
+        { "name": "tuserinfo" },
+        { "name": "tuserinfohistory" },
+        { "name": "tusergrp" },
+        { "name": "tfavor" },
+        { "name": "tconfig" }, 
+        { "name": "tppwd" },
+        { "name": "tkactive" }
+      ]
+    },
+    {
+      "id": 35,
+      "name": "sfte007",
+      "handler": "sfte007.service",
+      "group": "operator",
+      "description": "service for screen user privilege",
+      "tables": [
+        { "name": "tuser" },
+        { "name": "tuserinfo" },
+        { "name": "tuserinfohistory" },
+        { "name": "tcomp" },
+        { "name": "tcompbranch" },
+        { "name": "trole" },
+        { "name": "tgroup" }, 
+        { "name": "tuserbranch" },
+        { "name": "tuserrole" },
+        { "name": "tusergrp" },
+        { "name": "tuserfactor" },
+        { "name": "tuserfactorhistory" },
+        { "name": "tconfig" }, 
+        { "name": "tkuserstatus" }
+      ]
+    },
+    {
+      "id": 36,
+      "name": "sfte010",
+      "handler": "sfte010.service",
+      "group": "operator",
+      "description": "service for screen password policy settings",
+      "tables": [
+        { "name": "trpwd" },
+        { "name": "tppwd" },
+        { "name": "tnpwd" }
+      ]
+    },
+    {
+      "id": 37,
+      "name": "sfte011",
+      "handler": "sfte011.service",
+      "group": "operator",
+      "description": "service for screen password reserved number",
+      "tables": [
+        { "name": "tnpwd" }
+      ]
+    },
+    {
+      "id": 38,
+      "name": "sfte012",
+      "handler": "sfte012.service",
+      "group": "operator",
+      "description": "service for screen configuration setting",
+      "tables": [
+        { "name": "tconfig" }
+      ]
+    },
+    {
+      "id": 39,
+      "name": "sfte013",
+      "handler": "sfte013.service",
+      "group": "operator",
+      "description": "service for screen message template setting",
+      "tables": [
+        { "name": "ttemplate" },
+        { "name": "ttemplatetag" }
+      ]
+    },
+    {
+      "id": 40,
+      "name": "sfte016",
+      "handler": "sfte016.service",
+      "group": "operator",
+      "description": "service for screen user info (activate)",
+      "tables": [
+        { "name": "tuser" },
+        { "name": "tuserinfo" },
+        { "name": "tuserinfohistory" },
+        { "name": "tusergrp" },
+        { "name": "tfavor" },
+        { "name": "tconfig" }, 
+        { "name": "tppwd" },
+        { "name": "tkactive" }
+      ]
+    },
+    {
+      "id": 41,
+      "name": "sfte017",
+      "handler": "sfte017.service",
+      "group": "operator",
+      "description": "service for screen user factor",
+      "tables": [
+        { "name": "tuserfactor" },
+        { "name": "tuserinfo" }
+      ]
+    },
+    {
+      "id": 42,
+      "name": "sfte017history",
+      "handler": "sfte017.history.service",
+      "group": "operator",
+      "description": "service for screen user factor history",
+      "tables": [
+        { "name": "tuserfactorhistory" },
+        { "name": "tuserinfo" }
+      ]
+    },
+    {
+      "id": 43,
+      "name": "sfte018",
+      "handler": "sfte018.service",
+      "group": "operator",
+      "description": "service for screen tenant setting",
+      "tables": [
+        { "name": "ttenant" },
+        { "name": "tkactive" }
+      ]
+    },
+    {
+      "id": 44,
+      "name": "sftq001",
+      "handler": "sftq001.service",
+      "group": "operator",
+      "description": "service for screen user tracking",
+      "tables": [
+        { "name": "tul" },
+        { "name": "tuser" },
+        { "name": "tprog" }
+      ]
+    },
+    {
+      "id": 45,
+      "name": "sftq003",
+      "handler": "sftq003.service",
+      "group": "operator",
+      "description": "service for screen mail tracking",
+      "tables": [
+        { "name": "trxlog" },
+        { "name": "tkrxstatus" }
+      ]
+    }
+  ]
+}
