@@ -38,4 +38,16 @@ runner.start(process.argv).then(() => {
         console.log("working directory",__dirname);
         new TknRouteManager(runner.service, __dirname).route(app);
     }
+    if(runner.broker) {
+        runner.broker.call("$node.services").then((services: any) => {
+            let servicenames = [];
+            for(let s of services) {
+                if(s.name!="$node" && s.name!="api") {
+                    servicenames.push(s.name);
+                }
+            }
+            console.log("service names",servicenames);
+            console.log("number of services",servicenames.length);
+        });
+    }
 });

@@ -31,6 +31,18 @@ const GatewayService : ServiceSchema = {
             return TknAssureHandler.doAuthorizeFilter(ctx, req);
         }
     },
+    started() {
+        this.broker.call("$node.services").then((services: any) => {
+            let servicenames = [];
+            for(let s of services) {
+                if(s.name!="$node" && s.name!="api") {
+                    servicenames.push(s.name);
+                }
+            }
+            console.log("service names",servicenames);
+            console.log("number of services",servicenames.length);
+        });
+    }    
 };
 
 export = GatewayService;
