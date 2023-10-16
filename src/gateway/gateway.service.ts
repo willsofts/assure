@@ -21,7 +21,10 @@ const GatewayService : ServiceSchema = {
                     "GET sign/fetchtoken/:useruuid": "sign.fetchtoken",
                 }
             }
-        ]
+        ],
+		assets: {
+			folder: "public",
+		}
     },
     methods: {
         async authorize(ctx, route, req, res) {
