@@ -159,7 +159,7 @@ INSERT INTO `tcomp` (`site`, `headsite`, `shortname`, `nameen`, `nameth`, `addre
 CREATE TABLE IF NOT EXISTS `tcompbranch` (
   `site` varchar(50) NOT NULL COMMENT 'tcomp.site',
   `branch` varchar(50) NOT NULL,
-  `branchtype` varchar(50) DEFAULT NULL COMMENT 'tkbranchtype.branchtype',
+  `branchtype` varchar(50) DEFAULT NULL COMMENT 'tconstant.typeid and typename=''tbranchtype''',
   `nameen` varchar(100) DEFAULT NULL,
   `nameth` varchar(100) DEFAULT NULL,
   `addressen` varchar(200) DEFAULT NULL,
@@ -376,7 +376,7 @@ CREATE TABLE IF NOT EXISTS `tgroup` (
   `seqno` int(11) DEFAULT '0',
   `iconstyle` varchar(50) DEFAULT NULL,
   `privateflag` varchar(1) DEFAULT '0' COMMENT '1=Private Group(Center Usage)',
-  `usertype` varchar(1) DEFAULT NULL COMMENT 'tkusertype.usertype',
+  `usertype` varchar(1) DEFAULT NULL COMMENT 'tconstant.typeid and typename=''tusertype''',
   `mobilegroup` varchar(50) DEFAULT NULL,
   `xmltext` text,
   `editdate` date DEFAULT NULL,
@@ -398,54 +398,6 @@ INSERT INTO `tgroup` (`groupname`, `supergroup`, `nameen`, `nameth`, `seqno`, `i
 	('SUPERVISOR', NULL, 'Supervisor', 'ผู้ควบคุม', 12, NULL, '0', 'S', NULL, NULL, NULL, NULL, NULL),
 	('TESTER', 'ADMIN', 'Tester', 'ผู้ทดสอบ', 13, 'fa fa-desktop', '0', 'O', NULL, NULL, '2023-09-09', '14:33:09', 'tso');
 /*!40000 ALTER TABLE `tgroup` ENABLE KEYS */;
-
--- Dumping structure for table assuredb2.tlabel
-CREATE TABLE IF NOT EXISTS `tlabel` (
-  `labelid` varchar(50) NOT NULL COMMENT 'program id',
-  `langcode` varchar(10) NOT NULL COMMENT 'tklanguage.language',
-  `labelname` varchar(50) NOT NULL,
-  `labelvalue` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`labelid`,`langcode`,`labelname`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep label';
-
--- Dumping data for table assuredb2.tlabel: ~34 rows (approximately)
-/*!40000 ALTER TABLE `tlabel` DISABLE KEYS */;
-INSERT INTO `tlabel` (`labelid`, `langcode`, `labelname`, `labelvalue`) VALUES
-	('index.xml', 'EN', 'changepassword_info', 'The system force you to change password, please specified your new password and then submit.'),
-	('index.xml', 'EN', 'changepwd_label', 'Change Password'),
-	('index.xml', 'EN', 'change_password_title', 'Change Password'),
-	('index.xml', 'EN', 'englishlanguage', 'English'),
-	('index.xml', 'EN', 'forgot_password', 'Forgot Password?'),
-	('index.xml', 'EN', 'lastaccess_label', 'Last Access'),
-	('index.xml', 'EN', 'loginmenutrigger', 'Sign In'),
-	('index.xml', 'EN', 'login_button', 'Log In'),
-	('index.xml', 'EN', 'login_label', 'Please Log On & Sign In'),
-	('index.xml', 'EN', 'login_pass_placeholder', 'Password'),
-	('index.xml', 'EN', 'login_user_placeholder', 'User'),
-	('index.xml', 'EN', 'logout_label', 'Log Out'),
-	('index.xml', 'EN', 'newpassword_label', 'New Password'),
-	('index.xml', 'EN', 'profile_label', 'Profile'),
-	('index.xml', 'EN', 'savechangebutton', 'Submit'),
-	('index.xml', 'EN', 'thailanguage', 'Thai'),
-	('index.xml', 'EN', 'userpassword_alert', 'You can not leave this empty'),
-	('index.xml', 'TH', 'changepassword_info', 'ระบบบังคับเปลี่ยนรหัสผ่าน  กรุณาระบุรหัสผ่านของท่านใหม่แล้วกด ยอมรับ'),
-	('index.xml', 'TH', 'changepwd_label', 'เปลี่ยนรหัสผ่าน'),
-	('index.xml', 'TH', 'change_password_title', 'เปลี่ยนรหัสผ่าน'),
-	('index.xml', 'TH', 'englishlanguage', 'อังกฤษ'),
-	('index.xml', 'TH', 'forgot_password', 'ลืมรหัสผ่าน?'),
-	('index.xml', 'TH', 'lastaccess_label', 'เข้าใช้งานล่าสุด'),
-	('index.xml', 'TH', 'loginmenutrigger', 'เข้าใช้งาน'),
-	('index.xml', 'TH', 'login_button', 'เข้าระบบ'),
-	('index.xml', 'TH', 'login_label', 'เข้าสู่ระบบ'),
-	('index.xml', 'TH', 'login_pass_placeholder', 'รหัสผ่าน'),
-	('index.xml', 'TH', 'login_user_placeholder', 'ผู้ใช้'),
-	('index.xml', 'TH', 'logout_label', 'ออกจากระบบ'),
-	('index.xml', 'TH', 'newpassword_label', 'รหัสผ่านใหม่'),
-	('index.xml', 'TH', 'profile_label', 'ข้อมูลส่วนตัว'),
-	('index.xml', 'TH', 'savechangebutton', 'ยอมรับ'),
-	('index.xml', 'TH', 'thailanguage', 'ไทย'),
-	('index.xml', 'TH', 'userpassword_alert', 'กรุณากรอกรหัสผ่าน');
-/*!40000 ALTER TABLE `tlabel` ENABLE KEYS */;
 
 -- Dumping structure for table assuredb2.tnpwd
 CREATE TABLE IF NOT EXISTS `tnpwd` (
@@ -506,7 +458,7 @@ INSERT INTO `tnpwd` (`reservenum`, `remarks`) VALUES
 CREATE TABLE IF NOT EXISTS `tpperm` (
   `groupid` varchar(15) NOT NULL DEFAULT '' COMMENT 'tgroup.groupname',
   `progid` varchar(20) NOT NULL DEFAULT '' COMMENT 'tprog.programid',
-  `permname` varchar(10) NOT NULL DEFAULT '' COMMENT 'tkpermit.permname',
+  `permname` varchar(10) NOT NULL DEFAULT '' COMMENT 'tconstant.typeid and typename=''tpermit''',
   `permvalue` varchar(10) DEFAULT '0',
   PRIMARY KEY (`groupid`,`progid`,`permname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='program permitsion';
