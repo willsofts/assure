@@ -317,7 +317,7 @@
       "description": "service for user profile",
       "tables": [
         { "name": "tuserinfo" },
-        { "name": "tklanguage" }
+        { "name": "tconstant" }
       ]
     },
     {
@@ -339,9 +339,7 @@
       "tables": [
         { "name": "tprog" },
         { "name": "tprod" },
-        { "name": "tkprogtype" },
-        { "name": "tkappstype" },
-        { "name": "tksystemtype" }
+        { "name": "tconstant" }
       ]
     },
     {
@@ -355,9 +353,7 @@
         { "name": "tpperm" },
         { "name": "tproggrp" },
         { "name": "tfavor" },
-        { "name": "tkgroupmobile" },
-        { "name": "tkusertype" },
-        { "name": "tkpermit" }
+        { "name": "tconstant" }
       ]
     },
     {
@@ -384,7 +380,7 @@
         { "name": "tfavor" },
         { "name": "tconfig" }, 
         { "name": "tppwd" },
-        { "name": "tkactive" }
+        { "name": "tconstant" }
       ]
     },
     {
@@ -407,7 +403,7 @@
         { "name": "tuserfactor" },
         { "name": "tuserfactorhistory" },
         { "name": "tconfig" }, 
-        { "name": "tkuserstatus" }
+        { "name": "tconstant" }
       ]
     },
     {
@@ -467,7 +463,7 @@
         { "name": "tfavor" },
         { "name": "tconfig" }, 
         { "name": "tppwd" },
-        { "name": "tkactive" }
+        { "name": "tconstant" }
       ]
     },
     {
@@ -500,7 +496,7 @@
       "description": "service for screen tenant setting",
       "tables": [
         { "name": "ttenant" },
-        { "name": "tkactive" }
+        { "name": "tconstant" }
       ]
     },
     {
@@ -523,7 +519,7 @@
       "description": "service for screen mail tracking",
       "tables": [
         { "name": "trxlog" },
-        { "name": "tkrxstatus" }
+        { "name": "tconstant" }
       ]
     }
   ]
