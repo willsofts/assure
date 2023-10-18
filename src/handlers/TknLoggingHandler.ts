@@ -6,7 +6,7 @@ import { DB_TRACKER } from "../utils/EnvironmentVariable";
 import { KnUtility } from "../utils/KnUtility";
 
 export class TknLoggingHandler extends TknBaseHandler {
-    public model : KnModel = { name: "tul", alias: { privateAlias: DB_TRACKER } };
+    public model : KnModel = { name: "tuserlog", alias: { privateAlias: DB_TRACKER } };
     public trackInfo? : KnTrackingInfo;
 
     public override insert(context: any) : Promise<KnResultSet> {
@@ -30,7 +30,7 @@ export class TknLoggingHandler extends TknBaseHandler {
             delete params.res;
             delete params.info;
             let binfo = KnUtility.scrapeTraceInfo(context);
-            let sql = new KnSQL("insert into tul (seqno,curtime,useralias,userid,site,progid,handler,action,remark,token,address,paths,headers,requests,contents) ");
+            let sql = new KnSQL("insert into ").append(model.name).append("(seqno,curtime,useralias,userid,site,progid,handler,action,remark,token,address,paths,headers,requests,contents) ");
             sql.append("values(?seqno,?curtime,?useralias,?userid,?site,?progid,?handler,?action,?remark,?token,?address,?paths,?headers,?requests,?contents)");
             sql.set("seqno",Utilities.currentTimeMillis());
             sql.set("curtime",Utilities.now());

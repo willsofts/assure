@@ -8,7 +8,7 @@ export class Sftq001Handler extends TknOperateHandler {
 
     public progid = "sftq001";
     public model : KnModel = { 
-        name: "tul", 
+        name: "tuserlog", 
         alias: { privateAlias: this.section }, 
         fields: {
             curtime: { type: "DATETIME" },
@@ -37,8 +37,8 @@ export class Sftq001Handler extends TknOperateHandler {
             knsql.append(" from ");
             knsql.append(model.name);
             if(!counting) {
-                knsql.append(" left join tprog on tprog.programid = tul.progid ");    
-                knsql.append(" left join tuser on tuser.userid = tul.userid ");    
+                knsql.append(" left join tprog on tprog.programid = ").append(model.name).append(".progid ");    
+                knsql.append(" left join tuser on tuser.userid = ").append(model.name).append(".userid ");    
                 if(params.userid && params.userid!="") {
                     knsql.append("and tuser.username LIKE ?username ");
                     knsql.set("username","%"+params.userid+"%");

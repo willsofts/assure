@@ -229,6 +229,80 @@ INSERT INTO `tconfig` (`category`, `colname`, `colvalue`, `colflag`, `seqno`, `r
 	('FORGOTPASSWORDMAIL', 'MAIL_USER', 'ezprompt', NULL, 0, NULL);
 /*!40000 ALTER TABLE `tconfig` ENABLE KEYS */;
 
+-- Dumping structure for table assuredb2.tconstant
+CREATE TABLE IF NOT EXISTS `tconstant` (
+  `typename` varchar(50) NOT NULL,
+  `typeid` varchar(50) NOT NULL,
+  `nameen` varchar(100) NOT NULL,
+  `nameth` varchar(100) NOT NULL,
+  `seqno` int(11) DEFAULT NULL,
+  `iconfile` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`typename`,`typeid`)
+) ENGINE=InnoDB DEFAULT CHARSET=tis620 COMMENT='table keep constant/category description';
+
+-- Dumping data for table assuredb2.tconstant: ~58 rows (approximately)
+/*!40000 ALTER TABLE `tconstant` DISABLE KEYS */;
+INSERT INTO `tconstant` (`typename`, `typeid`, `nameen`, `nameth`, `seqno`, `iconfile`) VALUES
+	('tactive', '0', 'Active', 'ใช้งาน', 1, NULL),
+	('tactive', '1', 'Inactive', 'ไม่ใช้งาน', 2, NULL),
+	('tappstype', 'M', 'Mobile', 'Mobile', 2, NULL),
+	('tappstype', 'W', 'Web', 'Web', 1, NULL),
+	('tbranchtype', 'HB', 'Head Branch', 'สำนักงานใหญ่', 1, NULL),
+	('tbranchtype', 'SB', 'Sub Branch', 'สำนักงานสาขาย่อย', 2, NULL),
+	('tbranchtype', 'VB', 'Service Branch', 'สำนักงานบริการ', 3, NULL),
+	('tgroupmobile', 'DASHBOARD', 'Dash Board', 'Dash Board', 1, 'dashboard.png'),
+	('tgroupmobile', 'HISTORY', 'History', 'History', 2, 'history.png'),
+	('tgroupmobile', 'REPORT', 'Report', 'Report', 3, 'report.png'),
+	('tgroupmobile', 'WORKLIST', 'Work List', 'Work List', 4, 'worklist.png'),
+	('tlanguage', 'EN', 'English', 'อังกฤษ', 1, 'EN.png'),
+	('tlanguage', 'TH', 'Thai', 'ไทย', 2, 'TH.png'),
+	('tpermit', 'all', 'Alls', 'ทั้งหมด', 7, NULL),
+	('tpermit', 'delete', 'Delete', 'ลบ', 3, NULL),
+	('tpermit', 'export', 'Export', 'นำออก', 6, NULL),
+	('tpermit', 'import', 'Import', 'นำเข้า', 5, NULL),
+	('tpermit', 'insert', 'Insert', 'เพิ่ม', 1, NULL),
+	('tpermit', 'print', 'Print', 'พิมพ์', 8, NULL),
+	('tpermit', 'retrieve', 'Retrieve', 'ค้นหา', 4, NULL),
+	('tpermit', 'update', 'Update', 'แก้ไข', 2, NULL),
+	('tprogtype', 'C', 'Script', 'สคริปส์', 11, NULL),
+	('tprogtype', 'E', 'Entry', 'กรอกข้อมูล', 1, NULL),
+	('tprogtype', 'F', 'Reference', 'ข้อมูลหลัก', 2, NULL),
+	('tprogtype', 'G', 'Generate', 'สร้างหน้าจอ', 13, NULL),
+	('tprogtype', 'I', 'Plugin', 'ปลั๊กอิน', 3, NULL),
+	('tprogtype', 'M', 'Import', 'นำเข้าข้อมูล', 5, NULL),
+	('tprogtype', 'N', 'Internal', 'ใช้ภายใน', 4, NULL),
+	('tprogtype', 'O', 'Store Procedure', 'โปรซีเดอร์', 12, NULL),
+	('tprogtype', 'P', 'Post', 'โพส', 7, NULL),
+	('tprogtype', 'Q', 'Enquiry', 'ค้นหาข้อมูล', 8, NULL),
+	('tprogtype', 'R', 'Report', 'รายงาน', 9, NULL),
+	('tprogtype', 'U', 'Utility', 'เครื่องมือ', 10, NULL),
+	('tprogtype', 'X', 'Export', 'นำออกข้อมูล', 6, NULL),
+	('trxstatus', 'C', 'Completed', 'Completed', 1, NULL),
+	('trxstatus', 'E', 'Error', 'Error', 3, NULL),
+	('trxstatus', 'N', 'Not Complete', 'Not Complete', 2, NULL),
+	('trxstatus', 'R', 'Response', 'Response', 4, NULL),
+	('tsystemtype', 'A', 'Android', 'Android', 1, NULL),
+	('tsystemtype', 'I', 'iOS', 'iOS', 2, NULL),
+	('tsystemtype', 'W', 'Web', 'Web', 3, NULL),
+	('tuserstatus', 'A', 'Activated', 'ใช้งาน', 1, NULL),
+	('tuserstatus', 'C', 'Closed', 'ปิดการใช้งาน', 2, NULL),
+	('tuserstatus', 'P', 'Pending', 'ระงับการใช้งาน', 3, NULL),
+	('tusertype', 'A', 'Admin', 'เจ้าหน้าที่บริหาร', 30, NULL),
+	('tusertype', 'C', 'Super Coach', 'เจ้าหน้าที่ระดับสูง', 50, NULL),
+	('tusertype', 'D', 'Director', 'ผู้อำนวยการ', 70, NULL),
+	('tusertype', 'E', 'Employee', 'พนักงาน', 10, NULL),
+	('tusertype', 'M', 'Manager', 'ผู้จัดการ', 40, NULL),
+	('tusertype', 'O', 'Operator', 'เจ้าหน้าที่ปฏิบัติการ', 15, NULL),
+	('tusertype', 'P', 'President', 'ประธาน', 90, NULL),
+	('tusertype', 'S', 'Supervisor', 'ผู้ควบคุมดูแล', 20, NULL),
+	('tusertype', 'T', 'Assistance Manager', 'ผู้ช่วยผู้จัดการ', 35, NULL),
+	('tusertype', 'V', 'Vice President', 'รองประธาน', 80, NULL),
+	('tusertype', 'X', 'Executive', 'ผู้บริหาร', 60, NULL),
+	('tusertype', 'Z', 'Client', 'ลูกค้า', 5, NULL),
+	('tvisible', '0', 'Visible', 'มองเห็น', 1, NULL),
+	('tvisible', '1', 'Invisible', 'มองไม่เห็น', 2, NULL);
+/*!40000 ALTER TABLE `tconstant` ENABLE KEYS */;
+
 -- Dumping structure for table assuredb2.tcpwd
 CREATE TABLE IF NOT EXISTS `tcpwd` (
   `userid` varchar(60) NOT NULL,
@@ -1219,29 +1293,6 @@ INSERT INTO `ttenant` (`tenantid`, `tenantname`, `applicationid`, `inactive`, `p
 	('fbe2464b-b4d4-4b18-a1f3-ceec595ca2e8', 'TSO Key', 'bb631b27-484b-4fcd-8b8f-b00f5344a928', '0', 'MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAIecqPNRqUG14i34dh45PWuKhaJ/iv8vDfbj6oqyMeWSY/fzSe5G0EXD9K+pdHS9Msq/SN2A1rQzzc11hNEfOMKTsdzodvIaSdIyn/JfVxhgvgfFZ9+DGGqOKFBI6SApzeT7jT2l+//wH5qlEE5XE/MRbEGroh/onBkY04kEelbbAgMBAAECgYAl+YiWGlf7PqOHm/v3mq/IXZHuXyjdLKAMcuZK0HuIfeXgmRAq2UmZP7ZVOm6SAikm/Um6PUniTF9lGXOH2+ZYrf9BFObYujuj6v2AdjmjOLoeOeUGdQEyiS0JqYY6UZEfbrFBHaJwtPrz1ULvVmKWc12tU2bOZmTKZb5gW8EZAQJBAL9rQ+qQ2bKHZQHfIOrd8QmgbaMY92al4TPmmXUL+AoFqrUqZZB2H7c2MEqAhDKAtGPNIHWPXZxnNWao7bSIoxkCQQC1XWA+SldUgQ6wLOfx/SajQscpoNAW++q+B2v3k3M7EzSyn8cjFobXqTyYvM9ek/VjdvIaVwe/xmYdn0Ab65wTAkBGoVfAF46cV2Un2aMVxqsH+FA8HBw9nfuI4Q/CppXxbMHeczRip5NwUOhktSMSV3c4VBokBrBt449KwA5lzP0RAkB/kp4HUt2ZCGrfi8bflhVek7NqWb7l2+/kGW5dqK9OZ5US7Ibz7H2PJ3EDcxRez661d06XLo653AGqZoF+4j1XAkArzqamCERTCsI8aHXOhbCHJvyWGcXcXfG3eEzvWSiuctDUlLo2WS513xzADXICckj2j0WWiHJ6L4QAVUj2ccxE', 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCHnKjzUalBteIt+HYeOT1rioWif4r/Lw324+qKsjHlkmP380nuRtBFw/SvqXR0vTLKv0jdgNa0M83NdYTRHzjCk7Hc6HbyGknSMp/yX1cYYL4HxWffgxhqjihQSOkgKc3k+409pfv/8B+apRBOVxPzEWxBq6If6JwZGNOJBHpW2wIDAQAB', '2022-12-05', '12:37:17', 'tso', '2022-12-05', '12:37:17', 'tso');
 /*!40000 ALTER TABLE `ttenant` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tul
-CREATE TABLE IF NOT EXISTS `tul` (
-  `seqno` bigint(15) NOT NULL DEFAULT '0',
-  `curtime` datetime NOT NULL,
-  `useralias` varchar(50) DEFAULT NULL,
-  `userid` varchar(50) DEFAULT NULL,
-  `site` varchar(50) DEFAULT NULL,
-  `progid` varchar(25) DEFAULT NULL,
-  `handler` varchar(50) DEFAULT NULL,
-  `action` varchar(50) DEFAULT NULL,
-  `remark` text,
-  `token` varchar(350) DEFAULT NULL,
-  `address` varchar(200) DEFAULT NULL,
-  `paths` varchar(500) DEFAULT NULL,
-  `headers` text,
-  `requests` text,
-  `contents` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user tracking';
-
--- Dumping data for table assuredb2.tul: ~0 rows (approximately)
-/*!40000 ALTER TABLE `tul` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tul` ENABLE KEYS */;
-
 -- Dumping structure for table assuredb2.tupwd
 CREATE TABLE IF NOT EXISTS `tupwd` (
   `serverdatetime` datetime DEFAULT NULL,
@@ -1294,7 +1345,7 @@ CREATE TABLE IF NOT EXISTS `tuser` (
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user info';
 
--- Dumping data for table assuredb2.tuser: ~13 rows (approximately)
+-- Dumping data for table assuredb2.tuser: ~14 rows (approximately)
 /*!40000 ALTER TABLE `tuser` DISABLE KEYS */;
 INSERT INTO `tuser` (`userid`, `username`, `site`, `startdate`, `enddate`, `status`, `userpassword`, `passwordexpiredate`, `passwordchangedate`, `passwordchangetime`, `showphoto`, `adminflag`, `groupflag`, `theme`, `firstpage`, `loginfailtimes`, `failtime`, `lockflag`, `usertype`, `iconfile`, `accessdate`, `accesstime`, `accesshits`, `siteflag`, `branchflag`, `approveflag`, `changeflag`, `newflag`, `mistakens`, `mistakentime`, `editdate`, `edittime`, `edituser`) VALUES
 	('adminis', 'admin@freewill.com', 'FWS', NULL, NULL, 'A', '$2a$10$MhzJQISuqFZSES0k00LPx.iMWUMGgp4P4oR5xlAYdzc2ydaVQgMnG', NULL, NULL, NULL, NULL, '1', '0', NULL, NULL, 0, 0, '0', 'A', NULL, NULL, NULL, 0, '0', '0', '0', '0', '0', 0, 0, NULL, NULL, NULL),
@@ -1415,7 +1466,7 @@ CREATE TABLE IF NOT EXISTS `tuserinfo` (
   `accesstime` time DEFAULT NULL,
   `photoimage` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `gender` varchar(1) DEFAULT NULL COMMENT 'F=Female,M=Male(tgender.genderid)',
+  `gender` varchar(1) DEFAULT NULL COMMENT 'F=Female,M=Male(tkgender.genderid)',
   `lineid` varchar(50) DEFAULT NULL,
   `mobile` varchar(50) DEFAULT NULL,
   `langcode` varchar(10) DEFAULT NULL COMMENT 'tklanguage.langcode',
@@ -1479,6 +1530,29 @@ CREATE TABLE IF NOT EXISTS `tuserinfohistory` (
 -- Dumping data for table assuredb2.tuserinfohistory: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tuserinfohistory` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tuserinfohistory` ENABLE KEYS */;
+
+-- Dumping structure for table assuredb2.tuserlog
+CREATE TABLE IF NOT EXISTS `tuserlog` (
+  `seqno` bigint(15) NOT NULL DEFAULT '0',
+  `curtime` datetime NOT NULL,
+  `useralias` varchar(50) DEFAULT NULL,
+  `userid` varchar(50) DEFAULT NULL,
+  `site` varchar(50) DEFAULT NULL,
+  `progid` varchar(25) DEFAULT NULL,
+  `handler` varchar(50) DEFAULT NULL,
+  `action` varchar(50) DEFAULT NULL,
+  `remark` text,
+  `token` varchar(350) DEFAULT NULL,
+  `address` varchar(200) DEFAULT NULL,
+  `paths` varchar(500) DEFAULT NULL,
+  `headers` text,
+  `requests` text,
+  `contents` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user logging';
+
+-- Dumping data for table assuredb2.tuserlog: ~0 rows (approximately)
+/*!40000 ALTER TABLE `tuserlog` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tuserlog` ENABLE KEYS */;
 
 -- Dumping structure for table assuredb2.tuserpwd
 CREATE TABLE IF NOT EXISTS `tuserpwd` (
