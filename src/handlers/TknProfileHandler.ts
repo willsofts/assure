@@ -19,7 +19,7 @@ export class TknProfileHandler extends TknSchemeHandler {
     }
 
     public getDataSetting(name: string) : KnDataMapEntitySetting | undefined {
-		return {tableName: "tklanguage", keyField: "langcode", setting: { keyName: "langcode", valueNames: ["nameen"]} };		
+		return {tableName: "tconstant", addonFilters: "typename='tlanguage'", keyField: "typeid", addonFields: "seqno", orderFields: "seqno", setting: { categoryName: "tklanguage", keyName: "typeid", valueNames: ["nameen"]} };
     }
 
     /* override to handle launch router when invoked from menu */

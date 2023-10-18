@@ -56,15 +56,15 @@ export class Sftq003Handler extends TknOperateHandler {
             knsql.append(selector);
             if(!counting) {
                 if(eng) {
-                    knsql.append(",tkrxstatus.nameen as statusname ");
+                    knsql.append(",tconstant.nameen as statusname ");
                 } else {
-                    knsql.append(",tkrxstatus.nameth as statusname ");
+                    knsql.append(",tconstant.nameth as statusname ");
                 }        
             }
             knsql.append(" from ");
             knsql.append(model.name);
-            if(!counting) {
-                knsql.append(" left join tkrxstatus on tkrxstatus.statusid = trxlog.trxstatus ");    
+            if(!counting) {                
+                knsql.append(" left join tconstant on tconstant.typename = 'trxstatus' and tconstant.typeid = trxlog.trxstatus ");   
             }
             let filter = " and ";
             knsql.append(" where processtype = 'mail' ");
@@ -143,12 +143,12 @@ export class Sftq003Handler extends TknOperateHandler {
         let knsql = new KnSQL();
         knsql.append("select ").append(this.buildSelectField(context,model)).append(",");
         if(eng) {
-            knsql.append("tkrxstatus.nameen as statusname ");
+            knsql.append("tconstant.nameen as statusname ");
         } else {
-            knsql.append("tkrxstatus.nameth as statusname ");
+            knsql.append("tconstant.nameth as statusname ");
         }        
         knsql.append("from trxlog ");
-        knsql.append("left join tkrxstatus on tkrxstatus.statusid = trxlog.trxstatus ");
+        knsql.append("left join tconstant on tconstant.typename = 'trxstatus' and tconstant.typeid = trxlog.trxstatus ");
         knsql.append("where trxlog.keyid = ?keyid ");
         knsql.set("keyid",context.params.keyid);
         let rs = await knsql.executeQuery(db,context);

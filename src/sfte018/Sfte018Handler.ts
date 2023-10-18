@@ -65,15 +65,15 @@ export class Sfte018Handler extends TknOperateHandler {
             knsql.append(selector);
             if(!counting) {
                 if(eng) {
-                    knsql.append(", tkactive.nameen as activedesc ");
+                    knsql.append(", tconstant.nameen as activedesc ");
                 } else {
-                    knsql.append(", tkactive.nameth as activedesc ");
+                    knsql.append(", tconstant.nameth as activedesc ");
                 }
             }
             knsql.append(" from ");
             knsql.append(model.name);
             if(!counting) {
-                knsql.append(" left join tkactive on tkactive.activeid = ttenant.inactive ");    
+                knsql.append(" left join tconstant on tconstant.typename = 'tactive' and tconstant.typeid = ttenant.inactive ");
             }
             let filter = " where ";
             if(params.tenantname && params.tenantname!="") {
@@ -146,12 +146,12 @@ export class Sfte018Handler extends TknOperateHandler {
         let knsql = new KnSQL();
         knsql.append("select ").append(this.buildSelectField(context,model)).append(",");
         if(eng) {
-            knsql.append("tkactive.nameen as activename ");
+            knsql.append("tconstant.nameen as activename ");
         } else {
-            knsql.append("tkactive.nameth as activename ");
+            knsql.append("tconstant.nameth as activename ");
         }
         knsql.append("from ttenant ");
-        knsql.append("left join tkactive on tkactive.activeid = ttenant.inactive ");
+        knsql.append("left join tconstant on tconstant.typename = 'tactive' and tconstant.typeid = ttenant.inactive ");
         knsql.append("where ttenant.tenantid = ?tenantid ");
         knsql.set("tenantid",context.params.tenantid);
         let rs = await knsql.executeQuery(db,context);

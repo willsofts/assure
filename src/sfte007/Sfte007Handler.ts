@@ -494,8 +494,8 @@ export class Sfte007Handler extends TknOperateHandler {
     public async getUserTypeMap(db: KnDBConnector, context?: any) : Promise<Map<string,KnUserTypeInfo>> {
         let utmap = new Map<string,KnUserTypeInfo>();
         let knsql = new KnSQL();
-        knsql.append("select tgroup.groupname,tgroup.usertype,tkusertype.level from tgroup ");
-        knsql.append("left join tkusertype on tkusertype.usertype = tgroup.usertype ");
+        knsql.append("select tgroup.groupname,tgroup.usertype,tconstant.seqno as level from tgroup ");
+        knsql.append("left join tconstant on tconstant.typename = 'tusertype' and tconstant.typeid = tgroup.usertype ");
         let rs = await knsql.executeQuery(db,context);
         if(rs && rs.rows.length>0) {
             for(let r of rs.rows) {

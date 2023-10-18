@@ -58,12 +58,12 @@ export class Sfte001Handler extends TknOperateHandler {
             let counting = KnOperation.COUNT==subaction;
             knsql.append(selector);
             if(!counting) {
-                knsql.append(", tkprogtype.nameen as progtypedesc ");
+                knsql.append(", tconstant.nameen as progtypedesc ");
             }
             knsql.append(" from ");
             knsql.append(model.name);
             if(!counting) {
-                knsql.append(" left join tkprogtype on tkprogtype.progtype = tprog.progtype ");    
+                knsql.append(" left join tconstant on tconstant.typename = 'tprogtype' and tconstant.typeid = tprog.progtype ");    
             }
             let filter = " where ";
             if(params.product && params.product!="") {
