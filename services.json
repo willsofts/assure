@@ -150,7 +150,7 @@
       "group": "core",
       "description": "service for user logging",
       "tables": [
-        { "name": "tul" }
+        { "name": "tuserlog" }
       ]
     },
     {
@@ -510,7 +510,7 @@
       "group": "operator",
       "description": "service for screen user tracking",
       "tables": [
-        { "name": "tul" },
+        { "name": "tuserlog" },
         { "name": "tuser" },
         { "name": "tprog" }
       ]
