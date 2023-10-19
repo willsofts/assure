@@ -32,7 +32,7 @@ Linux
 
 ## Example
 
-This project contains examples API thait can invoke by [curl](https://curl.se/download.html):
+This project contains examples API that it can invoke by [curl](https://curl.se/download.html):
 
 * curl http://localhost:8080/api/fetch/hello 
 * curl http://localhost:8080/api/fetch/hello?name=test  (query parameter)
