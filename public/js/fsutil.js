@@ -100,7 +100,7 @@ function open_program(appid,url,params,apath) {
 function recentApplication(appid,url,params) {
 	let $rlist = $("#recentmenulist");
 	let $items = $rlist.find("li");
-	if($items.size()>15) return;
+	if($items.length>15) return;
 	let found = false;
 	$(except_apps).each(function(idx,elem) { if(elem==appid) { found = true; return false; } });	
 	$items.each(function(idx,elem) { if($(elem).attr("appid")==appid) { found = true; return false; }});

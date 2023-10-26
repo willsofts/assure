@@ -249,7 +249,7 @@
 						open_page(firstpage);
 					} else {
 						//try to auto launch work list page
-						let isz = $("a[data-item=worklist]",$("#sidebarlayer")).size();
+						let isz = $("a[data-item=worklist]",$("#sidebarlayer")).length;
 						if(isz>0) {
 							open_page("worklist");
 						}

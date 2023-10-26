@@ -18,8 +18,8 @@ $.fn.startWaiting = function(options){
 	return this.each(function(){
 		var $element = $(this);
 		//var p = $element.position();
-		//var $img = $("<div class=\"fs-waiting-layer-loader\"><img class=\"fs-waiting-image-loader\" src=\"../images/loading.gif\" width=\""+opts.width+"px\" height=\""+opts.height+"px;\"></img></div>");
-		var $img = $("<img class=\"fs-waiting-image-loader\" src=\"../images/loading.gif\" width=\""+opts.width+"px\" height=\""+opts.height+"px;\"></img>");
+		//var $img = $("<div class=\"fs-waiting-layer-loader\"><img class=\"fs-waiting-image-loader\" src=\"../img/loading.gif\" width=\""+opts.width+"px\" height=\""+opts.height+"px;\"></img></div>");
+		var $img = $("<img class=\"fs-waiting-image-loader\" src=\"../img/loading.gif\" width=\""+opts.width+"px\" height=\""+opts.height+"px;\"></img>");
 		//$element.append($img);	
 		if(opts.before && opts.before!="") {
 			$img.insertBefore($(opts.before));

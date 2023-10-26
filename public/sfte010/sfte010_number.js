@@ -46,7 +46,7 @@ function ensurePagingNumber(tablebody) {
 	if(!tablebody) tablebody = "#datatablebodynum";
 	try {
 		let pageno = parseInt(fslistform.page.value);
-		let size = $(tablebody).find("tr").size();
+		let size = $(tablebody).find("tr").length;
 		if(size<=1 && pageno>1) {
 			fslistform.page.value = ""+(pageno-1);
 		}

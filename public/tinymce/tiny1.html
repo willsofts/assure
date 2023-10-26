@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../jquery/jquery-3.7.1.js"></script>
+<script src="../tinymce/js/tinymce/tinymce.js"></script>
+<script src="../tinymce/js/tinymce/jquery.tinymce.min.js"></script>
+<script>
+	$(function () {
+			$('#mytextarea').tinymce({
+				branding: false,
+				height: 200,				
+				plugins: [
+					'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+					'searchreplace wordcount visualblocks visualchars code fullscreen',
+					'insertdatetime media nonbreaking save table contextmenu directionality',
+					'emoticons template paste textcolor colorpicker textpattern imagetools'
+				],				
+				toolbar1: 'undo redo | styleselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor'
+				, images_upload_url: 'jsp/uploadImage.jsp',
+				images_upload_base_path: '../resources/docimages'
+				
+			});
+	});
+</script>
+</head>
+<body>
+        <textarea id="mytextarea">Your content here.</textarea>
+</body>
+</html>

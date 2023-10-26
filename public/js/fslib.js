@@ -1370,7 +1370,7 @@ function validNumericFields(aform) {
 function assignControlValue(control,value) {
 	let controlbox = false;
 	let input = $("input[name="+control+"]");
-	if(input.size()>0) {
+	if(input.length>0) {
 		$(input).each(function(index,element) { 
 			let $e = $(element);
 			if($e.is(":checkbox") || $e.is(":radio")) { 
@@ -1397,7 +1397,7 @@ function validCompletedFields(fs_completedfields) {
 		let spec = fs_completedfields[p];
 		let input = $("input[name="+p+"]");
 		let valid = false;
-		if(input.size()>1) {
+		if(input.length>1) {
 			$(input).each(function(index,element) { 
 				let $e = $(element);
 				if($e.is(":checked")) { valid = true; return false; }

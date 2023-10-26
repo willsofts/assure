@@ -60,7 +60,7 @@ function openCalendar(src) {
 			dateFormat : "dd/mm/yy",
 			changeMonth: true,
 			changeYear: true,
-			yearRange: "c-100:+10",
+			yearRange: "c-100:+100",
 			//yearRange: "c-100:c+10",
 			/*monthNamesShort: ['January','February','March','April','May','June','July','August','September','October','November','December'],*/
 			/*beforeShow : function(input,inst) {

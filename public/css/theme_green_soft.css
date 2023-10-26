@@ -42,14 +42,17 @@
 .btn-primary {
 	border: 1px solid #028575;
 	background-color: #028575;	
+	min-width: 60px;	
 }
 .btn-dark {
 	border: 1px solid #028575;
 	background-color: #028575;	
+	min-width: 60px;	
 }
 .btn-spot {
 	border: 1px solid #028575;
 	background-color: #028575;		
+	min-width: 60px;	
 }
 .btn-spot:hover,
 .btn-spot:focus,

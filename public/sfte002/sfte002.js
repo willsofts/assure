@@ -72,7 +72,7 @@ function ensurePaging(tablebody) {
 	if(!tablebody) tablebody = "#datatablebody";
 	try {
 		let pageno = parseInt(fslistform.page.value);
-		let size = $(tablebody).find("tr").size();
+		let size = $(tablebody).find("tr").length;
 		if(size<=1 && pageno>1) {
 			fslistform.page.value = ""+(pageno-1);
 		}
@@ -447,7 +447,7 @@ function addNewProgram() {
 	let gid = $("#groupname").val();
 	let pid = $("#progingroup").val();
 	if($.trim(pid)=="" || $.trim(gid)=="") return;
-	let found = $("input[value="+pid+"]",$("#progtablebody")).size()>0;
+	let found = $("input[value="+pid+"]",$("#progtablebody")).length>0;
 	if(found) {
 		alertbox("Duplicate program entry");
 		return;
@@ -471,14 +471,14 @@ function addNewProgramInfo(aform) {
 	if(!aform) aform = fspermitform;
 	let pid = $("#progingroup").val();
 	if($.trim(pid)=="") return;
-	let found = $("input[value='"+pid+"']",$("#progtablebody")).size()>0;
+	let found = $("input[value='"+pid+"']",$("#progtablebody")).length>0;
 	if(found) {
 		alertbox("Duplicate program entry");
 		return;
 	}
 	let pname = $("option:selected",$("#progingroup")).text();
 	let para = $("#parameters").val();
-	let idx = $("tr",$("#progtablebody")).size();
+	let idx = $("tr",$("#progtablebody")).length;
 	$("#permitprogseqno").val(""+(idx+1));
 	let formdata = serializeDataForm(aform);
 	jQuery.ajax({
