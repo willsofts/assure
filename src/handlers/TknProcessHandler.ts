@@ -138,6 +138,7 @@ export class TknProcessHandler extends TknSystemHandler {
 
     protected async doHtml(context: KnContextInfo, model: KnModel) : Promise<string> {
         let ds = await this.doExecute(context, model);
+        console.log(this.constructor.name+".doHtml: ds=",ds);
         return this.buildHtml("/views/"+(ds.renderer?ds.renderer:"pages/none"), ds, context);
     }
 

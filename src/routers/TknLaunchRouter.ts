@@ -15,7 +15,7 @@ export class TknLaunchRouter extends TknAssureRouter {
         try {
             await this.validateLauncher(ctx);
         } catch(ex) {
-            this.logger.error("error",ex);
+            this.logger.error(this.constructor.name+".isValidateLauncher: error",ex);
             res.render("pages/error",{error: ex});
             return false;
         }
@@ -24,11 +24,11 @@ export class TknLaunchRouter extends TknAssureRouter {
 
     public async doLaunch(req: Request, res: Response) {
         this.logger.debug(this.constructor.name+".doLaunch: url",req.originalUrl);
-        let program = req.params.program;
-        let subprog = req.params.subprog;
-        let ctx = await this.createContext(req, program);
+        let ctx = await this.createContext(req, req.params.program);
         let valid = await this.isValidateLauncher(req,res,ctx);
         if(!valid) return;
+        let program = ctx.params.program;
+        let subprog = ctx.params.subprog;
         let info = this.getMetaInfo(ctx);
         let workdir = Utilities.getWorkingDir(this.dir); 
         let progpath = path.join(workdir, "views", program);
@@ -57,7 +57,7 @@ export class TknLaunchRouter extends TknAssureRouter {
                     rs = await handler[action](ctx);
                     this.logger.debug(this.constructor.name+".doLaunch: "+program+"/"+opername+", "+action+"=", rs);
                 } catch(ex) {
-                    this.logger.error("error",ex);
+                    this.logger.error(this.constructor.name+".doLaunch: error",ex);
                     if("true"==ctx.params.ajax) {
                         KnResponser.responseError(res,ex,"launch",opername);
                         return;
@@ -66,7 +66,7 @@ export class TknLaunchRouter extends TknAssureRouter {
                     return;
                 }
                 if(rs?.error) {
-                    this.logger.error("error",rs.error);
+                    this.logger.error(this.constructor.name+".doLaunch: error",rs.error);
                     if("true"==ctx.params.ajax) {
                         KnResponser.responseError(res,rs.error,"launch",opername);
                         return;
@@ -83,12 +83,12 @@ export class TknLaunchRouter extends TknAssureRouter {
             }
             if(rs && rs.renderer) renderpage = rs.renderer;
             let label = new KnLabelConfig(program, info.language);
-            try { await label.load(workdir); } catch(ex) { this.logger.error("error",ex); }
+            try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doLaunch: error",ex); }
             let page = new KnPageRender(program, ctx, label, handler, rs);
             let param = { meta: info, page: page, label: label, data: rs };
             res.render(renderpage, param, (err: Error, html: string) => {
                 if(err) {
-                    this.logger.error("error", err); 
+                    this.logger.error(this.constructor.name+"doLaunch: error", err); 
                     res.render("pages/error",{error: err});
                     return;
                 }
@@ -114,7 +114,7 @@ export class TknLaunchRouter extends TknAssureRouter {
                     return;
                 }
             } catch(ex: any) {
-                this.logger.error("error",ex);
+                this.logger.error(this.constructor.name+".doLoad: error",ex);
                 res.render("pages/error",{error: ex});
             }
             return;
@@ -133,7 +133,7 @@ export class TknLaunchRouter extends TknAssureRouter {
             let ctx = await this.createContext(req,program);
             let info = this.getMetaInfo(ctx);
             let label = new KnLabelConfig(program, info.language);
-            try { await label.load(workdir); } catch(ex) { this.logger.error("error",ex); }
+            try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doOpen: error",ex); }
             let page = new KnPageRender(program, ctx, label);
             let param = { meta: info, page: page, label: label, data: {} };
             res.render(pager,param);
