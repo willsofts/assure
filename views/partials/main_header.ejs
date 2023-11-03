@@ -7,7 +7,7 @@
 							<a href="javascript:void(0)" id="homemenutrigger" class="nav-link" title="Home" onclick="goHome()"><em class="fa fa-home"></em></a>		
 						</li>	
 						<li id="productlayer" class="nav-item">
-							<a href="/home" id="intromenutrigger" class="nav-link" title="Welcome"><img id="productimage" src="/img/app_logo.png" width="40" height="40" alt="" style="margin-top:-5px;"/></a>		
+							<a href="/home" id="intromenutrigger" class="nav-link" title="Welcome"><img id="productimage" src="<%=meta.cdn_url%>/img/app_logo.png" width="40" height="40" alt="" style="margin-top:-5px;"/></a>		
 						</li>				
 						<li id="productlayer" class="nav-item dropdown" >
 							<a href="javascript:void(0)" id="recentmenutrigger" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="History">
@@ -39,17 +39,17 @@
 					</ul>
 					<ul class="navbar-expand nav navbar-nav navbar-right navbar-user-avatar">
 						<li id="avatarmenuitem" class="nav-item avatar-menu-item">
-							<a href="javascript:void(0)" id="avatarmenuitemlink" class="nav-link dropdown-toggle avatar-item" data-toggle="dropdown" data-target="#usermenuitem"><img id="avatarimage" src="/img/avatar.png" width="50" height="50" class="avatar-img img-circle rounded-circle"/></a>
+							<a href="javascript:void(0)" id="avatarmenuitemlink" class="nav-link dropdown-toggle avatar-item" data-toggle="dropdown" data-target="#usermenuitem"><img id="avatarimage" src="<%=meta.cdn_url%>/img/avatar.png" width="50" height="50" class="avatar-img img-circle rounded-circle"/></a>
 						</li>
 							
 						<li id="languagemenuitem" class="nav-item dropdown user-dropdown">
 							<a href="javascript:void(0)" id="languagemenuitemlink" class="nav-link dropdown-item dropdown-toggle" data-toggle="dropdown">	
-								<img id="languageimage" alt="Language" src="/img/lang/<%=meta.language%>.png" width="30px" title="Language" />
+								<img id="languageimage" alt="Language" src="<%=meta.cdn_url%>/img/lang/<%=meta.language%>.png" width="30px" title="Language" />
 								<strong class="fa fa-caret-down caret-down"></strong>
 							</a>
 							<ul class="dropdown-menu dropdown-menu-right">
-								<li><a href="javascript:void(0)" class="dropdown-item" id="linklangen" onclick="$('#languageimage').attr('src','/img/lang/EN.png'); fs_switchLanguage('EN',true);"><img alt="" src="/img/lang/EN.png" width="30px" title="English"/><span id="englishlanguage" style="padding-left: 15px;">English</span></a></li>
-								<li><a href="javascript:void(0)" class="dropdown-item" id="linklangth" onclick="$('#languageimage').attr('src','/img/lang/TH.png'); fs_switchLanguage('TH',true);"><img alt="" src="/img/lang/TH.png" width="30px" title="Thai"/><span id="thailanguage" style="padding-left: 15px;">Thai</span></a></li>
+								<li><a href="javascript:void(0)" class="dropdown-item" id="linklangen" onclick="$('#languageimage').attr('src','<%=meta.cdn_url%>/img/lang/EN.png'); fs_switchLanguage('EN',true);"><img alt="" src="<%=meta.cdn_url%>/img/lang/EN.png" width="30px" title="English"/><span id="englishlanguage" style="padding-left: 15px;">English</span></a></li>
+								<li><a href="javascript:void(0)" class="dropdown-item" id="linklangth" onclick="$('#languageimage').attr('src','<%=meta.cdn_url%>/img/lang/TH.png'); fs_switchLanguage('TH',true);"><img alt="" src="<%=meta.cdn_url%>/img/lang/TH.png" width="30px" title="Thai"/><span id="thailanguage" style="padding-left: 15px;">Thai</span></a></li>
 							</ul>
 						</li>
 						<li id="favormenuitem" class="nav-item dropdown user-dropdown" style="display:none;">

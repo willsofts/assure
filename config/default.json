@@ -1,7 +1,8 @@
 {
     "HTTP_PORT": 8080,
+    "CDN_URL": "https://cdn.jsdelivr.net/gh/willsofts/will-asset@1.0.2", 
     "BASE_URL": "",
-    "REDIRECT_URL": "", 
+    "REDIRECT_URL": "",
     "SECRET_KEY": "ASSURE_OF_SECRET_KEY",
     "VALIDATE_ANOMYMOUS_TOKEN": "false",
     "EXCEPT_AUTHORIZE_PATH": "/health,/sign,/policy,/fetch,/forgot,/captcha,/login",

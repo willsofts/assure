@@ -3,6 +3,7 @@ import config from "@willsofts/will-util";
 
 export const API_URL: string = config.env("API_URL","");
 export const BASE_URL: string = config.env("BASE_URL","");
+export const CDN_URL: string = config.env("CDN_URL","");
 export const MESSAGE_URL: string = config.env("MESSAGE_URL","");
 export const REDIRECT_URL: string = config.env("REDIRECT_URL",""); 
 export const RELEASE_VERSION: string = config.env("RELEASE_VERSION","v1.0.0");

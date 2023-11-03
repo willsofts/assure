@@ -6,6 +6,7 @@ export const QUERY_MODES: string[] = ["collect", "find", "list", "search", "quer
 export interface KnMetaInfo {
     api_url: string;
     base_url: string; 
+    cdn_url: string;
     redirect_url: string; 
     message_url: string;
     language: string;
