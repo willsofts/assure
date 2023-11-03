@@ -8,10 +8,12 @@
     "dev": "ts-node-dev src/server.ts ./dist/services ./dist/workers ./dist/operators",
     "start": "node dist/server.js ./dist/services ./dist/workers ./dist/operators",
     "serv": "node dist/server.js --instances cpu ./dist/services ./dist/workers ./dist/operators",
+    "broker": "node dist/broker.js ./dist/services ./dist/workers ./dist/operators",
     "runner": "kn-runner ./dist/services ./dist/workers ./dist/operators ./dist/gateway",
     "runins": "kn-runner --instances cpu ./dist/services ./dist/worker ./dist/operators ./dist/gateway",
-    "worker": "moleculer-runner --repl ./dist/services ./dist/workers ./dist/operators",
-    "broker": "node dist/broker.js ./dist/services ./dist/workers ./dist/operators",
+    "worker": "kn-runner --repl ./dist/services ./dist/workers ./dist/operators",
+    "gateway": "kn-runner ./dist/gateway",
+    "service": "kn-runner ./dist/services ./dist/workers ./dist/operators",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "descriptions": [
