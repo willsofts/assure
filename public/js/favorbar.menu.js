@@ -10,7 +10,7 @@
 			}
 			function addBlankMenuItem(alink) {
 				let seqno = alink.attr("seqno");
-				$blank = $("<a href=\"javascript:void(0);\" class=\"tile fa-box-title fav-blank\" title=\"New Favorite\" seqno=\""+seqno+"\"><div class=\"icon\"><img class=\"fa fa-app-image\" src=\"img/apps/fs_icon.png\" /></div><span class=\"title\">Add New</span></a>");
+				$blank = $("<a href=\"javascript:void(0);\" class=\"tile fa-box-title fav-blank\" title=\"New Favorite\" seqno=\""+seqno+"\"><div class=\"icon\"><img class=\"fa fa-app-image\" src=\""+CDN_URL+"/img/apps/fs_icon.png\" /></div><span class=\"title\">Add New</span></a>");
 				$blank.click(function(evt) { 
 					evt.stopPropagation();
 					fs_current_favor_item = $(this);
@@ -24,7 +24,8 @@
 				if(pid && pid!="") alink.click(function(evt) { open_page(pid,url,null,null,alink); });
 			}
 			function setupTodo(alink) {
-				let $del = $("<li><img src=\"/img/delete_icon.png\" title=\"Delete\" width=\"25px\" height=\"25px\"/></li>");
+				if(!CDN_URL) CDN_URL = "";
+				let $del = $("<li><img src=\""+CDN_URL+"/img/delete_icon.png\" title=\"Delete\" width=\"25px\" height=\"25px\"/></li>");
 				$del.click(function(evt) { 
 					evt.stopPropagation();
 					let fs_user = $("#login_user").val();
@@ -61,7 +62,7 @@
 				if(!fs_prog || !fs_title || !fs_icon) return;
 				let fs_seqno = alink.attr("seqno");
 				let fs_user = $("#login_user").val();
-				let $newlink = $("<a href=\"javascript:void(0);\" class=\"tile fa-box-title fav-app\" pid=\""+fs_prog+"\" seqno=\""+fs_seqno+"\"><div class=\"icon\"><img class=\"fa fa-app-image\" src=\"img/apps/"+fs_icon+"\" /></div><span class=\"title\">"+fs_title+"</span></a>");
+				let $newlink = $("<a href=\"javascript:void(0);\" class=\"tile fa-box-title fav-app\" pid=\""+fs_prog+"\" seqno=\""+fs_seqno+"\"><div class=\"icon\"><img class=\"fa fa-app-image\" src=\""+CDN_URL+"/img/apps/"+fs_icon+"\" /></div><span class=\"title\">"+fs_title+"</span></a>");
 				if(fs_prog && fs_prog!="") {
 					let authtoken = getAccessorToken();
 					jQuery.ajax({

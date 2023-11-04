@@ -4,7 +4,6 @@
 	justify-content: center;
 	align-items: center;
 	display: flex;
-	/*background-color: #034686;*/
 }
 
 #page_login_toplogo {
@@ -31,10 +30,6 @@
 
 #login_button {
 	width: 120px;
-	/*
-	background-color: #DDB201;
-	color: white;
-	*/
 }
 
 #login_success_label {
@@ -46,7 +41,6 @@
 }
 
 .topnav a {
-	color: #CC9900;
 	text-decoration: none;
 }
 .topnav a:hover {

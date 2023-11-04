@@ -1,8 +1,6 @@
-import { Service } from "moleculer";
 import { KnModel } from "@willsofts/will-db";
 import { KnDataTable } from "../models/KnCoreAlias";
 import { TknMenuHandler } from "./TknMenuHandler";
-import { TknAssureRouter } from "../routers/TknAssureRouter";
 
 export class TknMenuBoxHandler extends TknMenuHandler {
 
@@ -14,9 +12,7 @@ export class TknMenuBoxHandler extends TknMenuHandler {
         let db = this.getPrivateConnector(model);
         try {
             let rs = await this.getMenuBox(db, context.params.userid, context);
-            let router = new TknAssureRouter(this.service as Service);
-            let meta = router.getMetaInfo(context);
-            return await this.buildHtml("/views/menu/box.ejs", { dataset: rs, meta: meta }, context);
+            return await this.buildHtml("/views/menu/box.ejs", { dataset: rs }, context);
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
             return Promise.reject(this.getDBError(ex));

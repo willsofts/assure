@@ -1,9 +1,7 @@
-import { Service } from "moleculer";
 import { KnModel } from "@willsofts/will-db";
 import { KnResultSet } from '@willsofts/will-sql';
 import { KnDataTable } from "../models/KnCoreAlias";
 import { TknMenuHandler } from "./TknMenuHandler";
-import { TknAssureRouter } from "../routers/TknAssureRouter";
 
 export class TknMenuFavorHandler extends TknMenuHandler {
 
@@ -16,9 +14,7 @@ export class TknMenuFavorHandler extends TknMenuHandler {
         try {
             let rs = await this.getFavorMenu(db, context.params.userid, context);
             //return this.createHtml(rs);
-            let router = new TknAssureRouter(this.service as Service);
-            let meta = router.getMetaInfo(context);
-            return await this.buildHtml("/views/menu/favor.ejs", { dataset: rs, meta: meta }, context);
+            return await this.buildHtml("/views/menu/favor.ejs", { dataset: rs }, context);
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
             return Promise.reject(this.getDBError(ex));

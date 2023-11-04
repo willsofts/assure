@@ -5,7 +5,7 @@ hr.entry-horizontal {
 	margin-top:5px; 
 	margin-bottom:5px; 
 	margin-right: 3px; 
-	border: 1px solid #2F4F4F; 
+	border: 1px solid #A95805; 
 }
 table.partition-table { width: 99.8%; color: white; margin-bottom: 2px; }
 div.label-column { margin-top: 5px; }
@@ -27,7 +27,7 @@ div.sub-col-25 { margin-left: 25px; }
 div.sub-col-50 { margin-left: 50px; }
 div.sub-col-75 { margin-left: 75px; }
 div.sub-col-100 { margin-left: 100px; }
-.partition-label { background-color: #008B8B; font-size: 20px; }
+.partition-label { background-color: #A95805; font-size: 20px; }
 .sub-partition-label { font-size: 20px; text-decoration: underline; }
 table.inner-table-class tr { height: 60px; }
 td.inner-column-left { vertical-align:top; padding-top: 15px; padding-right: 25px; }

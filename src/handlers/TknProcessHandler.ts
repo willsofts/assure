@@ -1,3 +1,4 @@
+import { Service } from "moleculer";
 import { KnModel, KnSetting, KnTrackingInfo, KnOperationInfo, KnOperation, KnFieldSetting } from "@willsofts/will-db";
 import { KnValidateInfo, KnContextInfo, KnDataSet, KnFormatInfo, KnDataTable, KnDataMapEntitySetting, KnDataEntity } from '../models/KnCoreAlias';
 import { TknSystemHandler} from './TknSystemHandler';
@@ -10,6 +11,7 @@ import { UserTokenInfo } from "@willsofts/will-lib";
 import { KnPageRender } from "../utils/KnPageRender";
 import { KnCategory } from "../utils/KnCategory";
 import { OPERATE_HANDLERS, QUERY_MODES } from "../models/KnServAlias";
+import { TknAssureRouter } from "../routers/TknAssureRouter";
 
 export class TknProcessHandler extends TknSystemHandler {
 
@@ -39,13 +41,14 @@ export class TknProcessHandler extends TknSystemHandler {
     public async buildHtml(viewfile: string, data: any, context: KnContextInfo, workdir?: string) : Promise<string> {
         let span = this.createSpan("buildHtml", context);
         try {
-            let language = KnUtility.getDefaultLanguage(context);
+            let router = new TknAssureRouter(this.service as Service);
+            let meta = router.getMetaInfo(context);
             if(!workdir) workdir = Utilities.getWorkingDir(process.cwd());
             this.logger.debug(this.constructor.name+".buildHtml: viewfile="+viewfile+", workdir="+workdir+", dir="+__dirname); 
-            let label = new KnLabelConfig(this.progid, language);
+            let label = new KnLabelConfig(this.progid, meta.language);
             try { await label.load(workdir); } catch(ex) { this.logger.error("error",ex); }
             let page = new KnPageRender(this.progid, context, label, this, data);
-            return page.renderFile(viewfile, {data: data, page: page, label: label, meta: { language: language }}, workdir);
+            return page.renderFile(viewfile, {data: data, page: page, label: label, meta: meta}, workdir);
         } finally {
             if(span) span.finish();
         }

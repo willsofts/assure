@@ -1,4 +1,3 @@
-/* CSS Document */
 body {
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -9,26 +8,6 @@ body {
 }
 .portalbody-on { margin-top: 50px; }
 .portalbody-off { margin-top: 0px; }
-
-img.lookupbuttonclass {	
-	background: url(images/lookupcombo.gif) no-repeat center;	
-	width: 15px;	
-	height: 18px;	
-	border: 0px; 
-	background-position: top; 
-}
-img.lookupbuttonclass :hover { 	
-	background-position: center; 
-}
-img.ui-lookupbuttonclass-hover {
-	background-position: center; 
-}
-
-img.ui-combobox-arrow {
-	position: relative;
-	vertical-align: text-bottom;
-	top: 2px;
-}
 
 * html img.ui-combobox-arrow {
 	top: -3px;
@@ -50,13 +29,10 @@ img.ui-combobox-arrow {
 	background-color: #eeeeff;
 	border-top: 1px solid blue;
 	border-bottom: 1px solid blue;
-	/*font-weight: bold;*/
 	cursor: pointer;
 }
 .status { margin-top: 0px; }
 #statuslayer { text-align: center; margin-top: 5px; margin-bottom: 5px; /*height: 50px;*/ }
-
-/* TSO added */
 
 input:focus,
 textarea:focus,
@@ -87,11 +63,6 @@ label:active + textarea {
 	margin-right: 5px;
 	padding-top: 3px;
 	background-color: ghostwhite;
-	/*background-color: whitesmoke;*/
-	/*background-color: gainsboro;*/
-	/*background-color: lightgray;*/
-	/*background-color: silver;*/
-	/*background-color: lightsteelblue;*/
 	border-color: 2px solid darkgray;
 }
 .portal-pager-sub {
@@ -99,7 +70,6 @@ label:active + textarea {
 }
 .portal-area {
 	background-color: ghostwhite;
-	/*background-color: whitesmoke;*/
 	border-color: 2px solid darkgray;
 }
 .portal-area-sub {
@@ -141,10 +111,6 @@ label:active + textarea {
 
 .btn-dark {
 	color: #FFFFFF;
-	/*border: 1px solid #2F4F4F;
-	background-color: #2F4F4F;*/
-	/*border: 1px solid #008B8B;
-	background-color: #008B8B;*/
 	border: 1px solid #028575;
 	background-color: #028575;	
 	width: 90px;
@@ -161,8 +127,6 @@ label:active + textarea {
 
 .btn-primary {
 	color: #FFFFFF;
-	/*border: 1px solid #008B8B;
-	background-color: #008B8B;*/
 	border: 1px solid #028575;
 	background-color: #028575;	
 }
@@ -175,14 +139,6 @@ label:active + textarea {
 	font-weight: normal; 
 	color: #FFFFFF;	
 }
-/* override theme bootstrap
-.form-control:focus {
-  border-color: #FFCC66;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(254, 206, 110, .6);
-          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(254, 206, 110, .6);
-}
-*/
 .portal-area-layer { padding-bottom: 2px; }
 .portal-table { background-color: ghostwhite; }
 .portal-table thead tr { height: 30px; }
@@ -195,7 +151,6 @@ label:active + textarea {
 	margin: 10px; 
 	min-height: 250px; 
 	background-color: ghostwhite;
-	/*background-color: whitesmoke;*/ 
 }
 .protection-error-internal { 
 	padding-top: 100px; 
@@ -213,10 +168,6 @@ a.pageselectedclass { background-color: #2F4F4F; }
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-	/*background-color: #2F4F4F;
-	border-color: #2F4F4F;*/
-	/*background-color: #008B8B;
-	border-color: #008B8B;*/
 	background-color: #00B29D;
 	border-color: #00B29D;
 }
@@ -331,16 +282,13 @@ a.alink-data { color: black; cursor: pointer; }
 }
 .fsx_combo_box{
 	text-align: left;
-	/*height: 22px;*/
 	min-height: 22px;
 	overflow: hidden;
     background-color: white;
-	/*border: 1px solid #7F9DB9;*/
 	padding: 3px 1px 3px 2px;
 }
 .filter-layer { margin-right:3px; }
 .entry-layer { 
-	/*margin-left: 5px; margin-right:10px;*/
 	margin-left: 15px; margin-right: 15px; margin-top: 15px; margin-bottom: 15px;
 }
 .sub-entry-layer { margin-left: 0px; margin-right:3px; padding-top: 5px; }
@@ -351,7 +299,6 @@ div.col-label { text-align: left; padding-top: 10px; }
 		text-align: right;
 	}
 }
-/* #entrypanel { width:98.8%; } */
 .pt-page-controller { width: 99.8%; }
 
 /* record set - input dialog */
@@ -403,18 +350,8 @@ table.partition-table { background-color: #028575; }
 	margin-left: 10px;
 	margin-right: 15px;
 	margin-bottom: 15px;
-	/*background-color: ghostwhite;*/
 }
 
-/* remove header program title & version */
-/*.header-layer { display: none; } */
-/*
-@media (min-width: 768px) {
-	.modal-dialog {
-		max-width: 600px;
-	}
-}
-*/
 @media (min-width: 992px) {
 	.modal-md {
 		max-width: 800px;

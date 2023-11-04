@@ -50,7 +50,6 @@
 	background-color: #315989;
 }
 
-/* add on */
 .sidebar li a, .sidebar li a.collapsed.active { 
 	display: block; 
 	padding: 7px 5px; 
@@ -109,7 +108,6 @@
     position: absolute;
 	left: 39px;
     top: 0;
-	/*background-color: #0047BA;*/
     z-index: 100;
     display: none;
 }
