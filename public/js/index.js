@@ -188,7 +188,7 @@
 			clearAvatar();
 		}
 		function clearAvatar() {
-			$("#avatarimage").attr("src","/img/avatar.png");
+			$("#avatarimage").attr("src",CDN_URL+"/img/avatar.png");
 		}
 		function clearBackground() {
 			$("body").css("background-image","none");

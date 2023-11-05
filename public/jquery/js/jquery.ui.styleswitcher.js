@@ -6,6 +6,7 @@ $.fn.styleswitcher = function(settings){
 		height: 200,
 		$styleInput: null,
 		styleURL : "/api/style/category",
+		cdnURL: "https://cdn.jsdelivr.net/gh/willsofts/will-asset@1.0.0",
 		closeOnSelect: true,
 		buttonHeight: 33,		
 		onOpen: function(){},
@@ -72,7 +73,7 @@ $.fn.styleswitcher = function(settings){
 					function(){ 
 						$(this).css({
 							'borderColor':'#555',
-							'background': 'url(../jquery/gallery/menuhoverbg.png) 50% 50% repeat-x',
+							'background': 'url('+options.cdnURL+'/jquery/gallery/menuhoverbg.png) 50% 50% repeat-x',
 							cursor: 'pointer'
 						}); 
 					},
@@ -121,7 +122,7 @@ $.fn.styleswitcher = function(settings){
 	//show/hide panel functions
 	$.fn.spShow = function(btn){ 
 		var ofset = btn.offset();
-		$(this).css({top: ofset.top + options.buttonHeight + 6, left: ofset.left}).slideDown(50); button.css(button_active); options.onOpen(); 
+		$(this).css({top: ofset.top + options.buttonHeight + 1, left: ofset.left}).slideDown(50); button.css(button_active); options.onOpen(); 
 	}
 	$.fn.spHide = function(btn){ 
 		$(this).slideUp(50, function(){options.onClose();}); btn.css(button_default); 
@@ -141,7 +142,7 @@ $.fn.styleswitcher = function(settings){
 	var button_default = {
 		fontSize: '18px',
 		color: '#666',
-		background: '#eee url(../jquery/gallery/buttonbg.png) 50% 50% repeat-x',
+		background: '#eee url('+options.cdnURL+'/jquery/gallery/buttonbg.png) 50% 50% repeat-x',
 		border: '1px solid #ccc',
 		'-moz-border-radius': '6px',
 		'-webkit-border-radius': '6px',
@@ -184,7 +185,7 @@ $.fn.styleswitcher = function(settings){
 		float: 'right',
 		width: '20px',
 		height: '25px',
-		background: 'url(../jquery/gallery/icon_color_arrow.gif) 50% 50% no-repeat'
+		background: 'url('+options.cdnURL+'/jquery/gallery/icon_color_arrow.gif) 50% 50% no-repeat'
 	});	
 	
 	//pane css
@@ -203,7 +204,7 @@ $.fn.styleswitcher = function(settings){
 		'-webkit-border-bottom-right-radius': '6px',
 		borderTop: 0,
 		zIndex: 999999,
-		width: options.width-6//minus must match left and right padding
+		width: options.width-11//minus must match left and right padding
 	})
 	.find('ul').css({
 		listStyle: 'none',
@@ -216,7 +217,7 @@ $.fn.styleswitcher = function(settings){
 		function(){ 
 			$(this).css({
 				'borderColor':'#555',
-				'background': 'url(../jquery/gallery/menuhoverbg.png) 50% 50% repeat-x',
+				'background': 'url('+options.cdnURL+'/jquery/gallery/menuhoverbg.png) 50% 50% repeat-x',
 				cursor: 'pointer'
 			}); 
 		},
