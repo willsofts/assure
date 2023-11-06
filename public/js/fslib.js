@@ -11,6 +11,7 @@ var fs_fontSize = 14;
 var API_URL = "";
 var BASE_URL = "";
 var API_TOKEN = null;
+var BASE_STORAGE = "";
 function getWindowByName(winname) {
 	if(!winname) return null;
 	for(let i=0,isz=fs_winary.length;i<isz;i++) {
@@ -1554,16 +1555,24 @@ function createMandatoryParameters(aform) {
 	return result;
 }
 function getStorage(key) {
+	if("local"==BASE_STORAGE) {
+		return localStorage.getItem(key);
+	}
     return sessionStorage.getItem(key);
-    //return localStorage.getItem(key);
 }
 function setStorage(key,value) {
-    sessionStorage.setItem(key,value);
-    //localStorage.setItem(key,value);
+	if("local"==BASE_STORAGE) {
+		localStorage.setItem(key,value);
+		return;
+	}
+	sessionStorage.setItem(key,value);
 }
 function removeStorage(key) {
+	if("local"==BASE_STORAGE) {
+		localStorage.removeItem(key);
+		return;
+	}
     sessionStorage.removeItem(key);
-    //localStorage.removeItem(key);
 }
 function getAccessorInfo() {
     let info = getStorage("accessorinfo");

@@ -12,6 +12,7 @@ export interface KnMetaInfo {
     language: string;
     version: string;
     token?: string;
+    storage?: string;
     info?: any;
 }
 

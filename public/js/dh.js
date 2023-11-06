@@ -84,8 +84,13 @@ DH.prototype.requestGenerator = function(callback,aurl) {
 };
 
 DH.prototype.getAccessorInfo = function() {
-	let info = sessionStorage.getItem("accessorinfo");
-    //let info = localStorage.getItem("accessorinfo");
+	console.log("dh.js: BASE_STORAGE",window.BASE_STORAGE);
+	let info = undefined;
+	if("local"==BASE_STORAGE) {
+		info = localStorage.getItem("accessorinfo");
+	} else {
+		info = sessionStorage.getItem("accessorinfo");
+	}
     if(info && info!="") {
         return $.parseJSON(info);
     }    

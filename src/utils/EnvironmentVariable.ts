@@ -7,7 +7,9 @@ export const CDN_URL: string = config.env("CDN_URL","");
 export const MESSAGE_URL: string = config.env("MESSAGE_URL","");
 export const REDIRECT_URL: string = config.env("REDIRECT_URL",""); 
 export const RELEASE_VERSION: string = config.env("RELEASE_VERSION","v1.0.0");
+export const BASE_STORAGE: string = config.env("BASE_STORAGE","");
 
+export const AUTH_TOKEN_EXPIRE_IN = config.env("AUTH_TOKEN_EXPIRE_IN","18h"); //18 hours expired
 export const EXPIRE_TIMES = parseInt(config.env("EXPIRE_TIMES","64800000")) || 18*60*60*1000; //18 hours expired
 export const EXPIRE_DATES = parseInt(config.env("EXPIRE_DATES","120")) || 120; //120 days expired
 export const MAX_FAILURE = parseInt(config.env("MAX_FAILURE","3")) || 3;
