@@ -7,7 +7,7 @@ import { VerifyError } from "../models/VerifyError";
 import { KnUserToken } from "../models/KnUserToken";
 import { KnAnonymousInfoContents, KnContextInfo, KnLoginInfoContents, KnLogoutInfoContents } from '../models/KnCoreAlias';
 import { TknSchemeHandler } from "./TknSchemeHandler";
-import { TknSigninHandler } from "./TknSigninHandler";
+import { TknSigninTokenHandler } from "./TknSigninTokenHandler";
 
 export class TknLoginHandler extends TknSchemeHandler {
 
@@ -174,7 +174,7 @@ export class TknLoginHandler extends TknSchemeHandler {
 	public async saveAnonymousToken(context: KnContextInfo, model: KnModel, authdata: AuthenTokenData, authtoken: string) : Promise<KnUserToken> {
 		let db = this.getPrivateConnector(model);
 		try {
-			let handler = new TknSigninHandler();
+			let handler = new TknSigninTokenHandler();
 			return await handler.createUserToken(db,{userid: authdata.accessor as string, site: authdata.site},authdata.identifier,authtoken,"A");
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);

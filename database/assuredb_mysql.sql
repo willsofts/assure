@@ -1365,8 +1365,8 @@ CREATE TABLE IF NOT EXISTS `tusertoken` (
   `outtime` time DEFAULT NULL,
   `accesscontents` text,
   PRIMARY KEY (`useruuid`),
-  KEY `nonce` (`nonce`),
-  KEY `authtoken` (`authtoken`)
+  UNIQUE KEY `authtoken` (`authtoken`),
+  KEY `nonce` (`nonce`,`code`,`state`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep access token';
 
 -- Dumping data for table assuredb2.tusertoken: ~0 rows (approximately)
