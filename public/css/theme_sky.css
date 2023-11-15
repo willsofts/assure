@@ -24,6 +24,10 @@
 	background-image: -moz-linear-gradient(white, #A3C9DF);
 	background-image: linear-gradient(white, #A3C9DF);
 }
+div.link-button-cover a:hover {
+	background: #37B6E0;
+	color: white;
+}
 
 .navigatebar-top {
 	background-color: #37B6E0;

@@ -16,7 +16,6 @@
 	font-size: 85px;
 	font-weight: bold;
 	color: #5385C1;
-	/*text-shadow: 3px 7px 7px #959BCE;*/
 	text-shadow: 3px 7px 7px whitesmoke;
 }
 #page_login_toplayer {	
@@ -24,6 +23,10 @@
 	background-image: -o-linear-gradient(white, #B0C4DE);
 	background-image: -moz-linear-gradient(white, #B0C4DE);
 	background-image: linear-gradient(white, #B0C4DE);
+}
+div.link-button-cover a:hover {
+	background: #5385C1;
+	color: white;
 }
 
 .navigatebar-top {

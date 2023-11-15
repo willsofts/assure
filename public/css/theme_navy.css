@@ -11,9 +11,11 @@
 	background: #034686;
 	color: white;
 }
-.navigatebar-top {
-	/*background-color: #034686;*/
+div.link-button-cover a:hover {
+	background: #034686;
+	color: white;
 }
+
 #footerbar { 
 	background-color: #034686;
 }
