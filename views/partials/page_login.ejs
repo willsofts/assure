@@ -36,6 +36,29 @@
 												<label class="login-label"><%=meta.version%></label>
 											</div>
 										</div>
+	                                    <br/>
+	                                    <% let rows = data.dataset?.rows;
+											if(rows && rows.length > 0) { %>
+	                                    <div class="login_button_layer">
+	                                    	<fieldset class="login-field-set">
+	                                    		<legend class="login-legend">
+	                                    	<label class="login-label">Login via Single Sign-On</label>
+	                                    		</legend>
+	                                    	</fieldset>
+	                                    </div>		
+	                                    	<%
+	                                    	for(let r of rows) {
+	                                    		let domain = r["domainid"]
+	                                    		let description = r["description"] %>
+										<div class="login_button_layer">
+											<div class="link-button-cover">
+	                                    		<a class="link-button form-control input-md" href="javascript:void(0)" onclick="window.open('/auth/signin/<%=domain%>','_self')"><%=description %></a>
+											</div>
+	                                    </div>
+	                                    	<%
+	                                    	}
+											}
+	                                    %>
 	                                </div>
 	                            </form>
                             </div>

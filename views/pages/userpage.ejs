@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>System Management</title>
+		<%- include('../asset/meta') %>		
+		<%- include('../asset/styleserror') %>	
+		<style> a { font-size: 1.5rem; text-decoration: none;} h3.info { text-align: center; }</style>	
+		<script>
+			function doGoBack() {
+				window.open("/","_top");
+			}
+			function doToggle() {
+				if(userinfolayer.style.display=="none") {
+					userinfolayer.style.display = "block";
+				} else {
+					userinfolayer.style.display = "none";
+				}
+			}
+			</script>
+		</head>
+	<body class="portalbody portalbody-off" style="margin:0px; font-size:1rem; font-weight:400;line-height:1.5;">
+		<div class="pt-page pt-page-current pt-page-controller">
+			<div class="header-layer">
+				<h1 class="page-header-title" style="margin-top:0px; margin-bottom:0.5rem;">
+					<label>User</label>
+				</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-right" style="float: right; padding-right: 15px;">
+					<a href="javascript:void(0);" onclick="doToggle()" style="font-weight: bold;">&#9432;</a>
+				</div>
+			</div>
+			<div id="userinfolayer" style="display: none; padding: 10px;">
+			<h3>User Information</h3>
+			<table id="datatable" class="table table-bordered table-hover table-striped" style="width: 100%;">
+			    <thead class="pt-page-header">
+			    <tr>
+			        <th>User Name</th>
+			        <th>Environment</th>
+			        <th>Tenant Id</th>
+			    </tr>
+			    </thead>
+			    <tbody>
+			    	<tr>
+				        <td><%=auth.account?.username%></td>
+				        <td><%=auth.account?.environment%></td>
+				        <td><%=auth.account?.tenantId%></td>
+			        </tr>
+			    </tbody>
+			</table>
+			</div>
+			<br/>
+			<br/>
+			<%if(error) {%>
+			<h3 class="info text-center" style="color:red;"><%=error%></h3>		
+			<%}%>
+			<%if(info) {%>
+			<h3 class="info text-center" style="color:red;"><%=info%></h3>		
+			<%}%>
+			<br/>		
+			<div style="text-align:center">
+				<a href="javascript:void(0);" onclick="doGoBack()">Go Home</a>
+			</div>
+		</div>
+	</body>
+</html>

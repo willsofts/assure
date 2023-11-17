@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Authentication</title>		
+		<%- include('../asset/meta') %>		
+		<script type="text/javascript" src="<%=meta.cdn_url%>/js/fslib.js"></script>
+		<% if(auth?.isAuthenticated && data.body?.authtoken) {%>
+		<script type="text/javascript">
+			var $ACCESS_TOKEN = {authtoken: '<%=data.body.authtoken%>'};
+			saveAccessorInfo($ACCESS_TOKEN);
+			setStorage("access_token",$ACCESS_TOKEN.authtoken)
+		</script>
+		<% } %>
+		<script type="text/javascript">
+			function startprog() { 
+				window.open("/login", "_self");
+			}
+		</script>
+	</head>
+	<body onload="startprog()">
+	</body>
+</html>

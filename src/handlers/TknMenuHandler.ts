@@ -23,7 +23,8 @@ export class TknMenuHandler extends TknProcessHandler {
         await this.validateRequireFields(context, model, "side");
         let db = this.getPrivateConnector(model);
         try {
-            let rs = await this.getFavorMenu(db, context.params.userid, context);
+            let userid = context.params.userid || this.userToken?.userid;
+            let rs = await this.getFavorMenu(db, userid, context);
             let data = { action: "favor", entity: {}, dataset: this.createRecordSet(rs) };
             return await this.createCipherData(context, "favor", data);
         } catch(ex: any) {
@@ -38,7 +39,8 @@ export class TknMenuHandler extends TknProcessHandler {
         await this.validateRequireFields(context, model, "side");
         let db = this.getPrivateConnector(model);
         try {
-            let rs = await this.getSideBarMenu(db, context.params.userid, context);
+            let userid = context.params.userid || this.userToken?.userid;
+            let rs = await this.getSideBarMenu(db, userid, context);
             rs = this.createRecordSet(rs);
             let ds = this.createSideBarMenu(rs);
             let data = { action: "side", entity: {}, dataset: ds };
@@ -55,7 +57,8 @@ export class TknMenuHandler extends TknProcessHandler {
         await this.validateRequireFields(context, model, "prog");
         let db = this.getPrivateConnector(model);
         try {
-            let rs = await this.getFavorProgram(db, context.params.userid, context);
+            let userid = context.params.userid || this.userToken?.userid;
+            let rs = await this.getFavorProgram(db, userid, context);
             let setting : KnDataMapRecordSetting = {tablename: "tprog", resultset: rs, setting: { keyName: "programid", valueNames: ["shortname"], categoryName: "progcategory" }};
             let ds = KnUtility.createDataEntity([setting]);
             let data = { action: "prog", entity: {}, dataset: ds };
@@ -72,7 +75,8 @@ export class TknMenuHandler extends TknProcessHandler {
         await this.validateRequireFields(context, model, "box");
         let db = this.getPrivateConnector(model);
         try {
-            let rs = await this.getMenuBox(db, context.params.userid, context);
+            let userid = context.params.userid || this.userToken?.userid;
+            let rs = await this.getMenuBox(db, userid, context);
             rs = this.createRecordSet(rs);
             let data = { action: "box", entity: {}, dataset: rs };
             return await this.createCipherData(context, "box", data);

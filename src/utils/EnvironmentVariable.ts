@@ -8,6 +8,9 @@ export const MESSAGE_URL: string = config.env("MESSAGE_URL","");
 export const REDIRECT_URL: string = config.env("REDIRECT_URL",""); 
 export const RELEASE_VERSION: string = config.env("RELEASE_VERSION","v1.0.0");
 export const BASE_STORAGE: string = config.env("BASE_STORAGE","");
+export const ALLOW_AUTHEN_SAML: boolean = config.env("ALLOW_AUTHEN_SAML") === "true";
+export const REDIRECT_URI: string = config.env("REDIRECT_URI","http://localhost:8080/auth/redirect"); 
+export const REDIRECT_URI_LOGOUT: string = config.env("REDIRECT_URI_LOGOUT","http://localhost:8080"); 
 
 export const AUTH_TOKEN_EXPIRE_IN = config.env("AUTH_TOKEN_EXPIRE_IN","18h"); //18 hours expired
 export const EXPIRE_TIMES = parseInt(config.env("EXPIRE_TIMES","64800000")) || 18*60*60*1000; //18 hours expired

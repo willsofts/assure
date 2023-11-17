@@ -14,6 +14,13 @@
 			CDN_URL = "<%=meta.cdn_url%>";
 			BASE_STORAGE = "<%=meta.storage%>";
 		</script>
+		<% if(auth?.isAuthenticated && data.body?.authtoken) {%>
+		<script type="text/javascript">
+			$ACCESS_TOKEN = {authtoken: '<%=data.body.authtoken%>'};
+			saveAccessorInfo($ACCESS_TOKEN);
+			setStorage("access_token",$ACCESS_TOKEN.authtoken)
+		</script>
+		<% } %>
 	</head>
 	<body class="portalbody portalbody-off">
 		<nav id="navigatebar" class="navbar navbar-expand navigatebar-top" style="min-height: 30px; display:none;">

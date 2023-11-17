@@ -40,7 +40,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         return this.getAuthenToken(context, true, true);
 	}
 
-    protected async doAccessToken(context: KnContextInfo, model: KnModel) : Promise<Map<string,Object>> {
+    protected async doAccessToken(context: KnContextInfo, model: KnModel = this.model) : Promise<Map<string,Object>> {
         let token = this.getTokenKey(context);
         this.logger.debug(this.constructor.name+".doAccessToken: token = "+token);
         if(!token || token=="") {
@@ -50,7 +50,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         let db = this.getPrivateConnector(model);
         try {
             let body = await this.processAccessToken(db, token, false, context);
-            this.updateUserAccessing(context, model, { userid: body.get("userid") as string });
+            this.updateUserAccessing(context, { userid: body.get("userid") as string }, model);
             return body;
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
@@ -60,7 +60,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         }
     }
 
-    protected async doFetchToken(context: KnContextInfo, model: KnModel) : Promise<Map<string,Object>> {
+    protected async doFetchToken(context: KnContextInfo, model: KnModel = this.model) : Promise<Map<string,Object>> {
         let puuid = context.params.useruuid;
         this.logger.debug(this.constructor.name+".doFetchToken: useruuid = "+puuid);
         if(!puuid || puuid=="") {
@@ -69,7 +69,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         let db = this.getPrivateConnector(model);
         try {
             let body = await this.processAccessToken(db, puuid, true);
-            this.updateUserAccessing(context, model, { userid: body.get("userid") as string });
+            this.updateUserAccessing(context, { userid: body.get("userid") as string }, model);
             return body;
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
@@ -79,7 +79,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         }
     }
 
-    protected async doRemoveToken(context: KnContextInfo, model: KnModel) : Promise<KnResultSet> {
+    protected async doRemoveToken(context: KnContextInfo, model: KnModel = this.model) : Promise<KnResultSet> {
         let authtoken = context.params.authtoken;
         this.logger.debug(this.constructor.name+".doRemoveToken: authtoken = "+authtoken);
         if(!authtoken || authtoken=="") {
@@ -239,7 +239,8 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         return Promise.resolve(new KnUserToken(useruuid,expiretimes,code,state,nonce,authtoken));
     }
 
-    public async updateUserAccessing(context: KnContextInfo, model: KnModel, info: KnAccessingInfo) : Promise<void> {
+    public async updateUserAccessing(context: KnContextInfo, info: KnAccessingInfo, model: KnModel = this.model) : Promise<void> {
+        if(!info.userid && !info.username) return;
         let db = this.getPrivateConnector(model);
         try {
             if(info.userid) {

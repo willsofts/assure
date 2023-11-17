@@ -16,7 +16,8 @@ export class TknLaunchRouter extends TknAssureRouter {
             await this.validateLauncher(ctx);
         } catch(ex) {
             this.logger.error(this.constructor.name+".isValidateLauncher: error",ex);
-            res.render("pages/error",{error: ex});
+            let info = this.getMetaInfo(ctx);
+            res.render("pages/error",{error: ex, meta: info});
             return false;
         }
         return true;
@@ -34,6 +35,7 @@ export class TknLaunchRouter extends TknAssureRouter {
         let progpath = path.join(workdir, "views", program);
         let foundview = fs.existsSync(progpath);
         this.logger.debug(this.constructor.name+".doLaunch: program="+program+", sub="+subprog+", found="+foundview+", path="+progpath);
+        let label = null;
         let opername = program;
         if(subprog && subprog.trim().length>0) opername = subprog;
         if (foundview) {
@@ -62,7 +64,7 @@ export class TknLaunchRouter extends TknAssureRouter {
                         KnResponser.responseError(res,ex,"launch",opername);
                         return;
                     }
-                    res.render("pages/error",{error: ex});
+                    res.render("pages/error",{error: ex, meta: info});
                     return;
                 }
                 if(rs?.error) {
@@ -72,7 +74,7 @@ export class TknLaunchRouter extends TknAssureRouter {
                         return;
                     }
                     let errorpage = rs?.renderer?rs.renderer:"pages/error";
-                    res.render(errorpage,{error: rs.error});
+                    res.render(errorpage,{error: rs.error, meta: info});
                     return;
                 }
             }
@@ -82,30 +84,36 @@ export class TknLaunchRouter extends TknAssureRouter {
                 if(subprog.trim().length>0) renderpage = program+"/"+subprog;
             }
             if(rs && rs.renderer) renderpage = rs.renderer;
-            let label = new KnLabelConfig(program, info.language);
+            label = new KnLabelConfig(program, info.language);
             try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doLaunch: error",ex); }
             let page = new KnPageRender(program, ctx, label, handler, rs);
             let param = { meta: info, page: page, label: label, data: rs };
             res.render(renderpage, param, (err: Error, html: string) => {
                 if(err) {
                     this.logger.error(this.constructor.name+"doLaunch: error", err); 
-                    res.render("pages/error",{error: err});
+                    res.render("pages/error",{error: err, meta: info});
                     return;
                 }
                 res.send(html);
             });
         } else {
-            res.render("pages/notfound",{error: "not found"});
+            if(!label) {
+                label = new KnLabelConfig("index", info.language);
+                try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doOpen: error",ex); }
+            }
+            res.render("pages/notfound",{error: "not found", meta: info, label: label});
         }
     }
     
     public async doLoad(req: Request, res: Response) {
         this.logger.debug(this.constructor.name+".doLoad: url="+req.originalUrl);
+        let ctx = null;
+        let info = null;
         let program = req.params.program;
         if(program) {
             try {
-                let ctx = await this.createContext(req, program);
-                let info = this.getMetaInfo(ctx);
+                ctx = await this.createContext(req, program);
+                info = this.getMetaInfo(ctx);
                 let handelr = new TknProgramHandler();
                 let ds = await handelr.getDataSource(ctx);
                 this.logger.debug(this.constructor.name+".doLoad: program="+program,ds);
@@ -115,31 +123,55 @@ export class TknLaunchRouter extends TknAssureRouter {
                 }
             } catch(ex: any) {
                 this.logger.error(this.constructor.name+".doLoad: error",ex);
-                res.render("pages/error",{error: ex});
+                if(!info || !ctx) {
+                    ctx = this.buildContext(req);
+                    info = this.getMetaInfo(ctx);
+                }
+                res.render("pages/error",{error: ex, meta: info});
             }
             return;
         }
-        res.render("pages/notfound",{error: "not found"});
+        if(!info || !ctx) {
+            ctx = this.buildContext(req);
+            info = this.getMetaInfo(ctx);
+        }
+        let workdir = Utilities.getWorkingDir(this.dir); 
+        let label = new KnLabelConfig("index", info.language);
+        try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doOpen: error",ex); }        
+        res.render("pages/notfound",{error: "not found", meta: info, label: label});
     }
 
     public async doOpen(req: Request, res: Response) {
         this.logger.debug(this.constructor.name+".doOpen: url="+req.originalUrl);
+        let label = null;
+        let ctx = null;
+        let info = null;
+        let workdir = null;
         let program = req.params.program;
         let subprog = req.params.subprog;
         if(program) {
             let pager = program;
             if(subprog && subprog.trim().length>0) pager += "/"+subprog;
-            let workdir = Utilities.getWorkingDir(this.dir); 
-            let ctx = await this.createContext(req,program);
-            let info = this.getMetaInfo(ctx);
-            let label = new KnLabelConfig(program, info.language);
+            workdir = Utilities.getWorkingDir(this.dir); 
+            ctx = await this.createContext(req,program);
+            info = this.getMetaInfo(ctx);
+            label = new KnLabelConfig(program, info.language);
             try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doOpen: error",ex); }
             let page = new KnPageRender(program, ctx, label);
             let param = { meta: info, page: page, label: label, data: {} };
             res.render(pager,param);
             return;
         }
-        res.render("pages/notfound",{error: "not found"});
+        if(!info || !ctx) {
+            let ctx = this.buildContext(req);
+            info = this.getMetaInfo(ctx);
+        }
+        if(!label) {
+            if(!workdir) workdir = Utilities.getWorkingDir(this.dir); 
+            label = new KnLabelConfig("index", info.language);
+            try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doOpen: error",ex); }
+        }
+        res.render("pages/notfound",{error: "not found", meta: info, label: label});
     }
 
 }

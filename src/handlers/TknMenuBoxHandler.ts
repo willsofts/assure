@@ -11,7 +11,8 @@ export class TknMenuBoxHandler extends TknMenuHandler {
     protected override async doHtml(context: any, model: KnModel) : Promise<string> {
         let db = this.getPrivateConnector(model);
         try {
-            let rs = await this.getMenuBox(db, context.params.userid, context);
+            let userid = context.params.userid || this.userToken?.userid;
+            let rs = await this.getMenuBox(db, userid, context);
             return await this.buildHtml("/views/menu/box.ejs", { dataset: rs }, context);
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);

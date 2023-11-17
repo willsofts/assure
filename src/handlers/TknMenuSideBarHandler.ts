@@ -11,7 +11,8 @@ export class TknMenuSideBarHandler extends TknMenuHandler {
     protected override async doHtml(context: any, model: KnModel) : Promise<string> {
         let db = this.getPrivateConnector(model);
         try {
-            let rs = await this.getSideBarMenu(db, context.params.userid, context);
+            let userid = context.params.userid || this.userToken?.userid;
+            let rs = await this.getSideBarMenu(db, userid, context);
             rs = this.createRecordSet(rs);
             let ds = this.createSideBarMenu(rs);
             return await this.buildHtml("/views/menu/side.ejs", { dataset: ds }, context);

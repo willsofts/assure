@@ -5,6 +5,7 @@ import { TknUploadRouter } from "./TknUploadRouter";
 import { TknRenderRouter} from "./TknRenderRouter";
 import { TknLaunchRouter } from "./TknLaunchRouter";
 import { TknControlRouter } from './TknControlRouter';
+import { TknAuthenRouter } from './TknAuthenRouter';
 
 export class TknRouteManager extends TknBaseRouter {
 
@@ -28,6 +29,7 @@ export class TknRouteManager extends TknBaseRouter {
         let uploader = new TknUploadRouter(this.service, this.dir);
         let launcher = new TknLaunchRouter(this.service, this.dir);
         let controler = new TknControlRouter(this.service, this.dir);
+        let authener = new TknAuthenRouter(this.service, this.dir);
 
         app.use(async (req: Request, res: Response, next: Function) => {
             try {
@@ -56,6 +58,10 @@ export class TknRouteManager extends TknBaseRouter {
             let valid = await this.verifyToken(req,res); if(!valid) return; 
             uploader.doUpload(req,res); 
         });
+        app.get("/auth", (req: Request, res: Response, next: Function) => { authener.doAuthen(req,res,next); });
+        app.get("/auth/signin/:domainid?", (req: Request, res: Response, next: Function) => { authener.doSignin(req,res,next); });
+        app.post("/auth/redirect", (req: Request, res: Response, next: Function) => { authener.doRedirect(req,res,next); });
+        app.get("/auth/signout", (req: Request, res: Response, next: Function) => { authener.doSignout(req,res,next); });
 
         // curl -X POST http://localhost:8080/upload/file -F filename=@D:\images\birth.png -F type=IMG
 

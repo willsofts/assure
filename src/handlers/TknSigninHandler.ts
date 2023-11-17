@@ -15,7 +15,7 @@ export class TknSigninHandler extends TknSchemeHandler {
     public model : KnModel = { name: "tuser", alias: { privateAlias: this.section } };
 
     //declared addon actions name
-    public handlers = [ {name: "signin"}, {name: "signout"}, {name: "account"}, {name: "accesstoken"}, {name: "fetchtoken"}, {name: "validatetoken"} ];
+    public handlers = [ {name: "signin"}, {name: "signout"}, {name: "account"}, {name: "accesstoken"}, {name: "fetchtoken"}, {name: "validatetoken"}, {name: "access"} ];
     public tokener = new TknSigninTokenHandler();
 
     protected getSigninInfo(context: KnContextInfo) : KnSigninInfo {
@@ -46,6 +46,10 @@ export class TknSigninHandler extends TknSchemeHandler {
         return this.tokener.validatetoken(context);
 	}
 
+    public async access(context: KnContextInfo) : Promise<JSONReply> {
+        return this.callFunctional(context, {operate: "access", raw: false}, this.doAccess);
+	}
+
     protected async getBasicSigninInfo(context: KnContextInfo, db: KnDBConnector) : Promise<KnSigninInfo> {
         let signinfo = this.getSigninInfo(context);
         this.logger.debug(this.constructor.name+".getBasicSigninInfo : username="+signinfo.username);
@@ -71,28 +75,66 @@ export class TknSigninHandler extends TknSchemeHandler {
             if((!signinfo.username || signinfo.username.trim().length==0) || (!signinfo.password || signinfo.password.trim().length==0)) {
                 return Promise.reject(new VerifyError("Invalid user or password",HTTP.BAD_REQUEST,-16081));
             }
-            return await this.performSignin(context, model, signinfo, db);
+            return await this.performSignin(context, db, signinfo, model);
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
+            if(ex instanceof AuthenError) {
+                return Promise.reject(ex);
+            }
             return Promise.reject(this.getDBError(ex));
         } finally {
             if(db) db.close();
         }
     }
 
-    public async performSignin(context: KnContextInfo, model: KnModel, signinfo: KnSigninInfo, db : KnDBConnector) : Promise<JSONReply> {
+    protected async doAccess(context: KnContextInfo, model: KnModel) : Promise<JSONReply> {
+        let db = this.getPrivateConnector(model);
+        try {
+            let signinfo = await this.getBasicSigninInfo(context, db);    
+            if((!signinfo.username || signinfo.username.trim().length==0)) {
+                return Promise.reject(new VerifyError("Invalid user name",HTTP.BAD_REQUEST,-16082));
+            }
+            return await this.performSigninAccess(context, db, signinfo, model);
+        } catch(ex: any) {
+            this.logger.error(this.constructor.name,ex);
+            if(ex instanceof AuthenError) {
+                return Promise.reject(ex);
+            }
+            return Promise.reject(this.getDBError(ex));
+        } finally {
+            if(db) db.close();
+        }
+    }
+
+    public async performSignin(context: KnContextInfo, db : KnDBConnector, signinfo: KnSigninInfo, model: KnModel = this.model) : Promise<JSONReply> {
         let loginfo = undefined;
         let errmsg = undefined;
-        let response = await this.processSigninInternalSystem(context, model, signinfo, db, loginfo);
+        let response = await this.processSigninInternalSystem(context, db, signinfo, model, loginfo);
         if(response.head.errorflag=="N") {
             return Promise.resolve(response);
         } else {
             errmsg = response.head.errordesc;
         }
-        return Promise.reject(new AuthenError(errmsg?errmsg as string:"Authentication fail",HTTP.UNAUTHORIZED));
+        let errno = 0;
+        if(response.head.errorcode!="") errno = parseInt(response.head.errorcode);
+        return Promise.reject(new AuthenError(errmsg?errmsg as string:"Authentication fail",HTTP.UNAUTHORIZED,errno));
     }
 
-    public async processSigninInternalSystem(context: KnContextInfo, model: KnModel, signinfo: KnSigninInfo, db: KnDBConnector, loginfo?: Object) : Promise<JSONReply> {
+    public async performSigninAccess(context: KnContextInfo, db : KnDBConnector, signinfo: KnSigninInfo, model: KnModel = this.model) : Promise<JSONReply> {
+        let loginfo = undefined;
+        let errmsg = undefined;
+        let response = await this.processSigninAccessSystem(context, db, signinfo, model, loginfo);
+        if(response.head.errorflag=="N") {
+            return Promise.resolve(response);
+        } else {
+            errmsg = response.head.errordesc;
+        }
+        let errno = 0;
+        if(response.head.errorcode!="") errno = parseInt(response.head.errorcode);
+        return Promise.reject(new AuthenError(errmsg?errmsg as string:"Authentication fail",HTTP.UNAUTHORIZED,errno));
+    }
+
+    public async processSigninInternalSystem(context: KnContextInfo, db: KnDBConnector, signinfo: KnSigninInfo, model: KnModel = this.model, loginfo?: Object) : Promise<JSONReply> {
         let pname = signinfo.username;
         let ppass = signinfo.password;
         let pcode = context.params.code;
@@ -182,9 +224,9 @@ export class TknSigninHandler extends TknSchemeHandler {
         }
         try {
             if(passed) {
-                this.tokener.updateUserAccessing(context, model, { userid: body.get("userid") as string, username: pname, lockflag: "0"});
+                this.tokener.updateUserAccessing(context, { userid: body.get("userid") as string, username: pname, lockflag: "0"});
             } else {
-                this.tokener.updateUserAccessing(context, model, { username: pname, lockflag: "1"});
+                this.tokener.updateUserAccessing(context, { username: pname, lockflag: "1"});
             }    
         } catch(ex) {
             this.logger.error(this.constructor.name,ex);
@@ -193,7 +235,7 @@ export class TknSigninHandler extends TknSchemeHandler {
         return Promise.resolve(response);
     }
 
-    public async doSignout(context: KnContextInfo, model: KnModel) : Promise<Map<string,Object>> {
+    public async doSignout(context: KnContextInfo, model: KnModel = this.model) : Promise<Map<string,Object>> {
         let puuid = context.params.useruuid;
         this.logger.debug(this.constructor.name+".doSignout: useruuid = "+puuid);
         if(!puuid || puuid=="") {            
@@ -234,6 +276,69 @@ export class TknSigninHandler extends TknSchemeHandler {
             return Promise.reject(new VerifyError("Invalid access token",HTTP.BAD_REQUEST,-3011));
         }
         return Promise.resolve(body);
+    }
+
+    public async processSigninAccessSystem(context: KnContextInfo, db: KnDBConnector, signinfo: KnSigninInfo, model: KnModel = this.model, loginfo?: Object) : Promise<JSONReply> {
+        let pname = signinfo.username;
+        let pcode = context.params.code;
+        let pstate = context.params.state;
+        let pnonce = context.params.nonce;
+        let response: JSONReply = new JSONReply();
+        response.head.modeling("signin","signin");
+        response.head.composeNoError();
+        let body : Map<string,Object> = new Map(); 
+        let sql = new KnSQL("select tuser.userid,tuser.username,tuser.userpassword,tuser.passwordexpiredate,tuser.site,");
+        sql.append("tuser.accessdate,tuser.accesstime,tuser.changeflag,tuser.newflag,tuser.loginfailtimes,tuser.failtime,tuser.lockflag,");
+        sql.append("tuserinfo.userename,tuserinfo.useresurname,tuserinfo.email,tuserinfo.displayname,tuserinfo.activeflag,tuserinfo.langcode,tuserinfo.usercontents ");
+        sql.append("from tuser,tuserinfo ");
+        sql.append("where tuser.username = ?username ");
+        sql.append("and tuser.userid = tuserinfo.userid ");
+        sql.set("username",pname);
+        this.logger.info(this.constructor.name+".processSigninAccessSystem",sql);
+        let rs = await sql.executeQuery(db,context);
+        let rows = rs.rows;
+        this.logger.debug(this.constructor.name+".processSigninAccessSystem: effected "+rows.length+" rows.");
+        let passed = true;
+        if(rows && rows.length>0) {
+            let row = rows[0];
+            let userid = row.userid;
+            console.log("processSigninAccessSystem: row=",row);
+            console.log("processSigninAccessSystem: userid="+userid);
+            let site = row.site;
+            if(passed) {
+                let tempmatch = false;
+                try {
+                    let factorInfo = await this.tokener.processTwoFactor(context, db, row);
+                    await db.beginWork();
+                    try {
+                        let usrinfo = {userid: userid, site: site, code: pcode, state: pstate, nonce: pnonce, loginfo: loginfo};
+                        let token  = await this.tokener.createUserAccess(db, usrinfo, context);
+                        let dhinfo = await this.tokener.createDiffie(context, db, token);
+                        let ainfo = {userid: row.userid, email: row.email };
+                        this.tokener.composeResponseBody(body, token, pname, {...row, ...factorInfo, ...ainfo, accesscontents: loginfo}, tempmatch, dhinfo);
+                        await db.commitWork();    
+                    } catch(er: any) {
+                        this.logger.error(this.constructor.name,er);
+                        await db.rollbackWork();
+                        this.logger.debug(this.constructor.name+".processSigninAccessSystem: roll back work"); 
+                        response = KnResponser.createDbError("ensure","signin",er);
+                    }
+                } catch(ex: any) {
+                    this.logger.error(this.constructor.name,ex);
+                    response = KnResponser.createDbError("ensure","signin",ex);
+                }
+            }
+        } else {
+            passed = false;
+            response.head.composeError("-4004","Account not found");
+        }
+        try {
+            this.tokener.updateUserAccessing(context, { userid: body.get("userid") as string, lockflag: "0"});
+        } catch(ex) {
+            this.logger.error(this.constructor.name,ex);
+        }
+        response.body = Object.fromEntries(body);
+        return Promise.resolve(response);
     }
 
 }

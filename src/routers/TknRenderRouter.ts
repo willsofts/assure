@@ -1,5 +1,9 @@
 import { Request, Response } from 'express';
+import { Utilities } from '@willsofts/will-util';
+import { KnLabelConfig } from '../utils/KnLabelConfig';
 import { TknAssureRouter } from './TknAssureRouter';
+import { TknDirectoryHandler } from '../handlers/TknDirectoryHandler';
+import { ALLOW_AUTHEN_SAML } from '../utils/EnvironmentVariable';
 
 export class TknRenderRouter extends TknAssureRouter {
     
@@ -7,7 +11,20 @@ export class TknRenderRouter extends TknAssureRouter {
         this.logger.debug(this.constructor.name+".doLogin : "+req.originalUrl);
         let ctx = await this.createContext(req);
         let info = this.getMetaInfo(ctx);
-        let param = { meta : {...info, state: req.query.state, nonce: req.query.nonce } };
+        let data = { };
+        if(ALLOW_AUTHEN_SAML) {
+            try {
+                let handler = new TknDirectoryHandler();
+                let rs = await handler.doList(ctx);
+                data = { dataset: rs };
+            } catch(ex: any) {
+                this.logger.error(this.constructor.name+".doLogin: error",ex);
+            }
+        }
+        let workdir = Utilities.getWorkingDir(this.dir); 
+        let label = new KnLabelConfig("index", info.language);
+        try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doOpen: error",ex); }        
+        let param = { meta : {...info, state: req.query.state, nonce: req.query.nonce}, label: label, auth: {}, data: data };
         this.logger.debug("info",param);
         res.render('pages/login',param);
     }
@@ -16,7 +33,20 @@ export class TknRenderRouter extends TknAssureRouter {
         this.logger.debug(this.constructor.name+".doMain : "+req.originalUrl);
         let ctx = await this.createContext(req);
         let info = this.getMetaInfo(ctx);
-        let param = { meta : {...info, state: req.query.state, nonce: req.query.nonce } };
+        let data = { };
+        if(ALLOW_AUTHEN_SAML) {
+            try {
+                let handler = new TknDirectoryHandler();
+                let rs = await handler.doList(ctx);
+                data = { dataset: rs };
+            } catch(ex: any) {
+                this.logger.error(this.constructor.name+".doLogin: error",ex);
+            }
+        }
+        let workdir = Utilities.getWorkingDir(this.dir); 
+        let label = new KnLabelConfig("index", info.language);
+        try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doOpen: error",ex); }        
+        let param = { meta : {...info, state: req.query.state, nonce: req.query.nonce}, label: label, auth: {}, data: data };
         this.logger.debug("info",param);
         res.render('pages/main',param);
     }

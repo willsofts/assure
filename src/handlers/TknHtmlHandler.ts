@@ -55,7 +55,7 @@ export class TknHtmlHandler extends TknProcessHandler{
                         let response = KnResponser.createError("html",opername,ex);
                         return JSON.stringify(response);
                     }
-                    return this.buildHtml("/views/pages/error", {error: ex}, ctx);
+                    return this.buildHtml("/views/pages/error", {error: ex, meta: info}, ctx);
                 }
                 if(rs?.error) {
                     this.logger.error(this.constructor.name+".doView: error",rs.error);
@@ -64,7 +64,7 @@ export class TknHtmlHandler extends TknProcessHandler{
                         return JSON.stringify(response);
                     }
                     let errorpage = rs?.renderer?rs.renderer:"pages/error";
-                    return this.buildHtml("/views/"+errorpage, {error: rs.error}, ctx);
+                    return this.buildHtml("/views/"+errorpage, {error: rs.error, meta: info}, ctx);
                 }
             }
             let renderpage = program+"/"+program;
@@ -78,7 +78,7 @@ export class TknHtmlHandler extends TknProcessHandler{
             let param = { meta: info, page: page, label: label, data: rs };
             return this.buildHtml("/views/"+renderpage, param, ctx);
         } else {
-            return this.buildHtml("/views/pages/notfound", {error: "not found"}, ctx);
+            return this.buildHtml("/views/pages/notfound", {error: "not found", meta: info}, ctx);
         }
     }
 

@@ -10,10 +10,10 @@ import { TknSigninHandler } from './TknSigninHandler';
 
 export class TknSigninActiveDirectoryHandler extends TknSigninHandler {
     
-    public override async performSignin(context: KnContextInfo, model: KnModel, signinfo: KnSigninInfo, db : KnDBConnector) : Promise<JSONReply> {
+    public override async performSignin(context: KnContextInfo, db : KnDBConnector, signinfo: KnSigninInfo, model: KnModel = this.model) : Promise<JSONReply> {
         let loginfo = undefined;
         let errmsg = undefined;
-        let response = await this.processSigninActiveDirectory(context, model, signinfo, db, loginfo);
+        let response = await this.processSigninActiveDirectorySystem(context, db, signinfo, model, loginfo);
         if(response.head.errorflag=="N") {
             return Promise.resolve(response);
         } else {
@@ -22,7 +22,7 @@ export class TknSigninActiveDirectoryHandler extends TknSigninHandler {
         return Promise.reject(new AuthenError(errmsg?errmsg as string:"Authentication fail",HTTP.UNAUTHORIZED));
     }
 
-    public async processSigninActiveDirectory(context: KnContextInfo, model: KnModel, signinfo: KnSigninInfo, db: KnDBConnector, config?: ActiveConfig, loginfo?: Object) : Promise<JSONReply> {
+    public async processSigninActiveDirectorySystem(context: KnContextInfo, db: KnDBConnector, signinfo: KnSigninInfo, model: KnModel = this.model, config?: ActiveConfig, loginfo?: Object) : Promise<JSONReply> {
         let pname = signinfo.username;
         let ppass = signinfo.password;
         let pcode = context.params.code;
@@ -54,7 +54,7 @@ export class TknSigninActiveDirectoryHandler extends TknSigninHandler {
                     let ainfo = {userid: row.userid, email: row.email };
                     this.tokener.composeResponseBody(body, token, pname, {...row, ...factorInfo, ...ainfo, accesscontents: loginfo}, false, dhinfo);
                     await db.commitWork();    
-                    this.tokener.updateUserAccessing(context, model, { userid: au.accountName });
+                    this.tokener.updateUserAccessing(context, { userid: au.accountName });
                 } catch(er: any) {
                     this.logger.error(this.constructor.name,er);
                     await db.rollbackWork();

@@ -1,6 +1,7 @@
 		var mouseX = 0;
 		var mouseY = 0;
 		var $currPage = "";
+		var $ACCESS_TOKEN;
 		function validInputUser() {
 			if($.trim($("#login_username").val())=="") { alertbox("User is undefined"); return false; }
 			return true;
@@ -186,6 +187,7 @@
 			doLogin();
 			clearBackground();
 			clearAvatar();
+			window.open("/login","_self");
 		}
 		function clearAvatar() {
 			$("#avatarimage").attr("src",CDN_URL+"/img/avatar.png");
@@ -232,7 +234,7 @@
 		}		
 		function load_sidebar_menu(firstpage,language) {
 			let fs_user = $("#login_user").val();
-			if($.trim(fs_user)=="") return;
+			//if($.trim(fs_user)=="") return;
 			if(!language) language = fs_default_language;
 			let authtoken = getAccessorToken();
 			jQuery.ajax({
@@ -259,7 +261,7 @@
 		}
 		function load_favor_menu(language) {
 			let fs_user = $("#login_user").val();
-			if($.trim(fs_user)=="") return;
+			//if($.trim(fs_user)=="") return;
 			if(!language) language = fs_default_language;
 			let authtoken = getAccessorToken();
 			jQuery.ajax({
@@ -352,6 +354,9 @@
 					if(info) json.body.info = info;
 					console.log("body",json.body);
 					saveAccessorInfo(json.body);
+					let accessToken = getStorage("access_token");
+					if(accessToken) setupDiffie(json);
+					removeStorage("access_token");
 					if(callback) callback(true,json); 
 					return;
 				}

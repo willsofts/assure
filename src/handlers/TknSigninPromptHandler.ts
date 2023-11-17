@@ -11,9 +11,9 @@ import { TknSigninHandler } from './TknSigninHandler';
 
 export class TknSigninPromptHandler extends TknSigninHandler {
 
-    public override async performSignin(context: KnContextInfo, model: KnModel, signinfo: KnSigninInfo, db : KnDBConnector) : Promise<JSONReply> {
+    public override async performSignin(context: KnContextInfo, db : KnDBConnector, signinfo: KnSigninInfo, model: KnModel = this.model) : Promise<JSONReply> {
         let errmsg = undefined;
-        let response = await this.performSigninPrompt(context, model, signinfo, db);
+        let response = await this.performSigninPrompt(context, db, signinfo, model);
         if(response.head.errorflag=="N") {
             return Promise.resolve(response);
         } else {
@@ -22,17 +22,17 @@ export class TknSigninPromptHandler extends TknSigninHandler {
         return Promise.reject(new AuthenError(errmsg?errmsg as string:"Authentication fail",HTTP.UNAUTHORIZED));
     }
 
-    public async performSigninPrompt(context: KnContextInfo, model: KnModel, signinfo: KnSigninInfo, db : KnDBConnector) : Promise<JSONReply> {
+    public async performSigninPrompt(context: KnContextInfo, db : KnDBConnector, signinfo: KnSigninInfo, model: KnModel = this.model) : Promise<JSONReply> {
         try {
             let loginfo = await this.loginWow(signinfo.username, signinfo.password);        
-            return await this.processSigninPromptSystem(context, model, signinfo, db , loginfo);
+            return await this.processSigninPromptSystem(context, db, signinfo, model , loginfo);
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
             return Promise.reject(ex);
         }
     }
 
-    public async processSigninPromptSystem(context: KnContextInfo, model: KnModel, signinfo: KnSigninInfo, db: KnDBConnector, config?: PromptConfig, loginfo?: Object) : Promise<JSONReply> {
+    public async processSigninPromptSystem(context: KnContextInfo, db: KnDBConnector, signinfo: KnSigninInfo, model: KnModel = this.model, config?: PromptConfig, loginfo?: Object) : Promise<JSONReply> {
         let pname = signinfo.username;
         let ppass = signinfo.password;
         let pcode = context.params.code;
@@ -65,7 +65,7 @@ export class TknSigninPromptHandler extends TknSigninHandler {
                     let ainfo = {userid: row.userid, email: row.email };
                     this.tokener.composeResponseBody(body, token, pname, {...row, ...factorInfo, ...ainfo, accesscontents: pu}, false, dhinfo);
                     await db.commitWork();    
-                    this.tokener.updateUserAccessing(context, model, { userid: pu.userid as string });
+                    this.tokener.updateUserAccessing(context, { userid: pu.userid as string });
                 } catch(er: any) {
                     this.logger.error(this.constructor.name,er);
                     await db.rollbackWork();

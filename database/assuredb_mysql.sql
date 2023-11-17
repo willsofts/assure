@@ -16,7 +16,7 @@
 CREATE DATABASE IF NOT EXISTS `assuredb` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `assuredb`;
 
--- Dumping structure for table assuredb2.tactivate
+-- Dumping structure for table assuredb.tactivate
 CREATE TABLE IF NOT EXISTS `tactivate` (
   `activatekey` varchar(100) NOT NULL,
   `activateuser` varchar(100) NOT NULL,
@@ -40,11 +40,11 @@ CREATE TABLE IF NOT EXISTS `tactivate` (
   PRIMARY KEY (`activatekey`,`activateuser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep activate info';
 
--- Dumping data for table assuredb2.tactivate: ~0 rows (approximately)
+-- Dumping data for table assuredb.tactivate: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tactivate` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tactivate` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tactivatehistory
+-- Dumping structure for table assuredb.tactivatehistory
 CREATE TABLE IF NOT EXISTS `tactivatehistory` (
   `activatekey` varchar(100) NOT NULL,
   `activateuser` varchar(100) NOT NULL,
@@ -67,11 +67,11 @@ CREATE TABLE IF NOT EXISTS `tactivatehistory` (
   `activatecontents` mediumtext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep activate history';
 
--- Dumping data for table assuredb2.tactivatehistory: ~0 rows (approximately)
+-- Dumping data for table assuredb.tactivatehistory: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tactivatehistory` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tactivatehistory` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tattachfile
+-- Dumping structure for table assuredb.tattachfile
 CREATE TABLE IF NOT EXISTS `tattachfile` (
   `attachid` varchar(50) NOT NULL,
   `attachno` varchar(50) NOT NULL,
@@ -89,11 +89,11 @@ CREATE TABLE IF NOT EXISTS `tattachfile` (
   KEY `attachno` (`attachno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep attach file';
 
--- Dumping data for table assuredb2.tattachfile: ~0 rows (approximately)
+-- Dumping data for table assuredb.tattachfile: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tattachfile` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tattachfile` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tcaptcha
+-- Dumping structure for table assuredb.tcaptcha
 CREATE TABLE IF NOT EXISTS `tcaptcha` (
   `capid` varchar(50) NOT NULL,
   `captext` varchar(50) NOT NULL,
@@ -107,11 +107,11 @@ CREATE TABLE IF NOT EXISTS `tcaptcha` (
   PRIMARY KEY (`capid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table assuredb2.tcaptcha: ~0 rows (approximately)
+-- Dumping data for table assuredb.tcaptcha: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tcaptcha` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tcaptcha` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tcomp
+-- Dumping structure for table assuredb.tcomp
 CREATE TABLE IF NOT EXISTS `tcomp` (
   `site` varchar(50) NOT NULL,
   `headsite` varchar(50) DEFAULT NULL,
@@ -149,13 +149,13 @@ CREATE TABLE IF NOT EXISTS `tcomp` (
   PRIMARY KEY (`site`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep company profile';
 
--- Dumping data for table assuredb2.tcomp: ~0 rows (approximately)
+-- Dumping data for table assuredb.tcomp: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tcomp` DISABLE KEYS */;
 INSERT INTO `tcomp` (`site`, `headsite`, `shortname`, `nameen`, `nameth`, `addressen`, `addressth`, `address2`, `address3`, `district`, `districtname`, `amphur`, `amphurname`, `province`, `provincename`, `zipcode`, `country`, `telno1`, `telno2`, `faxno1`, `faxno2`, `email1`, `email2`, `telext1`, `telext2`, `website`, `taxid`, `logoimage`, `bgimage`, `inactive`, `editdate`, `edittime`, `edituser`) VALUES
 	('FWS', 'FWG', 'FWS', 'Freewill Solutions Co.,Ltd.', 'ฟรีวิลโซลูชั่น จำกัด', '1168/86-88  Lumpini Tower 29th Floor, Rama IV Road', 'เลขที่ 1168/86-88 ชั้น 29 อาคารลุมพินีทาวเวอร์ ถนนพระราม 4', NULL, NULL, '102803', 'ทุ่งมหาเมฆ', '1028', 'เขตสาทร', '002', 'กรุงเทพมหานคร', '10120', 'THA', '026798556', NULL, '', NULL, 'hr@freewillsolutions.com', NULL, NULL, NULL, 'https://www.freewillsolutions.com/', '', NULL, NULL, '0', NULL, NULL, 'fwgadmin');
 /*!40000 ALTER TABLE `tcomp` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tcompbranch
+-- Dumping structure for table assuredb.tcompbranch
 CREATE TABLE IF NOT EXISTS `tcompbranch` (
   `site` varchar(50) NOT NULL COMMENT 'tcomp.site',
   `branch` varchar(50) NOT NULL,
@@ -191,14 +191,14 @@ CREATE TABLE IF NOT EXISTS `tcompbranch` (
   PRIMARY KEY (`site`,`branch`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep company branch';
 
--- Dumping data for table assuredb2.tcompbranch: ~2 rows (approximately)
+-- Dumping data for table assuredb.tcompbranch: ~2 rows (approximately)
 /*!40000 ALTER TABLE `tcompbranch` DISABLE KEYS */;
 INSERT INTO `tcompbranch` (`site`, `branch`, `branchtype`, `nameen`, `nameth`, `addressen`, `addressth`, `district`, `districtname`, `amphur`, `amphurname`, `province`, `provincename`, `zipcode`, `country`, `telno1`, `telno2`, `faxno1`, `faxno2`, `email1`, `email2`, `bgimage`, `latitude`, `longitude`, `distances`, `gpsflag`, `inactive`, `effectdate`, `editdate`, `edittime`, `edituser`) VALUES
 	('FWS', '00', 'HB', 'BKK', 'กรุงเทพ', 'BKK', 'BKK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', NULL, NULL, NULL, NULL),
 	('FWS', '01', 'SB', 'KKN', 'ขอนแก่น', 'KKN', 'KKN', '400101', 'ในเมือง', '4001', 'เมืองขอนแก่น', '006', 'ขอนแก่น', '40000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 13.827150, 100.569426, 1500.000000, '0', '0', '2018-10-12', '2018-10-12', '09:21:58', 'tso');
 /*!40000 ALTER TABLE `tcompbranch` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tconfig
+-- Dumping structure for table assuredb.tconfig
 CREATE TABLE IF NOT EXISTS `tconfig` (
   `category` varchar(50) NOT NULL,
   `colname` varchar(50) NOT NULL,
@@ -209,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `tconfig` (
   PRIMARY KEY (`category`,`colname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='keep program custom configuration';
 
--- Dumping data for table assuredb2.tconfig: ~13 rows (approximately)
+-- Dumping data for table assuredb.tconfig: ~13 rows (approximately)
 /*!40000 ALTER TABLE `tconfig` DISABLE KEYS */;
 INSERT INTO `tconfig` (`category`, `colname`, `colvalue`, `colflag`, `seqno`, `remarks`) VALUES
 	('2FA', 'FACTORISSUER', 'AssureSystem', NULL, 0, NULL),
@@ -229,7 +229,7 @@ INSERT INTO `tconfig` (`category`, `colname`, `colvalue`, `colflag`, `seqno`, `r
 	('FORGOTPASSWORDMAIL', 'MAIL_USER', 'ezprompt', NULL, 0, NULL);
 /*!40000 ALTER TABLE `tconfig` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tconstant
+-- Dumping structure for table assuredb.tconstant
 CREATE TABLE IF NOT EXISTS `tconstant` (
   `typename` varchar(50) NOT NULL,
   `typeid` varchar(50) NOT NULL,
@@ -240,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `tconstant` (
   PRIMARY KEY (`typename`,`typeid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=tis620 COMMENT='table keep constant/category description';
 
--- Dumping data for table assuredb2.tconstant: ~58 rows (approximately)
+-- Dumping data for table assuredb.tconstant: ~58 rows (approximately)
 /*!40000 ALTER TABLE `tconstant` DISABLE KEYS */;
 INSERT INTO `tconstant` (`typename`, `typeid`, `nameen`, `nameth`, `seqno`, `iconfile`) VALUES
 	('tactive', '0', 'Active', 'ใช้งาน', 1, NULL),
@@ -250,6 +250,9 @@ INSERT INTO `tconstant` (`typename`, `typeid`, `nameen`, `nameth`, `seqno`, `ico
 	('tbranchtype', 'HB', 'Head Branch', 'สำนักงานใหญ่', 1, NULL),
 	('tbranchtype', 'SB', 'Sub Branch', 'สำนักงานสาขาย่อย', 2, NULL),
 	('tbranchtype', 'VB', 'Service Branch', 'สำนักงานบริการ', 3, NULL),
+	('tdomaintype', 'B', 'B2C', 'B2C', 2, NULL),
+	('tdomaintype', 'D', 'Directory', 'Directory', 1, NULL),
+	('tdomaintype', 'S', 'SAML', 'SAML', 3, NULL),
 	('tgroupmobile', 'DASHBOARD', 'Dash Board', 'Dash Board', 1, 'dashboard.png'),
 	('tgroupmobile', 'HISTORY', 'History', 'History', 2, 'history.png'),
 	('tgroupmobile', 'REPORT', 'Report', 'Report', 3, 'report.png'),
@@ -303,7 +306,7 @@ INSERT INTO `tconstant` (`typename`, `typeid`, `nameen`, `nameth`, `seqno`, `ico
 	('tvisible', '1', 'Invisible', 'มองไม่เห็น', 2, NULL);
 /*!40000 ALTER TABLE `tconstant` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tcpwd
+-- Dumping structure for table assuredb.tcpwd
 CREATE TABLE IF NOT EXISTS `tcpwd` (
   `userid` varchar(60) NOT NULL,
   `category` varchar(50) NOT NULL,
@@ -311,11 +314,11 @@ CREATE TABLE IF NOT EXISTS `tcpwd` (
   PRIMARY KEY (`userid`,`category`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table category of password policy';
 
--- Dumping data for table assuredb2.tcpwd: ~0 rows (approximately)
+-- Dumping data for table assuredb.tcpwd: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tcpwd` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tcpwd` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tdirectory
+-- Dumping structure for table assuredb.tdirectory
 CREATE TABLE IF NOT EXISTS `tdirectory` (
   `domainid` varchar(50) NOT NULL,
   `domainname` varchar(50) NOT NULL,
@@ -325,6 +328,7 @@ CREATE TABLE IF NOT EXISTS `tdirectory` (
   `basedn` varchar(200) NOT NULL,
   `secretkey` varchar(50) NOT NULL DEFAULT '',
   `systemtype` varchar(1) NOT NULL DEFAULT 'W' COMMENT 'W=Web,I=iOS,A=Android (tsystemtype.systemtype)',
+  `domaintype` varchar(1) NOT NULL DEFAULT 'S' COMMENT 'S=SAML,B=B2C,D=DIRECTORY',
   `inactive` varchar(1) NOT NULL DEFAULT '0' COMMENT '1=Inactive',
   `invisible` varchar(1) NOT NULL DEFAULT '0' COMMENT '1=Invisible',
   `editdate` date DEFAULT NULL,
@@ -334,13 +338,14 @@ CREATE TABLE IF NOT EXISTS `tdirectory` (
   KEY `domainname` (`domainname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep active directory information';
 
--- Dumping data for table assuredb2.tdirectory: ~0 rows (approximately)
+-- Dumping data for table assuredb.tdirectory: ~1 rows (approximately)
 /*!40000 ALTER TABLE `tdirectory` DISABLE KEYS */;
-INSERT INTO `tdirectory` (`domainid`, `domainname`, `description`, `applicationid`, `tenanturl`, `basedn`, `secretkey`, `systemtype`, `inactive`, `invisible`, `editdate`, `edittime`, `edituser`) VALUES
-	('9b41b79b-c78a-11ec-8ba7-98fa9bd6bd8e', 'freewillgroup.com', 'Freewill Group', 'af1be62c-c78a-11ec-8ba7-98fa9bd6bd8e', 'ldap://10.22.91.24:389', 'DC=freewillgroup,DC=com', '', 'W', '0', '0', NULL, NULL, NULL);
+INSERT INTO `tdirectory` (`domainid`, `domainname`, `description`, `applicationid`, `tenanturl`, `basedn`, `secretkey`, `systemtype`, `domaintype`, `inactive`, `invisible`, `editdate`, `edittime`, `edituser`) VALUES
+	('9b41b79b-c78a-11ec-8ba7-98fa9bd6bd8e', 'freewillgroup.com', 'Freewill Group', 'af1be62c-c78a-11ec-8ba7-98fa9bd6bd8e', 'ldap://10.22.91.24:389', 'DC=freewillgroup,DC=com', '', 'W', 'D', '0', '1', NULL, NULL, NULL),
+	('dfeaaa67-52fd-474a-88c8-a1415145ed07', 'tassunorohotmail.onmicrosoft.com', 'Tassan Group', 'dfeaaa67-52fd-474a-88c8-a1415145ed07', 'https://login.microsoftonline.com/16f41a29-c670-4f46-ba94-2882e4ac0814', '', 'oqm8Q~be_O4yBn5PRUB5hPC~6fiCIgEvWHvFWb1f', 'W', 'S', '0', '0', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `tdirectory` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tfavor
+-- Dumping structure for table assuredb.tfavor
 CREATE TABLE IF NOT EXISTS `tfavor` (
   `userid` varchar(60) NOT NULL COMMENT 'tuser.userid',
   `programid` varchar(20) NOT NULL COMMENT 'tprog.programid',
@@ -348,7 +353,7 @@ CREATE TABLE IF NOT EXISTS `tfavor` (
   PRIMARY KEY (`userid`,`programid`,`seqno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user favorite menu';
 
--- Dumping data for table assuredb2.tfavor: ~14 rows (approximately)
+-- Dumping data for table assuredb.tfavor: ~14 rows (approximately)
 /*!40000 ALTER TABLE `tfavor` DISABLE KEYS */;
 INSERT INTO `tfavor` (`userid`, `programid`, `seqno`) VALUES
 	('adminis', 'sfte002', 1),
@@ -367,7 +372,7 @@ INSERT INTO `tfavor` (`userid`, `programid`, `seqno`) VALUES
 	('tso', 'sfte013', 6);
 /*!40000 ALTER TABLE `tfavor` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tgroup
+-- Dumping structure for table assuredb.tgroup
 CREATE TABLE IF NOT EXISTS `tgroup` (
   `groupname` varchar(50) NOT NULL DEFAULT '',
   `supergroup` varchar(50) DEFAULT '',
@@ -385,7 +390,7 @@ CREATE TABLE IF NOT EXISTS `tgroup` (
   PRIMARY KEY (`groupname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table group info';
 
--- Dumping data for table assuredb2.tgroup: ~9 rows (approximately)
+-- Dumping data for table assuredb.tgroup: ~9 rows (approximately)
 /*!40000 ALTER TABLE `tgroup` DISABLE KEYS */;
 INSERT INTO `tgroup` (`groupname`, `supergroup`, `nameen`, `nameth`, `seqno`, `iconstyle`, `privateflag`, `usertype`, `mobilegroup`, `xmltext`, `editdate`, `edittime`, `edituser`) VALUES
 	('ADMIN', 'MD', 'Administrator', 'ผู้ดูแลระบบ', 1, 'fa fa-globe', '0', 'A', NULL, NULL, NULL, NULL, NULL),
@@ -399,14 +404,14 @@ INSERT INTO `tgroup` (`groupname`, `supergroup`, `nameen`, `nameth`, `seqno`, `i
 	('TESTER', 'ADMIN', 'Tester', 'ผู้ทดสอบ', 13, 'fa fa-desktop', '0', 'O', NULL, NULL, '2023-09-09', '14:33:09', 'tso');
 /*!40000 ALTER TABLE `tgroup` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tnpwd
+-- Dumping structure for table assuredb.tnpwd
 CREATE TABLE IF NOT EXISTS `tnpwd` (
   `reservenum` varchar(50) NOT NULL,
   `remarks` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`reservenum`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep number restriction in password prohibition';
 
--- Dumping data for table assuredb2.tnpwd: ~43 rows (approximately)
+-- Dumping data for table assuredb.tnpwd: ~43 rows (approximately)
 /*!40000 ALTER TABLE `tnpwd` DISABLE KEYS */;
 INSERT INTO `tnpwd` (`reservenum`, `remarks`) VALUES
 	('060', 'TrueMove, TrueMoveH'),
@@ -454,7 +459,7 @@ INSERT INTO `tnpwd` (`reservenum`, `remarks`) VALUES
 	('099', 'AIS, TrueMoveH');
 /*!40000 ALTER TABLE `tnpwd` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tpperm
+-- Dumping structure for table assuredb.tpperm
 CREATE TABLE IF NOT EXISTS `tpperm` (
   `groupid` varchar(15) NOT NULL DEFAULT '' COMMENT 'tgroup.groupname',
   `progid` varchar(20) NOT NULL DEFAULT '' COMMENT 'tprog.programid',
@@ -463,7 +468,7 @@ CREATE TABLE IF NOT EXISTS `tpperm` (
   PRIMARY KEY (`groupid`,`progid`,`permname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='program permitsion';
 
--- Dumping data for table assuredb2.tpperm: ~76 rows (approximately)
+-- Dumping data for table assuredb.tpperm: ~76 rows (approximately)
 /*!40000 ALTER TABLE `tpperm` DISABLE KEYS */;
 INSERT INTO `tpperm` (`groupid`, `progid`, `permname`, `permvalue`) VALUES
 	('OPERATOR', 'sfte001', 'all', 'true'),
@@ -544,7 +549,7 @@ INSERT INTO `tpperm` (`groupid`, `progid`, `permname`, `permvalue`) VALUES
 	('TESTER', 'sftq001', 'update', 'true');
 /*!40000 ALTER TABLE `tpperm` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tppwd
+-- Dumping structure for table assuredb.tppwd
 CREATE TABLE IF NOT EXISTS `tppwd` (
   `userid` varchar(60) NOT NULL DEFAULT '',
   `checkreservepwd` varchar(1) DEFAULT '0',
@@ -577,13 +582,13 @@ CREATE TABLE IF NOT EXISTS `tppwd` (
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table assuredb2.tppwd: ~0 rows (approximately)
+-- Dumping data for table assuredb.tppwd: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tppwd` DISABLE KEYS */;
 INSERT INTO `tppwd` (`userid`, `checkreservepwd`, `checkpersonal`, `checkmatchpattern`, `checkmatchnumber`, `timenotusedoldpwd`, `alertbeforeexpire`, `pwdexpireday`, `notloginafterday`, `notchgpwduntilday`, `minpwdlength`, `alphainpwd`, `otherinpwd`, `maxsamechar`, `mindiffchar`, `maxarrangechar`, `loginfailtime`, `fromip`, `toip`, `starttime`, `endtime`, `groupflag`, `maxloginfailtime`, `checkdictpwd`, `maxpwdlength`, `digitinpwd`, `upperinpwd`, `lowerinpwd`) VALUES
 	('DEFAULT', '1', '0', '0', '0', 0, 0, 120, 0, 7, 3, 0, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, '1', 0, 0, 0, 1, 1, 1);
 /*!40000 ALTER TABLE `tppwd` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tprod
+-- Dumping structure for table assuredb.tprod
 CREATE TABLE IF NOT EXISTS `tprod` (
   `product` varchar(50) NOT NULL DEFAULT '',
   `nameen` varchar(100) NOT NULL,
@@ -602,13 +607,13 @@ CREATE TABLE IF NOT EXISTS `tprod` (
   PRIMARY KEY (`product`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep product or module';
 
--- Dumping data for table assuredb2.tprod: ~0 rows (approximately)
+-- Dumping data for table assuredb.tprod: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tprod` DISABLE KEYS */;
 INSERT INTO `tprod` (`product`, `nameen`, `nameth`, `seqno`, `serialid`, `startdate`, `url`, `capital`, `verified`, `centerflag`, `iconfile`, `editdate`, `edittime`, `edituser`) VALUES
 	('PROMPT', 'Prompt Module', 'Prompt Module', 99, NULL, NULL, NULL, NULL, '0', '1', 'prompt.png', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `tprod` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tprog
+-- Dumping structure for table assuredb.tprog
 CREATE TABLE IF NOT EXISTS `tprog` (
   `product` varchar(30) NOT NULL DEFAULT '' COMMENT 'tprod.product',
   `programid` varchar(20) NOT NULL,
@@ -630,7 +635,7 @@ CREATE TABLE IF NOT EXISTS `tprog` (
   PRIMARY KEY (`programid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep program name';
 
--- Dumping data for table assuredb2.tprog: ~8 rows (approximately)
+-- Dumping data for table assuredb.tprog: ~8 rows (approximately)
 /*!40000 ALTER TABLE `tprog` DISABLE KEYS */;
 INSERT INTO `tprog` (`product`, `programid`, `progname`, `prognameth`, `progtype`, `appstype`, `description`, `parameters`, `progsystem`, `iconfile`, `iconstyle`, `shortname`, `shortnameth`, `progpath`, `editdate`, `edittime`, `edituser`) VALUES
 	('PROMPT', 'sfte001', 'Program Information', 'ข้อมูลโปรแกรม', 'F', 'W', 'Program Information', NULL, 'F', 'sfte001.png', NULL, 'Program', 'โปรแกรม', NULL, NULL, NULL, NULL),
@@ -648,7 +653,7 @@ INSERT INTO `tprog` (`product`, `programid`, `progname`, `prognameth`, `progtype
 	('PROMPT', 'sftq003', 'Mail Tracking', 'Mail Tracking', 'Q', 'W', 'Mail Tracking', NULL, 'F', 'sftq003.png', NULL, 'Mail Tracking', 'Mail Tracking', NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `tprog` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tproggrp
+-- Dumping structure for table assuredb.tproggrp
 CREATE TABLE IF NOT EXISTS `tproggrp` (
   `groupname` varchar(50) NOT NULL COMMENT 'tgroup.groupname',
   `programid` varchar(20) NOT NULL COMMENT 'tprog.programid',
@@ -657,7 +662,7 @@ CREATE TABLE IF NOT EXISTS `tproggrp` (
   PRIMARY KEY (`groupname`,`programid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep program by group';
 
--- Dumping data for table assuredb2.tproggrp: ~29 rows (approximately)
+-- Dumping data for table assuredb.tproggrp: ~29 rows (approximately)
 /*!40000 ALTER TABLE `tproggrp` DISABLE KEYS */;
 INSERT INTO `tproggrp` (`groupname`, `programid`, `parameters`, `seqno`) VALUES
 	('ADMIN', 'sfte002', NULL, 1),
@@ -697,7 +702,7 @@ INSERT INTO `tproggrp` (`groupname`, `programid`, `parameters`, `seqno`) VALUES
 	('TESTER', 'sftq003', NULL, 13);
 /*!40000 ALTER TABLE `tproggrp` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.trole
+-- Dumping structure for table assuredb.trole
 CREATE TABLE IF NOT EXISTS `trole` (
   `site` varchar(50) NOT NULL COMMENT 'tcomp.site',
   `roleid` varchar(50) NOT NULL,
@@ -714,7 +719,7 @@ CREATE TABLE IF NOT EXISTS `trole` (
   PRIMARY KEY (`roleid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep role name';
 
--- Dumping data for table assuredb2.trole: ~8 rows (approximately)
+-- Dumping data for table assuredb.trole: ~8 rows (approximately)
 /*!40000 ALTER TABLE `trole` DISABLE KEYS */;
 INSERT INTO `trole` (`site`, `roleid`, `nameen`, `nameth`, `headroleid`, `inactive`, `actionflag`, `approveflag`, `effectdate`, `editdate`, `edittime`, `edituser`) VALUES
 	('FWS', 'R01', 'Programmer', 'โปรแกรมเมอร์', NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL),
@@ -727,13 +732,13 @@ INSERT INTO `trole` (`site`, `roleid`, `nameen`, `nameth`, `headroleid`, `inacti
 	('FWS', 'R08', 'Consultant', 'ที่ปรึกษา', NULL, '0', NULL, '1', NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `trole` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.trpwd
+-- Dumping structure for table assuredb.trpwd
 CREATE TABLE IF NOT EXISTS `trpwd` (
   `reservepwd` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`reservepwd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table assuredb2.trpwd: ~25 rows (approximately)
+-- Dumping data for table assuredb.trpwd: ~25 rows (approximately)
 /*!40000 ALTER TABLE `trpwd` DISABLE KEYS */;
 INSERT INTO `trpwd` (`reservepwd`) VALUES
 	('P@ssw0rd'),
@@ -763,7 +768,7 @@ INSERT INTO `trpwd` (`reservepwd`) VALUES
 	('Qwerty123');
 /*!40000 ALTER TABLE `trpwd` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.trxlog
+-- Dumping structure for table assuredb.trxlog
 CREATE TABLE IF NOT EXISTS `trxlog` (
   `keyid` varchar(50) NOT NULL,
   `curtime` bigint(15) unsigned DEFAULT NULL,
@@ -788,11 +793,11 @@ CREATE TABLE IF NOT EXISTS `trxlog` (
   PRIMARY KEY (`keyid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table assuredb2.trxlog: ~0 rows (approximately)
+-- Dumping data for table assuredb.trxlog: ~0 rows (approximately)
 /*!40000 ALTER TABLE `trxlog` DISABLE KEYS */;
 /*!40000 ALTER TABLE `trxlog` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.trxres
+-- Dumping structure for table assuredb.trxres
 CREATE TABLE IF NOT EXISTS `trxres` (
   `keyid` varchar(50) NOT NULL,
   `curtime` bigint(20) DEFAULT NULL,
@@ -816,18 +821,18 @@ CREATE TABLE IF NOT EXISTS `trxres` (
   `contents` mediumtext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='transaction response log';
 
--- Dumping data for table assuredb2.trxres: ~0 rows (approximately)
+-- Dumping data for table assuredb.trxres: ~0 rows (approximately)
 /*!40000 ALTER TABLE `trxres` DISABLE KEYS */;
 /*!40000 ALTER TABLE `trxres` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tstyle
+-- Dumping structure for table assuredb.tstyle
 CREATE TABLE IF NOT EXISTS `tstyle` (
   `styleid` varchar(50) NOT NULL,
   `styletext` varchar(50) NOT NULL,
   PRIMARY KEY (`styleid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep icon style from awesome font';
 
--- Dumping data for table assuredb2.tstyle: ~100 rows (approximately)
+-- Dumping data for table assuredb.tstyle: ~100 rows (approximately)
 /*!40000 ALTER TABLE `tstyle` DISABLE KEYS */;
 INSERT INTO `tstyle` (`styleid`, `styletext`) VALUES
 	('fa fa-align-justify', 'fa fa-align-justify'),
@@ -932,7 +937,7 @@ INSERT INTO `tstyle` (`styleid`, `styletext`) VALUES
 	('fa fa-users', 'fa fa-users');
 /*!40000 ALTER TABLE `tstyle` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.ttemplate
+-- Dumping structure for table assuredb.ttemplate
 CREATE TABLE IF NOT EXISTS `ttemplate` (
   `template` varchar(50) NOT NULL,
   `templatetype` varchar(50) NOT NULL,
@@ -945,14 +950,14 @@ CREATE TABLE IF NOT EXISTS `ttemplate` (
   PRIMARY KEY (`template`,`templatetype`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep template mail';
 
--- Dumping data for table assuredb2.ttemplate: ~2 rows (approximately)
+-- Dumping data for table assuredb.ttemplate: ~2 rows (approximately)
 /*!40000 ALTER TABLE `ttemplate` DISABLE KEYS */;
 INSERT INTO `ttemplate` (`template`, `templatetype`, `subjecttitle`, `contents`, `contexts`, `editdate`, `edittime`, `edituser`) VALUES
 	('USER_FORGOT', 'MAIL_NOTIFY', 'Confirm Password Changed', 'Dear, ${userfullname}.<br/>\r\nConfirm your password was changed.<br/>\r\nuser = ${username}<br>\r\npassword = ${userpassword}<br>\r\nyours sincerely,<br>		\r\nAdministrator<br/>', 'Dear, ${userfullname}.<br/>\r\nConfirm your password was changed.<br/>\r\nuser = ${username}<br>\r\npassword = ${userpassword}<br>\r\nyours sincerely,<br>		\r\nAdministrator<br/>', NULL, NULL, NULL),
 	('USER_INFO', 'MAIL_NOTIFY', 'Confirm New Account', 'Dear, ${userfullname}.<br/>\r\nNew account was created for access system.<br/>\r\nTo confirm, please kindly use information below.<br/>\r\nuser = ${username}<br>\r\npassword = ${userpassword}<br>\r\nyours sincerely,<br>	\r\nAdministrator<br/>', 'Dear, ${userfullname}.<br/>\r\nNew account was created for access system.<br/>\r\nTo confirm, please kindly use information below.<br/>\r\nuser = ${username}<br>\r\npassword = ${userpassword}<br>\r\nyours sincerely,<br>	\r\nAdministrator<br/>', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `ttemplate` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.ttemplatehistory
+-- Dumping structure for table assuredb.ttemplatehistory
 CREATE TABLE IF NOT EXISTS `ttemplatehistory` (
   `template` varchar(50) NOT NULL,
   `templatetype` varchar(50) NOT NULL,
@@ -964,11 +969,11 @@ CREATE TABLE IF NOT EXISTS `ttemplatehistory` (
   `edituser` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table assuredb2.ttemplatehistory: ~0 rows (approximately)
+-- Dumping data for table assuredb.ttemplatehistory: ~0 rows (approximately)
 /*!40000 ALTER TABLE `ttemplatehistory` DISABLE KEYS */;
 /*!40000 ALTER TABLE `ttemplatehistory` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.ttemplatetag
+-- Dumping structure for table assuredb.ttemplatetag
 CREATE TABLE IF NOT EXISTS `ttemplatetag` (
   `tagname` varchar(50) NOT NULL,
   `tagtitle` varchar(50) NOT NULL,
@@ -976,7 +981,7 @@ CREATE TABLE IF NOT EXISTS `ttemplatetag` (
   PRIMARY KEY (`tagname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep template custom tag';
 
--- Dumping data for table assuredb2.ttemplatetag: ~11 rows (approximately)
+-- Dumping data for table assuredb.ttemplatetag: ~11 rows (approximately)
 /*!40000 ALTER TABLE `ttemplatetag` DISABLE KEYS */;
 INSERT INTO `ttemplatetag` (`tagname`, `tagtitle`, `seqno`) VALUES
 	('${datacontents}', 'Data Info', 0),
@@ -992,7 +997,7 @@ INSERT INTO `ttemplatetag` (`tagname`, `tagtitle`, `seqno`) VALUES
 	('${userpassword}', 'User Password', 0);
 /*!40000 ALTER TABLE `ttemplatetag` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.ttenant
+-- Dumping structure for table assuredb.ttenant
 CREATE TABLE IF NOT EXISTS `ttenant` (
   `tenantid` varchar(50) NOT NULL,
   `tenantname` varchar(100) NOT NULL,
@@ -1010,7 +1015,7 @@ CREATE TABLE IF NOT EXISTS `ttenant` (
   KEY `applicationid` (`applicationid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep tenant ';
 
--- Dumping data for table assuredb2.ttenant: ~3 rows (approximately)
+-- Dumping data for table assuredb.ttenant: ~3 rows (approximately)
 /*!40000 ALTER TABLE `ttenant` DISABLE KEYS */;
 INSERT INTO `ttenant` (`tenantid`, `tenantname`, `applicationid`, `inactive`, `privatekeys`, `publickeys`, `createdate`, `createtime`, `createuser`, `editdate`, `edittime`, `edituser`) VALUES
 	('018048fe-709d-11ed-809e-98fa9bd6bd8e', 'Test', '103d45ab-709d-11ed-809e-98fa9bd6bd8e', '0', 'MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAKgyQXpSjptg/3wwjX0CNVXNqj2UdD2/tzdX1hc7WuHDBAz3GgHTHsA6h02XdiSCzFJskYry57A6GOG8xBeZN/aLOZQ2XNKxzkRXDFRZWcueppueKLWQRUzymJqqXYxCwUX6XNkL82y+ZqY7nKJzJSIeS3zxpXU0aFu+c4zbvGNRAgMBAAECgYA3M49D2zaMjlArbS/ymDfy+jXmUgO4hGRYWI6eP0+7iqqYqryxXp3YDx16/Lu8jeULJDC8Pq6Fqvuhkrd020d/LFdl6yxwbjttlFhB004fElFwOzXqGyo0ndL7k7i+U8M3VtTgasbBsS5VI1MGq2FHBnCMN3BMBlAVWiRd/gPkQQJBAPAdpU4+/vuAs1sWkfhLws95rG/M4sPwDPpgbA4zv64Qj+zVNY07up4vCqPqpIKZzYAuamr20eX1yrC7EfAvzlkCQQCzUqfPLXWDAc/45zN9LgvZ2HWVJH/K78/RFylB9EmFnaqvlbc7jXM2cB1aKPbgfTW/Sh0VVVf4sT8bDeAYK825AkBR16j6jJpYmzuG9qB2Y0xZb32I9ertIisqRCdQh+7zo42LCfkg1JT9Scd0q4u7QDU9VZTMNKjCmw6lQn4QwhqxAkBnUmuwGtBHoMa08nofWWWoqmjtey9KvaxvHDpAb0Hhg/vx2YDPBmxo5GZ1KX89z8clJc3mGdtrRq1GqFMDelG5AkB2Fb96auaxmt2LdtEYFzm2IYvFU9sqrUsCVdRvQlDOp7eLuLgUn7odjJiJ7z7kLcw+/kgxpFwP/0reNvBdP56I', 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCoMkF6Uo6bYP98MI19AjVVzao9lHQ9v7c3V9YXO1rhwwQM9xoB0x7AOodNl3YkgsxSbJGK8uewOhjhvMQXmTf2izmUNlzSsc5EVwxUWVnLnqabnii1kEVM8piaql2MQsFF+lzZC/NsvmamO5yicyUiHkt88aV1NGhbvnOM27xjUQIDAQAB', '2022-11-30', '17:52:38', 'tso', '2022-11-30', '17:52:42', 'tso'),
@@ -1018,7 +1023,7 @@ INSERT INTO `ttenant` (`tenantid`, `tenantname`, `applicationid`, `inactive`, `p
 	('fbe2464b-b4d4-4b18-a1f3-ceec595ca2e8', 'TSO Key', 'bb631b27-484b-4fcd-8b8f-b00f5344a928', '0', 'MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAIecqPNRqUG14i34dh45PWuKhaJ/iv8vDfbj6oqyMeWSY/fzSe5G0EXD9K+pdHS9Msq/SN2A1rQzzc11hNEfOMKTsdzodvIaSdIyn/JfVxhgvgfFZ9+DGGqOKFBI6SApzeT7jT2l+//wH5qlEE5XE/MRbEGroh/onBkY04kEelbbAgMBAAECgYAl+YiWGlf7PqOHm/v3mq/IXZHuXyjdLKAMcuZK0HuIfeXgmRAq2UmZP7ZVOm6SAikm/Um6PUniTF9lGXOH2+ZYrf9BFObYujuj6v2AdjmjOLoeOeUGdQEyiS0JqYY6UZEfbrFBHaJwtPrz1ULvVmKWc12tU2bOZmTKZb5gW8EZAQJBAL9rQ+qQ2bKHZQHfIOrd8QmgbaMY92al4TPmmXUL+AoFqrUqZZB2H7c2MEqAhDKAtGPNIHWPXZxnNWao7bSIoxkCQQC1XWA+SldUgQ6wLOfx/SajQscpoNAW++q+B2v3k3M7EzSyn8cjFobXqTyYvM9ek/VjdvIaVwe/xmYdn0Ab65wTAkBGoVfAF46cV2Un2aMVxqsH+FA8HBw9nfuI4Q/CppXxbMHeczRip5NwUOhktSMSV3c4VBokBrBt449KwA5lzP0RAkB/kp4HUt2ZCGrfi8bflhVek7NqWb7l2+/kGW5dqK9OZ5US7Ibz7H2PJ3EDcxRez661d06XLo653AGqZoF+4j1XAkArzqamCERTCsI8aHXOhbCHJvyWGcXcXfG3eEzvWSiuctDUlLo2WS513xzADXICckj2j0WWiHJ6L4QAVUj2ccxE', 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCHnKjzUalBteIt+HYeOT1rioWif4r/Lw324+qKsjHlkmP380nuRtBFw/SvqXR0vTLKv0jdgNa0M83NdYTRHzjCk7Hc6HbyGknSMp/yX1cYYL4HxWffgxhqjihQSOkgKc3k+409pfv/8B+apRBOVxPzEWxBq6If6JwZGNOJBHpW2wIDAQAB', '2022-12-05', '12:37:17', 'tso', '2022-12-05', '12:37:17', 'tso');
 /*!40000 ALTER TABLE `ttenant` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tupwd
+-- Dumping structure for table assuredb.tupwd
 CREATE TABLE IF NOT EXISTS `tupwd` (
   `serverdatetime` datetime DEFAULT NULL,
   `systemdate` date NOT NULL DEFAULT '0000-00-00',
@@ -1027,11 +1032,11 @@ CREATE TABLE IF NOT EXISTS `tupwd` (
   `edituserid` varchar(50) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table assuredb2.tupwd: ~0 rows (approximately)
+-- Dumping data for table assuredb.tupwd: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tupwd` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tupwd` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tuser
+-- Dumping structure for table assuredb.tuser
 CREATE TABLE IF NOT EXISTS `tuser` (
   `userid` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
@@ -1070,7 +1075,7 @@ CREATE TABLE IF NOT EXISTS `tuser` (
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user info';
 
--- Dumping data for table assuredb2.tuser: ~14 rows (approximately)
+-- Dumping data for table assuredb.tuser: ~14 rows (approximately)
 /*!40000 ALTER TABLE `tuser` DISABLE KEYS */;
 INSERT INTO `tuser` (`userid`, `username`, `site`, `startdate`, `enddate`, `status`, `userpassword`, `passwordexpiredate`, `passwordchangedate`, `passwordchangetime`, `showphoto`, `adminflag`, `groupflag`, `theme`, `firstpage`, `loginfailtimes`, `failtime`, `lockflag`, `usertype`, `iconfile`, `accessdate`, `accesstime`, `accesshits`, `siteflag`, `branchflag`, `approveflag`, `changeflag`, `newflag`, `mistakens`, `mistakentime`, `editdate`, `edittime`, `edituser`) VALUES
 	('adminis', 'admin@freewill.com', 'FWS', NULL, NULL, 'A', '$2a$10$MhzJQISuqFZSES0k00LPx.iMWUMGgp4P4oR5xlAYdzc2ydaVQgMnG', NULL, NULL, NULL, NULL, '1', '0', NULL, NULL, 0, 0, '0', 'A', NULL, NULL, NULL, 0, '0', '0', '0', '0', '0', 0, 0, NULL, NULL, NULL),
@@ -1088,7 +1093,7 @@ INSERT INTO `tuser` (`userid`, `username`, `site`, `startdate`, `enddate`, `stat
 	('tso', 'tso@freewill.com', 'FWS', NULL, NULL, 'A', '$2a$10$XxaiWYBcRIglzgJ9MF3toO6ZpUh6dv/XDEFlPsPtkpS583Hiuqz/y', NULL, NULL, NULL, NULL, '1', '0', NULL, NULL, 0, 0, '0', 'A', NULL, NULL, NULL, 0, '0', '0', '0', '0', '0', 0, 0, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `tuser` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tuserbranch
+-- Dumping structure for table assuredb.tuserbranch
 CREATE TABLE IF NOT EXISTS `tuserbranch` (
   `site` varchar(50) NOT NULL COMMENT 'tcomp.site',
   `branch` varchar(20) NOT NULL COMMENT 'tcompbranch.branch',
@@ -1096,7 +1101,7 @@ CREATE TABLE IF NOT EXISTS `tuserbranch` (
   PRIMARY KEY (`site`,`branch`,`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user access comp branchs';
 
--- Dumping data for table assuredb2.tuserbranch: ~4 rows (approximately)
+-- Dumping data for table assuredb.tuserbranch: ~4 rows (approximately)
 /*!40000 ALTER TABLE `tuserbranch` DISABLE KEYS */;
 INSERT INTO `tuserbranch` (`site`, `branch`, `userid`) VALUES
 	('FWS', '00', 'tso'),
@@ -1105,7 +1110,7 @@ INSERT INTO `tuserbranch` (`site`, `branch`, `userid`) VALUES
 	('FWS', '01', 'ttso');
 /*!40000 ALTER TABLE `tuserbranch` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tuserfactor
+-- Dumping structure for table assuredb.tuserfactor
 CREATE TABLE IF NOT EXISTS `tuserfactor` (
   `factorid` varchar(50) NOT NULL COMMENT 'UUID',
   `userid` varchar(50) NOT NULL,
@@ -1128,11 +1133,11 @@ CREATE TABLE IF NOT EXISTS `tuserfactor` (
   UNIQUE KEY `userid` (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user factor';
 
--- Dumping data for table assuredb2.tuserfactor: ~0 rows (approximately)
+-- Dumping data for table assuredb.tuserfactor: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tuserfactor` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tuserfactor` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tuserfactorhistory
+-- Dumping structure for table assuredb.tuserfactorhistory
 CREATE TABLE IF NOT EXISTS `tuserfactorhistory` (
   `factorid` varchar(50) NOT NULL COMMENT 'UUID',
   `userid` varchar(50) NOT NULL,
@@ -1153,11 +1158,11 @@ CREATE TABLE IF NOT EXISTS `tuserfactorhistory` (
   `factorremark` varchar(350) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user factor history';
 
--- Dumping data for table assuredb2.tuserfactorhistory: ~0 rows (approximately)
+-- Dumping data for table assuredb.tuserfactorhistory: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tuserfactorhistory` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tuserfactorhistory` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tusergrp
+-- Dumping structure for table assuredb.tusergrp
 CREATE TABLE IF NOT EXISTS `tusergrp` (
   `userid` varchar(50) NOT NULL DEFAULT '' COMMENT 'tuser.userid',
   `groupname` varchar(50) NOT NULL DEFAULT '' COMMENT 'tgroup.groupname',
@@ -1165,7 +1170,7 @@ CREATE TABLE IF NOT EXISTS `tusergrp` (
   PRIMARY KEY (`userid`,`groupname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user in group';
 
--- Dumping data for table assuredb2.tusergrp: ~5 rows (approximately)
+-- Dumping data for table assuredb.tusergrp: ~5 rows (approximately)
 /*!40000 ALTER TABLE `tusergrp` DISABLE KEYS */;
 INSERT INTO `tusergrp` (`userid`, `groupname`, `rolename`) VALUES
 	('adminis', 'ADMIN', NULL),
@@ -1175,7 +1180,7 @@ INSERT INTO `tusergrp` (`userid`, `groupname`, `rolename`) VALUES
 	('tso', 'TESTER', NULL);
 /*!40000 ALTER TABLE `tusergrp` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tuserinfo
+-- Dumping structure for table assuredb.tuserinfo
 CREATE TABLE IF NOT EXISTS `tuserinfo` (
   `site` varchar(50) NOT NULL DEFAULT '' COMMENT 'tcomp.site',
   `employeeid` varchar(50) NOT NULL DEFAULT '',
@@ -1206,7 +1211,7 @@ CREATE TABLE IF NOT EXISTS `tuserinfo` (
   UNIQUE KEY `userid` (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user info (employee info)';
 
--- Dumping data for table assuredb2.tuserinfo: ~13 rows (approximately)
+-- Dumping data for table assuredb.tuserinfo: ~13 rows (approximately)
 /*!40000 ALTER TABLE `tuserinfo` DISABLE KEYS */;
 INSERT INTO `tuserinfo` (`site`, `employeeid`, `userid`, `userbranch`, `usertname`, `usertsurname`, `userename`, `useresurname`, `displayname`, `activeflag`, `accessdate`, `accesstime`, `photoimage`, `email`, `gender`, `lineid`, `mobile`, `langcode`, `birthday`, `inactive`, `editdate`, `edittime`, `edituser`, `remarks`, `usercontents`) VALUES
 	('FWS', 'adminis', 'adminis', '00', 'FWS', 'Administrator', 'FWS', 'Administrator', 'FWS_Adm', '0', NULL, NULL, NULL, 'admin@freewillsolutions.com', 'M', NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL),
@@ -1223,7 +1228,7 @@ INSERT INTO `tuserinfo` (`site`, `employeeid`, `userid`, `userbranch`, `usertnam
 	('FWS', 'tso', 'tso', '00', 'Tassan', 'Oros', 'Tassan', 'Oros', 'Tassan_Oro', '0', NULL, NULL, NULL, 'tassun_oro@hotmail.com', 'M', NULL, NULL, 'TH', NULL, '0', NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `tuserinfo` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tuserinfohistory
+-- Dumping structure for table assuredb.tuserinfohistory
 CREATE TABLE IF NOT EXISTS `tuserinfohistory` (
   `site` varchar(50) NOT NULL DEFAULT '' COMMENT 'tcomp.site',
   `employeeid` varchar(50) NOT NULL DEFAULT '',
@@ -1252,11 +1257,11 @@ CREATE TABLE IF NOT EXISTS `tuserinfohistory` (
   `usercontents` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user info (employee info)';
 
--- Dumping data for table assuredb2.tuserinfohistory: ~0 rows (approximately)
+-- Dumping data for table assuredb.tuserinfohistory: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tuserinfohistory` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tuserinfohistory` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tuserlog
+-- Dumping structure for table assuredb.tuserlog
 CREATE TABLE IF NOT EXISTS `tuserlog` (
   `seqno` bigint(15) NOT NULL DEFAULT '0',
   `curtime` datetime NOT NULL,
@@ -1275,11 +1280,11 @@ CREATE TABLE IF NOT EXISTS `tuserlog` (
   `contents` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user logging';
 
--- Dumping data for table assuredb2.tuserlog: ~0 rows (approximately)
+-- Dumping data for table assuredb.tuserlog: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tuserlog` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tuserlog` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tuserpwd
+-- Dumping structure for table assuredb.tuserpwd
 CREATE TABLE IF NOT EXISTS `tuserpwd` (
   `trxid` varchar(50) NOT NULL,
   `userid` varchar(50) NOT NULL,
@@ -1298,11 +1303,11 @@ CREATE TABLE IF NOT EXISTS `tuserpwd` (
   KEY `userid` (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user temporary password change';
 
--- Dumping data for table assuredb2.tuserpwd: ~0 rows (approximately)
+-- Dumping data for table assuredb.tuserpwd: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tuserpwd` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tuserpwd` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tuserpwdhistory
+-- Dumping structure for table assuredb.tuserpwdhistory
 CREATE TABLE IF NOT EXISTS `tuserpwdhistory` (
   `trxid` varchar(50) NOT NULL,
   `userid` varchar(50) NOT NULL,
@@ -1322,22 +1327,22 @@ CREATE TABLE IF NOT EXISTS `tuserpwdhistory` (
   `hisflag` varchar(1) DEFAULT '0' COMMENT '1=Confirm'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user temporary password change history';
 
--- Dumping data for table assuredb2.tuserpwdhistory: ~0 rows (approximately)
+-- Dumping data for table assuredb.tuserpwdhistory: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tuserpwdhistory` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tuserpwdhistory` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tuserrole
+-- Dumping structure for table assuredb.tuserrole
 CREATE TABLE IF NOT EXISTS `tuserrole` (
   `userid` varchar(50) NOT NULL COMMENT 'tuser.userid',
   `roleid` varchar(50) NOT NULL COMMENT 'trole.roleid',
   PRIMARY KEY (`userid`,`roleid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user in roles';
 
--- Dumping data for table assuredb2.tuserrole: ~0 rows (approximately)
+-- Dumping data for table assuredb.tuserrole: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tuserrole` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tuserrole` ENABLE KEYS */;
 
--- Dumping structure for table assuredb2.tusertoken
+-- Dumping structure for table assuredb.tusertoken
 CREATE TABLE IF NOT EXISTS `tusertoken` (
   `useruuid` varchar(50) NOT NULL,
   `userid` varchar(50) NOT NULL,
@@ -1369,7 +1374,7 @@ CREATE TABLE IF NOT EXISTS `tusertoken` (
   KEY `nonce` (`nonce`,`code`,`state`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep access token';
 
--- Dumping data for table assuredb2.tusertoken: ~0 rows (approximately)
+-- Dumping data for table assuredb.tusertoken: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tusertoken` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tusertoken` ENABLE KEYS */;
 
