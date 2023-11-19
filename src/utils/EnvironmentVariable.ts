@@ -1,6 +1,7 @@
 import os from "os";
 import config from "@willsofts/will-util";
 
+export const META_INFO: any = config.get("META_INFO") || {};
 export const API_URL: string = config.env("API_URL","");
 export const BASE_URL: string = config.env("BASE_URL","");
 export const CDN_URL: string = config.env("CDN_URL","");

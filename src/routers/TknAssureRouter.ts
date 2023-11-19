@@ -4,7 +4,7 @@ import { TknAuthorizeHandler } from "../handlers/TknAuthorizeHandler";
 import { KnUtility } from "../utils/KnUtility";
 import { AuthenTokenData, UserTokenInfo } from "@willsofts/will-lib";
 import { KnMetaInfo } from '../models/KnServAlias';
-import { RELEASE_VERSION, CDN_URL, BASE_URL, API_URL, REDIRECT_URL, MESSAGE_URL, EXCEPT_LAUNCH_PATH, BASE_STORAGE } from "../utils/EnvironmentVariable";
+import { META_INFO, RELEASE_VERSION, CDN_URL, BASE_URL, API_URL, REDIRECT_URL, MESSAGE_URL, EXCEPT_LAUNCH_PATH, BASE_STORAGE } from "../utils/EnvironmentVariable";
 
 export class TknAssureRouter extends TknBaseRouter {
     public getMetaInfo(context?: any) : KnMetaInfo {
@@ -17,7 +17,8 @@ export class TknAssureRouter extends TknBaseRouter {
             language: KnUtility.getDefaultLanguage(context),
             version: RELEASE_VERSION,
             storage: BASE_STORAGE,
-            token: this.getTokenKey(context)
+            token: this.getTokenKey(context),
+            info: META_INFO
         };
     }
 

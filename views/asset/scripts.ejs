@@ -18,9 +18,10 @@
 <script type="text/javascript" src="<%=meta.cdn_url%>/js/fslib.js"></script>
 <script type="text/javascript" src="<%=meta.cdn_url%>/js/messenger.js"></script>
 <script type="text/javascript">
-    API_URL = "<%=meta.api_url%>";
-    BASE_URL = "<%=meta.base_url%>";
-    CDN_URL = "<%=meta.cdn_url%>";
+	fs_default_language = "<%=meta.language%>";
+	API_URL = "<%=meta.api_url%>";
+	BASE_URL = "<%=meta.base_url%>";
+	CDN_URL = "<%=meta.cdn_url%>";
 	BASE_STORAGE = "<%=meta.storage%>";
-    fs_default_language = "<%=meta.language%>";
+	META_INFO = <%-JSON.stringify(meta.info) %>;
 </script>
