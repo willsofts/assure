@@ -31,17 +31,19 @@ export class AuthenProvider {
                 redirectUri: options.redirectUri,
             };
 
-            if (!this.msalConfig.auth.cloudDiscoveryMetadata || !this.msalConfig.auth.authorityMetadata) {
+            if (typeof this.msalConfig.auth.validateAuthority === 'undefined') { 
+                if (!this.msalConfig.auth.cloudDiscoveryMetadata || !this.msalConfig.auth.authorityMetadata) {
 
-                const [cloudDiscoveryMetadata, authorityMetadata] = await Promise.all([
-                    this.getCloudDiscoveryMetadata(this.msalConfig.auth.authority),
-                    this.getAuthorityMetadata(this.msalConfig.auth.authority)
-                ]);
+                    const [cloudDiscoveryMetadata, authorityMetadata] = await Promise.all([
+                        this.getCloudDiscoveryMetadata(this.msalConfig.auth.authority),
+                        this.getAuthorityMetadata(this.msalConfig.auth.authority)
+                    ]);
 
-                this.msalConfig.auth.cloudDiscoveryMetadata = JSON.stringify(cloudDiscoveryMetadata);
-                this.msalConfig.auth.authorityMetadata = JSON.stringify(authorityMetadata);
+                    this.msalConfig.auth.cloudDiscoveryMetadata = JSON.stringify(cloudDiscoveryMetadata);
+                    this.msalConfig.auth.authorityMetadata = JSON.stringify(authorityMetadata);
+                }
             }
-
+            
             const msalInstance = this.getMsalInstance(this.msalConfig);
 
             // trigger the first leg of auth code flow

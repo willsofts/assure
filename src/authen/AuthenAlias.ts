@@ -9,6 +9,8 @@ export interface AuthorityConfigure {
     authorityReset?: string;
     authorityProfile?: string;
     logoutEndpoint?: string;
+    knownAuthorities?: string[];
+    validateAuthority?: boolean;
 }
 
 export interface SAMLConfigure {

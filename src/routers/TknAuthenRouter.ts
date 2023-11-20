@@ -8,7 +8,6 @@ import { AuthenConfig } from '../authen/AuthenConfig';
 import { VerifyError } from "../models/VerifyError";
 import { TknDirectoryHandler } from '../handlers/TknDirectoryHandler';
 import { TknAssureRouter } from './TknAssureRouter';
-import { TknRenderRouter} from "./TknRenderRouter";
 import { REDIRECT_URI, REDIRECT_URI_LOGOUT } from '../utils/EnvironmentVariable';
 import { TknSigninHandler } from '../handlers/TknSigninHandler';
 
@@ -118,6 +117,7 @@ export class TknAuthenRouter extends TknAssureRouter {
             try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doOpen: error",ex); }        
             let isAuthenticated = ctx.meta.session.isAuthenticated;
             let username = ctx.meta.session.account?.username;
+            if(!username || username=="") username = ctx.meta.session.account?.idTokenClaims?.given_name;
             this.logger.debug(this.constructor.name+".doAuthen : isAuthenticated="+isAuthenticated+", account=",ctx.meta.session.account);
             if(isAuthenticated && username) {
                 let handler = new TknSigninHandler();
@@ -129,8 +129,7 @@ export class TknAuthenRouter extends TknAssureRouter {
                     return;
                 }
             }
-            let render = new TknRenderRouter(this.service, this.dir);
-            render.doLogin(req, res);
+            res.redirect("/login");
         } catch(ex: any) {
             this.logger.error(this.constructor.name+".doAuthen: error",ex);
             if(!info || !ctx) {

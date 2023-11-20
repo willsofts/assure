@@ -4,17 +4,33 @@ import config from "@willsofts/will-util";
 
 export class AuthenConfig {
     
-    public static createADConfigure(rs: KnResultSet) : ADConfigure | undefined {
+    public static createAuthInfo(row : any) : any {
+        return {
+            clientId: row.applicationid,
+            authority: row.tenanturl,
+            clientSecret: row.secretkey,
+        }
+    }
+
+    public static createB2CAuthInfo(row : any) : any {
+        return {
+            clientId: row.applicationid,
+            authority: row.tenanturl,
+            clientSecret: row.secretkey,
+            knownAuthorities: [row.basedn],
+            validateAuthority: false,
+        }
+    }
+
+    public static createADConfigure(rs: KnResultSet, creater?: Function) : ADConfigure | undefined {
         if(rs && rs.rows.length>0) {
             let row = rs.rows[0];
+            let authcfg = row.domaintype=="B"?this.createB2CAuthInfo(row):this.createAuthInfo(row);
+            if(creater) authcfg = creater.call(this,row);
             return {
                 type: row.domaintype,
                 config: {
-                    auth: {
-                        clientId: row.applicationid,
-                        authority: row.tenanturl,
-                        clientSecret: row.secretkey,
-                    },
+                    auth: authcfg,
                     system: this.getSystemConfig()
                 },
                 url: row.basedn,
