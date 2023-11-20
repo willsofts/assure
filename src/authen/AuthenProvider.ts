@@ -69,10 +69,12 @@ export class AuthenProvider {
                     scopes: options.scopes || [],
                 });
 
+                console.log(this.constructor.name+".acquireToken: tokenResponse",tokenResponse);
                 req.session.tokenCache = msalInstance.getTokenCache().serialize();
                 req.session.accessToken = tokenResponse.accessToken;
                 req.session.idToken = tokenResponse.idToken;
                 req.session.account = tokenResponse.account;
+                req.session.isAuthenticated = true;
                 console.log(this.constructor.name+".acquireToken: successRedirect",options.successRedirect);
                 res.redirect(options.successRedirect);
             } catch (error) {

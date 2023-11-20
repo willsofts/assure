@@ -19,6 +19,7 @@ export interface SAMLConfigure {
 }
 
 export interface ADConfigure {
+    id: string;
     type: string;
     config: SAMLConfigure;
     url?: string;

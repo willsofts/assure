@@ -9,6 +9,7 @@ export const MESSAGE_URL: string = config.env("MESSAGE_URL","");
 export const REDIRECT_URL: string = config.env("REDIRECT_URL",""); 
 export const RELEASE_VERSION: string = config.env("RELEASE_VERSION","v1.0.0");
 export const BASE_STORAGE: string = config.env("BASE_STORAGE","");
+export const ALLOW_RAW_PARAMETERS: boolean = config.env("ALLOW_RAW_PARAMETERS") === "true";
 export const ALLOW_AUTHEN_SAML: boolean = config.env("ALLOW_AUTHEN_SAML") === "true";
 export const REDIRECT_URI: string = config.env("REDIRECT_URI","http://localhost:8080/auth/redirect"); 
 export const REDIRECT_URI_LOGOUT: string = config.env("REDIRECT_URI_LOGOUT","http://localhost:8080"); 

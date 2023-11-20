@@ -11,7 +11,7 @@ import { TknAssureRouter } from './TknAssureRouter';
 import { REDIRECT_URI, REDIRECT_URI_LOGOUT } from '../utils/EnvironmentVariable';
 import { TknSigninHandler } from '../handlers/TknSigninHandler';
 
-export class TknAuthenRouter extends TknAssureRouter {
+export class TknSAMLRouter extends TknAssureRouter {
 
     public successRedirect : string = '/auth';
 
@@ -153,4 +153,29 @@ export class TknAuthenRouter extends TknAssureRouter {
         }
     }
     
+    public async doAcquire(req: Request, res: Response, next: Function) {    
+        this.logger.debug(this.constructor.name+".doAcquire : "+req.originalUrl);
+        let info = null;
+        try {
+            let ctx = await this.createContext(req,"authen");
+            info = this.getMetaInfo(ctx);
+            let msalcfg = ctx.meta.session.msalconfig;
+            this.logger.debug(this.constructor.name+".doAcquire: msalconfig",msalcfg);
+            if(msalcfg) {
+                let provider = new AuthenProvider(msalcfg);
+                let routehandler = provider.acquireToken({
+                    scopes: [],
+                    redirectUri: REDIRECT_URI,
+                    successRedirect: this.successRedirect
+                });
+                routehandler(req, res, next);
+                return;
+            }
+            throw new VerifyError("Configuration not found",HTTP.NOT_ACCEPTABLE,-16102);
+        } catch(ex: any) {
+            this.logger.error(this.constructor.name+".doAcquire: error",ex);
+            res.redirect("/login");
+        }
+    }
+
 }

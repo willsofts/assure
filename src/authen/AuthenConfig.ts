@@ -28,6 +28,7 @@ export class AuthenConfig {
             let authcfg = row.domaintype=="B"?this.createB2CAuthInfo(row):this.createAuthInfo(row);
             if(creater) authcfg = creater.call(this,row);
             return {
+                id: row.domainid,
                 type: row.domaintype,
                 config: {
                     auth: authcfg,
