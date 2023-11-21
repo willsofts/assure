@@ -42,7 +42,7 @@
 			    </thead>
 			    <tbody>
 			    	<tr>
-				        <td><%=auth.account?.username%></td>
+				        <td><%=auth.account?.username || auth.account?.idTokenClaims?.given_name%></td>
 				        <td><%=auth.account?.environment%></td>
 				        <td><%=auth.account?.tenantId%></td>
 			        </tr>

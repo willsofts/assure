@@ -330,7 +330,7 @@ export class TknSigninHandler extends TknSchemeHandler {
             }
         } else {
             passed = false;
-            response.head.composeError("-4004","Account not found");
+            response.head.composeError("-4004","Account not found ("+pname+")");
         }
         try {
             this.tokener.updateUserAccessing(context, { userid: body.get("userid") as string, lockflag: "0"});
