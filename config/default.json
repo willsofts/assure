@@ -15,6 +15,6 @@
     "ALLOW_AUTHEN_SAML": "true",
     "REDIRECT_URI": "http://localhost:3000/auth/redirect",
     "REDIRECT_URI_LOGOUT": "http://localhost:3000",
-    "SAML": { "type": "S", "config": { "auth": { "clientId": "dfeaaa67-52fd-474a-88c8-a1415145ed07", "authority": "https://login.microsoftonline.com/16f41a29-c670-4f46-ba94-2882e4ac0814", "clientSecret": "oqm8Q~be_O4yBn5PRUB5hPC~6fiCIgEvWHvFWb1f" } } },
-    "SAMLB2C": { "type": "B", "config": { "auth": { "clientId": "40a1f4d3-2264-4e09-9088-7838c1fd9f92", "authority": "https://tassanorg.b2clogin.com/tassanorg.onmicrosoft.com/B2C_1_susi", "clientSecret": "tcc8Q~dm2dIyytG~PJyh.do6Fd~xGeVxZFJs7cJY", "knownAuthorities": ["https://tassanorg.b2clogin.com"], "validateAuthority": false } } }
+    "SAML": { "id":"dfeaaa67-52fd-474a-88c8-a1415145ed07", "type": "S", "config": { "auth": { "clientId": "dfeaaa67-52fd-474a-88c8-a1415145ed07", "authority": "https://login.microsoftonline.com/16f41a29-c670-4f46-ba94-2882e4ac0814", "clientSecret": "oqm8Q~be_O4yBn5PRUB5hPC~6fiCIgEvWHvFWb1f" } } },
+    "SAMLB2C": { "id": "40a1f4d3-2264-4e09-9088-7838c1fd9f92","type": "B", "config": { "auth": { "clientId": "40a1f4d3-2264-4e09-9088-7838c1fd9f92", "authority": "https://tassanorg.b2clogin.com/tassanorg.onmicrosoft.com/B2C_1_susi", "clientSecret": "tcc8Q~dm2dIyytG~PJyh.do6Fd~xGeVxZFJs7cJY", "knownAuthorities": ["https://tassanorg.b2clogin.com"], "validateAuthority": false } } }
 }
