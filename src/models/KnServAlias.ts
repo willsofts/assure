@@ -11,6 +11,7 @@ export interface KnMetaInfo {
     message_url: string;
     language: string;
     version: string;
+    raw_parameters: boolean;
     token?: string;
     storage?: string;
     info?: any;

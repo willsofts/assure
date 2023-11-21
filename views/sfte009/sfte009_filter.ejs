@@ -1,0 +1,19 @@
+			<div class="row row-height">
+				<div class="col-md-12 col-height">
+						<div class="table-layer-class">
+							<div class="row row-height">
+								<div class="col-height col-md-4">
+<label for="domainnames" id="domainnames_label" class="control-label"><%=label.get('domainnames_label','Domain Name')%></label><input type="text" id="domainnames" name="domainname" class="form-control input-md" value="<%=data.dataset?.domainname%>" />
+								</div>
+								<div class="col-height col-md-4">
+<label for="descriptions" id="descriptions_label" class="control-label"><%=label.get('descriptions_label','Description')%></label><input type="text" id="descriptions" name="description" class="form-control input-md" value="<%=data.dataset?.description%>" />
+								</div>
+								<div class="col-md">
+									<br/>
+									<button type="button" id="searchbutton" class="btn btn-dark btn-sm" style="margin-top: 10px; margin-left: 5px;"><i class="fa fa-search" aria-hidden="true" style="margin-right:10px;"></i><%=label.get('searchbutton','Search')%></button>
+									<button type="button" id="insertbutton" class="btn btn-dark btn-sm pull-right" style="margin-top: 10px; margin-right: 5px;"><i class="fa fa-plus" aria-hidden="true" style="margin-right:10px;"></i><%=label.get('insertbutton','Insert')%></button>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>

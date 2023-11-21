@@ -126,7 +126,7 @@ export class TknDataTableHandler extends TknSchemeHandler {
         }
         let results = await Promise.all(rss);
         for(let [rs,dts] of results) {
-            result = Object.assign(result, rs);
+            //result = Object.assign(result, rs);
             let setting : KnDataMapRecordSetting = {tablename: rs.tablename, resultset: rs.resultset, setting: dts.setting as KnDataMapSetting};
             let map = KnUtility.createDataEntity([setting]);
             result = Object.assign(result, map);
