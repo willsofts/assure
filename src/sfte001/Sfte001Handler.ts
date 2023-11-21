@@ -105,7 +105,7 @@ export class Sfte001Handler extends TknOperateHandler {
     }
 
     protected async performCategories(context: KnContextInfo, model: KnModel, db: KnDBConnector) : Promise<KnDataTable> {
-        let settings = this.getCategorySetting(context, "tprod", "tkappstype", "tkprogtype", "tksystemtype");
+        let settings = this.getCategorySetting(context, "tprod", "tkappstype", "tkprogtype", "tkprogsystem");
         return await this.getDataCategories(context, db, settings);
     }
 
