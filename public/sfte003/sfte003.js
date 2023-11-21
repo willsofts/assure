@@ -276,7 +276,7 @@ function submitChapter(aform,index) {
 	let formdata = serializeDataForm(aform, $("#listpanel").data("searchfilters"));
 	startWaiting();
 	jQuery.ajax({
-		url: API_URL+"/api/sfte001/search",
+		url: API_URL+"/api/sfte003/search",
 		data: formdata.jsondata,
 		headers: formdata.headers,
 		type: "POST",
@@ -372,7 +372,7 @@ function deleted(aform) {
 		let formdata = serializeDataForm(aform);
 		startWaiting();
 		jQuery.ajax({
-			url: API_URL+"/api/sfte001/remove",
+			url: API_URL+"/api/sfte003/remove",
 			data: formdata.jsondata,
 			headers: formdata.headers,
 			type: "POST",
@@ -426,4 +426,3 @@ var fs_requiredfields = {
 };
 //#(390000) programmer code begin;
 //#(390000) programmer code end;
-
