@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `tcomp` (
   PRIMARY KEY (`site`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep company profile';
 
--- Dumping data for table assuredb.tcomp: ~1 rows (approximately)
+-- Dumping data for table assuredb.tcomp: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tcomp` DISABLE KEYS */;
 INSERT INTO `tcomp` (`site`, `headsite`, `shortname`, `nameen`, `nameth`, `addressen`, `addressth`, `address2`, `address3`, `district`, `districtname`, `amphur`, `amphurname`, `province`, `provincename`, `zipcode`, `country`, `telno1`, `telno2`, `faxno1`, `faxno2`, `email1`, `email2`, `telext1`, `telext2`, `website`, `taxid`, `logoimage`, `bgimage`, `inactive`, `editdate`, `edittime`, `edituser`) VALUES
 	('FWS', 'FWG', 'FWS', 'Freewill Solutions Co.,Ltd.', 'ฟรีวิลโซลูชั่น จำกัด', '1168/86-88  Lumpini Tower 29th Floor, Rama IV Road', 'เลขที่ 1168/86-88 ชั้น 29 อาคารลุมพินีทาวเวอร์ ถนนพระราม 4', NULL, NULL, '102803', 'ทุ่งมหาเมฆ', '1028', 'เขตสาทร', '002', 'กรุงเทพมหานคร', '10120', 'THA', '026798556', NULL, '', NULL, 'hr@freewillsolutions.com', NULL, NULL, NULL, 'https://www.freewillsolutions.com/', '', NULL, NULL, '0', NULL, NULL, 'fwgadmin');
@@ -209,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `tconfig` (
   PRIMARY KEY (`category`,`colname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='keep program custom configuration';
 
--- Dumping data for table assuredb.tconfig: ~15 rows (approximately)
+-- Dumping data for table assuredb.tconfig: ~13 rows (approximately)
 /*!40000 ALTER TABLE `tconfig` DISABLE KEYS */;
 INSERT INTO `tconfig` (`category`, `colname`, `colvalue`, `colflag`, `seqno`, `remarks`) VALUES
 	('2FA', 'FACTORISSUER', 'AssureSystem', NULL, 0, NULL),
@@ -240,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `tconstant` (
   PRIMARY KEY (`typename`,`typeid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=tis620 COMMENT='table keep constant/category description';
 
--- Dumping data for table assuredb.tconstant: ~61 rows (approximately)
+-- Dumping data for table assuredb.tconstant: ~58 rows (approximately)
 /*!40000 ALTER TABLE `tconstant` DISABLE KEYS */;
 INSERT INTO `tconstant` (`typename`, `typeid`, `nameen`, `nameth`, `seqno`, `iconfile`) VALUES
 	('tactive', '0', 'Active', 'ใช้งาน', 1, NULL),
@@ -267,6 +267,8 @@ INSERT INTO `tconstant` (`typename`, `typeid`, `nameen`, `nameth`, `seqno`, `ico
 	('tpermit', 'print', 'Print', 'พิมพ์', 8, NULL),
 	('tpermit', 'retrieve', 'Retrieve', 'ค้นหา', 4, NULL),
 	('tpermit', 'update', 'Update', 'แก้ไข', 2, NULL),
+	('tprogsystem', 'A', 'Admin', 'Admin', 1, NULL),
+	('tprogsystem', 'F', 'Reference', 'Reference', 2, NULL),
 	('tprogtype', 'C', 'Script', 'สคริปส์', 11, NULL),
 	('tprogtype', 'E', 'Entry', 'กรอกข้อมูล', 1, NULL),
 	('tprogtype', 'F', 'Reference', 'ข้อมูลหลัก', 2, NULL),
@@ -584,7 +586,7 @@ CREATE TABLE IF NOT EXISTS `tppwd` (
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table assuredb.tppwd: ~1 rows (approximately)
+-- Dumping data for table assuredb.tppwd: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tppwd` DISABLE KEYS */;
 INSERT INTO `tppwd` (`userid`, `checkreservepwd`, `checkpersonal`, `checkmatchpattern`, `checkmatchnumber`, `timenotusedoldpwd`, `alertbeforeexpire`, `pwdexpireday`, `notloginafterday`, `notchgpwduntilday`, `minpwdlength`, `alphainpwd`, `otherinpwd`, `maxsamechar`, `mindiffchar`, `maxarrangechar`, `loginfailtime`, `fromip`, `toip`, `starttime`, `endtime`, `groupflag`, `maxloginfailtime`, `checkdictpwd`, `maxpwdlength`, `digitinpwd`, `upperinpwd`, `lowerinpwd`) VALUES
 	('DEFAULT', '1', '0', '0', '0', 0, 0, 120, 0, 7, 3, 0, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, '1', 0, 0, 0, 1, 1, 1);
@@ -609,7 +611,7 @@ CREATE TABLE IF NOT EXISTS `tprod` (
   PRIMARY KEY (`product`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep product or module';
 
--- Dumping data for table assuredb.tprod: ~1 rows (approximately)
+-- Dumping data for table assuredb.tprod: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tprod` DISABLE KEYS */;
 INSERT INTO `tprod` (`product`, `nameen`, `nameth`, `seqno`, `serialid`, `startdate`, `url`, `capital`, `verified`, `centerflag`, `iconfile`, `editdate`, `edittime`, `edituser`) VALUES
 	('PROMPT', 'Prompt Module', 'Prompt Module', 99, NULL, NULL, NULL, NULL, '0', '1', 'prompt.png', NULL, NULL, NULL);
@@ -637,22 +639,24 @@ CREATE TABLE IF NOT EXISTS `tprog` (
   PRIMARY KEY (`programid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep program name';
 
--- Dumping data for table assuredb.tprog: ~13 rows (approximately)
+-- Dumping data for table assuredb.tprog: ~9 rows (approximately)
 /*!40000 ALTER TABLE `tprog` DISABLE KEYS */;
 INSERT INTO `tprog` (`product`, `programid`, `progname`, `prognameth`, `progtype`, `appstype`, `description`, `parameters`, `progsystem`, `iconfile`, `iconstyle`, `shortname`, `shortnameth`, `progpath`, `editdate`, `edittime`, `edituser`) VALUES
-	('PROMPT', 'sfte001', 'Program Information', 'ข้อมูลโปรแกรม', 'F', 'W', 'Program Information', NULL, 'F', 'sfte001.png', NULL, 'Program', 'โปรแกรม', NULL, NULL, NULL, NULL),
-	('PROMPT', 'sfte002', 'Group Information', 'กลุ่มผู้ใช้งาน', 'F', 'W', 'Group Information', NULL, 'F', 'sfte002.png', NULL, 'Group', 'กลู่มผู้ใช้', NULL, NULL, NULL, NULL),
-	('PROMPT', 'sfte003', 'Product Information', 'ข้อมูลผลิตภัณท์', 'F', 'W', 'Product Information', NULL, 'F', 'sfte003.png', NULL, 'Product', 'ผลิตภัณท์', NULL, NULL, NULL, NULL),
-	('PROMPT', 'sfte005', 'User', 'ข้อมูลผู้ใช้', 'F', 'W', 'User', NULL, 'F', 'sfte005.png', NULL, 'User', 'ผู้ใช้งาน', NULL, NULL, NULL, NULL),
-	('PROMPT', 'sfte007', 'User Privilege', 'สิทธิผู้ใช้', 'F', 'W', 'User Privilege', NULL, 'F', 'sfte007.png', NULL, 'Privilege', 'สิทธิผู้ใช้', NULL, NULL, NULL, NULL),
-	('PROMPT', 'sfte010', 'Password Policy Setting', 'นโยบายจัดตั้งรหัสผ่าน', 'F', 'W', 'Password Policy Setting', NULL, 'F', 'sfte010.png', NULL, 'Password Policy', 'นโยบายรหัสผ่าน', NULL, NULL, NULL, NULL),
-	('PROMPT', 'sfte012', 'Configuration Setting', 'ตั้งค่าเบื้องต้น', 'F', 'W', 'Configuration Setting', NULL, 'F', 'sfte012.png', NULL, 'Configuration', 'ตั้งค่าเบื้องต้น', NULL, NULL, NULL, NULL),
-	('PROMPT', 'sfte013', 'Mail Template Setting', 'ตั้งค่าต้นแบบเมล', 'F', 'W', 'Mail Template Setting', NULL, 'F', 'sfte013.png', NULL, 'Mail Template', 'ตั้งค่าเมล', NULL, NULL, NULL, NULL),
-	('PROMPT', 'sfte016', 'User Information', 'ข้อมูลผู้ใช้', 'F', 'W', 'User', NULL, 'F', 'sfte016.png', NULL, 'User', 'ผู้ใช้งาน', NULL, NULL, NULL, NULL),
-	('PROMPT', 'sfte017', 'Two Factor Authentication', 'Two Factor Authentication', 'F', 'W', 'Two Factor Authentication', NULL, 'F', 'sfte017.png', NULL, '2Factor', '2Factor', NULL, NULL, NULL, NULL),
-	('PROMPT', 'sfte018', 'Tenant Setting', 'Tenant Setting', 'F', 'W', 'Tenant', NULL, 'F', 'sfte018.png', NULL, 'Tenant', 'Tenant', NULL, NULL, NULL, NULL),
-	('PROMPT', 'sftq001', 'Tracking', 'การตรวจสอบ', 'F', 'W', 'Tracking', NULL, 'F', 'sftq001.png', NULL, 'Tracking', 'ตรวจสอบ', NULL, NULL, NULL, NULL),
-	('PROMPT', 'sftq003', 'Mail Tracking', 'Mail Tracking', 'Q', 'W', 'Mail Tracking', NULL, 'F', 'sftq003.png', NULL, 'Mail Tracking', 'Mail Tracking', NULL, NULL, NULL, NULL);
+	('PROMPT', 'sfte001', 'Program Information', 'ข้อมูลโปรแกรม', 'F', 'W', 'Program Information', NULL, 'A', 'sfte001.png', NULL, 'Program', 'โปรแกรม', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sfte002', 'Group Information', 'กลุ่มผู้ใช้งาน', 'F', 'W', 'Group Information', NULL, 'A', 'sfte002.png', NULL, 'Group', 'กลู่มผู้ใช้', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sfte003', 'Product Information', 'ข้อมูลผลิตภัณท์', 'F', 'W', 'Product Information', NULL, 'A', 'sfte003.png', NULL, 'Product', 'ผลิตภัณท์', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sfte005', 'User', 'ข้อมูลผู้ใช้', 'F', 'W', 'User', NULL, 'A', 'sfte005.png', NULL, 'User', 'ผู้ใช้งาน', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sfte007', 'User Privilege', 'สิทธิผู้ใช้', 'F', 'W', 'User Privilege', NULL, 'A', 'sfte007.png', NULL, 'Privilege', 'สิทธิผู้ใช้', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sfte009', 'Active Directory', 'ข้อมูลโครงสร้าง', 'F', 'W', 'Active Directory', NULL, 'A', 'sfte009.png', NULL, 'Active Directory', 'โครงสร้าง', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sfte010', 'Password Policy Setting', 'นโยบายจัดตั้งรหัสผ่าน', 'F', 'W', 'Password Policy Setting', NULL, 'A', 'sfte010.png', NULL, 'Password Policy', 'นโยบายรหัสผ่าน', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sfte011', 'Password Policy', 'Password Policy', 'F', 'W', 'Password Policy', NULL, 'A', 'sfte011.png', NULL, 'Password Policy', 'Password Policy', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sfte012', 'Configuration Setting', 'ตั้งค่าเบื้องต้น', 'F', 'W', 'Configuration Setting', NULL, 'A', 'sfte012.png', NULL, 'Configuration', 'ตั้งค่าเบื้องต้น', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sfte013', 'Mail Template Setting', 'ตั้งค่าต้นแบบเมล', 'F', 'W', 'Mail Template Setting', NULL, 'A', 'sfte013.png', NULL, 'Mail Template', 'ตั้งค่าเมล', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sfte016', 'User Information', 'ข้อมูลผู้ใช้', 'F', 'W', 'User', NULL, 'A', 'sfte016.png', NULL, 'User', 'ผู้ใช้งาน', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sfte017', 'Two Factor Authentication', 'Two Factor Authentication', 'F', 'W', 'Two Factor Authentication', NULL, 'A', 'sfte017.png', NULL, '2Factor', '2Factor', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sfte018', 'Tenant Setting', 'Tenant Setting', 'F', 'W', 'Tenant', NULL, 'A', 'sfte018.png', NULL, 'Tenant', 'Tenant', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sftq001', 'Tracking', 'การตรวจสอบ', 'F', 'W', 'Tracking', NULL, 'A', 'sftq001.png', NULL, 'Tracking', 'ตรวจสอบ', NULL, NULL, NULL, NULL),
+	('PROMPT', 'sftq003', 'Mail Tracking', 'Mail Tracking', 'Q', 'W', 'Mail Tracking', NULL, 'A', 'sftq003.png', NULL, 'Mail Tracking', 'Mail Tracking', NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `tprog` ENABLE KEYS */;
 
 -- Dumping structure for table assuredb.tproggrp
@@ -664,7 +668,7 @@ CREATE TABLE IF NOT EXISTS `tproggrp` (
   PRIMARY KEY (`groupname`,`programid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep program by group';
 
--- Dumping data for table assuredb.tproggrp: ~35 rows (approximately)
+-- Dumping data for table assuredb.tproggrp: ~29 rows (approximately)
 /*!40000 ALTER TABLE `tproggrp` DISABLE KEYS */;
 INSERT INTO `tproggrp` (`groupname`, `programid`, `parameters`, `seqno`) VALUES
 	('ADMIN', 'sfte002', NULL, 1),
@@ -1077,7 +1081,7 @@ CREATE TABLE IF NOT EXISTS `tuser` (
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user info';
 
--- Dumping data for table assuredb.tuser: ~13 rows (approximately)
+-- Dumping data for table assuredb.tuser: ~14 rows (approximately)
 /*!40000 ALTER TABLE `tuser` DISABLE KEYS */;
 INSERT INTO `tuser` (`userid`, `username`, `site`, `startdate`, `enddate`, `status`, `userpassword`, `passwordexpiredate`, `passwordchangedate`, `passwordchangetime`, `showphoto`, `adminflag`, `groupflag`, `theme`, `firstpage`, `loginfailtimes`, `failtime`, `lockflag`, `usertype`, `iconfile`, `accessdate`, `accesstime`, `accesshits`, `siteflag`, `branchflag`, `approveflag`, `changeflag`, `newflag`, `mistakens`, `mistakentime`, `editdate`, `edittime`, `edituser`) VALUES
 	('adminis', 'admin@freewill.com', 'FWS', NULL, NULL, 'A', '$2a$10$MhzJQISuqFZSES0k00LPx.iMWUMGgp4P4oR5xlAYdzc2ydaVQgMnG', NULL, NULL, NULL, NULL, '1', '0', NULL, NULL, 0, 0, '0', 'A', NULL, NULL, NULL, 0, '0', '0', '0', '0', '0', 0, 0, NULL, NULL, NULL),
@@ -1213,7 +1217,7 @@ CREATE TABLE IF NOT EXISTS `tuserinfo` (
   UNIQUE KEY `userid` (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user info (employee info)';
 
--- Dumping data for table assuredb.tuserinfo: ~12 rows (approximately)
+-- Dumping data for table assuredb.tuserinfo: ~13 rows (approximately)
 /*!40000 ALTER TABLE `tuserinfo` DISABLE KEYS */;
 INSERT INTO `tuserinfo` (`site`, `employeeid`, `userid`, `userbranch`, `usertname`, `usertsurname`, `userename`, `useresurname`, `displayname`, `activeflag`, `accessdate`, `accesstime`, `photoimage`, `email`, `gender`, `lineid`, `mobile`, `langcode`, `birthday`, `inactive`, `editdate`, `edittime`, `edituser`, `remarks`, `usercontents`) VALUES
 	('FWS', 'adminis', 'adminis', '00', 'FWS', 'Administrator', 'FWS', 'Administrator', 'FWS_Adm', '0', NULL, NULL, NULL, 'admin@freewillsolutions.com', 'M', NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL),
