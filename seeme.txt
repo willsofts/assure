@@ -1,6 +1,7 @@
 convert tip
 xxx_m.jsp => xxx.ejs
-xxx_d.jsp => xxx_filter.ejs
+xxx_me.jsp => xxx_filter.ejs
+xxx_d.jsp => xxx_data.ejs
 xxx_dialog.jsp => xxx_dialog.ejs
 xxx_key.jsp => xxx_key.ejs
 xxx_kit.jsp => xxx_kit.ejs
