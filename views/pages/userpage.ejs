@@ -37,14 +37,14 @@
 			    <tr>
 			        <th>User Name</th>
 			        <th>Environment</th>
-			        <th>Tenant Id</th>
+			        <th>Tenant</th>
 			    </tr>
 			    </thead>
 			    <tbody>
 			    	<tr>
 				        <td><%=auth.account?.username || auth.account?.idTokenClaims?.given_name%></td>
 				        <td><%=auth.account?.environment%></td>
-				        <td><%=auth.account?.tenantId%></td>
+				        <td><%=auth.account?.idTokenClaims?.iss || auth.account?.tenantId%></td>
 			        </tr>
 			    </tbody>
 			</table>
