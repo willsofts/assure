@@ -56,7 +56,7 @@ export class AuthenConfig {
     public static async getADConfigure(db: KnDBConnector, domainid?: string, context?: any) : Promise<ADConfigure | undefined> {
         if(domainid && domainid.trim().length>0) {
             let knsql = new KnSQL();
-            knsql.append("select * from tdirectory where domainid = ?domainid and inactive='0' and systemtype='W' ");
+            knsql.append("select * from tdirectory where domainid = ?domainid and inactive='0' ");
             knsql.set("domainid",domainid);
             let rs = await knsql.executeQuery(db,context);
             let config = this.createADConfigure(rs);

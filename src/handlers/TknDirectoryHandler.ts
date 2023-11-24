@@ -20,10 +20,16 @@ export class TknDirectoryHandler extends TknSchemeHandler {
         knsql.append(selector);
         knsql.append(" from ");
         knsql.append(model.name);
-        knsql.append(" where inactive='0' and invisible='0' "); 
+        knsql.append(" where inactive='0' "); 
+        let invisible = params.invisible && params.invisible!="" ? params.invisible : "0";
         let systemtype = params.systemtype && params.systemtype!="" ? params.systemtype : "W";
-        knsql.append("and systemtype = ?systemtype");
+        let appstype = params.appstype && params.appstype!="" ? params.appstype : "W";
+        knsql.append("and invisible = ?invisible ");
+        knsql.append("and systemtype = ?systemtype ");
+        knsql.append("and appstype = ?appstype ");
+        knsql.set("invisible",invisible);
         knsql.set("systemtype",systemtype);
+        knsql.set("appstype",appstype);
         return knsql;    
     }
 
@@ -48,7 +54,7 @@ export class TknDirectoryHandler extends TknSchemeHandler {
 
 	public async getDirectoryInfo(db: KnDBConnector, domainid: string, context?: any) : Promise<KnResultSet> {
         let sql = new KnSQL();
-        sql.append("select * from tdirectory where domainid = ?domainid and inactive='0' and systemtype='W' ");
+        sql.append("select * from tdirectory where domainid = ?domainid and inactive='0' ");
         sql.set("domainid",domainid);
         let rs = await sql.executeQuery(db, context);
 		this.logger.debug(this.constructor.name+".getDirectoryInfo","effected "+rs.rows.length+" rows.");

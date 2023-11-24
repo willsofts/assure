@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `tcomp` (
   PRIMARY KEY (`site`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep company profile';
 
--- Dumping data for table assuredb.tcomp: ~1 rows (approximately)
+-- Dumping data for table assuredb.tcomp: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tcomp` DISABLE KEYS */;
 INSERT INTO `tcomp` (`site`, `headsite`, `shortname`, `nameen`, `nameth`, `addressen`, `addressth`, `address2`, `address3`, `district`, `districtname`, `amphur`, `amphurname`, `province`, `provincename`, `zipcode`, `country`, `telno1`, `telno2`, `faxno1`, `faxno2`, `email1`, `email2`, `telext1`, `telext2`, `website`, `taxid`, `logoimage`, `bgimage`, `inactive`, `editdate`, `edittime`, `edituser`) VALUES
 	('FWS', 'FWG', 'FWS', 'Freewill Solutions Co.,Ltd.', 'ฟรีวิลโซลูชั่น จำกัด', '1168/86-88  Lumpini Tower 29th Floor, Rama IV Road', 'เลขที่ 1168/86-88 ชั้น 29 อาคารลุมพินีทาวเวอร์ ถนนพระราม 4', NULL, NULL, '102803', 'ทุ่งมหาเมฆ', '1028', 'เขตสาทร', '002', 'กรุงเทพมหานคร', '10120', 'THA', '026798556', NULL, '', NULL, 'hr@freewillsolutions.com', NULL, NULL, NULL, 'https://www.freewillsolutions.com/', '', NULL, NULL, '0', NULL, NULL, 'fwgadmin');
@@ -209,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `tconfig` (
   PRIMARY KEY (`category`,`colname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='keep program custom configuration';
 
--- Dumping data for table assuredb.tconfig: ~15 rows (approximately)
+-- Dumping data for table assuredb.tconfig: ~13 rows (approximately)
 /*!40000 ALTER TABLE `tconfig` DISABLE KEYS */;
 INSERT INTO `tconfig` (`category`, `colname`, `colvalue`, `colflag`, `seqno`, `remarks`) VALUES
 	('2FA', 'FACTORISSUER', 'AssureSystem', NULL, 0, NULL),
@@ -240,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `tconstant` (
   PRIMARY KEY (`typename`,`typeid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=tis620 COMMENT='table keep constant/category description';
 
--- Dumping data for table assuredb.tconstant: ~63 rows (approximately)
+-- Dumping data for table assuredb.tconstant: ~58 rows (approximately)
 /*!40000 ALTER TABLE `tconstant` DISABLE KEYS */;
 INSERT INTO `tconstant` (`typename`, `typeid`, `nameen`, `nameth`, `seqno`, `iconfile`) VALUES
 	('tactive', '0', 'Active', 'ใช้งาน', 1, NULL),
@@ -250,6 +250,8 @@ INSERT INTO `tconstant` (`typename`, `typeid`, `nameen`, `nameth`, `seqno`, `ico
 	('tbranchtype', 'HB', 'Head Branch', 'สำนักงานใหญ่', 1, NULL),
 	('tbranchtype', 'SB', 'Sub Branch', 'สำนักงานสาขาย่อย', 2, NULL),
 	('tbranchtype', 'VB', 'Service Branch', 'สำนักงานบริการ', 3, NULL),
+	('tdomainappstype', 'S', 'Single Page Application', 'Single Page Application', 2, NULL),
+	('tdomainappstype', 'W', 'WEB', 'WEB', 1, NULL),
 	('tdomaintype', 'B', 'B2C', 'B2C', 2, NULL),
 	('tdomaintype', 'D', 'Directory', 'Directory', 1, NULL),
 	('tdomaintype', 'S', 'SAML', 'SAML', 3, NULL),
@@ -330,6 +332,7 @@ CREATE TABLE IF NOT EXISTS `tdirectory` (
   `basedn` varchar(200) NOT NULL,
   `secretkey` varchar(50) NOT NULL DEFAULT '',
   `systemtype` varchar(1) NOT NULL DEFAULT 'W' COMMENT 'W=Web,I=iOS,A=Android (tsystemtype.systemtype)',
+  `appstype` varchar(1) NOT NULL DEFAULT 'W' COMMENT 'W=Web,S=SPA',
   `domaintype` varchar(1) NOT NULL DEFAULT 'S' COMMENT 'S=SAML,B=B2C,D=DIRECTORY',
   `domainurl` varchar(200) DEFAULT NULL,
   `inactive` varchar(1) NOT NULL DEFAULT '0' COMMENT '1=Inactive',
@@ -343,10 +346,10 @@ CREATE TABLE IF NOT EXISTS `tdirectory` (
 
 -- Dumping data for table assuredb.tdirectory: ~3 rows (approximately)
 /*!40000 ALTER TABLE `tdirectory` DISABLE KEYS */;
-INSERT INTO `tdirectory` (`domainid`, `domainname`, `description`, `applicationid`, `tenanturl`, `basedn`, `secretkey`, `systemtype`, `domaintype`, `domainurl`, `inactive`, `invisible`, `editdate`, `edittime`, `edituser`) VALUES
-	('40a1f4d3-2264-4e09-9088-7838c1fd9f92', 'tassanorg.onmicrosoft.com', 'Tassan AD B2C', '40a1f4d3-2264-4e09-9088-7838c1fd9f92', 'https://tassanorg.b2clogin.com/tassanorg.onmicrosoft.com/B2C_1_susi', 'https://tassanorg.b2clogin.com', 'tcc8Q~dm2dIyytG~PJyh.do6Fd~xGeVxZFJs7cJY', 'W', 'B', NULL, '0', '0', NULL, NULL, NULL),
-	('9b41b79b-c78a-11ec-8ba7-98fa9bd6bd8e', 'freewillgroup.com', 'Freewill Group', 'af1be62c-c78a-11ec-8ba7-98fa9bd6bd8e', 'ldap://10.22.91.24:389', 'DC=freewillgroup,DC=com', '', 'W', 'D', NULL, '0', '1', NULL, NULL, NULL),
-	('dfeaaa67-52fd-474a-88c8-a1415145ed07', 'tassunorohotmail.onmicrosoft.com', 'Tassan AD', 'dfeaaa67-52fd-474a-88c8-a1415145ed07', 'https://login.microsoftonline.com/16f41a29-c670-4f46-ba94-2882e4ac0814', '', 'oqm8Q~be_O4yBn5PRUB5hPC~6fiCIgEvWHvFWb1f', 'W', 'S', NULL, '0', '0', NULL, NULL, NULL);
+INSERT INTO `tdirectory` (`domainid`, `domainname`, `description`, `applicationid`, `tenanturl`, `basedn`, `secretkey`, `systemtype`, `appstype`, `domaintype`, `domainurl`, `inactive`, `invisible`, `editdate`, `edittime`, `edituser`) VALUES
+	('40a1f4d3-2264-4e09-9088-7838c1fd9f92', 'tassanorg.onmicrosoft.com', 'Tassan AD B2C', '40a1f4d3-2264-4e09-9088-7838c1fd9f92', 'https://tassanorg.b2clogin.com/tassanorg.onmicrosoft.com/B2C_1_susi', 'https://tassanorg.b2clogin.com', 'tcc8Q~dm2dIyytG~PJyh.do6Fd~xGeVxZFJs7cJY', 'W', 'W', 'B', NULL, '0', '0', NULL, NULL, NULL),
+	('9b41b79b-c78a-11ec-8ba7-98fa9bd6bd8e', 'freewillgroup.com', 'Freewill Group', 'af1be62c-c78a-11ec-8ba7-98fa9bd6bd8e', 'ldap://10.22.91.24:389', 'DC=freewillgroup,DC=com', '', 'W', 'W', 'D', NULL, '0', '1', NULL, NULL, NULL),
+	('dfeaaa67-52fd-474a-88c8-a1415145ed07', 'tassunorohotmail.onmicrosoft.com', 'Tassan AD', 'dfeaaa67-52fd-474a-88c8-a1415145ed07', 'https://login.microsoftonline.com/16f41a29-c670-4f46-ba94-2882e4ac0814', '', 'oqm8Q~be_O4yBn5PRUB5hPC~6fiCIgEvWHvFWb1f', 'W', 'W', 'S', NULL, '0', '0', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `tdirectory` ENABLE KEYS */;
 
 -- Dumping structure for table assuredb.tfavor
@@ -586,7 +589,7 @@ CREATE TABLE IF NOT EXISTS `tppwd` (
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table assuredb.tppwd: ~1 rows (approximately)
+-- Dumping data for table assuredb.tppwd: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tppwd` DISABLE KEYS */;
 INSERT INTO `tppwd` (`userid`, `checkreservepwd`, `checkpersonal`, `checkmatchpattern`, `checkmatchnumber`, `timenotusedoldpwd`, `alertbeforeexpire`, `pwdexpireday`, `notloginafterday`, `notchgpwduntilday`, `minpwdlength`, `alphainpwd`, `otherinpwd`, `maxsamechar`, `mindiffchar`, `maxarrangechar`, `loginfailtime`, `fromip`, `toip`, `starttime`, `endtime`, `groupflag`, `maxloginfailtime`, `checkdictpwd`, `maxpwdlength`, `digitinpwd`, `upperinpwd`, `lowerinpwd`) VALUES
 	('DEFAULT', '1', '0', '0', '0', 0, 0, 120, 0, 7, 3, 0, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, '1', 0, 0, 0, 1, 1, 1);
@@ -611,7 +614,7 @@ CREATE TABLE IF NOT EXISTS `tprod` (
   PRIMARY KEY (`product`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep product or module';
 
--- Dumping data for table assuredb.tprod: ~1 rows (approximately)
+-- Dumping data for table assuredb.tprod: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tprod` DISABLE KEYS */;
 INSERT INTO `tprod` (`product`, `nameen`, `nameth`, `seqno`, `serialid`, `startdate`, `url`, `capital`, `verified`, `centerflag`, `iconfile`, `editdate`, `edittime`, `edituser`) VALUES
 	('PROMPT', 'Prompt Module', 'Prompt Module', 99, NULL, NULL, NULL, NULL, '0', '1', 'prompt.png', NULL, NULL, NULL);
@@ -639,7 +642,7 @@ CREATE TABLE IF NOT EXISTS `tprog` (
   PRIMARY KEY (`programid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep program name';
 
--- Dumping data for table assuredb.tprog: ~15 rows (approximately)
+-- Dumping data for table assuredb.tprog: ~8 rows (approximately)
 /*!40000 ALTER TABLE `tprog` DISABLE KEYS */;
 INSERT INTO `tprog` (`product`, `programid`, `progname`, `prognameth`, `progtype`, `appstype`, `description`, `parameters`, `progsystem`, `iconfile`, `iconstyle`, `shortname`, `shortnameth`, `progpath`, `editdate`, `edittime`, `edituser`) VALUES
 	('PROMPT', 'sfte001', 'Program Information', 'ข้อมูลโปรแกรม', 'F', 'W', 'Program Information', NULL, 'A', 'sfte001.png', NULL, 'Program', 'โปรแกรม', NULL, NULL, NULL, NULL),
@@ -668,7 +671,7 @@ CREATE TABLE IF NOT EXISTS `tproggrp` (
   PRIMARY KEY (`groupname`,`programid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep program by group';
 
--- Dumping data for table assuredb.tproggrp: ~35 rows (approximately)
+-- Dumping data for table assuredb.tproggrp: ~29 rows (approximately)
 /*!40000 ALTER TABLE `tproggrp` DISABLE KEYS */;
 INSERT INTO `tproggrp` (`groupname`, `programid`, `parameters`, `seqno`) VALUES
 	('ADMIN', 'sfte002', NULL, 1),
@@ -1083,7 +1086,7 @@ CREATE TABLE IF NOT EXISTS `tuser` (
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user info';
 
--- Dumping data for table assuredb.tuser: ~13 rows (approximately)
+-- Dumping data for table assuredb.tuser: ~14 rows (approximately)
 /*!40000 ALTER TABLE `tuser` DISABLE KEYS */;
 INSERT INTO `tuser` (`userid`, `username`, `site`, `startdate`, `enddate`, `status`, `userpassword`, `passwordexpiredate`, `passwordchangedate`, `passwordchangetime`, `showphoto`, `adminflag`, `groupflag`, `theme`, `firstpage`, `loginfailtimes`, `failtime`, `lockflag`, `usertype`, `iconfile`, `accessdate`, `accesstime`, `accesshits`, `siteflag`, `branchflag`, `approveflag`, `changeflag`, `newflag`, `mistakens`, `mistakentime`, `editdate`, `edittime`, `edituser`) VALUES
 	('adminis', 'admin@freewill.com', 'FWS', NULL, NULL, 'A', '$2a$10$MhzJQISuqFZSES0k00LPx.iMWUMGgp4P4oR5xlAYdzc2ydaVQgMnG', NULL, NULL, NULL, NULL, '1', '0', NULL, NULL, 0, 0, '0', 'A', NULL, NULL, NULL, 0, '0', '0', '0', '0', '0', 0, 0, NULL, NULL, NULL),
@@ -1219,7 +1222,7 @@ CREATE TABLE IF NOT EXISTS `tuserinfo` (
   UNIQUE KEY `userid` (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep user info (employee info)';
 
--- Dumping data for table assuredb.tuserinfo: ~12 rows (approximately)
+-- Dumping data for table assuredb.tuserinfo: ~13 rows (approximately)
 /*!40000 ALTER TABLE `tuserinfo` DISABLE KEYS */;
 INSERT INTO `tuserinfo` (`site`, `employeeid`, `userid`, `userbranch`, `usertname`, `usertsurname`, `userename`, `useresurname`, `displayname`, `activeflag`, `accessdate`, `accesstime`, `photoimage`, `email`, `gender`, `lineid`, `mobile`, `langcode`, `birthday`, `inactive`, `editdate`, `edittime`, `edituser`, `remarks`, `usercontents`) VALUES
 	('FWS', 'adminis', 'adminis', '00', 'FWS', 'Administrator', 'FWS', 'Administrator', 'FWS_Adm', '0', NULL, NULL, NULL, 'admin@freewillsolutions.com', 'M', NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL),
