@@ -71,16 +71,30 @@
 				<div class="table-layer-class">
 					<div class="row row-height">
 						<div class="col-height col-md-5">
-<label for="domaintype" id="domaintype_label" class="control-label"><%=label.get('domaintype_label','Domain Type')%></label>
+<label for="appstype" id="appstype_label" class="control-label"><%=label.get('appstype_label','Application Type')%></label>
 <div class="input-group">
-	<%-page.html('select',{map: data.entity?.tkdomaintype, value: data.dataset?.domaintype, id: "domaintype", name: "domaintype", class: "form-control input-md"})%>
-<div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="domaintype_alert" role="alert" class="has-error" style="display:none;"><%=label.get('domaintype_alert','You can not leave this empty')%></div>
+	<%-page.html('select',{map: data.entity?.tkdomainappstype, value: data.dataset?.appstype, id: "appstype", name: "appstype", class: "form-control input-md"})%>
+<div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="appstype_alert" role="alert" class="has-error" style="display:none;"><%=label.get('appstype_alert','You can not leave this empty')%></div>
 						</div>
 						<div class="col-height col-md-5">
 <label for="invisible" id="invisible_label" class="control-label"><%=label.get('invisible_label','Visibility')%></label>
 <div class="input-group">
 	<%-page.html('select',{map: data.entity?.tkvisible, value: data.dataset?.invisible, id: "invisible", name: "invisible", class: "form-control input-md"})%>
 <div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="invisible_alert" role="alert" class="has-error" style="display:none;"><%=label.get('invisible_alert','You can not leave this empty')%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-5">
+<label for="domaintype" id="domaintype_label" class="control-label"><%=label.get('domaintype_label','Domain Type')%></label>
+<div class="input-group">
+	<%-page.html('select',{map: data.entity?.tkdomaintype, value: data.dataset?.domaintype, id: "domaintype", name: "domaintype", class: "form-control input-md"})%>
+<div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="domaintype_alert" role="alert" class="has-error" style="display:none;"><%=label.get('domaintype_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>

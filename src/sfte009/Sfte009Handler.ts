@@ -22,8 +22,9 @@ export class Sfte009Handler extends TknOperateHandler {
             applicationid: { type: "STRING", created: true },
             tenanturl: { type: "STRING", created: true },
             secretkey: { type: "STRING", created: true },
-            systemtype: { type: "STRING", created: true },
-            domaintype: { type: "STRING", created: true },
+            systemtype: { type: "STRING", created: true, defaultValue: "W" },
+            appstype: { type: "STRING", created: true, defaultValue: "W" },
+            domaintype: { type: "STRING", created: true, defaultValue: "S" },
             basedn: { type: "STRING", created: true },
             inactive: { type: "STRING", created: true, defaultValue: "0" },
             invisible: { type: "STRING", created: true, defaultValue: "0" },
@@ -105,7 +106,7 @@ export class Sfte009Handler extends TknOperateHandler {
     }
 
     protected async performCategories(context: KnContextInfo, model: KnModel, db: KnDBConnector) : Promise<KnDataTable> {
-        let settings = this.getCategorySetting(context, "tkactive", "tkvisible", "tksystemtype", "tkdomaintype");
+        let settings = this.getCategorySetting(context, "tkactive", "tkvisible", "tksystemtype", "tkdomaintype", "tkdomainappstype");
         return await this.getDataCategories(context, db, settings);
     }
 

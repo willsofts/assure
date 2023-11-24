@@ -26,7 +26,8 @@
 			{"name": "invisible_headerlabel", "value": "การมองเห็น"},
 			{"name": "description_headerlabel", "value": "คำอธิบาย"},
 			{"name": "systemtype_label", "value": "ระบบ"},
-			{"name": "domaintype_label", "value": "ชนิด"},
+			{"name": "appstype_label", "value": "ชนิด"},
+			{"name": "domaintype_label", "value": "ชนิดโดเมน"},
 			{"name": "basedn_label", "value": "ที่อยู่โดเมน"},
 			{"name": "secretkey_label", "value": "รหัสลับ"}		]
 	},
@@ -57,6 +58,7 @@
 			{"name": "invisible_headerlabel", "value": "Visibility"},
 			{"name": "description_headerlabel", "value": "Description"},
 			{"name": "systemtype_label", "value": "System Type"},
+			{"name": "appstype_label", "value": "Application Type"},
 			{"name": "domaintype_label", "value": "Domain Type"},
 			{"name": "basedn_label", "value": "Base Domain"},
 			{"name": "secretkey_label", "value": "Secret Key"}		]
