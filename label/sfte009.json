@@ -14,6 +14,7 @@
 			{"name": "description_label", "value": "คำอธิบาย"},
 			{"name": "description_alert", "value": "กรุณากรอกข้อมูล"},
 			{"name": "systemtype_alert", "value": "กรุณากรอกข้อมูล"},
+			{"name": "basedn_alert", "value": "กรุณากรอกข้อมูล"},
 			{"name": "applicationid_label", "value": "รหัสแอพริเคชั่น"},
 			{"name": "inactive_label", "value": "สถานะ"},
 			{"name": "descriptions_label", "value": "คำอธิบาย"},
@@ -28,6 +29,7 @@
 			{"name": "systemtype_label", "value": "ระบบ"},
 			{"name": "appstype_label", "value": "ชนิด"},
 			{"name": "domaintype_label", "value": "ชนิดโดเมน"},
+			{"name": "domainurl_label", "value": "ที่อยู่แอพริเคชั่น"},
 			{"name": "basedn_label", "value": "ที่อยู่โดเมน"},
 			{"name": "secretkey_label", "value": "รหัสลับ"}		]
 	},
@@ -46,6 +48,7 @@
 			{"name": "description_label", "value": "Description"},
 			{"name": "description_alert", "value": "You can not leave this empty"},
 			{"name": "systemtype_alert", "value": "You can not leave this empty"},
+			{"name": "basedn_alert", "value": "You can not leave this empty"},
 			{"name": "applicationid_label", "value": "Application ID"},
 			{"name": "inactive_label", "value": "Status"},
 			{"name": "descriptions_label", "value": "Description"},
@@ -60,6 +63,7 @@
 			{"name": "systemtype_label", "value": "System Type"},
 			{"name": "appstype_label", "value": "Application Type"},
 			{"name": "domaintype_label", "value": "Domain Type"},
+			{"name": "domainurl_label", "value": "Redirect URL"},
 			{"name": "basedn_label", "value": "Base Domain"},
 			{"name": "secretkey_label", "value": "Secret Key"}		]
 	}

@@ -25,6 +25,7 @@ export class Sfte009Handler extends TknOperateHandler {
             systemtype: { type: "STRING", created: true, defaultValue: "W" },
             appstype: { type: "STRING", created: true, defaultValue: "W" },
             domaintype: { type: "STRING", created: true, defaultValue: "S" },
+            domainurl: { type: "STRING" },
             basedn: { type: "STRING", created: true },
             inactive: { type: "STRING", created: true, defaultValue: "0" },
             invisible: { type: "STRING", created: true, defaultValue: "0" },
