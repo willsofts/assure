@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { HTTP } from "@willsofts/will-api";
+import { HTTP, JSONReply } from "@willsofts/will-api";
 import { AuthenError } from '@willsofts/will-lib';
 import { Utilities } from '@willsofts/will-util';
 import { KnLabelConfig } from '../utils/KnLabelConfig';
@@ -10,6 +10,7 @@ import { TknDirectoryHandler } from '../handlers/TknDirectoryHandler';
 import { TknAssureRouter } from './TknAssureRouter';
 import { REDIRECT_URI, REDIRECT_URI_LOGOUT } from '../utils/EnvironmentVariable';
 import { TknSigninHandler } from '../handlers/TknSigninHandler';
+import { KnResponser } from "../utils/KnResponser";
 
 export class TknSAMLRouter extends TknAssureRouter {
 
@@ -175,6 +176,33 @@ export class TknSAMLRouter extends TknAssureRouter {
         } catch(ex: any) {
             this.logger.error(this.constructor.name+".doAcquire: error",ex);
             res.redirect("/login");
+        }
+    }
+
+    public async doConfig(req: Request, res: Response, next: Function) {    
+        this.logger.debug(this.constructor.name+".doConfig : "+req.originalUrl);
+        let ctx = await this.createContext(req,"authen");
+        let info = this.getMetaInfo(ctx);
+        try {
+            let handler = new TknDirectoryHandler();
+            let rs = await handler.doGet(ctx);
+            let adcfg = AuthenConfig.createADConfigure(rs);
+            if(adcfg) {
+                let response: JSONReply = new JSONReply();
+                response.head.modeling("authen","config");
+                response.body = adcfg;
+                res.contentType('application/json');
+                res.end(JSON.stringify(response));
+                return;
+            }
+            throw new VerifyError("Configuration not found",HTTP.NOT_ACCEPTABLE,-16102);
+        } catch(ex: any) {
+            this.logger.error(this.constructor.name+".doConfig: error",ex);
+            if("true"==ctx.params.ajax) {
+                KnResponser.responseError(res,ex,"authen","config");
+                return;
+            }
+            res.render("pages/error",{error: ex, meta: info});
         }
     }
 

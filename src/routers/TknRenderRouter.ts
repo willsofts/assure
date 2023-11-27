@@ -3,7 +3,7 @@ import { Utilities } from '@willsofts/will-util';
 import { KnLabelConfig } from '../utils/KnLabelConfig';
 import { TknAssureRouter } from './TknAssureRouter';
 import { TknDirectoryHandler } from '../handlers/TknDirectoryHandler';
-import { ALLOW_AUTHEN_SAML } from '../utils/EnvironmentVariable';
+import { ALLOW_AUTHEN_SAML, META_INFO } from '../utils/EnvironmentVariable';
 
 export class TknRenderRouter extends TknAssureRouter {
     
@@ -13,6 +13,10 @@ export class TknRenderRouter extends TknAssureRouter {
         let info = this.getMetaInfo(ctx);
         let data = { };
         if(ALLOW_AUTHEN_SAML) {
+            let appstype = META_INFO["appstype"];
+            if(appstype) {
+                ctx.params.appstype = appstype;
+            }
             try {
                 let handler = new TknDirectoryHandler();
                 let rs = await handler.doList(ctx);
@@ -35,6 +39,10 @@ export class TknRenderRouter extends TknAssureRouter {
         let info = this.getMetaInfo(ctx);
         let data = { };
         if(ALLOW_AUTHEN_SAML) {
+            let appstype = META_INFO["appstype"];
+            if(appstype) {
+                ctx.params.appstype = appstype;
+            }
             try {
                 let handler = new TknDirectoryHandler();
                 let rs = await handler.doList(ctx);

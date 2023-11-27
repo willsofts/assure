@@ -9,6 +9,7 @@ export class AuthenConfig {
             clientId: row.applicationid,
             authority: row.tenanturl,
             clientSecret: row.secretkey,
+            redirectUri: row.domainurl
         }
     }
 
@@ -19,6 +20,7 @@ export class AuthenConfig {
             clientSecret: row.secretkey,
             knownAuthorities: [row.basedn],
             validateAuthority: false,
+            redirectUri: row.domainurl
         }
     }
 

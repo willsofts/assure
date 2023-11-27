@@ -180,6 +180,8 @@
 		function logOut() {
 			forceLogout();
 			doLogout();
+			try { doSSOLogout(); return; } catch(ex) { console.error(ex); }
+			window.open("/login","_self");
 		}
 		function doLogout() {
 			try { removeAccessorInfo(); } catch(ex) { }
@@ -187,7 +189,6 @@
 			doLogin();
 			clearBackground();
 			clearAvatar();
-			window.open("/login","_self");
 		}
 		function clearAvatar() {
 			$("#avatarimage").attr("src",CDN_URL+"/img/avatar.png");

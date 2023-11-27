@@ -2,6 +2,7 @@ export interface AuthorityConfigure {
     clientId: string;
     authority: string;
     clientSecret: string;
+    redirectUri?: string;
     authorityMetadata?: string;
     cloudDiscoveryMetadata?: string;
     authorityDomain?: string;

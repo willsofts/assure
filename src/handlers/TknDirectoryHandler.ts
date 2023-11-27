@@ -21,15 +21,16 @@ export class TknDirectoryHandler extends TknSchemeHandler {
         knsql.append(" from ");
         knsql.append(model.name);
         knsql.append(" where inactive='0' "); 
-        let invisible = params.invisible && params.invisible!="" ? params.invisible : "0";
-        let systemtype = params.systemtype && params.systemtype!="" ? params.systemtype : "W";
-        let appstype = params.appstype && params.appstype!="" ? params.appstype : "W";
         knsql.append("and invisible = ?invisible ");
         knsql.append("and systemtype = ?systemtype ");
-        knsql.append("and appstype = ?appstype ");
+        let invisible = params.invisible && params.invisible!="" ? params.invisible : "0";
+        let systemtype = params.systemtype && params.systemtype!="" ? params.systemtype : "W";
+        if(params.appstype && params.appstype!="") {
+            knsql.append("and appstype = ?appstype ");
+            knsql.set("appstype",params.appstype);
+        }
         knsql.set("invisible",invisible);
         knsql.set("systemtype",systemtype);
-        knsql.set("appstype",appstype);
         return knsql;    
     }
 

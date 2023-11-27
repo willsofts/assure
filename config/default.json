@@ -1,17 +1,18 @@
 {
     "HTTP_PORT": 8080,
-    "CDN_URL": "https://cdn.jsdelivr.net/gh/willsofts/will-asset@1.0.8", 
+    "//CDN_URL": "https://cdn.jsdelivr.net/gh/willsofts/will-asset@1.0.9", 
     "BASE_URL": "",
     "REDIRECT_URL": "",
     "BASE_STORAGE": "session",
     "SECRET_KEY": "ASSURE_OF_SECRET_KEY",
     "VALIDATE_ANOMYMOUS_TOKEN": "false",
-    "EXCEPT_AUTHORIZE_PATH": "/health,/sign,/policy,/fetch,/forgot,/captcha,/login",
+    "EXCEPT_AUTHORIZE_PATH": "/health,/sign,/policy,/fetch,/forgot,/captcha,/login,/auth",
     "DB_SECTION": "MYSQL",
     "MYSQL" : { "alias": "mysql2", "dialect": "mysql", "url":"", "user": "root", "password": "root", "host": "localhost", "port": 3306, "database": "assuredb", "options": { "charset": "utf8", "connectionLimit": 100 } },
     "authentications": [
         { "authtype":"SYSTEM", "domainname":"freewillgroup.com", "tenanturl":"", "basedn":"" , "enabled": true }
     ],    
+    "META_INFO": {"appstype":""},
     "ALLOW_AUTHEN_SAML": "true",
     "REDIRECT_URI": "http://localhost:3000/auth/redirect",
     "REDIRECT_URI_LOGOUT": "http://localhost:3000",

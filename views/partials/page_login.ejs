@@ -47,16 +47,30 @@
 	                                    	</fieldset>
 	                                    </div>		
 	                                    	<%
-	                                    	for(let r of rows) {
-	                                    		let domain = r["domainid"]
-	                                    		let description = r["description"] %>
+	                                    		for(let r of rows) {
+													if(r.appstype=="W") {
+	                                    				let domainid = r["domainid"]
+	                                    				let description = r["description"] %>
 										<div class="login_button_layer">
 											<div class="link-button-cover">
-	                                    		<a class="link-button form-control input-md" href="javascript:void(0)" onclick="window.open('/auth/signin/<%=domain%>','_self')"><%=description %></a>
+	                                    		<a class="link-button form-control input-md" href="javascript:void(0)" onclick="window.open('/auth/signin/<%=domainid%>','_self')"><%=description %></a>
 											</div>
 	                                    </div>
 	                                    	<%
-	                                    	}
+													}
+	                                    		}
+	                                    		for(let r of rows) {
+													if(r.appstype=="S") {
+	                                    				let domainid = r["domainid"]
+	                                    				let description = r["description"] %>
+										<div class="login_button_layer">
+											<div class="link-button-cover">
+												<a class="link-button form-control input-md" href="javascript:void(0)" onclick="startSSO('<%=domainid%>')"><%=description %></a>
+											</div>
+										</div>				
+											<%
+													}
+	                                    		}
 											}
 	                                    %>
 	                                </div>

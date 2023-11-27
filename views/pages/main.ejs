@@ -7,7 +7,11 @@
 		<link rel="stylesheet" type="text/css" href="/pages/page_login.css" />
 		<link rel="stylesheet" type="text/css" href="/pages/page_first.css" />
 		<%- include('../asset/scriptsmain') %>		
-		<script type="text/javascript" src="/js/index.js" defer></script>
+		<% if(!(meta.info?.appstype == "W")) { %>		
+		<script type="text/javascript" src="<%=meta.cdn_url%>/js/msal-browser.js" defer></script>
+		<script type="text/javascript" src="<%=meta.cdn_url%>/js/auth.js" defer></script>
+		<% } %>
+		<script type="text/javascript" src="<%=meta.cdn_url%>/js/index.js" defer></script>
 	</head>
 	<body class="portalbody portalbody-off">
 		<nav id="navigatebar" class="navbar navbar-expand navigatebar-top" style="min-height: 30px; display:none;">
