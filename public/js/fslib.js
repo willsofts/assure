@@ -10,8 +10,10 @@ var fs_winary = new Array();
 var fs_fontSize = 14;
 var API_URL = "";
 var BASE_URL = "";
+var CDN_URL = "";
 var API_TOKEN = null;
 var BASE_STORAGE = "";
+var META_INFO = {};
 function getWindowByName(winname) {
 	if(!winname) return null;
 	for(let i=0,isz=fs_winary.length;i<isz;i++) {

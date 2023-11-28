@@ -12,8 +12,8 @@ function load_page(appid,params){
 	$("#languagemenuitem").hide();
 }
 function loadApplication(appid,params) {
-	let fs_useruuid = $("#fs_useruuid").val();
-	let fs_user = $("#login_user").val();
+	let fs_useruuid = $("#main_useruuid").val();
+	let fs_user = $("#main_user").val();
 	let appurl = BASE_URL+"/gui/"+appid; //+"?seed="+Math.random()+"&useruuid="+fs_useruuid+"&userid="+fs_user+(params?"&"+params:"");
 	console.log("load application url",appurl);
 	let prm = { useruuid: fs_useruuid, userid: fs_user, language: fs_default_language };

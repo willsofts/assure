@@ -14,7 +14,7 @@
 		$("#mask9").mask("**********");		
 */
 (function($) {
-	var pasteEventName = ($.browser.msie ? 'paste' : 'input') + ".mask";
+	var pasteEventName = "input.mask";
 	var iPhone = (window.orientation != undefined);
 	$.mask = {
 		//Predefined character definitions

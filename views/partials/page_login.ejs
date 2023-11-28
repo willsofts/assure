@@ -3,24 +3,24 @@
                 				<div id="login_logo_label"><span style="color:darkcyan; font-style: italic;">PASS</span> &amp; <span style="color:lightseagreen; font-style: italic;">GO</span></div>
                 			</div>
                 			<div id="page_login_entry" class="page-login-entry">
-								<input type="hidden" id="login_useruuid" />
-	                        	<form class="login-form" id="login_form" name="login_form" autocomplete="off">
+								<input type="hidden" id="main_useruuid" />
+	                        	<div class="main-form" id="main_form" name="main_form">
 	                                <div id="loginformlayer" class="login_form login-portal-area">
-										<input type="hidden" id="login_state" name="state" value="<%=meta.state%>"/>
-										<input type="hidden" id="login_nonce" name="nonce" value="<%=meta.nonce%>"/>
+										<input type="hidden" id="main_state" name="state" value="<%=meta.state%>"/>
+										<input type="hidden" id="main_nonce" name="nonce" value="<%=meta.nonce%>"/>
 										<br/>     
 	                                	<label id="login_label" class="login-label">Log In</label>   
 										<br/>  
 										<br/>    
 										<div class="input-group-name">
 											<label id="login_user_label" class="login-label">User name</label>
-											<input type="text" id="login_username" name="username" class="form-control input-md" placeholder="User" maxlength="60"/>
-											<input type="hidden" id="login_user" />
+											<input type="text" id="main_username" name="username" class="form-control input-md" placeholder="User" maxlength="60"/>
+											<input type="hidden" id="main_user" />
 										</div>
 	                                    <br/>
 										<div class="input-group-password">
 											<label id="login_password_label" class="login-label">Password</label>
-											<input type="password" id="login_pass" name="password" class="form-control input-md" placeholder="Password" autocomplete="off" />
+											<input type="password" id="main_pass" name="password" class="form-control input-md" placeholder="Password" autocomplete="off" />
 										</div>
 	                                    <br/>
 										<div class="input-group-forgot"> 
@@ -28,7 +28,7 @@
 										</div>
 										<br/>										
 										<div id="login_button_layer" class="login_button_layer">
-	                                    	<input type="button" onclick="connectServer();" id="login_button" class="form-control input-md" value="Sign In"/>
+	                                    	<input type="button" onclick="connectServer();" id="main_button" class="form-control input-md" value="Sign In"/>
 	                                    </div>
 	                                    <br/>
 										<div class="row">
@@ -74,6 +74,6 @@
 											}
 	                                    %>
 	                                </div>
-	                            </form>
+	                            </div>
                             </div>
                     </div>                                                        

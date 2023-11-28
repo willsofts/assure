@@ -3,7 +3,7 @@
 		var $currPage = "";
 		var $ACCESS_TOKEN;
 		function validInputUser() {
-			if($.trim($("#login_username").val())=="") { alertbox("User is undefined"); return false; }
+			if($.trim($("#main_username").val())=="") { alertbox("User is undefined"); return false; }
 			return true;
 		}
 		function connectServer() {	
@@ -15,11 +15,17 @@
 		}
 		function logIn(){
 			startWaiting();
+			let params = {};
+			let main_fields = {"main_username":"username", "main_pass":"password", "main_state":"state", "main_nonce":"nonce"};
+			for(let field in main_fields) {				
+				params[main_fields[field]] = $("#"+field).val();
+			}
+			console.log("params",params);
 			jQuery.ajax({
 				url: API_URL+"/api/sign/signin",
 				type: "POST",
 				contentType: defaultContentType,
-				data: $("#login_form").serialize(), 
+				data: params, 
 				dataType: "html",
 				error : function(transport,status,errorThrown) { 
 					stopWaiting();
@@ -48,8 +54,8 @@
 			}			
 		}
 		function showUserDetail(json) {
-			$("#login_useruuid").val(json.body.useruuid);
-			$("#login_user").val(json.body.userid);
+			$("#main_useruuid").val(json.body.useruuid);
+			$("#main_user").val(json.body.userid);
 			let userdetail = json.body.name+" "+json.body.surname;
 			$("#accessor_label").html(userdetail);
 			$("#accessor_label").data("NEW",json.body.newflag);
@@ -122,12 +128,12 @@
 			let u_placeholder = fs_getLabelName("login_user_placeholder","index",lang);
 			let p_placeholder = fs_getLabelName("login_pass_placeholder","index",lang);
 			if(u_placeholder) {
-				$("#login_username").attr("placeholder",u_placeholder);
-				$("#loginframe").contents().find("#login_username").attr("placeholder",u_placeholder);
+				$("#main_username").attr("placeholder",u_placeholder);
+				$("#loginframe").contents().find("#main_username").attr("placeholder",u_placeholder);
 			}
 			if(p_placeholder) {
-				$("#login_pass").attr("placeholder",p_placeholder);
-				$("#loginframe").contents().find("#login_pass").attr("placeholder",p_placeholder);
+				$("#main_pass").attr("placeholder",p_placeholder);
+				$("#loginframe").contents().find("#main_pass").attr("placeholder",p_placeholder);
 			}
 			let last_label = fs_getLabelName("lastaccess_label","index",lang);
 			if(last_label) $("#lastaccess_label").html(last_label);
@@ -161,13 +167,13 @@
 			$("#languagemenuitem").show();
 		}
 		function forceLogout() {
-			let useruuid = $("#login_useruuid").val();
+			let useruuid = $("#main_useruuid").val();
 			let authtoken = getAccessorToken();
 			console.log("useruuid="+useruuid+", authtoken="+authtoken);
 			$.ajax({ url : API_URL+"/api/sign/signout", data: { useruuid: useruuid }, headers : { "authtoken": authtoken }, type : "POST" });
 		}
 		function profileClick() {
-			open_page("page_profile",null,"userid="+$("#login_user").val());
+			open_page("page_profile",null,"userid="+$("#main_user").val());
 		}
 		function changeClick() {
 			open_page("page_change");
@@ -181,7 +187,7 @@
 			forceLogout();
 			doLogout();
 			try { doSSOLogout(); return; } catch(ex) { console.error(ex); }
-			window.open("/login","_self");
+			window.open("/index","_self");
 		}
 		function doLogout() {
 			try { removeAccessorInfo(); } catch(ex) { }
@@ -206,9 +212,9 @@
 			hideWorkingFrame();
 			$("#page_login").show();
 			try {
-				login_form.reset();
+				main_form.reset();
 			}catch(ex) { }
-			$("#login_useruuid").val("");
+			$("#main_useruuid").val("");
 			displayLogin();
 		}
 		function doLogin() {
@@ -234,7 +240,7 @@
 			hideNewFavorItem();
 		}		
 		function load_sidebar_menu(firstpage,language) {
-			let fs_user = $("#login_user").val();
+			let fs_user = $("#main_user").val();
 			//if($.trim(fs_user)=="") return;
 			if(!language) language = fs_default_language;
 			let authtoken = getAccessorToken();
@@ -261,7 +267,7 @@
 			});
 		}
 		function load_favor_menu(language) {
-			let fs_user = $("#login_user").val();
+			let fs_user = $("#main_user").val();
 			//if($.trim(fs_user)=="") return;
 			if(!language) language = fs_default_language;
 			let authtoken = getAccessorToken();
@@ -317,7 +323,7 @@
 		}
 		function displayLogin() {
 			removeAccessorInfo();
-			$("#login_username").focus();
+			$("#main_username").focus();
 		}
 		function validAccessToken(callback) {
 			let json = getAccessorInfo();
@@ -372,10 +378,10 @@
 			try { startApplication("index",true); }catch(ex) { }
 			//ignore force logout coz it was invalidate when refresh
 			//try { $(window).bind("unload",forceLogout); }catch(ex) { }
-			$("#login_pass").on("keydown", function (e) {
+			$("#main_pass").on("keydown", function (e) {
 				if(e.which==13) { connectServer(); }
 			});
-			$("#login_code").on("keydown", function (e) {
+			$("#main_code").on("keydown", function (e) {
 				if(e.which==13) { connectServer(); }
 			});
 			$(window).resize(function() { 

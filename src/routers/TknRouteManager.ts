@@ -38,12 +38,12 @@ export class TknRouteManager extends TknBaseRouter {
             next();
         });
 
+        app.get("/", (req: Request, res: Response) => { this.doHome(req,res); });
         app.get('/home', (req: Request, res: Response) => { this.doHome(req,res); });  
         app.get('/welcome', (req: Request, res: Response) => { this.doWelcome(req,res); });  
         
-        app.get("/", (req: Request, res: Response) => { render.doMain(req,res); });
         app.get('/main', (req: Request, res: Response) => { render.doMain(req,res); });
-        app.get('/login', (req: Request, res: Response) => { render.doLogin(req,res); });
+        app.get('/index', (req: Request, res: Response) => { render.doLogin(req,res); });
         app.get("/gui/:program/:subprog?", (req: Request, res: Response) => { launcher.doLaunch(req,res); });
         app.post("/gui/:program/:subprog?", (req: Request, res: Response) => { launcher.doLaunch(req,res); });
         app.get("/load/:program", (req: Request, res: Response) => { launcher.doLoad(req,res); });

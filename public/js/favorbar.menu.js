@@ -28,7 +28,7 @@
 				let $del = $("<li><img src=\""+CDN_URL+"/img/delete_icon.png\" title=\"Delete\" width=\"25px\" height=\"25px\"/></li>");
 				$del.click(function(evt) { 
 					evt.stopPropagation();
-					let fs_user = $("#login_user").val();
+					let fs_user = $("#main_user").val();
 					let fs_seqno = alink.attr("seqno");
 					let fs_prog = alink.attr("pid");
 					if(fs_prog && fs_prog!="") {
@@ -50,18 +50,18 @@
 					addBlankMenuItem(alink);
 					alink.remove(); 
 				});
-				let $todo = $("<ul class=\"todo\" style=\"display:none;\"></ul>").append($del);
-				alink.append($todo);
+				let $item = $("<ul class=\"todo\" style=\"display:none;\"></ul>").append($del);
+				alink.append($item);
 				alink.hover(function() { 
-						$todo.show();
+						$item.show();
 					},function() { 
-						$todo.hide();
+						$item.hide();
 				});
 			}
 			function insertNewFavorMenuItem(alink,fs_prog,fs_title,fs_icon) {
 				if(!fs_prog || !fs_title || !fs_icon) return;
 				let fs_seqno = alink.attr("seqno");
-				let fs_user = $("#login_user").val();
+				let fs_user = $("#main_user").val();
 				let $newlink = $("<a href=\"javascript:void(0);\" class=\"tile fa-box-title fav-app\" pid=\""+fs_prog+"\" seqno=\""+fs_seqno+"\"><div class=\"icon\"><img class=\"fa fa-app-image\" src=\""+CDN_URL+"/img/apps/"+fs_icon+"\" /></div><span class=\"title\">"+fs_title+"</span></a>");
 				if(fs_prog && fs_prog!="") {
 					let authtoken = getAccessorToken();
@@ -126,7 +126,7 @@
 			}
 			function load_prog_item() {
 				let authtoken = getAccessorToken();
-				let fs_user = $("#login_user").val();
+				let fs_user = $("#main_user").val();
 				jQuery.ajax({
 					url: API_URL+"/api/menu/prog",
 					type: "POST",

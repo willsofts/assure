@@ -10,6 +10,11 @@ export class TknRenderRouter extends TknAssureRouter {
     public async doLogin(req: Request, res: Response) {
         this.logger.debug(this.constructor.name+".doLogin : "+req.originalUrl);
         let ctx = await this.createContext(req);
+        //do not acceapt any parameters
+        if(Object.keys(ctx.params).length>0) {
+            res.status(400).end("Invalid Request");
+            return;
+        }
         let info = this.getMetaInfo(ctx);
         let data = { };
         if(ALLOW_AUTHEN_SAML) {
@@ -36,6 +41,11 @@ export class TknRenderRouter extends TknAssureRouter {
     public async doMain(req: Request, res: Response) {
         this.logger.debug(this.constructor.name+".doMain : "+req.originalUrl);
         let ctx = await this.createContext(req);
+        //do not acceapt any parameters
+        if(Object.keys(ctx.params).length>0) {
+            res.status(400).end("Invalid Request");
+            return;
+        }
         let info = this.getMetaInfo(ctx);
         let data = { };
         if(ALLOW_AUTHEN_SAML) {

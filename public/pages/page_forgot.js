@@ -99,6 +99,6 @@ function loginLinkClick() {
 		window.parent.logInClick();
 		return;
 	} catch(ex) {
-		window.open(BASE_URL+"/login","_self");
+		window.open(BASE_URL+"/index","_self");
 	}	
 }
