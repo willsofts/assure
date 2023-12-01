@@ -23,7 +23,7 @@ if(data.dataset?.sidemap && data.dataset?.sidelist) {
                 if("I"!=progtype) {                
                 %>
                 <li>
-                    <a href="javascript:void(0)" class="dropdown-item collapsed active active-item menu-desktop" data-item="<%=progid%>" onclick="open_page('<%=progid%>','<%=url%>');">
+                    <a href="javascript:void(0)" class="fa-link-menu-item dropdown-item collapsed active active-item menu-desktop" data-pid="<%=progid%>" data-url="<%=url%>">
                         <em class="<%=groupstyle%>"></em>
                         <span class="nav-label"><%=progname%></span>
                     </a>
@@ -51,7 +51,7 @@ if(data.dataset?.sidemap && data.dataset?.sidelist) {
                     let progtype = program["progtype"];
                     %>
                     <li>
-                        <a href="javascript:void(0)" class="dropdown-item collapsed active active-item" data-item="<%=progid%>" onclick="open_page('<%=progid%>','<%=url%>');">
+                        <a href="javascript:void(0)" class="fa-link-menu-item dropdown-item collapsed active active-item" data-pid="<%=progid%>" data-url="<%=url%>">
                             <em class="<%=groupstyle%>"></em>
                             <span class="nav-label"><%=progname%></span>
                         </a>
@@ -77,7 +77,7 @@ if(data.dataset?.sidemap && data.dataset?.sidelist) {
                             let progtype = element["progtype"];
                             if("I"!=progtype) {
                             %>
-                            <li><a href="javascript:void(0)" class="menu-desktop <%=iconstyle%>" data-item="<%=progid%>" onclick="open_page('<%=progid%>','<%=url%>');" title="<%=progid%>"><%=progname %></a></li>
+                            <li><a href="javascript:void(0)" class="fa-link-menu-item menu-desktop <%=iconstyle%>" data-pid="<%=progid%>" data-url="<%=url%>" title="<%=progid%>"><%=progname %></a></li>
                             <%	    
                             }                                        
                         }

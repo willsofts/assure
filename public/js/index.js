@@ -112,13 +112,24 @@
 		}
 		function startupPage(unloadFirstPage,firstpage){
 			if(!unloadFirstPage) {
-				load_page("page_first"); //menu/box
+				load_page_first();
 			}
 			load_sidebar_menu(firstpage);
 			load_favor_menu();
 			load_prog_item();
 			$("#languagemenuitem").show();
 			$("#fsworkinglayer").addClass("working-control-class");
+		}
+		function load_page_first() {
+			load_page("page_first",null,function() { 
+				$("#page_first").find("a.fa-link-app").each(function(index,element) {
+					$(element).click(function() {
+						let pid = $(this).attr("data-pid");
+						let url = $(this).attr("data-url");
+						open_page(pid,url);
+					});
+				});
+			}); //menu/box
 		}
 		function hideMenu() {
 			$("#page_first").hide();
@@ -163,7 +174,7 @@
 			if(thi_label) $("#thailanguage").html(thi_label);
 		}
 		function goHome() {
-			load_page("page_first");
+			load_page_first();
 			$("#languagemenuitem").show();
 		}
 		function forceLogout() {
@@ -252,7 +263,7 @@
 				dataType: "html",
 				contentType: defaultContentType,
 				success: function(data){ 
-				$("#sidebarlayer").html(data); 
+					$("#sidebarlayer").html(data); 
 					bindingOnSideBarMenu(); 
 					if(firstpage && firstpage!="") {
 						open_page(firstpage);
@@ -372,10 +383,40 @@
 			}
 			if(callback) callback(false); 
 		}	
+		function setupComponents() {
+			$("#homemenutrigger").click(function() { goHome(); });
+			$("#accessor_profile_link").click(function() { profileClick(); });
+			$("#accessor_change_link").click(function() { changeClick(); });
+			$("#accessor_logout_link").click(function() { logOut(); });
+			$("#linklangen").click(function() { 
+				let img = $("#linklangen").attr("data-image");
+				$('#languageimage').attr('src',img+'/img/lang/EN.png'); fs_switchLanguage('EN',true);
+			});
+			$("#linklangth").click(function() { 
+				let img = $("#linklangth").attr("data-image");
+				$('#languageimage').attr('src',img+'/img/lang/TH.png'); fs_switchLanguage('TH',true);
+			});
+			$("#forgot_password").click(function() { forgotClick(); });
+			$("#main_button").click(function() { connectServer(); });
+			$("#ssologinlayer").find("a.fa-link-sso-saml").each(function(index,element) {
+				$(element).click(function() {
+					let domainid = $(this).attr("data-domain");
+					window.open('/auth/signin/'+domainid,'_self');
+				});
+			});
+			$("#ssologinlayer").find("a.fa-link-sso-biz").each(function(index,element) {
+				$(element).click(function() {
+					let domainid = $(this).attr("data-domain");
+					startSSO(domainid);
+				});
+			});
+			$("#workingframe").on("load",function() { try{stopWaiting();}catch(ex){} });
+		}
 		var fs_workingframe_offset = 30;
 		$(function(){
 			$(this).mousedown(function(e) { mouseX = e.pageX; mouseY = e.pageY; });
 			try { startApplication("index",true); }catch(ex) { }
+			setupComponents();
 			//ignore force logout coz it was invalidate when refresh
 			//try { $(window).bind("unload",forceLogout); }catch(ex) { }
 			$("#main_pass").on("keydown", function (e) {
@@ -406,7 +447,7 @@
 					sendMessageInterface(json.body);
 					verifyAfterLogin(json);
 				}
-			});			
+			});				
 		});
 		window.onmessage = function(e) {
 			console.log("main: onmessage:",e.data);

@@ -4,7 +4,7 @@
 							<a href="javascript:void(0)" id="mainmenutrigger" class="nav-link" data-toggle="dropdown" title="Menu"><em class="fa fa-bars"></em></a>
 						</li>
 						<li id="homelayer" class="nav-item" style="display:none;">
-							<a href="javascript:void(0)" id="homemenutrigger" class="nav-link" title="Home" onclick="goHome()"><em class="fa fa-home"></em></a>		
+							<a href="javascript:void(0)" id="homemenutrigger" class="nav-link" title="Home"><em class="fa fa-home"></em></a>		
 						</li>	
 						<li id="productlayer" class="nav-item">
 							<a href="/home" id="intromenutrigger" class="nav-link" title="Welcome"><img id="productimage" src="<%=meta.cdn_url%>/img/app_logo.png" width="40" height="40" alt="" style="margin-top:-5px;"/></a>		
@@ -30,10 +30,10 @@
 							<ul id="userinfoitemlist" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 								<li><a href="javascript:void(0)" class="dropdown-item accessor-access" id="accessor_access_link" title="Last Access"><em class="fa fa-clock-o"></em><span id="last_access_label" class="menu-span"> </span></a></li>						
 								<li class="dropdown-divider divider"></li>
-								<li><a href="javascript:void(0)" class="dropdown-item" onclick="profileClick()"><em class="fa fa-user"></em><span id="profile_label"> Profile</span></a></li>
-								<li id="userchangeitem"><a href="javascript:void(0)" class="dropdown-item" onclick="changeClick()"><em class="fa fa-lock"></em><span id="changepwd_label" class="menu-span"> Change Password</span></a></li>
+								<li><a href="javascript:void(0)" class="dropdown-item" id="accessor_profile_link"><em class="fa fa-user"></em><span id="profile_label"> Profile</span></a></li>
+								<li id="userchangeitem"><a href="javascript:void(0)" class="dropdown-item" id="accessor_change_link"><em class="fa fa-lock"></em><span id="changepwd_label" class="menu-span"> Change Password</span></a></li>
 								<li class="dropdown-divider divider"></li>
-								<li><a href="javascript:void(0)" class="dropdown-item" onclick="logOut()"><em class="fa fa-power-off"></em><span id="logout_label" class="menu-span"> Log Out</span></a></li>
+								<li><a href="javascript:void(0)" class="dropdown-item" id="accessor_logout_link"><em class="fa fa-power-off"></em><span id="logout_label" class="menu-span"> Log Out</span></a></li>
 							</ul>
 						</li>	
 					</ul>
@@ -48,8 +48,8 @@
 								<strong class="fa fa-caret-down caret-down"></strong>
 							</a>
 							<ul class="dropdown-menu dropdown-menu-right">
-								<li><a href="javascript:void(0)" class="dropdown-item" id="linklangen" onclick="$('#languageimage').attr('src','<%=meta.cdn_url%>/img/lang/EN.png'); fs_switchLanguage('EN',true);"><img alt="" src="<%=meta.cdn_url%>/img/lang/EN.png" width="30px" title="English"/><span id="englishlanguage" style="padding-left: 15px;">English</span></a></li>
-								<li><a href="javascript:void(0)" class="dropdown-item" id="linklangth" onclick="$('#languageimage').attr('src','<%=meta.cdn_url%>/img/lang/TH.png'); fs_switchLanguage('TH',true);"><img alt="" src="<%=meta.cdn_url%>/img/lang/TH.png" width="30px" title="Thai"/><span id="thailanguage" style="padding-left: 15px;">Thai</span></a></li>
+								<li><a href="javascript:void(0)" class="dropdown-item" id="linklangen" data-image="<%=meta.cdn_url%>/img/lang/EN.png"><img alt="" src="<%=meta.cdn_url%>/img/lang/EN.png" width="30px" title="English"/><span id="englishlanguage" style="padding-left: 15px;">English</span></a></li>
+								<li><a href="javascript:void(0)" class="dropdown-item" id="linklangth" data-image="<%=meta.cdn_url%>/img/lang/TH.png"><img alt="" src="<%=meta.cdn_url%>/img/lang/TH.png" width="30px" title="Thai"/><span id="thailanguage" style="padding-left: 15px;">Thai</span></a></li>
 							</ul>
 						</li>
 						<li id="favormenuitem" class="nav-item dropdown user-dropdown" style="display:none;">

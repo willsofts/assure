@@ -31,6 +31,13 @@
 					};
 				});
 				$("#sidemenusearchtext").autocomplete("option","source",jsAry);
+				$("#sidebarlayer").find("a.fa-link-menu-item").each(function(index,element) {
+					$(element).click(function() {
+						let pid = $(this).attr("data-pid");
+						let url = $(this).attr("data-url");
+						open_page(pid,url);
+					});
+				});
 			}
 			$(function(){
 				$("#mainmenutrigger").on("click", function(e) {

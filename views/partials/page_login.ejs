@@ -24,11 +24,11 @@
 										</div>
 	                                    <br/>
 										<div class="input-group-forgot"> 
-											<a href="javascript:void(0)" onclick="forgotClick()" id="forgot_password" class="enter-class login-label" title="Forgot Password">Forgot Password</a>
+											<a href="javascript:void(0)" id="forgot_password" class="enter-class login-label" title="Forgot Password">Forgot Password</a>
 										</div>
 										<br/>										
 										<div id="login_button_layer" class="login_button_layer">
-	                                    	<input type="button" onclick="connectServer();" id="main_button" class="form-control input-md" value="Sign In"/>
+	                                    	<input type="button" id="main_button" class="form-control input-md" value="Sign In"/>
 	                                    </div>
 	                                    <br/>
 										<div class="row">
@@ -37,6 +37,7 @@
 											</div>
 										</div>
 	                                    <br/>
+										<div id="ssologinlayer">
 	                                    <% let rows = data.dataset?.rows;
 											if(rows && rows.length > 0) { %>
 	                                    <div class="login_button_layer">
@@ -53,7 +54,7 @@
 	                                    				let description = r["description"] %>
 										<div class="login_button_layer">
 											<div class="link-button-cover">
-	                                    		<a class="link-button form-control input-md" href="javascript:void(0)" onclick="window.open('/auth/signin/<%=domainid%>','_self')"><%=description %></a>
+	                                    		<a class="link-button form-control input-md fa-link-sso-saml" href="javascript:void(0)" data-domain="<%=domainid%>"><%=description %></a>
 											</div>
 	                                    </div>
 	                                    	<%
@@ -65,7 +66,7 @@
 	                                    				let description = r["description"] %>
 										<div class="login_button_layer">
 											<div class="link-button-cover">
-												<a class="link-button form-control input-md" href="javascript:void(0)" onclick="startSSO('<%=domainid%>')"><%=description %></a>
+												<a class="link-button form-control input-md fa-link-sso-biz" href="javascript:void(0)" data-domain="<%=domainid%>"><%=description %></a>
 											</div>
 										</div>				
 											<%
@@ -73,6 +74,7 @@
 	                                    		}
 											}
 	                                    %>
+										</div>
 	                                </div>
 	                            </div>
                             </div>

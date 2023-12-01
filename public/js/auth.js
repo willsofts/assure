@@ -21,6 +21,7 @@ function startSSO(domainid) {
 function trySSOLogin(data) {
     msalConfig.auth = {...data.body.config.auth, authType: data.body.type};
     console.log("auth config",msalConfig.auth);
+    delete msalConfig.auth.clientSecret;
     msalObject = new msal.PublicClientApplication(msalConfig);
     msalObject.handleRedirectPromise()
     .then(ssoHandleResponse)

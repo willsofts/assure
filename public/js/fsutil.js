@@ -1,17 +1,17 @@
 var defaultContentType = "application/x-www-form-urlencoded; charset=UTF-8";
-function load_page(appid,params){	
+function load_page(appid,params,callback){	
 	if(!$currPage || $currPage=="") {
 		$currPage = $("#page_0");
 	}	
 	$currPage.hide();
 	$currPage.removeClass("pt-page-current pt-page-moveFromRight pt-page-moveFromLeft");	
 	try{ closeMenuBar(); }catch(ex) { }
-	loadApplication(appid,params);
+	loadApplication(appid,params,callback);
 	$("#pagecontainer").show();
 	$("#workingframe").hide();
 	$("#languagemenuitem").hide();
 }
-function loadApplication(appid,params) {
+function loadApplication(appid,params,callback) {
 	let fs_useruuid = $("#main_useruuid").val();
 	let fs_user = $("#main_user").val();
 	let appurl = BASE_URL+"/gui/"+appid; //+"?seed="+Math.random()+"&useruuid="+fs_useruuid+"&userid="+fs_user+(params?"&"+params:"");
@@ -46,6 +46,7 @@ function loadApplication(appid,params) {
 			$currPage = $("#pagecontainer").children("div").eq(0);
 			$currPage.addClass("pt-page-current pt-page-moveFromRight");
 			$currPage.show();
+			if(callback) callback();
 		}
 	});	
 }

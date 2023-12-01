@@ -4,8 +4,6 @@
 		<title>Assure</title>		
 		<%- include('../asset/meta') %>		
 		<%- include('../asset/stylesmain') %>		
-		<link rel="stylesheet" type="text/css" href="/pages/page_login.css" />
-		<link rel="stylesheet" type="text/css" href="/pages/page_first.css" />
 		<%- include('../asset/scriptsmain') %>		
 		<% if(!(meta.info?.appstype == "W")) { %>		
 		<script type="text/javascript" src="<%=meta.cdn_url%>/js/msal-browser.js" defer></script>
@@ -30,7 +28,7 @@
 		<%- include('../partials/page_login') %>		
 		<div id="fsworkinglayer" class="working-class working-control-class">
 			<div id="pagecontainer" class="pt-pager"></div> 
-			<iframe id="workingframe" name="workingframe" width="100%" style="border:none; margin:0px; display:none;" onload="try{stopWaiting();}catch(ex){}" title=""></iframe>
+			<iframe id="workingframe" name="workingframe" width="100%" style="border:none; margin:0px; display:none;" title=""></iframe>
 		</div>
 		<%- include('../partials/page_waiting') %>		
 	</body>
