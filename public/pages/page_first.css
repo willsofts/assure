@@ -1,6 +1,7 @@
 .favor-navbox-tiles {
-  width: 100%;
   padding: 25px;
+  width: 500px; 
+  height: 500px;
 }
 
 .favor-navbox-tiles .tile {

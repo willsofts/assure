@@ -6,6 +6,7 @@
 	line-height: 2.2;
 	color: #000;
 	background-color: ghostwhite;
+	padding-top: 5px;
 }
 
 .navigatebar-top a {
@@ -150,3 +151,10 @@ li.dropdown a { white-space: nowrap; }
 #languagemenuitemlink:hover {
 	color: orange;
 }
+#leftmenucontainer {
+	float: left;
+}
+#rightmenucontainer {
+	float: right;
+}
+.lang-word { padding-left: 15px; }

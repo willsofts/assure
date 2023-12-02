@@ -422,4 +422,6 @@ a:hover { text-decoration: none; }
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #212121; text-decoration: none; }
 .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight { border: 1px solid #fcefa1; background: #fbf9ee; }
 
+.fa-hidden { display: none; }
+.btn-cover-layer { margin-right: 10px; }
 #fswaitlayer { display:none; position:absolute; left:1px; top:1px; z-Index:9999; }

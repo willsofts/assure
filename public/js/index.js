@@ -96,7 +96,7 @@
 			}
 		}
 		function startWorking(unloadFirstPage,firstpage) {
-			$("#navigatebar").show();
+			$("#navigatebar").removeClass("fa-hidden");
 			$('#page_login').hide();
 			createMenu(); 
 			startupPage(unloadFirstPage,firstpage); 
@@ -176,6 +176,7 @@
 		function goHome() {
 			load_page_first();
 			$("#languagemenuitem").show();
+			hideWorkSpace();
 		}
 		function forceLogout() {
 			let useruuid = $("#main_useruuid").val();
@@ -319,7 +320,7 @@
 			$("#workingframe").show();
 		}
 		function hideWorkingFrame() {
-			$("#navigatebar").hide();
+			$("#navigatebar").addClass("fa-hidden");
 			$("#pagecontainer").hide();
 			hideWorkSpace();
 		}

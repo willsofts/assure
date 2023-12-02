@@ -36,3 +36,8 @@
 	text-align: center;
 	margin-bottom: 10px;
 }
+
+.pass-word { color:darkcyan; font-style: italic; }
+.go-word { color:lightseagreen; font-style: italic; }
+
+#workingframe { border:none; margin:0px; display:none; }

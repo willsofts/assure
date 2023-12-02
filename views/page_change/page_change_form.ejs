@@ -31,7 +31,7 @@
 						</div>
 						<div class="col-md-3 col-height">
 							<input type="password" class="form-control input-md alert-input" id="userpassword" name="userpassword" placeholder="<%=label.get('userpassword_placeholder','New Password')%>" autocomplete="off" size="8" data-toggle="tooltip" title="Password can combine with alphabets and numeric sign not over 8 characters"/>
-							<div id="userpassword_alert" role="alert" class="has-error" style="display:none;"><%=label.get('userpassword_alert','You can not leave this empty')%></div>
+							<div id="userpassword_alert" role="alert" class="has-error fa-hidden"><%=label.get('userpassword_alert','You can not leave this empty')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
@@ -40,13 +40,13 @@
 						</div>
 						<div class="col-md-3 col-height">
 							<input type="password" class="form-control input-md alert-input" id="confirmpassword" name="confirmpassword" placeholder="<%=label.get('confirmpassword_placeholder','Confirm Password')%>" autocomplete="off" size="8" data-toggle="tooltip" title="Password can combine with alphabets and numeric sign not over 8 characters"/>
-							<div id="confirmpassword_alert" role="alert" class="has-error" style="display:none;"><%=label.get('confirmpassword_alert','You can not leave this empty')%></div>
+							<div id="confirmpassword_alert" role="alert" class="has-error fa-hidden"><%=label.get('confirmpassword_alert','You can not leave this empty')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
 						<div class="col-md-3 col-height col-label text-right"></div>
 						<div class="col-md-6 col-height">
-							<div id="matchpassword_alert" role="alert" class="has-error" style="display:none;"><%=label.get('matchpassword_alert','New Password does not match to Confirm Password')%></div>
+							<div id="matchpassword_alert" role="alert" class="has-error fa-hidden"><%=label.get('matchpassword_alert','New Password does not match to Confirm Password')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
@@ -65,7 +65,7 @@
 					</div>
 				</div>
 				<div class="row row-height">
-					<div class="col-md-12 float-right pull-right text-right" style="margin-right: 10px;">
+					<div class="col-md-12 float-right pull-right text-right btn-cover-layer">
 						<input type="button" id="savebutton" class="btn btn-dark btn-sm" value="<%=label.get('savebutton','Save')%>"/>
 					</div>
 				</div>

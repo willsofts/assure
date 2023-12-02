@@ -1,6 +1,6 @@
 {
     "HTTP_PORT": 8080,
-    "CDN_URL": "https://cdn.jsdelivr.net/gh/willsofts/will-asset@1.0.12", 
+    "//CDN_URL": "https://cdn.jsdelivr.net/gh/willsofts/will-asset@1.0.13", 
     "BASE_URL": "",
     "REDIRECT_URL": "",
     "BASE_STORAGE": "session",
@@ -14,7 +14,7 @@
     ],    
     "META_INFO": {"appstype":""},
     "ALLOW_AUTHEN_SAML": "true",
-    "CONTENT_SECURITY_POLICY": "default-src 'self' 'nonce-assure-script' https://cdn.jsdelivr.net https://login.microsoftonline.com https://tassanorg.b2clogin.com;base-uri 'self';form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self' 'nonce-assure-script' https://cdn.jsdelivr.net;script-src-attr 'self' 'nonce-assure-script' https://cdn.jsdelivr.net;style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+    "CONTENT_SECURITY_POLICY": "default-src 'self' 'nonce-assure-script' https://cdn.jsdelivr.net https://login.microsoftonline.com https://tassanorg.b2clogin.com;base-uri 'self';form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self' 'nonce-assure-script' https://cdn.jsdelivr.net;script-src-attr 'self' 'nonce-assure-script' https://cdn.jsdelivr.net;style-src 'self' 'nonce-assure-style' https://cdn.jsdelivr.net;upgrade-insecure-requests",
     "REDIRECT_URI": "http://localhost:3000/auth/redirect",
     "REDIRECT_URI_LOGOUT": "http://localhost:3000",
     "SAML": { "id":"dfeaaa67-52fd-474a-88c8-a1415145ed07", "type": "S", "config": { "auth": { "clientId": "dfeaaa67-52fd-474a-88c8-a1415145ed07", "authority": "https://login.microsoftonline.com/16f41a29-c670-4f46-ba94-2882e4ac0814", "clientSecret": "oqm8Q~be_O4yBn5PRUB5hPC~6fiCIgEvWHvFWb1f" } } },
