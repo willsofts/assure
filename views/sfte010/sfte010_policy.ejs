@@ -15,15 +15,15 @@
 		<div id="ptmainpagerpolicy" class="pt-page pt-page-current pt-page-controller sfte010-entry-pager">
 			<%- page.createHeader({pid: 'sfte010', title: label.get('caption','Password Policy Setting')}) %>
 			<div id="fscontroltablayerpolicy" class="row">
-				<ul class="nav nav-tabs navbar-left" style="width:100%;">
+				<ul class="nav nav-tabs navbar-left nav-tabbar-policy">
 					  <li class="nav-item active">
-						<a class="nav-link active" href="#entrypanelpolicy" data-toggle="tab" onclick="policySettingClick()"><%=label.get('policy_setting','Policy Setting')%></a>
+						<a id="policysettinglinker" class="nav-link active" href="#entrypanelpolicy" data-toggle="tab"><%=label.get('policy_setting','Policy Setting')%></a>
 					  </li>
 					  <li class="nav-item">
-						<a class="nav-link" href="#searchpanel" data-toggle="tab" onclick="reserveWordClick()"><%=label.get('reserve_setting','Reserve Word')%></a>
+						<a id="reservewordlinker" class="nav-link" href="#searchpanel" data-toggle="tab"><%=label.get('reserve_setting','Reserve Word')%></a>
 					  </li>
 					  <li class="nav-item">
-						<a class="nav-link" href="#searchpanelnum" data-toggle="tab" onclick="reserveNumberClick()"><%=label.get('reservenumber_setting','Reserve Alphabet/Number')%></a>
+						<a id="reservenumberlinker" class="nav-link" href="#searchpanelnum" data-toggle="tab"><%=label.get('reservenumber_setting','Reserve Alphabet/Number')%></a>
 					  </li>
 				</ul>
 			</div>
@@ -36,7 +36,7 @@
 						<%- include('./sfte010_key_policy') %>
 						<%- include('./sfte010_kit_policy') %>
 						<div class="row">
-							<div id="fs_controlbuttonfooterlayerpolicy" class="col-md-12 pull-right text-right" style="margin-right: 10px; margin-bottom:5px;">
+							<div id="fs_controlbuttonfooterlayerpolicy" class="col-md-12 pull-right text-right">
 								<% if(!page.isUpdateMode()) {%>
 									<input type="button" id="savebuttonpolicy" class="btn btn-dark btn-sm" value="<%=label.get('savebutton','Save')%>"/>
 								<%}%>

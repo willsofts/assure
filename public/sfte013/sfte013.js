@@ -103,6 +103,7 @@ function searchComplete(xhr,data) {
 	//#(90000) programmer code end;
 	stopWaiting();
 	$("#listpanel").html(data);
+	setupDataTable();
 	//#(100000) programmer code begin;
 	//#(100000) programmer code end;
 }
@@ -287,6 +288,7 @@ function submitChapter(aform,index) {
 		success: function(data,status,transport){
 			stopWaiting();
 			$("#listpanel").html(data);
+			setupDataTable();
 		}
 	});
 	//#(280000) programmer code begin;
@@ -313,6 +315,7 @@ function submitOrder(src,sorter) {
 		success: function(data,status,transport){
 			stopWaiting();
 			$("#listpanel").html(data);
+			setupDataTable();
 		}
 	});
 	return false;
@@ -452,6 +455,22 @@ function setupEntryComponent(){
 				}
 			});
 		}
+	});
+}
+function setupDataTable() {
+	setupPageSorting("datatable",submitOrder);
+	setupPagination("fschapterlayer",submitChapter,fschapterform,fssearchform);
+	$("#datatablebody").find(".fa-data-edit").each(function(index,element) {
+		$(element).click(function() {
+			if($(this).is(":disabled")) return;
+			submitRetrieve(element,$(this).attr("data-key"),$(this).attr("data-type"));
+		});
+	});
+	$("#datatablebody").find(".fa-data-delete").each(function(index,element) {
+		$(element).click(function() {
+			if($(this).is(":disabled")) return;
+			submitDelete(element,[$(this).attr("data-key"),$(this).attr("data-type")]);
+		});
 	});
 }
 //#(390000) programmer code end;

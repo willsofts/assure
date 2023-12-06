@@ -1,0 +1,62 @@
+[
+	{
+		"language": "TH",
+		"label": [
+			{"name": "caption", "value": "ตัวอย่างข้อมูล"},
+			{"name": "fieldchars_label", "value": "รหัส"},
+			{"name": "fielddates_label", "value": "วันที่"},
+			{"name": "fieldchar_label", "value": "รหัส"},
+			{"name": "fieldtext_label", "value": "ชื่อ"},
+			{"name": "fielddate_label", "value": "วันที่"},
+			{"name": "fieldtime_label", "value": "เวลา"},
+			{"name": "fielddecimal_label", "value": "จำนวน"},
+			{"name": "fieldinteger_label", "value": "ลำดับ"},
+			{"name": "fieldvarchar_label", "value": "ชนิด"},
+			{"name": "fieldflag_label", "value": "ใช้งาน"},
+			{"name": "fieldchar_headerlabel", "value": "รหัส"},
+			{"name": "fielddate_headerlabel", "value": "วันที่"},
+			{"name": "fieldtime_headerlabel", "value": "เวลา"},
+			{"name": "fielddecimal_headerlabel", "value": "จำนวน"},
+			{"name": "fieldtext_headerlabel", "value": "ชื่อ"},
+			{"name": "fieldchar_alert", "value": "กรุณากรอกข้อมูล"},
+			{"name": "fieldtext_alert", "value": "กรุณากรอกข้อมูล"},
+			{"name": "centerflag_label", "value": "กรุณากรอกข้อมูล"},
+			{"name": "fielddate_alert", "value": "กรุณากรอกข้อมูล"},
+			{"name": "fieldtime_alert", "value": "กรุณากรอกข้อมูล"},
+			{"name": "fielddecimal_alert", "value": "กรุณากรอกข้อมูล"},
+			{"name": "fieldinteger_alert", "value": "กรุณากรอกข้อมูล"},
+			{"name": "fieldvarchar_alert", "value": "กรุณากรอกข้อมูล"},
+			{"name": "fieldflag_alert", "value": "กรุณากรอกข้อมูล"}
+		]
+	},
+	{
+		"language": "EN",
+		"label": [
+			{"name": "caption", "value": "Example Information"},
+			{"name": "fieldchars_label", "value": "Key Code"},
+			{"name": "fielddates_label", "value": "Date"},
+			{"name": "fieldchar_label", "value": "Key Code"},
+			{"name": "fieldtext_label", "value": "Name"},
+			{"name": "fielddate_label", "value": "Date"},
+			{"name": "fieldtime_label", "value": "Time"},
+			{"name": "fielddecimal_label", "value": "Amount"},
+			{"name": "fieldinteger_label", "value": "Sequence"},
+			{"name": "fieldvarchar_label", "value": "Type"},
+			{"name": "fieldflag_label", "value": "Active"},
+			{"name": "fieldchar_headerlabel", "value": "Key Code"},
+			{"name": "fielddate_headerlabel", "value": "Date"},
+			{"name": "fieldtime_headerlabel", "value": "Time"},
+			{"name": "fielddecimal_headerlabel", "value": "Amount"},
+			{"name": "fieldtext_headerlabel", "value": "Name"},
+			{"name": "fieldchar_alert", "value": "You can not leave this empty"},
+			{"name": "fieldtext_alert", "value": "You can not leave this empty"},
+			{"name": "centerflag_label", "value": "Reserved for center setting"},
+			{"name": "fielddate_alert", "value": "You can not leave this empty"},
+			{"name": "fieldtime_alert", "value": "You can not leave this empty"},
+			{"name": "fielddecimal_alert", "value": "You can not leave this empty"},
+			{"name": "fieldinteger_alert", "value": "You can not leave this empty"},
+			{"name": "fieldvarchar_alert", "value": "You can not leave this empty"},
+			{"name": "fieldflag_alert", "value": "You can not leave this empty"}
+		]
+	}
+]

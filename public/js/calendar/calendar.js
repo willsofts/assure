@@ -80,7 +80,7 @@ function openCalendar(src) {
 		return;
 	}catch (ex)	{ }
 }
-function fs_opencalendar(src_path,src,placer) {
+function fs_opencalendar(src,placer) {
 	openCalendar(src);
 }
 function fs_clearcalendar(src,placer) {

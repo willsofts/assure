@@ -22,7 +22,7 @@
 				</div>
 		</div>
 	</div>
-	<div class="row row-height" style="display:none;">
+	<div class="row row-height fa-hidden">
 		<div class="col-md-12 col-height">
 				<div class="table-layer-class">
 					<div class="row row-height">
@@ -42,7 +42,7 @@
 <label for="pwdexpireday" id="pwdexpireday_label" class="control-label"><%=label.get('pwdexpireday_label','Password Expire Days')%></label>
 <div class="input-group">
 	<%-page.html('int',{value: data.dataset?.pwdexpireday, id: "pwdexpireday", name: "pwdexpireday", class: "form-control input-md irequired alert-input"})%>
-<div class="input-group-required"><label class="required">*</label></div></div><div id="pwdexpireday_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('pwdexpireday_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="pwdexpireday_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('pwdexpireday_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -56,7 +56,7 @@
 <label for="minpwdlength" id="minpwdlength_label" class="control-label"><%=label.get('minpwdlength_label','Minimum Password Length')%></label>
 <div class="input-group">
 	<%-page.html('int',{value: data.dataset?.minpwdlength, id: "minpwdlength", name: "minpwdlength", class: "form-control input-md irequired alert-input"})%>
-<div class="input-group-required"><label class="required">*</label></div></div><div id="minpwdlength_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('minpwdlength_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="minpwdlength_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('minpwdlength_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -70,7 +70,7 @@
 <label for="maxpwdlength" id="maxpwdlength_label" class="control-label"><%=label.get('maxpwdlength_label','Maximum Password Length')%></label>
 <div class="input-group">
 	<%-page.html('int',{value: data.dataset?.maxpwdlength, id: "maxpwdlength", name: "maxpwdlength", class: "form-control input-md irequired alert-input"})%>
-<div class="input-group-required"><label class="required">*</label></div></div><div id="maxpwdlength_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('maxpwdlength_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="maxpwdlength_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('maxpwdlength_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -84,7 +84,7 @@
 <label for="alphainpwd" id="alphainpwd_label" class="control-label"><%=label.get('alphainpwd_label','Number of Character in Password')%></label>
 <div class="input-group">
 	<%-page.html('int',{value: data.dataset?.alphainpwd, id: "alphainpwd", name: "alphainpwd", class: "form-control input-md irequired alert-input"})%>
-<div class="input-group-required"><label class="required">*</label></div></div><div id="alphainpwd_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('alphainpwd_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="alphainpwd_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('alphainpwd_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -98,7 +98,7 @@
 <label for="otherinpwd" id="otherinpwd_label" class="control-label"><%=label.get('otherinpwd_label','Number of Special Character in Password')%></label>
 <div class="input-group">
 	<%-page.html('int',{value: data.dataset?.otherinpwd, id: "otherinpwd", name: "otherinpwd", class: "form-control input-md irequired alert-input"})%>
-<div class="input-group-required"><label class="required">*</label></div></div><div id="otherinpwd_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('otherinpwd_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="otherinpwd_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('otherinpwd_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -112,7 +112,7 @@
 <label for="digitinpwd" id="digitinpwd_label" class="control-label"><%=label.get('digitinpwd_label','Number of Digit in Password')%></label>
 <div class="input-group">
 	<%-page.html('int',{value: data.dataset?.digitinpwd, id: "digitinpwd", name: "digitinpwd", class: "form-control input-md irequired alert-input"})%>
-<div class="input-group-required"><label class="required">*</label></div></div><div id="digitinpwd_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('digitinpwd_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="digitinpwd_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('digitinpwd_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -126,7 +126,7 @@
 <label for="upperinpwd" id="upperinpwd_label" class="control-label"><%=label.get('upperinpwd_label','Number of Upper Case Character in Password')%></label>
 <div class="input-group">
 	<%-page.html('int',{value: data.dataset?.upperinpwd, id: "upperinpwd", name: "upperinpwd", class: "form-control input-md irequired alert-input"})%>
-<div class="input-group-required"><label class="required">*</label></div></div><div id="upperinpwd_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('upperinpwd_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="upperinpwd_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('upperinpwd_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -140,7 +140,7 @@
 <label for="lowerinpwd" id="lowerinpwd_label" class="control-label"><%=label.get('lowerinpwd_label','Number of Lower Case Character in Password')%></label>
 <div class="input-group">
 	<%-page.html('int',{value: data.dataset?.lowerinpwd, id: "lowerinpwd", name: "lowerinpwd", class: "form-control input-md irequired alert-input"})%>
-<div class="input-group-required"><label class="required">*</label></div></div><div id="lowerinpwd_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('lowerinpwd_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="lowerinpwd_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('lowerinpwd_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -154,7 +154,7 @@
 <label for="timenotusedoldpwd" id="timenotusedoldpwd_label" class="control-label"><%=label.get('timenotusedoldpwd_label','Number of Times use old password')%></label>
 <div class="input-group">
 	<%-page.html('int',{value: data.dataset?.timenotusedoldpwd, id: "timenotusedoldpwd", name: "timenotusedoldpwd", class: "form-control input-md irequired alert-input"})%>
-<div class="input-group-required"><label class="required">*</label></div></div><div id="timenotusedoldpwd_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('timenotusedoldpwd_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="timenotusedoldpwd_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('timenotusedoldpwd_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>

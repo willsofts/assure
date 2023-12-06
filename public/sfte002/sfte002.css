@@ -1,5 +1,13 @@
-a.btn-edit-record { margin-right: 5px; vertical-align: top; }
-a.btn-edit-record i { padding-top: 5px; }
+.btn-edit-record {  
+    background-color: transparent;
+    width: 22px;
+    height: 17px;
+    border: 0px;
+    cursor: pointer;
+    outline: 0;
+    margin: 3px;
+}
+.btn-edit-record:hover { color: gray; }
 #progtablebody { list-style-type: none; margin: 0; padding: 0; }
 #progtablebody li { margin-bottom: 2px; padding: 1px; float: left; min-width: 400px; min-height: 30px; text-align: center; vertical-align: center; cursor: pointer; padding-top: 5px; }
 li.prog-item-class { width: 99.8%; min-height: 55px; }
@@ -17,3 +25,15 @@ td.siteno-column { width: 50px; }
 td.sitename-column { width: 200px; }
 td.sitectrl-column { width: 50px; }
 #proglayer { width: 100%; }
+
+#searchbutton { margin-top: 10px; }
+#insertbutton { margin-top: 10px; }
+.fa-toggle-collapse { margin-right: 5px; }
+div.groupname-layer { margin-top: 15px; }
+#addprogbutton { width:30px; margin-top: 3px; font-weight: bold;}
+div.btn-control-layer { margin-right: 10px; }
+#programcontrollayer { margin-left:0px; margin-right: 3px; }
+#programrowlayer { padding-top:3px; padding-bottom:3px; }
+#progtablelayer { margin-bottom: 50px; }
+#programinfolayer { padding-top:10px; padding-bottom:0px; }
+#program_info { padding-left:15px; }

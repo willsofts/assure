@@ -1,0 +1,13 @@
+<% let fs_express_readonly = page.isRetrieveMode()?" readonly ":""; %>		
+		<div class="row row-height">
+			<div class="col-md-12 col-height">
+					<div class="table-layer-class">
+						<div class="row row-height">
+							<div class="col-height col-md-5">
+<label for="fieldchar" id="fieldchar_label" class="control-label"><%=label.get('fieldchar_label','Key Code')%></label>
+<div class="input-group"><input type="text" id="fieldchar" name="fieldchar" class="form-control input-md irequired ikeyclass alert-input" picture="(15)X" maxlength="15" value="<%=data.dataset?.fieldchar%>" <%=fs_express_readonly%> /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="fieldchar_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('fieldchar_alert','You can not leave this empty')%></div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>

@@ -5,6 +5,7 @@ import { HTTP } from "@willsofts/will-api";
 import { VerifyError } from "../models/VerifyError";
 import { KnUtility } from "../utils/KnUtility";
 import { KnPageFacility } from './KnPageFacility';
+import { INLINE_BINDING } from "./EnvironmentVariable";
 
 const ejs = require('ejs');
 
@@ -92,11 +93,12 @@ export class KnPageRender extends KnPageFacility {
         let style = options?.style;
         let disabled = options?.disabled;
         let readonly = options?.readonly || true;
+        let inline = options?.inline || INLINE_BINDING;
         if(!clazz) clazz = "";
         if(clazz.indexOf("idate")<0) clazz += " idate";
         let html = "<div class=\"input-group-container\">";
         html += "<div class=\"input-group input-group-calendar\">";
-        html += "<input";
+        html += "<input type='text'";
         html += (name?" name=\""+name+"\"":"");
         html += (id?" id=\""+id+"\"":"");
         html += (clazz?" class=\""+clazz+"\"":"");
@@ -117,11 +119,16 @@ export class KnPageRender extends KnPageFacility {
             }
         }
         html += " />";
-        html += "<A href=\"javascript:void(0);\"  NAME=\"LK"+id+"\" ID=\"LK"+id+"\" tabIndex=\"-1\" class=\"input-group-addon input-group-append input-group-text input-group-lookup\"";
-        html += " onclick='fs_opencalendar(\"/js/calendar/\",document.getElementById(\""+id+"\"))'>";
-        html += "<i class=\"fa fa-calendar\" aria-hidden=\"true\"></i></A>";
-        html += "<A href=\"javascript:void(0);\"  NAME=\"CLR"+id+"\" ID=\"CLR"+id+"\" tabIndex=\"-1\" class=\"input-group-addon input-group-append input-group-text input-group-clear\"";  
-        html += " onclick='fs_clearcalendar(document.getElementById(\""+id+"\"))'><i class=\"fa fa-times\" aria-hidden=\"true\"></i></A>";
+        html += "<A href=\"javascript:void(0)\"  NAME=\"LK"+id+"\" ID=\"LK"+id+"\" tabIndex=\"-1\" class=\"input-group-addon input-group-append input-group-text input-group-lookup\"";
+        if(inline) {
+            html += " onclick='fs_opencalendar(document.getElementById(\""+id+"\"))'";
+        }
+        html += "><i class=\"fa fa-calendar\" aria-hidden=\"true\"></i></A>";
+        html += "<A href=\"javascript:void(0)\"  NAME=\"CLR"+id+"\" ID=\"CLR"+id+"\" tabIndex=\"-1\" class=\"input-group-addon input-group-append input-group-text input-group-clear\"";  
+        if(inline) {
+            html += " onclick='fs_clearcalendar(document.getElementById(\""+id+"\"))'";
+        }
+        html += "><i class=\"fa fa-times\" aria-hidden=\"true\"></i></A>";
         html += "</div></div>";
         return html;
     }
@@ -137,6 +144,7 @@ export class KnPageRender extends KnPageFacility {
         let readonly = options?.readonly;
         let size = options?.size || 10;
         let max = options?.max;
+        let inline = options?.inline || INLINE_BINDING;
         if(!clazz) clazz = "";
         if(clazz.indexOf("iint")<0) clazz += " iint";
         if(!style) style = "text-align: right;"
@@ -156,7 +164,9 @@ export class KnPageRender extends KnPageFacility {
         if(value) { 
             html += " value=\""+value+"\"";
         }
-        html += " onkeypress=\"return fs_intNumsOnly(this,event)\"";
+        if(inline) {
+            html += " onkeypress=\"return fs_intNumsOnly(this,event)\"";
+        }
         html += " />";
         return html;
     }
@@ -173,6 +183,7 @@ export class KnPageRender extends KnPageFacility {
         let size = options?.size;
         let decimal = options?.decimal || 2;
         let minus = options?.minus || true;
+        let inline = options?.inline || INLINE_BINDING;
         if(!clazz) clazz = "";
         if(clazz.indexOf("imoney")<0) clazz += " imoney";
         if(!style) style = "text-align: right;"
@@ -190,8 +201,11 @@ export class KnPageRender extends KnPageFacility {
             html += " value=\""+value+"\"";
         }
         html += " decimal='"+decimal+"'";
-        html += " onkeyup=\"return fs_chkKey(this,"+(size?'"+size+"':"null")+",'"+decimal+"',event)\"";
-        html += " onkeypress=\"return fs_intNumsOnly_chkKey(this,event,'"+decimal+"'"+(minus?",true":"")+")\"";
+        html += " minus='"+(minus?"true":"false")+"'";
+        if(inline) {
+            html += " onkeyup=\"return fs_chkKey(this,event,'"+decimal+"',"+(size?'"+size+"':"null")+")\"";
+            html += " onkeypress=\"return fs_intNumsOnly_chkKey(this,event,'"+decimal+"'"+(minus?",true":"")+")\"";
+        }
         html += " />";
         return html;
     }

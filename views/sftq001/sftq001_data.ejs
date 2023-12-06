@@ -16,13 +16,13 @@
 <table id="datatable" class="table table-bordered table-hover table-striped tablesorter">
 	<thead>
 		<tr>
-			<th width="75px" class="text-center" style="cursor: default;"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
-			<th width="150px" class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'curtime')"><label id="curtime_headerlabel"><%=label.get('curtime_headerlabel','Date Time')%></label></a></th>
-			<th width="100px" class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'userid')"><label id="userid_headerlabel"><%=label.get('userid_headerlabel','User')%></label></a></th>
-			<th width="120px" class="text-center" nowrap><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'progid')"><label id="programid_headerlabel"><%=label.get('programid_headerlabel','Program')%></label></a></th>
-			<th width="250px" class="text-center"><label id="progname_headerlabel"><%=label.get('progname_headerlabel','Program Name')%></label></th>
-			<th width="100px" class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'action')"><label id="action_headerlabel"><%=label.get('action_headerlabel','Action')%></label></a></th>
-			<th width="350px" class="text-center"><label id="remark_headerlabel"><%=label.get('remark_headerlabel','Remark')%></label></th>
+			<th width="75px" class="text-center th-sequence"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
+			<th width="150px" class="text-center th-data"><a href="javascript:void(0)" class="alink-sorterr fa-data-sort" data-sorter="curtime"><label id="curtime_headerlabel"><%=label.get('curtime_headerlabel','Date Time')%></label></a></th>
+			<th width="100px" class="text-center th-data"><a href="javascript:void(0)" class="alink-sorterr fa-data-sort" data-sorter="userid"><label id="userid_headerlabel"><%=label.get('userid_headerlabel','User')%></label></a></th>
+			<th width="120px" class="text-center th-data" nowrap><a href="javascript:void(0)" class="alink-sorterr fa-data-sort" data-sorter="progid"><label id="programid_headerlabel"><%=label.get('programid_headerlabel','Program')%></label></a></th>
+			<th width="250px" class="text-center th-data"><label id="progname_headerlabel"><%=label.get('progname_headerlabel','Program Name')%></label></th>
+			<th width="100px" class="text-center th-data"><a href="javascript:void(0)" class="alink-sorterr fa-data-sort" data-sorter="action"><label id="action_headerlabel"><%=label.get('action_headerlabel','Action')%></label></a></th>
+			<th width="350px" class="text-center th-data"><label id="remark_headerlabel"><%=label.get('remark_headerlabel','Remark')%></label></th>
 		</tr>
 	</thead>
 	<tbody id="datatablebody">							
@@ -33,7 +33,7 @@
 					<tr>
 							<td class="text-center"><%=page.recordsNumber(index+1)%></td>
 							<td nowrap><%=page.format({value: item?.curtime, field:{type:"DATETIME"}})%></td>
-							<td align="center"><%=item?.username%></td>
+							<td class="text-center"><%=item?.username%></td>
 							<td><%=item?.progid%></td>
 							<td><%=item?.progname%></td>
 							<td><%=item?.action%></td>
@@ -51,8 +51,8 @@
 			}	%>
 	</tbody>
 </table>	
-<div class="fschaptertablelayer" style="text-align: center;">
-<table class="fschaptertable" style="margin: auto;">
+<div id="fschaptertablelayer" class="fschaptertablelayer">
+<table id="fschaptertable" class="fschaptertable">
 	<tr class="fschapterrow"><td class="fschaptercolumn">
 	<form name="fschapterform" id="fschapterform" method="post" autocomplete="off">
 		<input type="hidden" name="ajax" value="true"/>

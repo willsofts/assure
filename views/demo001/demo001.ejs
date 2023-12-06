@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Product Information</title>
+		<%- include('../asset/meta') %>		
+		<%- include('../asset/styles') %>		
+		<%- include('../asset/scripts') %>	
+		<link rel="stylesheet" type="text/css" href="<%=meta.base_url%>/demo001/demo001.css" />
+		<script type="text/javascript" src="<%=meta.base_url%>/demo001/demo001.js"></script>
+	</head>
+	<body class="portalbody portalbody-off">
+		<%- include('../partials/page_waiting') %>
+		<div id="ptsearchpager" class="pt-page pt-page-current pt-page-controller demo001-search-pager">
+			<%- page.createHeader({pid: 'demo001', title: label.get('caption','Example Information')}) %>
+			<div id="searchpanel" class="panel-body">
+				<form id="fssearchform" name="fssearchform" method="post">
+					<input type="hidden" name="ajax" value="true"/>
+					<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
+					<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
+					<input type="hidden" name="page" value="1"/>
+					<input type="hidden" name="orderBy" value=""/>
+					<input type="hidden" name="orderDir" value=""/>
+					<%- include('./demo001_filter') %>
+				</form>
+				<div id="listpanel" class="table-responsive fa-list-panel">
+					<%- include('./demo001_data') %>
+				</div>
+			</div>
+		</div>
+		<div id="dialogpanel"></div>
+	</body>
+</html>

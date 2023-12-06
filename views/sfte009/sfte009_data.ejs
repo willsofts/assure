@@ -16,14 +16,14 @@
 <table id="datatable" class="table table-bordered table-hover table-striped tablesorter">
 	<thead>
 		<tr>
-			<th class="text-center" style="cursor: default;"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'domainname')"><label id="domainname_headerlabel"><%=label.get('domainname_headerlabel','Domain Name')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'description')"><label id="description_headerlabel"><%=label.get('description_headerlabel','Description')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'applicationid')"><label id="applicationid_headerlabel"><%=label.get('applicationid_headerlabel','Application ID')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'systemname')"><label id="systemname_headerlabel"><%=label.get('systemname_headerlabel','System Type')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'inactive')"><label id="inactive_headerlabel"><%=label.get('inactive_headerlabel','Status')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'invisible')"><label id="invisible_headerlabel"><%=label.get('invisible_headerlabel','Visibility')%></label></a></th>
-			<th class="text-center" style="cursor: default;"><em class="fa fa-bolt" aria-hidden="true"></em></th>
+			<th class="text-center th-sequence"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="domainname"><label id="domainname_headerlabel"><%=label.get('domainname_headerlabel','Domain Name')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="description"><label id="description_headerlabel"><%=label.get('description_headerlabel','Description')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="applicationid"><label id="applicationid_headerlabel"><%=label.get('applicationid_headerlabel','Application ID')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="systemname"><label id="systemname_headerlabel"><%=label.get('systemname_headerlabel','System Type')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="inactive"><label id="inactive_headerlabel"><%=label.get('inactive_headerlabel','Status')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="invisible"><label id="invisible_headerlabel"><%=label.get('invisible_headerlabel','Visibility')%></label></a></th>
+			<th class="text-center th-action"><em class="fa fa-bolt" aria-hidden="true"></em></th>
 		</tr>
 	</thead>
 	<tbody id="datatablebody">							
@@ -33,17 +33,15 @@
 						let item = rows[index]; %>
 						<tr>
 							<td class="text-center"><%=page.recordsNumber(index+1)%></td>
-							<td><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieve(this,'<%=item?.domainid%>');"><%=item?.domainname%></a></td>
-							<td><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieve(this,'<%=item?.domainid%>');"><%=item?.description%></a></td>
-							<td><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieve(this,'<%=item?.domainid%>');"><%=item?.applicationid%></a></td>
-							<td class="text-center"><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieve(this,'<%=item?.domainid%>');"><%=item?.systemname%></a></td>
-							<td class="text-center"><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieve(this,'<%=item?.domainid%>');"><%-page.serializeInactive(item?.inactive)%></a></td>
-							<td class="text-center"><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieve(this,'<%=item?.domainid%>');"><%-page.serializeInactive(item?.invisible)%></a></td>
+							<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.domainid%>"><%=item?.domainname%></a></td>
+							<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.domainid%>"><%=item?.description%></a></td>
+							<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.domainid%>"><%=item?.applicationid%></a></td>
+							<td class="text-center"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.domainid%>"><%=item?.systemname%></a></td>
+							<td class="text-center"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.domainid%>"><%-page.serializeInactive(item?.inactive)%></a></td>
+							<td class="text-center"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.domainid%>"><%-page.serializeInactive(item?.invisible)%></a></td>
 							<td class="text-center">
-									<button name="btn-edit" type="button" class="btn-edit" title="<%=label.get('btnedit_tooltip')%>"
-											onclick="submitRetrieve(this,'<%=item?.domainid%>');"></button>
-									<button type="button" class="btn-delete" title="<%=label.get('btndelete_tooltip')%>" 
-											onclick="submitDelete(this,['<%=item?.domainid%>','<%=item?.domainname%>']);"></button>
+									<button class="btn-edit fa-data-edit" data-key="<%=item?.domainid%>" title="<%=label.get('btnedit_tooltip')%>"></button>
+									<button class="btn-delete fa-data-delete" data-key="<%=item?.domainid%>" data-name="<%=item?.domainname%>" title="<%=label.get('btndelete_tooltip')%>"></button>
 							</td>
 						</tr>
 			<%		}
@@ -58,8 +56,8 @@
 				}	%>
 	</tbody>
 </table>	
-<div style="text-align: center;" class="fschaptertablelayer">
-<table style="margin: auto;" class="fschaptertable">
+<div id="fschaptertablelayer" class="fschaptertablelayer">
+<table id="fschaptertable" class="fschaptertable">
 	<tr class="fschapterrow"><td class="fschaptercolumn">
 	<form name="fschapterform" id="fschapterform" method="post" autocomplete="off">
 		<input type="hidden" name="ajax" value="true"/>

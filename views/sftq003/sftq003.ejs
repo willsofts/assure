@@ -13,7 +13,7 @@
 		<div id="ptsearchpager" class="pt-page pt-page-current pt-page-controller sftq003-search-pager">
 			<%- page.createHeader({pid: 'sftq003', title: label.get('caption','Mail Tracking')}) %>
 			<div id="searchpanel" class="panel-body">
-				<form id="fssearchform" name="fssearchform" method="post" onsubmit="return false;">
+				<form id="fssearchform" name="fssearchform" method="post">
 					<input type="hidden" name="ajax" value="true"/>
 					<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
 					<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
@@ -22,14 +22,14 @@
 					<input type="hidden" name="orderDir" value=""/>
 					<%- include('./sftq003_filter') %>
 				</form>
-				<div id="listpanel" class="table-responsive" style="padding-top: 10px;">
+				<div id="listpanel" class="table-responsive fa-list-panel">
 					<%- include('./sftq003_data') %>
 				</div>
 			</div>
 		</div>
 		<div id="dialogpanel"></div>
 		<div id="referdialogpanel"></div>
-		<div style="display:none;">
+		<div class="fa-hidden">
 			<iframe id="sftq003_excel_window" name="sftq003_excel_window"></iframe>
 			<iframe id="sftq003_pdf_window" name="sftq003_pdf_window"></iframe>
 		</div>

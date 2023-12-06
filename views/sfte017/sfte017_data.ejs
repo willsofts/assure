@@ -17,14 +17,14 @@
 	class="table table-bordered table-hover table-striped tablesorter">
 	<thead>
 		<tr>
-			<th class="text-center" style="cursor: default;"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'username_surname')"><label id="username_surname_headerlabel"><%=label.get('username_surname_headerlabel','User Name')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'email')"><label id="email_headerlabel"><%=label.get('email_headerlabel','Email')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'issuer')"><label id="issuer_headerlabel"><%=label.get('issuer_headerlabel','Issuer')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'createdatetime')"><label id="createdatetime_headerlabel"><%=label.get('createdatetime_headerlabel','Create Date')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'confirmdatetime')"><label id="confirmdatetime_headerlabel"><%=label.get('confirmdatetime_headerlabel','Confirm Date')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'factorflag')"><label id="factorflag_title_headerlabel"><%=label.get('factorflag_title_headerlabel','Factor')%></label></a></th>
-			<th class="text-center" style="cursor: default;"><em class="fa fa-bolt" aria-hidden="true"></em></th>
+			<th class="text-center th-sequence"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="username_surname"><label id="username_surname_headerlabel"><%=label.get('username_surname_headerlabel','User Name')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="email"><label id="email_headerlabel"><%=label.get('email_headerlabel','Email')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="issuer"><label id="issuer_headerlabel"><%=label.get('issuer_headerlabel','Issuer')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="createdatetime"><label id="createdatetime_headerlabel"><%=label.get('createdatetime_headerlabel','Create Date')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="confirmdatetime"><label id="confirmdatetime_headerlabel"><%=label.get('confirmdatetime_headerlabel','Confirm Date')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="factorflag"><label id="factorflag_title_headerlabel"><%=label.get('factorflag_title_headerlabel','Factor')%></label></a></th>
+			<th class="text-center th-action"><em class="fa fa-bolt" aria-hidden="true"></em></th>
 		</tr>
 	</thead>
 	<tbody id="datatablebody">
@@ -34,14 +34,14 @@
 					let item = rows[index]; %>
 					<tr>
 						<td class="text-center"><%=page.recordsNumber(index+1)%></td>
-						<td align="left"><a href="javascript:void(0)" class="alink-data" onclick="submitViewhistory(this,'<%=item?.userid%>');"><%=item?.username%> &nbsp; <%=item?.usersurname%></a></td>
-						<td align="left"><a href="javascript:void(0)" class="alink-data" onclick="submitViewhistory(this,'<%=item?.userid%>');"><%=item?.email%></a></td>
-						<td align="left"><a href="javascript:void(0)" class="alink-data" onclick="submitViewhistory(this,'<%=item?.userid%>');"><%=item?.issuer%></a></td>
-						<td align="center"><a href="javascript:void(0)" class="alink-data" onclick="submitViewhistory(this,'<%=item?.userid%>');"><%=page.format({value: item?.createdate, field:{type:"DATE"}})%> &nbsp; <%=page.format({value: item?.createtime, field:{type:"TIME"}})%></a></td>
-						<td align="center"><a href="javascript:void(0)" class="alink-data" onclick="submitViewhistory(this,'<%=item?.userid%>');"><%=page.format({value: item?.confirmdate, field:{type:"DATE"}})%> &nbsp; <%=page.format({value: item?.confirmtime, field:{type:"TIME"}})%></a></td>
-						<td align="center"><a href="javascript:void(0)" class="alink-data" onclick="submitViewhistory(this,'<%=item?.userid%>');"><%-page.serializeChecker(item?.factorflag)%></a></td>
+						<td class="text-left"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.userid%>"><%=item?.username%> &nbsp; <%=item?.usersurname%></a></td>
+						<td class="text-left"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.userid%>"><%=item?.email%></a></td>
+						<td class="text-left"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.userid%>"><%=item?.issuer%></a></td>
+						<td class="text-center"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.userid%>"><%=page.format({value: item?.createdate, field:{type:"DATE"}})%> &nbsp; <%=page.format({value: item?.createtime, field:{type:"TIME"}})%></a></td>
+						<td class="text-center"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.userid%>"><%=page.format({value: item?.confirmdate, field:{type:"DATE"}})%> &nbsp; <%=page.format({value: item?.confirmtime, field:{type:"TIME"}})%></a></td>
+						<td class="text-center"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.userid%>"><%-page.serializeChecker(item?.factorflag)%></a></td>
 						<td class="text-center">
-							<button name="btn-view" type="button" class="btn-view" title="<%=label.get('btnedit_tooltip')%>" onclick="submitViewhistory(this,'<%=item?.userid%>');"></button>
+							<button name="btn-view" type="button" class="btn-view fa-data-edit" data-key="<%=item?.userid%>" title="<%=label.get('btnedit_tooltip')%>"></button>
 						</td>						
 					</tr>
 				<%		}
@@ -56,8 +56,8 @@
 			}	%>	
 	</tbody>
 </table>
-<div style="text-align: center;" class="fschaptertablelayer">
-	<table style="margin: auto;" class="fschaptertable">
+<div id="fschaptertablelayer" class="fschaptertablelayer">
+	<table id="fschaptertable" class="fschaptertable">
 		<tr class="fschapterrow">
 			<td class="fschaptercolumn">
 				<form name="fschapterform" id="fschapterform" method="post" autocomplete="off">

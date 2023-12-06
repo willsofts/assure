@@ -1,0 +1,70 @@
+<div class="row row-height">
+	<div class="col-md-12 col-height">
+			<div class="table-layer-class">
+				<div class="row row-height">
+					<div class="col-height col-md-11">
+<label for="fieldtext" id="fieldtext_label" class="control-label"><%=label.get('fieldtext_label','Name')%></label>
+<div class="input-group"><input type="text" id="fieldtext" name="fieldtext" class="form-control input-md irequired alert-input" maxlength="150" value="<%=data.dataset?.fieldtext%>" /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="fieldtext_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('fieldtext_alert','You can not leave this empty')%></div>
+					</div>
+				</div>
+			</div>
+	</div>
+</div>
+<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-4">
+<label for="fielddate" id="fielddate_label" class="control-label"><%=label.get('fielddate_label','Date')%></label>
+<div class="input-group">
+	<%-page.html('date',{id: "fielddate", name: "fielddate", class: "form-control input-md  irequired alert-input", value: data.dataset?.fielddate, current: true})%>
+<span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="fielddate_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('fielddate_alert','You can not leave this empty')%></div>
+						</div>
+						<div class="col-height col-md-4">
+<label for="fieldtime" id="fieldtime_label" class="control-label"><%=label.get('fieldtime_label','Time')%></label>
+<div class="input-group"><input type="text" id="fieldtime" name="fieldtime" class="form-control input-md irequired alert-input itime" value="<%=data.dataset?.fieldtime%>" /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="fieldtime_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('fieldtime_alert','You can not leave this empty')%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-4">
+<label for="fielddecimal" id="fielddecimal_label" class="control-label"><%=label.get('fielddecimal_label','Amount')%></label>
+<div class="input-group">
+	<%-page.html('money',{value: data.dataset?.fielddecimal, id: "fielddecimal", name: "fielddecimal", class: "form-control input-md", decimal: 4})%>	
+<div class="input-group-required"><label class="required">*</label></div></div><div id="fielddecimal_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('fielddecimal_alert','You can not leave this empty')%></div>
+						</div>
+						<div class="col-height col-md-4">
+<label for="fieldinteger" id="fieldinteger_label" class="control-label"><%=label.get('fieldinteger_label','Sequence')%></label>
+<div class="input-group">
+	<%-page.html('int',{value: data.dataset?.fieldinteger, id: "fieldinteger", name: "fieldinteger", class: "form-control input-md"})%>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="fieldinteger_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('fieldinteger_alert','You can not leave this empty')%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-5">
+<label for="fieldvarchar" id="fieldvarchar_label" class="control-label"><%=label.get('fieldvarchar_label','Type')%></label>
+<div class="input-group">
+	<%-page.html('select',{map: data.entity?.tkprogtype, value: data.dataset?.fieldvarchar, id: "fieldvarchar", name: "fieldvarchar", class: "form-control input-md"})%>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="fieldvarchar_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('fieldvarchar_alert','You can not leave this empty')%></div>
+						</div>
+						<div class="col-height col-md-5">
+<label for="fieldflag" id="fieldflag_label" class="control-label"><%=label.get('fieldflag_label','Active')%></label>
+<div class="input-group">
+	<%-page.html('select',{map: data.entity?.tkactive, value: data.dataset?.fieldflag, id: "fieldflag", name: "fieldflag", class: "form-control input-md"})%>
+<div class="input-group-required"><label class="required">*</label></div></div><div id="fieldflag_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('fieldflag_alert','You can not leave this empty')%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>

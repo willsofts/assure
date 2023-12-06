@@ -4,7 +4,7 @@
 					<div class="row row-height">
 						<div class="col-height col-md-10">
 <label for="description" id="description_label" class="control-label"><%=label.get('description_label','Description')%></label>
-<div class="input-group"><input type="text" id="description" name="description" class="form-control input-md irequired alert-input" maxlength="100" value="<%=data.dataset?.description%>" /><div class="input-group-required"><label class="required">*</label></div></div><div id="description_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('description_alert','You can not leave this empty')%></div>
+<div class="input-group"><input type="text" id="description" name="description" class="form-control input-md irequired alert-input" maxlength="100" value="<%=data.dataset?.description%>" /><div class="input-group-required"><label class="required">*</label></div></div><div id="description_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('description_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -16,7 +16,7 @@
 					<div class="row row-height">
 						<div class="col-height col-md-10">
 <label for="applicationid" id="applicationid_label" class="control-label"><%=label.get('applicationid_label','Application ID')%></label>
-<div class="input-group"><input type="text" id="applicationid" name="applicationid" class="form-control input-md irequired alert-input" maxlength="50" value="<%=data.dataset?.applicationid%>" /><div class="input-group-required"><label class="required">*</label></div></div><div id="applicationid_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('applicationid_alert','You can not leave this empty')%></div>
+<div class="input-group"><input type="text" id="applicationid" name="applicationid" class="form-control input-md irequired alert-input" maxlength="50" value="<%=data.dataset?.applicationid%>" /><div class="input-group-required"><label class="required">*</label></div></div><div id="applicationid_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('applicationid_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -28,7 +28,7 @@
 					<div class="row row-height">
 						<div class="col-height col-md-10">
 <label for="tenanturl" id="tenanturl_label" class="control-label"><%=label.get('tenanturl_label','Tenant URL')%></label>
-<div class="input-group"><input type="text" id="tenanturl" name="tenanturl" class="form-control input-md irequired alert-input" maxlength="200" value="<%=data.dataset?.tenanturl%>" /><div class="input-group-required"><label class="required">*</label></div></div><div id="tenanturl_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('tenanturl_alert','You can not leave this empty')%></div>
+<div class="input-group"><input type="text" id="tenanturl" name="tenanturl" class="form-control input-md irequired alert-input" maxlength="200" value="<%=data.dataset?.tenanturl%>" /><div class="input-group-required"><label class="required">*</label></div></div><div id="tenanturl_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('tenanturl_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -40,7 +40,7 @@
 					<div class="row row-height">
 						<div class="col-height col-md-10">
 <label for="secretkey" id="secretkey_label" class="control-label"><%=label.get('secretkey_label','Secret Key')%></label>
-<div class="input-group"><input type="text" id="secretkey" name="secretkey" class="form-control input-md irequired alert-input" maxlength="50" value="<%=data.dataset?.secretkey%>" /><div class="input-group-required"><label class="required">*</label></div></div><div id="secretkey_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('secretkey_alert','You can not leave this empty')%></div>
+<div class="input-group"><input type="text" id="secretkey" name="secretkey" class="form-control input-md irequired alert-input" maxlength="50" value="<%=data.dataset?.secretkey%>" /><div class="input-group-required"><label class="required">*</label></div></div><div id="secretkey_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('secretkey_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -54,13 +54,13 @@
 <label for="systemtype" id="systemtype_label" class="control-label"><%=label.get('systemtype_label','System Type')%></label>
 <div class="input-group">
 	<%-page.html('select',{map: data.entity?.tksystemtype, value: data.dataset?.systemtype, id: "systemtype", name: "systemtype", class: "form-control input-md"})%>
-<div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="systemtype_alert" role="alert" class="has-error" style="display:none;"><%=label.get('systemtype_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="systemtype_alert" role="alert" class="has-error fa-hidden"><%=label.get('systemtype_alert','You can not leave this empty')%></div>
 						</div>
 						<div class="col-height col-md-5">
 <label for="inactive" id="inactive_label" class="control-label"><%=label.get('inactive_label','Status')%></label>
 <div class="input-group">
 	<%-page.html('select',{map: data.entity?.tkactive, value: data.dataset?.inactive, id: "inactive", name: "inactive", class: "form-control input-md"})%>
-<div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="inactive_alert" role="alert" class="has-error" style="display:none;"><%=label.get('inactive_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="inactive_alert" role="alert" class="has-error fa-hidden"><%=label.get('inactive_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -74,13 +74,13 @@
 <label for="appstype" id="appstype_label" class="control-label"><%=label.get('appstype_label','Application Type')%></label>
 <div class="input-group">
 	<%-page.html('select',{map: data.entity?.tkdomainappstype, value: data.dataset?.appstype, id: "appstype", name: "appstype", class: "form-control input-md"})%>
-<div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="appstype_alert" role="alert" class="has-error" style="display:none;"><%=label.get('appstype_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="appstype_alert" role="alert" class="has-error fa-hidden"><%=label.get('appstype_alert','You can not leave this empty')%></div>
 						</div>
 						<div class="col-height col-md-5">
 <label for="invisible" id="invisible_label" class="control-label"><%=label.get('invisible_label','Visibility')%></label>
 <div class="input-group">
 	<%-page.html('select',{map: data.entity?.tkvisible, value: data.dataset?.invisible, id: "invisible", name: "invisible", class: "form-control input-md"})%>
-<div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="invisible_alert" role="alert" class="has-error" style="display:none;"><%=label.get('invisible_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="invisible_alert" role="alert" class="has-error fa-hidden"><%=label.get('invisible_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -94,7 +94,7 @@
 <label for="domaintype" id="domaintype_label" class="control-label"><%=label.get('domaintype_label','Domain Type')%></label>
 <div class="input-group">
 	<%-page.html('select',{map: data.entity?.tkdomaintype, value: data.dataset?.domaintype, id: "domaintype", name: "domaintype", class: "form-control input-md"})%>
-<div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="domaintype_alert" role="alert" class="has-error" style="display:none;"><%=label.get('domaintype_alert','You can not leave this empty')%></div>
+<div class="input-group-required"><label class="required">&nbsp;</label></div></div><div id="domaintype_alert" role="alert" class="has-error fa-hidden"><%=label.get('domaintype_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -106,7 +106,7 @@
 					<div class="row row-height">
 						<div class="col-height col-md-10">
 <label for="basedn" id="basedn_label" class="control-label"><%=label.get('basedn_label','Base Domain')%></label>
-<div class="input-group"><input type="text" id="basedn" name="basedn" class="form-control input-md irequired" maxlength="200" value="<%=data.dataset?.basedn%>" /><div class="input-group-required"><label class="required" id="basednrequiredlabel"></label></div></div><div id="basedn_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('basedn_alert','You can not leave this empty')%></div>
+<div class="input-group"><input type="text" id="basedn" name="basedn" class="form-control input-md irequired" maxlength="200" value="<%=data.dataset?.basedn%>" /><div class="input-group-required"><label class="required" id="basednrequiredlabel"></label></div></div><div id="basedn_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('basedn_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>
@@ -118,7 +118,7 @@
 					<div class="row row-height">
 						<div class="col-height col-md-10">
 <label for="domainurl" id="domainurl_label" class="control-label"><%=label.get('domainurl_label','Domain URL')%></label>
-<div class="input-group"><input type="text" id="domainurl" name="domainurl" class="form-control input-md irequired" maxlength="200" value="<%=data.dataset?.domainurl%>" /><div class="input-group-required"><label class="required"></label></div></div><div id="domainurl_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('domainurl_alert','You can not leave this empty')%></div>
+<div class="input-group"><input type="text" id="domainurl" name="domainurl" class="form-control input-md irequired" maxlength="200" value="<%=data.dataset?.domainurl%>" /><div class="input-group-required"><label class="required"></label></div></div><div id="domainurl_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('domainurl_alert','You can not leave this empty')%></div>
 						</div>
 					</div>
 				</div>

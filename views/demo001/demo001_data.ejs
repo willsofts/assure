@@ -1,0 +1,74 @@
+<form name="fslistform" id="fslistform" method="post" autocomplete="off">
+	<input type="hidden" name="ajax" value="true"/>
+	<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
+	<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
+	<input type="hidden" name="page" value="<%=page.setting?.page%>"/>
+	<input type="hidden" name="fieldchar" />
+</form>
+<form name="fssortform" id="fssortform" method="post" autocomplete="off">
+	<input type="hidden" name="ajax" value="true"/>
+	<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
+	<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
+	<input type="hidden" name="page" value="<%=page.setting?.page%>"/>
+	<input type="hidden" name="orderDir" value="<%=page.invertOrder()%>"/>
+	<input type="hidden" name="orderBy" />
+</form>
+<table id="datatable" class="table table-bordered table-hover table-striped tablesorter">
+	<thead>
+		<tr>
+			<th class="text-center th-sequence"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="fieldchar"><label id="fieldchar_headerlabel"><%=label.get('fieldchar_headerlabel','Key Code')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="fielddate"><label id="fielddate_headerlabel"><%=label.get('fielddate_headerlabel','Date')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="fieldtime"><label id="fieldtime_headerlabel"><%=label.get('fieldtime_headerlabel','Time')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="fielddecimal"><label id="fielddecimal_headerlabel"><%=label.get('fielddecimal_headerlabel','Amount')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="fieldtext"><label id="fielddecimal_headerlabel"><%=label.get('fieldtext_headerlabel','Name')%></label></a></th>
+			<th class="text-center th-action"><em class="fa fa-bolt" aria-hidden="true"></em></th>
+		</tr>
+	</thead>
+	<tbody id="datatablebody">							
+		<%	let rows = data.dataset?.rows;
+			if(rows && rows.length>0) { 
+				for(let index=0; index < rows.length; index++) { 
+					let item = rows[index]; %>
+					<tr>
+						<td class="text-center"><%=page.recordsNumber(index+1)%></td>
+						<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.fieldchar%>"><%=item?.fieldchar%></a></td>
+						<td class="text-center"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.fieldchar%>"><%=page.format({value: item?.fielddate, field:{type:"DATE"}})%></a></td>
+						<td class="text-center"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.fieldchar%>"><%=page.format({value: item?.fieldtime, field:{type:"TIME"}})%></a></td>
+						<td class="text-right"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.fieldchar%>"><%=page.format({value: item?.fielddecimal, field:{type:"DECIMAL", options: {mindigit: 4}}})%></a></td>
+						<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.fieldchar%>"><%=item?.fieldtext%></a></td>
+						<td class="text-center">
+							<button class="btn-edit fa-data-edit" data-key="<%=item?.fieldchar%>" title="<%=label.get('btnedit_tooltip')%>"></button>
+							<button class="btn-delete fa-data-delete" data-key="<%=item?.fieldchar%>" title="<%=label.get('btndelete_tooltip')%>"></button>
+						</td>
+					</tr>
+		<%		}
+			} else {
+				if(rows) { %>
+					<tr>
+						<td class="text-center" colspan="7">
+							<%=label.get('recordnotfound','Record not found')%>
+						</td>
+					</tr>
+		<%		}
+			}	%>
+	</tbody>
+</table>	
+<div id="fschaptertablelayer" class="fschaptertablelayer">
+<table id="fschaptertable" class="fschaptertable">
+	<tr class="fschapterrow"><td class="fschaptercolumn">
+	<form name="fschapterform" id="fschapterform" method="post" autocomplete="off">
+		<input type="hidden" name="ajax" value="true"/>
+		<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
+		<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
+		<input type="hidden" name="page" value="<%=page.setting?.page%>"/>
+		<input type="hidden" name="orderDir" value="<%=page.setting?.orderDir%>"/>
+		<input type="hidden" name="orderBy" value="<%=page.setting?.orderBy%>"/>
+	</form>
+	<div id="fschapterlayer">
+		<%- page.createPaging() %>
+	</div>
+	</td>
+	</tr>
+</table>
+</div>

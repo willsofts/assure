@@ -16,12 +16,12 @@
 <table id="datatable" class="table table-bordered table-hover table-striped tablesorter">
 	<thead>
 		<tr>
-			<th width="75px"  class="text-center" style="cursor: default;"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
-			<th width="250px" class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'groupname')"><label id="groupname_headerlabel"><%=label.get('groupname_headerlabel','Group Name')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'nameen')"><label id="nameen_headerlabel"><%=label.get('nameen_headerlabel','Name (English)')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'nameth')"><label id="nameth_headerlabel"><%=label.get('nameth_headerlabel','Name (Thai)')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'seqno')"><label id="sequenceno_headerlabel"><%=label.get('sequenceno_headerlabel','Sequence')%></label></a></th>
-			<th width="100px" class="text-center" style="cursor: default;"><em class="fa fa-bolt" aria-hidden="true"></em></th>
+			<th width="75px"  class="text-center th-sequence"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
+			<th width="250px" class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="groupname"><label id="groupname_headerlabel"><%=label.get('groupname_headerlabel','Group Name')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="nameen"><label id="nameen_headerlabel"><%=label.get('nameen_headerlabel','Name (English)')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="nameth"><label id="nameth_headerlabel"><%=label.get('nameth_headerlabel','Name (Thai)')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="seqno"><label id="sequenceno_headerlabel"><%=label.get('sequenceno_headerlabel','Sequence')%></label></a></th>
+			<th width="100px" class="text-center th-action"><em class="fa fa-bolt" aria-hidden="true"></em></th>
 		</tr>
 	</thead>
 	<tbody id="datatablebody">							
@@ -31,16 +31,14 @@
 					let item = rows[index]; %>
 						<tr>
 							<td class="text-center"><%=page.recordsNumber(index+1)%></td>
-							<td><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieve(this,'<%=item?.groupname%>');"><%=item?.groupname%></a></td>
-							<td><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieve(this,'<%=item?.groupname%>');"><%=item?.nameen%></a></td>
-							<td><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieve(this,'<%=item?.groupname%>');"><%=item?.nameth%></a></td>
-							<td class="text-center"><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieve(this,'<%=item?.groupname%>');"><%=item?.seqno%></a></td>
-							<td class="text-center">
-									<a href="javascript:void(0)" onclick="submitEdit(this,'<%=item?.groupname%>');" class="btn-edit-record"><em class="fa fa-edit"></em></a>
-									<button name="btn-edit" type="button" class="btn-edit" title="<%=label.get('btnedit_tooltip')%>"
-											onclick="submitRetrieve(this,'<%=item?.groupname%>');"></button>
-									<button type="button" class="btn-delete" title="<%=label.get('btndelete_tooltip')%>" 
-											onclick="submitDelete(this,['<%=item?.groupname%>']);"></button>
+							<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.groupname%>"><%=item?.groupname%></a></td>
+							<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.groupname%>"><%=item?.nameen%></a></td>
+							<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.groupname%>"><%=item?.nameth%></a></td>
+							<td class="text-center"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.groupname%>"><%=item?.seqno%></a></td>
+							<td class="text-center fa-no-wraper fa-boxer">
+								<button class="btn-edit-record fa-data-view" data-key="<%=item?.groupname%>" ><em class="fa fa-edit"></em></button>
+								<button class="btn-edit fa-data-edit" data-key="<%=item?.groupname%>" title="<%=label.get('btnedit_tooltip')%>"></button>
+								<button class="btn-delete fa-data-delete" data-key="<%=item?.groupname%>" title="<%=label.get('btndelete_tooltip')%>"></button>
 							</td>
 						</tr>
 		<%		}
@@ -55,8 +53,8 @@
 			}	%>
 	</tbody>
 </table>	
-<div class="fschaptertablelayer" style="text-align: center;">
-<table class="fschaptertable" style="margin: auto;">
+<div id="fschaptertablelayer" class="fschaptertablelayer">
+<table id="fschaptertable" class="fschaptertable">
 	<tr class="fschapterrow"><td class="fschaptercolumn">
 	<form name="fschapterform" id="fschapterform" method="post" autocomplete="off">
 		<input type="hidden" name="ajax" value="true"/>

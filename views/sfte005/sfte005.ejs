@@ -5,6 +5,7 @@
 		<%- include('../asset/meta') %>		
 		<%- include('../asset/styles') %>		
 		<%- include('../asset/scripts') %>	
+		<link rel="stylesheet" type="text/css" href="<%=meta.base_url%>/sfte005/sfte005.css" />
 		<script type="text/javascript" src="<%=meta.base_url%>/sfte005/sfte005.js"></script>
 	</head>
 	<body class="portalbody portalbody-off">
@@ -12,7 +13,7 @@
 		<div id="ptsearchpager" class="pt-page pt-page-current pt-page-controller sfte005-search-pager">
 			<%- page.createHeader({pid: 'sfte005', title: label.get('caption','User Information')}) %>
 			<div id="searchpanel" class="panel-body">
-				<form id="fssearchform" name="fssearchform" method="post" onsubmit="return false;">
+				<form id="fssearchform" name="fssearchform" method="post">
 					<input type="hidden" name="ajax" value="true"/>
 					<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
 					<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
@@ -21,7 +22,7 @@
 					<input type="hidden" name="orderDir" value=""/>
 					<%- include('./sfte005_filter') %>
 				</form>
-				<div id="listpanel" class="table-responsive" style="padding-top: 10px;">
+				<div id="listpanel" class="table-responsive fa-list-panel">
 					<%- include('./sfte005_data') %>
 				</div>
 			</div>

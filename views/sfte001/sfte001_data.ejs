@@ -14,13 +14,13 @@
 	<input type="hidden" name="orderBy" />
 </form>
 <table id="datatable" class="table table-bordered table-hover table-striped tablesorter">
-	<thead>
+	<thead id="datatableheader">
 		<tr>
-			<th class="text-center" style="cursor: default;"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'programid')"><label id="programid_headerlabel"><%=label.get('programid_headerlabel','Program ID')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrder(this,'progname')"><label id="progname_headerlabel"><%=label.get('progname_headerlabel','Program Name (English)')%></label></a></th>
-			<th class="text-center"><label id="progtypedesc_headerlabel"><%=label.get('progtypedesc_headerlabel','Program Type')%></label></th>
-			<th class="text-center" style="cursor: default;"><em class="fa fa-bolt" aria-hidden="true"></em></th>
+			<th class="text-center th-sequence"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="programid"><label id="programid_headerlabel"><%=label.get('programid_headerlabel','Program ID')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="progname"><label id="progname_headerlabel"><%=label.get('progname_headerlabel','Program Name (English)')%></label></a></th>
+			<th class="text-center th-data"><label id="progtypedesc_headerlabel"><%=label.get('progtypedesc_headerlabel','Program Type')%></label></th>
+			<th class="text-center th-action"><em class="fa fa-bolt" aria-hidden="true"></em></th>
 		</tr>
 	</thead>
 	<tbody id="datatablebody">							
@@ -30,14 +30,12 @@
 						let item = rows[index]; %>
 						<tr>
 							<td class="text-center"><%=page.recordsNumber(index+1)%></td>
-							<td><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieve(this,'<%=item?.programid%>');"><%=item?.programid%></a></td>
-							<td><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieve(this,'<%=item?.programid%>');"><%=item?.progname%></a></td>
-							<td><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieve(this,'<%=item?.programid%>');"><%=item?.progtypedesc%></a></td>
+							<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.programid%>"><%=item?.programid%></a></td>
+							<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.programid%>"><%=item?.progname%></a></td>
+							<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.programid%>"><%=item?.progtypedesc%></a></td>
 							<td class="text-center">
-								<button name="btn-edit" type="button" class="btn-edit" title="<%=label.get('btnedit_tooltip')%>"
-										onclick="submitRetrieve(this,'<%=item?.programid%>');"></button>
-								<button type="button" class="btn-delete" title="<%=label.get('btndelete_tooltip')%>" 
-										onclick="submitDelete(this,['<%=item?.programid%>']);"></button>
+								<button class="btn-edit fa-data-edit" data-key="<%=item?.programid%>" title="<%=label.get('btnedit_tooltip')%>"></button>
+								<button class="btn-delete fa-data-delete" data-key="<%=item?.programid%>" title="<%=label.get('btndelete_tooltip')%>"></button>
 							</td>
 						</tr>
 			<%		}
@@ -52,8 +50,8 @@
 				}	%>
 	</tbody>
 </table>	
-<div style="text-align: center;" class="fschaptertablelayer">
-<table style="margin: auto;" class="fschaptertable">
+<div id="fschaptertablelayer" class="fschaptertablelayer">
+<table id="fschaptertable" class="fschaptertable">
 	<tr class="fschapterrow"><td class="fschaptercolumn">
 	<form name="fschapterform" id="fschapterform" method="post" autocomplete="off">
 		<input type="hidden" name="ajax" value="true"/>

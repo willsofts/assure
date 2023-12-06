@@ -13,7 +13,7 @@
 						</div>
 						<div class="col-md-3 col-height">
 							<input type="text" class="form-control input-md ikeyclass alert-input groupname" id="groupname" name="groupname" placeholder="" autocomplete="off" size="20" picture="(20)X" />
-							<div id="groupname_alert" role="alert" class="has-feedback has-error groupname-alert" style="display:none;"><%=label.get('groupname_alert','You can not leave this empty')%></div>
+							<div id="groupname_alert" role="alert" class="has-feedback has-error groupname-alert fa-hidden"><%=label.get('groupname_alert','You can not leave this empty')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
@@ -22,7 +22,7 @@
 						</div>
 						<div class="col-md-6 col-height">
 							<input class="form-control input-md alert-input nameen" id="nameen" name="nameen" placeholder="" autocomplete="off" size="50"/>
-							<div id="nameen_alert" role="alert" class="has-feedback has-error nameen-alert" style="display:none;"><%=label.get('nameen_alert','You can not leave this empty')%></div>
+							<div id="nameen_alert" role="alert" class="has-feedback has-error nameen-alert fa-hidden"><%=label.get('nameen_alert','You can not leave this empty')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
@@ -31,7 +31,7 @@
 						</div>
 						<div class="col-md-6 col-height">
 							<input class="form-control input-md alert-input nameth" id="nameth" name="nameth" placeholder="" autocomplete="off" size="50"/>
-							<div id="nameth_alert" role="alert" class="has-feedback has-error nameth-alert" style="display:none;"><%=label.get('nameth_alert','You can not leave this empty')%></div>
+							<div id="nameth_alert" role="alert" class="has-feedback has-error nameth-alert fa-hidden"><%=label.get('nameth_alert','You can not leave this empty')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
@@ -39,10 +39,10 @@
 							<label id="usertype_label" class="control-label" required="true"><%=label.get('usertype_label','User Type')%></label>
 						</div>
 						<div class="col-md-3 col-height">
-							<fieldset id="usertypefieldset" disabled><legend style="display:none;"></legend>
+							<fieldset id="usertypefieldset" disabled><legend class="fa-hidden"></legend>
 								<%-page.html('select',{map: data.entity?.tkusertype, value: data.dataset?.usertype, id: "usertype", name: "usertype", class: "form-control input-md ikeyclass alert-input"})%>
 							</fieldset>
-							<div id="usertype_alert" role="alert" class="has-feedback has-error usertype-alert" style="display:none;"><%=label.get('usertype_alert','You can not leave this empty')%></div>
+							<div id="usertype_alert" role="alert" class="has-feedback has-error usertype-alert fa-hidden"><%=label.get('usertype_alert','You can not leave this empty')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
@@ -51,7 +51,7 @@
 						</div>
 						<div class="col-md-3 col-height">
 							<%-page.html('select',{map: data.entity?.tkgroupmobile, value: data.dataset?.mobilegroup, id: "mobilegroup", name: "mobilegroup", class: "form-control input-md alert-input"})%>
-							<div id="mobilegroup_alert" role="alert" class="has-feedback has-error usertype-alert" style="display:none;"><%=label.get('mobilegroup_alert','You can not leave this empty')%></div>
+							<div id="mobilegroup_alert" role="alert" class="has-feedback has-error usertype-alert fa-hidden"><%=label.get('mobilegroup_alert','You can not leave this empty')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
@@ -80,11 +80,11 @@
 						</div>
 						<div class="col-md-2 col-height">
 							<%-page.html('int',{value: data.dataset?.seqno, id: "sequenceno", name: "seqno", class: "form-control input-md alert-input sequenceno"})%>
-							<div id="sequenceno_alert" role="alert" class="has-feedback has-error sequenceno-alert" style="display:none;"><%=label.get('sequenceno_alert','You can not leave this empty')%></div>
+							<div id="sequenceno_alert" role="alert" class="has-feedback has-error sequenceno-alert fa-hidden"><%=label.get('sequenceno_alert','You can not leave this empty')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
-					<div class="col-md-12 pull-right text-right" style="margin-right: 10px;">
+					<div class="col-md-12 pull-right text-right btn-control-layer">
 						<input type="button" id="savebutton" class="btn btn-dark btn-sm" value="<%=label.get('savebutton','Save')%>"/>
 						&nbsp;&nbsp;
 						<input type="button" id="cancelbutton" class="btn btn-dark btn-sm" value="<%=label.get('cancelbutton','Cancel')%>"/>
@@ -92,10 +92,10 @@
 				</div>
 			</div>
 
-			<div class="row" style="margin-left:0px; margin-right: 3px;">
-			<div id="proglayerheader" class="pt-page-header pt-page-corser"><label id="progtrans_label"><%=label.get('progtrans_label','Program In Group')%></label><a href="javascript:void(0)" class="pull-right up" onclick="exploreLayer(this,'proglayer')"><em class="fa fa-chevron-circle-up" style="margin-right: 5px;"></em></a></div>
+			<div id="programcontrollayer" class="row">
+			<div id="proglayerheader" class="pt-page-header pt-page-corser"><label id="progtrans_label"><%=label.get('progtrans_label','Program In Group')%></label><a href="javascript:void(0)" class="pull-right up" onclick="exploreLayer(this,'proglayer')"><em class="fa fa-chevron-circle-up fa-toggle-collapse"></em></a></div>
 				<div id="proglayer" class="portal-area portal-area-layer">
-					<div class="row" style="padding-top:3px; padding-bottom:3px;">
+					<div id="programrowlayer" class="row">
 						<div class="col-md-3 col-height col-label text-right">
 							<label id="prog_progingroup_label" class="control-label"><%=label.get('prog_progingroup_label','Program ID')%></label>
 						</div>
@@ -103,22 +103,22 @@
 							<%-page.html('select',{map: data.entity?.tprog, value: data.dataset?.programid, id: "progingroup", class: "form-control input-md", showing: "both"})%>
 						</div>
 						<div class="col-md-1 col-height">
-							<input type="button" id="addprogbutton" class="btn btn-dark btn-sm" value="+" style="width:30px;" title="Add Program"/>
+							<input type="button" id="addprogbutton" class="btn btn-dark btn-sm" value="+" title="Add Program"/>
 						</div>
 					</div>
 					<table id="progtable" class="table table-bordered table-hover table-striped tablesorter">
 						<thead id="progtableheader">
 							<tr>
-								<th width="10%"  class="text-center" style="cursor: default;"><label id="prog_seqno_headerlabel" ><%=label.get('prog_seqno_headerlabel','No.')%></label></th>
-								<th width="30%" class="text-center"><label id="prog_progid_headerlabel"><%=label.get('prog_progid_headerlabel','Program ID')%></label></th>
-								<th width="50%" class="text-center"><label id="prog_progname_headerlabel"><%=label.get('prog_progname_headerlabel','Program Name')%></label></th>
-								<th width="10%" class="text-center"><em class="fa fa-bolt" aria-hidden="true"></em></th>
+								<th width="10%"  class="text-center th-sequence"><label id="prog_seqno_headerlabel" ><%=label.get('prog_seqno_headerlabel','No.')%></label></th>
+								<th width="30%" class="text-center th-data"><label id="prog_progid_headerlabel"><%=label.get('prog_progid_headerlabel','Program ID')%></label></th>
+								<th width="50%" class="text-center th-data"><label id="prog_progname_headerlabel"><%=label.get('prog_progname_headerlabel','Program Name')%></label></th>
+								<th width="10%" class="text-center th-action"><em class="fa fa-bolt" aria-hidden="true"></em></th>
 							</tr>
 						</thead>
 						<tbody id="aprogtablebody">
 						</tbody>
 					</table>
-					<div id="progtablelayer" style="margin-bottom: 50px;">
+					<div id="progtablelayer">
 						<ul id="progtablebody" class="ul-table-listing"> </ul>
 					</div>					
 				</div>

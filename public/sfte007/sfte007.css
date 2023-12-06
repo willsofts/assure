@@ -1,5 +1,18 @@
 /*#(10000) programmer code begin;*/
+#searchbutton { margin-top: 10px; margin-left: 10px; margin-right: 10px; }
+.gender-label { font-size: 20px; }
 #siteflag_label { color: navy; }
 #branchflag_label { color: navy; }
 #resetpasswordbutton { width: 150px; margin-right: 10px; }
+#resetfactorbutton { margin-top:12px; }
+#accessallsheaderinfo { min-height: 35px; padding-left: 5px; }
+#accessalls_legend { margin-bottom:0px; }
+#branchflaglayer { padding-left: 5px; }
+#accessbrancheslayer { padding-left: 40px; }
+#accessrolesheaderinfo { min-height: 35px; padding-left: 5px; }
+#accessrole_legend { margin-bottom:0px; }
+#rolelayer { padding-left: 5px; }
+#accessgroupsheaderinfo { min-height: 35px; padding-left: 5px; }
+#accessgroups_legend { margin-bottom:0px; }
+#accessgroupslayer { padding-left: 5px; }
 /*#(10000) programmer code end;*/

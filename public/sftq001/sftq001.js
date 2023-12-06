@@ -55,6 +55,7 @@ function searchComplete(xhr,data) {
 	$("#listpanel").data("searchfilters",createParameters(fssearchform));
 	stopWaiting();
 	$("#listpanel").html(data);
+	setupDataTable();
 }
 function submitChapter(aform,index) {
 	let formdata = serializeDataForm(aform, $("#listpanel").data("searchfilters"));
@@ -73,6 +74,7 @@ function submitChapter(aform,index) {
 		success: function(data,status,transport){ 
 			stopWaiting();
 			$("#listpanel").html(data); 
+			setupDataTable();
 		}
 	});
 }
@@ -96,7 +98,12 @@ function submitOrder(src,sorter) {
 		success: function(data,status,transport){ 
 			stopWaiting();
 			$("#listpanel").html(data); 
+			setupDataTable();
 		}
 	});
 	return false;
+}
+function setupDataTable() {
+	setupPageSorting("datatable",submitOrder);
+	setupPagination("fschapterlayer",submitChapter,fschapterform,fssearchform);
 }

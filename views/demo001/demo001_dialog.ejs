@@ -1,0 +1,35 @@
+<div id="fsmodaldialog_layer" class="modal fade pt-page pt-page-item" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-xm">
+		<div class="modal-content portal-area fa-portal-area">
+			<div class="modal-header">
+				<h4 class="modal-title" id="modalheadertitle">
+					<% if(!page.isUpdateMode()) {%>
+						<%=label.get('modalheadertitle_new','New')%>
+					<% } %>
+					<% if(page.isUpdateMode()) {%>
+						<%=label.get('modalheadertitle_edit','Edit')%>
+					<% } %>
+				</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div id="entrydialoglayer" class="entry-dialog-layer">
+			<form id="fsentryform" role="form" data-toggle="validator" name="fsentryform" method="post">
+				<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
+				<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
+				<input type="hidden" name="page" value="<%=page.setting?.page%>"/>
+				<%- include('./demo001_key') %>
+				<%- include('./demo001_kit') %>
+			</form>	
+			</div>
+			<div class="row-heighter modal-footer" >
+				<% if(!page.isUpdateMode()) {%>
+					<input type="button" id="savebutton" class="btn btn-dark btn-sm" value="<%=label.get('savebutton','Save')%>"/>
+				<% } %>
+				<% if(page.isUpdateMode()) {%>
+					<input type="button" id="updatebutton" class="btn btn-dark btn-sm" value="<%=label.get('updatebutton','Update')%>"/>
+				<% } %>
+				<input type="button" id="canceldialogbutton" class="btn btn-dark btn-sm" data-dismiss="modal" value="<%=label.get('canceldialogbutton','Cancel')%>"/>
+			</div>
+		</div>
+	</div>
+</div>

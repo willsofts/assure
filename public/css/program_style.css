@@ -89,3 +89,12 @@ div.entry-key-layer { padding: 5px; }
 .pt-page th a:hover, a:focus { color: #FF9933; }
 
 .input-group-container { width: 90% }
+
+div.fa-portal-area { margin-left:15px; padding-top: 10px; padding-left: 5px; padding-bottom:15px; }
+div.fa-list-panel { margin-top: 8px; }
+.fschaptertablelayer { text-align: center; }
+.fschaptertable { margin: auto; }
+.fa-btn-icon { margin-right:10px; }
+.fa-no-wraper { white-space: nowrap; }
+.fa-boxer { display: flex; align-items: center; justify-content: center; }
+.fa-partition-toggle { margin-left: 2px; margin-right: 2px; }

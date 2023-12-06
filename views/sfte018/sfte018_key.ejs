@@ -1,24 +1,24 @@
-<% let display = page.isUpdateMode()?"block":"none"; %>
+<% let display = page.isUpdateMode()?"":"fa-hidden"; %>
 		<div class="row row-height">
 			<div class="col-md-12 col-height">
 					<div class="table-layer-class">
 						<div class="row row-height">
 							<div class="col-height col-md-11">
 <label for="tenantname" id="tenantname_label" class="control-label"><%=label.get('tenantname_label','Name')%></label>
-<div class="input-group"><input type="text" id="tenantname" name="tenantname" class="form-control input-md irequired alert-input" maxlength="100" value="<%=data.dataset?.tenantname%>" /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="tenantname_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('tenantname_alert','You can not leave this empty')%></div>
+<div class="input-group"><input type="text" id="tenantname" name="tenantname" class="form-control input-md irequired alert-input" maxlength="100" value="<%=data.dataset?.tenantname%>" /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="tenantname_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('tenantname_alert','You can not leave this empty')%></div>
 							</div>
 						</div>
 					</div>
 			</div>
 		</div>
-		<div class="row row-height hidden-layer copy-layer" style="display: <%=display%>">
+		<div class="row row-height hidden-layer copy-layer <%=display%>">
 			<div class="col-md-12 col-height">
 					<div class="table-layer-class">
 						<div class="row row-height">
 							<div class="col-height col-md-11">
 <label for="tenantid" id="tenantid_label" class="control-label"><%=label.get('tenantid_label','Client')%></label><div class="input-group"><input type="text" id="tenantid" name="tenantid" class="form-control input-md irequired ikeyclass alert-input" value="<%=data.dataset?.tenantid%>" readonly />
-<a href="javascript:void(0);" class="input-group-addon input-group-append input-group-text" onclick="copyClient()" tabindex="-1"><i class="fa fa-copy" aria-hidden="true"></i></a>
-</div><div id="tenantid_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('tenantid_alert','You can not leave this empty')%></div>
+<a href="javascript:void(0);" class="input-group-addon input-group-append input-group-text" id="copyclientlinker" tabindex="-1"><i class="fa fa-copy" aria-hidden="true"></i></a>
+</div><div id="tenantid_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('tenantid_alert','You can not leave this empty')%></div>
 							</div>
 						</div>
 					</div>

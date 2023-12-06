@@ -1,0 +1,1 @@
+$(function(){$(window).scroll(function(){if($(document).scrollTop()>50){$("#navigatebar").addClass("navbar-fixed-top");$(".portalbody").removeClass("portalbody-off").addClass("portalbody-on")}else{$("#navigatebar").removeClass("navbar-fixed-top");$(".portalbody").removeClass("portalbody-on").addClass("portalbody-off")}})});

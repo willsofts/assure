@@ -14,7 +14,7 @@
 		<div id="ptsearchpager" class="pt-page pt-page-current pt-page-controller sfte001-search-pager">
 			<%- page.createHeader({pid: 'sfte001', title: label.get('caption','Program Information')}) %>
 			<div id="searchpanel" class="panel-body">
-				<form id="fssearchform" name="fssearchform" method="post" onsubmit="return false;">
+				<form id="fssearchform" name="fssearchform" method="post">
 					<input type="hidden" name="ajax" value="true"/>
 					<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
 					<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
@@ -23,13 +23,13 @@
 					<input type="hidden" name="orderDir" value=""/>
 					<%- include('./sfte001_filter') %>
 				</form>
-				<div id="listpanel" class="table-responsive" style="padding-top: 10px;">
+				<div id="listpanel" class="table-responsive fa-list-panel">
 					<%- include('./sfte001_data') %>
 				</div>
 			</div>
 		</div>
 		<div id="dialogpanel"></div>
-		<div id="uploadlayer" style="display:none;">
+		<div id="uploadlayer" class="fa-hidden">
 			<form id="uploadform" name="uploadform" enctype="multipart/form-data">
 				<input type="hidden" id="uploadprogramid" name="programid" />
 				<div id="uploadiconlayer"><input type="file" id="uploadiconfile" name="iconfile" /></div>

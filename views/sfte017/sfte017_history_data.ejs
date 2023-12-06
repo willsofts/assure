@@ -14,27 +14,27 @@
 	<input type="hidden" name="orderBy" />
 	<input type="hidden" name="userid" value="<%=data.meta?.userid%>"/>
 </form>
-<table id="datatable" class="table table-bordered table-hover table-striped tablesorter">
+<table id="datatablehistory" class="table table-bordered table-hover table-striped tablesorter">
 	<thead>
 		<tr>
-			<th class="text-center" style="cursor: default;"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
-			<th class="text-left"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrderHistory(this,'email')"><label id="email_headerlabel"><%=label.get('email_headerlabel','Email')%></label></a></th>
-			<th class="text-left"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrderHistory(this,'issuer')"><label id="issuer_headerlabel"><%=label.get('issuer_headerlabel','Issuer')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrderHistory(this,'createdatetime')"><label id="createdatetime_headerlabel"><%=label.get('createdatetime_headerlabel','Create Date')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrderHistory(this,'confirmdatetime')"><label id="confirmdatetime_headerlabel"><%=label.get('confirmdatetime_headerlabel','Confirm Date')%></label></a></th>
+			<th class="text-center th-sequence"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
+			<th class="text-left th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="email" onclick="submitOrderHistory(this,'email')"><label id="email_headerlabel"><%=label.get('email_headerlabel','Email')%></label></a></th>
+			<th class="text-left th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="issuer" onclick="submitOrderHistory(this,'issuer')"><label id="issuer_headerlabel"><%=label.get('issuer_headerlabel','Issuer')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="createdatetime" onclick="submitOrderHistory(this,'createdatetime')"><label id="createdatetime_headerlabel"><%=label.get('createdatetime_headerlabel','Create Date')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="confirmdatetime" onclick="submitOrderHistory(this,'confirmdatetime')"><label id="confirmdatetime_headerlabel"><%=label.get('confirmdatetime_headerlabel','Confirm Date')%></label></a></th>
 		</tr>
 	</thead>
-	<tbody id="datatablebody">							
+	<tbody id="datatablebodyhistory">							
 		<%	let rows = data.dataset?.rows;
 			if(rows && rows.length>0) { 
 				for(let index=0; index < rows.length; index++) { 
 					let item = rows[index]; %>
 					<tr>
 						<td class="text-center"><%=page.recordsNumber(index+1)%></td>
-						<td align="left"><a href="javascript:void(0)" class="alink-data"><%=item?.email%></a></td>
-						<td align="left"><a href="javascript:void(0)" class="alink-data"><%=item?.issuer%></a></td>
-						<td align="center"><a href="javascript:void(0)" class="alink-data"><%=page.format({value: item?.createdate, field:{type:"DATE"}})%> &nbsp; <%=page.format({value: item?.createtime, field:{type:"TIME"}})%></a></td>
-						<td align="center"><a href="javascript:void(0)" class="alink-data"><%=page.format({value: item?.confirmdate, field:{type:"DATE"}})%> &nbsp; <%=page.format({value: item?.confirmtime, field:{type:"TIME"}})%></a></td>
+						<td class="text-left"><a href="javascript:void(0)" class="alink-data"><%=item?.email%></a></td>
+						<td class="text-left"><a href="javascript:void(0)" class="alink-data"><%=item?.issuer%></a></td>
+						<td class="text-center"><a href="javascript:void(0)" class="alink-data"><%=page.format({value: item?.createdate, field:{type:"DATE"}})%> &nbsp; <%=page.format({value: item?.createtime, field:{type:"TIME"}})%></a></td>
+						<td class="text-center"><a href="javascript:void(0)" class="alink-data"><%=page.format({value: item?.confirmdate, field:{type:"DATE"}})%> &nbsp; <%=page.format({value: item?.confirmtime, field:{type:"TIME"}})%></a></td>
 					</tr>
 				<%		}
 			} else {
@@ -48,8 +48,8 @@
 			}	%>			
 	</tbody>
 </table>	
-<div style="text-align: center;" class="fschaptertablelayer">
-	<table style="margin: auto;" class="fschaptertable">
+<div id="fschaptertablelayerhistory" class="fschaptertablelayer">
+	<table id="fschaptertablehistory" class="fschaptertable">
 		<tr class="fschapterrowhistory">
 			<td class="fschaptercolumn">
 				<form name="fschapterformhistory" id="fschapterformhistory" method="post" autocomplete="off">

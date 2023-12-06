@@ -1,5 +1,5 @@
-			<div id="searchpanel" class="panel-body" style="display:none;">
-				<form id="fssearchform" name="fssearchform" method="post" onsubmit="return false;">
+			<div id="searchpanel" class="panel-body fa-hidden">
+				<form id="fssearchform" name="fssearchform" method="post">
 					<input type="hidden" name="ajax" value="true"/>
 					<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
 					<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
@@ -8,7 +8,7 @@
 					<input type="hidden" name="orderDir" value=""/>
 					<%- include('./sfte010_filter') %>		
 				</form>
-				<div id="listpanel" class="table-responsive" style="padding-top: 10px;">
+				<div id="listpanel" class="table-responsive fa-list-panel">
 					<%- include('./sfte010_data') %>		
 				</div>
 			</div>

@@ -75,6 +75,7 @@ function searchCompleteNumber(xhr,data) {
 	$("#listpanelnum").data("searchfiltersnum",createParameters(fssearchformnum));
 	stopWaiting();
 	$("#listpanelnum").html(data);
+	setupDataTableNumber();
 }
 function insertNumber() {
 	let aform = fslistformnum;
@@ -212,6 +213,7 @@ function submitChapterNumber(aform,index) {
 		success: function(data,status,transport){
 			stopWaiting();
 			$("#listpanelnum").html(data);
+			setupDataTableNumber();
 		}
 	});
 }
@@ -234,6 +236,7 @@ function submitOrderNumber(src,sorter) {
 		success: function(data,status,transport){
 			stopWaiting();
 			$("#listpanelnum").html(data);
+			setupDataTableNumber();
 		}
 	});
 	return false;
@@ -310,4 +313,20 @@ function setupDialogComponentsNumber() {
 	setupAlertComponents($("#dialogpanel"));
 	initialApplicationControls($("#dialogpanel"));
 	$("#dialogpanel").find(".modal-dialog").draggable();
+}
+function setupDataTableNumber() {
+	setupPageSorting("datatablenum",submitOrderNumber);
+	setupPagination("fschapterlayernum",submitChapterNumber,fschapterformnum,fssearchformnum);
+	$("#datatablebodynum").find(".fa-data-edit").each(function(index,element) {
+		$(element).click(function() {
+			if($(this).is(":disabled")) return;
+			submitRetrieveNumber(element,$(this).attr("data-key"));
+		});
+	});
+	$("#datatablebodynum").find(".fa-data-delete").each(function(index,element) {
+		$(element).click(function() {
+			if($(this).is(":disabled")) return;
+			submitDeleteNumber(element,[$(this).attr("data-key")]);
+		});
+	});
 }

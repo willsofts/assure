@@ -1,0 +1,19 @@
+			<div class="row row-height">
+				<div class="col-md-12 col-height">
+						<div class="table-layer-class">
+							<div class="row row-height">
+								<div class="col-height col-md-3">
+<label for="fieldchars" id="fieldchars_label" class="control-label"><%=label.get('fieldchars_label','Key Code')%></label><input type="text" id="fieldchars" name="fieldchar" class="form-control input-md" value="<%=data.dataset?.fieldchar%>" /><span></span>
+								</div>
+								<div class="col-height col-md-3">
+<label for="fielddates" id="fielddates_label" class="control-label"><%=label.get('fielddates_label','Date')%></label><%-page.html('date',{id: "fielddates", name: "fielddate", class: "form-control input-md", value: data.dataset?.fielddate, current: true})%><span></span>
+								</div>
+								<div class="col-md">
+									<br/>
+									<button type="button" id="searchbutton" class="btn btn-dark btn-sm"><i class="fa fa-search fa-btn-icon" aria-hidden="true"></i><%=label.get('searchbutton','Search')%></button>
+									<button type="button" id="insertbutton" class="btn btn-dark btn-sm pull-right"><i class="fa fa-plus fa-btn-icon" aria-hidden="true"></i><%=label.get('insertbutton','Insert')%></button>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>

@@ -1,6 +1,9 @@
 /*#(10000) programmer code begin;*/
+#searchbutton { margin-right: 5px; }
 a.disabled {
   color: gray;
   pointer-events: none;
 }
+#contents { overflow: auto; min-height: 250px; }
+#buttoncontrollayer { padding-left: 0px; padding-right: 10px; }
 /*#(10000) programmer code end;*/

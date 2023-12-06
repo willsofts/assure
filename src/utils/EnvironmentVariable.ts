@@ -45,3 +45,4 @@ export const EXCEPT_LAUNCH_PATH: string = config.env("EXCEPT_LAUNCH_PATH","page_
 export const DEFAULT_PRIVILEGES: string = config.env("DEFAULT_PRIVILEGES","OPERATOR");
 
 export const CONTENT_SECURITY_POLICY: string = config.env("CONTENT_SECURITY_POLICY","");
+export const INLINE_BINDING: boolean = config.env("INLINE_BINDING","false") === "true";

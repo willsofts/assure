@@ -16,10 +16,10 @@
 <table id="datatablenum" class="table table-bordered table-hover table-striped tablesorter">
 	<thead>
 		<tr>
-			<th class="text-center" style="cursor: default;"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrderNumber(this,'reservenum')"><label id="reservenum_headerlabel"><%=label.get('reservenum_headerlabel','Reserve Alphabet/Number')%></label></a></th>
-			<th class="text-center"><a href="javascript:void(0)" class="alink-sorter" onclick="submitOrderNumber(this,'remarks')"><label id="remarks_headerlabel"><%=label.get('remarks_headerlabel','Remark')%></label></a></th>
-			<th class="text-center" style="cursor: default;"><em class="fa fa-bolt" aria-hidden="true"></em></th>
+			<th class="text-center th-sequence"><label id="seqno_headerlabel"><%=label.get('seqno_headerlabel','No.')%></label></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="reservenum"><label id="reservenum_headerlabel"><%=label.get('reservenum_headerlabel','Reserve Alphabet/Number')%></label></a></th>
+			<th class="text-center th-data"><a href="javascript:void(0)" class="alink-sorter fa-data-sort" data-sorter="remarks"><label id="remarks_headerlabel"><%=label.get('remarks_headerlabel','Remark')%></label></a></th>
+			<th class="text-center th-action"><em class="fa fa-bolt" aria-hidden="true"></em></th>
 		</tr>
 	</thead>
 	<tbody id="datatablebodynum">							
@@ -29,13 +29,11 @@
 					let item = rows[index]; %>
 					<tr>
 						<td class="text-center"><%=page.recordsNumber(index+1)%></td>
-						<td><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieveNumber(this,'<%=item?.reservenum%>');"><%=item?.reservenum%></a></td>
-						<td><a href="javascript:void(0)" class="alink-data" onclick="submitRetrieveNumber(this,'<%=item?.reservenum%>');"><%=item?.remarks%></a></td>
+						<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.reservenum%>"><%=item?.reservenum%></a></td>
+						<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.reservenum%>"><%=item?.remarks%></a></td>
 						<td class="text-center">
-								<button name="btn-edit" type="button" class="btn-edit" title="<%=label.get('btnedit_tooltip')%>"
-										onclick="submitRetrieveNumber(this,'<%=item?.reservenum%>');"></button>
-								<button type="button" class="btn-delete" title="<%=label.get('btndelete_tooltip')%>" 
-										onclick="submitDeleteNumber(this,['<%=item?.reservenum%>']);"></button>
+							<button class="btn-edit fa-data-edit" data-key="<%=item?.reservenum%>" title="<%=label.get('btnedit_tooltip')%>"></button>
+							<button class="btn-delete fa-data-delete" data-key="<%=item?.reservenum%>" title="<%=label.get('btndelete_tooltip')%>"></button>
 						</td>
 					</tr>
 		<%		}
@@ -50,8 +48,8 @@
 			}	%>
 	</tbody>
 </table>	
-<div style="text-align: center;" class="fschaptertablelayer">
-<table style="margin: auto;" class="fschaptertable">
+<div id="fschaptertablelayernum" class="fschaptertablelayer">
+<table id="fschaptertablenum" class="fschaptertable">
 	<tr class="fschapterrow"><td class="fschaptercolumn">
 	<form name="fschapterformnum" id="fschapterformnum" method="post" autocomplete="off">
 		<input type="hidden" name="ajax" value="true"/>
@@ -61,7 +59,7 @@
 		<input type="hidden" name="orderDir" value="<%=page.setting?.orderDir%>"/>
 		<input type="hidden" name="orderBy" value="<%=page.setting?.orderBy%>"/>
 	</form>
-	<div id="fschapterlayer">
+	<div id="fschapterlayernum">
 		<%- page.createPaging({jsFunction: "submitChapterNumber", jsForm: "fschapterformnum", searchForm: "fssearchformnum"}) %>
 	</div>
 	</td>

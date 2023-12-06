@@ -5,6 +5,7 @@
 		<%- include('../asset/meta') %>		
 		<%- include('../asset/styles') %>		
 		<%- include('../asset/scripts') %>	
+		<link rel="stylesheet" type="text/css" href="<%=meta.base_url%>/sfte012/sfte012.css" />
 		<script type="text/javascript" src="<%=meta.base_url%>/sfte012/sfte012.js"></script>
 	</head>
 	<body class="portalbody portalbody-off">
@@ -17,10 +18,10 @@
 						<input type="hidden" name="rowsPerPage" value="<%=page.setting?.rowsPerPage%>"/>
 						<input type="hidden" name="limit" value="<%=page.setting?.limit%>"/>
 						<input type="hidden" name="page" value="<%=page.setting?.page%>"/>
-						<div class="portal-area sub-entry-layer" style="padding-left:5px;">
+						<div id="entrylayerarea" class="portal-area sub-entry-layer">
 							<%- include('./sfte012_kit') %>
 							<div class="row">
-								<div id="fs_controlbuttonfooterlayer" class="col-md-12 pull-right text-right" style="margin-right: 20px; margin-bottom:5px; margin-top: 10px;">
+								<div id="fs_controlbuttonfooterlayer" class="col-md-12 pull-right text-right">
 									<% if(page.isUpdateMode()) {%>
 										<input type="button" id="updatebutton" class="btn btn-dark btn-sm" value="<%=label.get('updatebutton','Update')%>"/>
 									<% } %>

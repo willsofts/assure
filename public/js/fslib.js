@@ -431,9 +431,9 @@ function getDateNow() {
 	return result; 
 } 
 let regPicture = /[9XEATxea]/; 
-function fs_intNumsOnly(myfield, e,decimal,isPlus) { 
+function fs_intNumsOnly(myfield,e,decimal,isPlus) { 
 	let key; let keychar;  
-	if (window.event) key = window.event.keyCode; else if (e) key = e.which; else return true; 
+	if (e) key = e.which; else return true; 
 	keychar = String.fromCharCode(key); 
 	 let element = myfield; 
 	 isPlus = ( isPlus != null )? true : false ; 
@@ -447,14 +447,14 @@ function fs_intNumsOnly(myfield, e,decimal,isPlus) {
 	else if ((("0123456789").indexOf(keychar) > -1)) return true; 
 	else return false; 
 } 
-function fs_intNumsOnly_chkKey(myfield, e,decimal,isPlus) { 
+function fs_intNumsOnly_chkKey(myfield,e,decimal,isPlus) { 
 	 let iskeyup = myfield.getAttribute('keyup'); 
 	 if ( iskeyup==null) ;  
 	 else if ( iskeyup==false){  event.returnValue = false;  return false; }  
 	 myfield.setAttribute('keyup',false);  
-	 return fs_intNumsOnly(myfield, e,decimal,isPlus);  
+	 return fs_intNumsOnly(myfield,e,decimal,isPlus);  
 } 
-function fs_chkKey(myfield,maxvalue,decimal) { 
+function fs_chkKey(myfield,event,decimal,maxvalue) { 
 	let iNum=event.keyCode; 
 	if (((iNum>=48)&&(iNum<=57)) || ((iNum>=96)&&(iNum<=105)) || iNum==109 || iNum==110 || iNum==189 || iNum==190 ) { 
 		myfield.setAttribute('keyup',true);    
@@ -675,6 +675,7 @@ function startApplication(pid,unbind,aform) {
 		$.fn.modal.Constructor.Default.backdrop = "static";
 		$.fn.modal.Constructor.Default.keyboard = false;
 	} catch(ex) { }
+	initialComponents();
 	try { requestAccessorInfo(); }catch(ex) { }
 }
 function initialAjax() {
@@ -706,6 +707,17 @@ function initialApplicationControls(aform) {
 			$(this).parent().wrap($("<fieldset disabled></fieldset>"));
 		}
 	});
+	setupScreenControls(aform);
+}
+function initialComponents() {
+	$("#viewversionlinker").click(function() { 
+		console.log("view version: "+$(this).attr("data-pid"));
+		try { viewVersion($("#viewversionlinker").attr("data-pid")); } catch(ex) { }
+	});
+	$("#increasefontlinker").click(function() { increaseFontSize(); });
+	$("#decreasefontlinker").click(function() { decreaseFontSize(); });
+}
+function viewVersion(pid) {
 }
 function bindHangOut() {
 	$(document).bind("click",function(e){ 
@@ -719,6 +731,48 @@ function setupApplication(aform) {
 	}catch(ex) { }	
 	try { backHawkDown(); }catch(ex) { }
 	try { $(window).bind("unload",closeChildWindows); }catch(ex) { }
+}
+function setupScreenControls(aform) {
+	$("input[type=text].idate",aform||this.document).each(function(index,element) { 
+		let $this = $(this);
+		let id = $this.attr("id");
+		$("#LK"+id).click(function() { fs_opencalendar(document.getElementById(id)); });
+		$("#CLR"+id).click(function() { fs_clearcalendar(document.getElementById(id)); });
+	});
+	$("input[type=text].iint",aform||this.document).each(function(index,element) { 
+		$(this).on("keypress",function(event) { return fs_intNumsOnly(this,event); });
+	});
+	$("input[type=text].imoney",aform||this.document).each(function(index,element) { 
+		let $this = $(this);
+		let decimal = $this.attr("decimal");
+		$this.on("keyup",function(event) { return fs_chkKey(this,event,decimal,null); });
+		$this.on("keypress",function(event) { return fs_intNumsOnly_chkKey(this,event,decimal); });
+	});
+}
+function setupPageSorting(acontrol,afunction) {
+	if(!acontrol) acontrol = "datatable";
+	if(!afunction) afunction = submitOrder;
+	$("#"+acontrol).find(".fa-data-sort").each(function(index,element) {
+		$(element).click(function() { 
+			if($(this).is(":disabled")) return;
+			let sorter = $(this).attr("data-sorter");
+			afunction(element,sorter);
+		});
+	});
+}
+function setupPagination(acontrol,afunction,aform,sform) {
+	if(!acontrol) acontrol = "fschapterlayer";
+	if(!aform) aform = fschapterform;
+	if(!afunction) afunction = submitChapter;
+	$("#"+acontrol).find(".fa-data-page").each(function(index,element) {
+		$(element).click(function() {
+			if($(this).is(":disabled")) return;
+			let pageno = $(this).attr("data-paging");
+			if(sform) { try { sform.page.value = pageno; } catch(ex) { } }
+			aform.page.value = pageno;
+			afunction(aform,pageno);
+		});
+	});
 }
 function startPeriodical(period) {
 }
@@ -754,7 +808,6 @@ function prepareOptions(jsAry,elementname,listing,defaultValue,defaultCaption,do
 		}
 	}catch(ex) { }
 }
-
 function backHawkDown() {
 	$(document).on("keydown", function (e) {
 		if (e.which == 8 && !$(e.target).is("input:not([readonly]), textarea")) {
@@ -1457,8 +1510,8 @@ function setupAlertComponents(container) {
 		if(ctrl) $(ctrl).hide();
 	});
 }
-function clearAlerts() {
-	$(".alert-input").each(function(index,element) {
+function clearAlerts(container) {
+	$(".alert-input",container||this.document).each(function(index,element) {
 		let ths = $(this);
 		let thisId = ths.attr("id");
 		ths.removeClass("is-invalid");
