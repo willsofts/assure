@@ -1,0 +1,5 @@
+.forgot-page { width:99.8%; display: block; }
+.sub-entry-layer { padding-top: 10px; padding-left: 5px; padding-bottom:15px; }
+#secureimage { border: 1px solid gray; }
+#secureimage_ctrl { min-width:30px; }
+#secureimage_ctrl_layer { vertical-align: bottom; }

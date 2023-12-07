@@ -3,20 +3,23 @@
 	<head>
 		<title>Authentication</title>		
 		<%- include('../asset/meta') %>		
-		<script type="text/javascript" src="<%=meta.cdn_url%>/js/fslib.js"></script>
 		<% if(auth?.isAuthenticated && data.body?.authtoken) {%>
-		<script type="text/javascript">
+		<script type="text/javascript" src="<%=meta.cdn_url%>/js/fslib.js"></script>
+		<script type="text/javascript" nonce="YXNzdXJl" >
 			var $ACCESS_TOKEN = {authtoken: '<%=data.body.authtoken%>'};
 			saveAccessorInfo($ACCESS_TOKEN);
 			setStorage("access_token",$ACCESS_TOKEN.authtoken)
 		</script>
 		<% } %>
-		<script type="text/javascript">
+		<script type="text/javascript" nonce="YXNzdXJl">
 			function startprog() { 
 				window.open("/index", "_self");
 			}
+			window.onload = function() { 
+				startprog();
+			};
 		</script>
 	</head>
-	<body onload="startprog()">
+	<body>
 	</body>
 </html>

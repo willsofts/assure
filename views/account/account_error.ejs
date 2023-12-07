@@ -18,23 +18,32 @@
 			}
 			.info-area { text-align:center; color: red; font-size: 20px; }
 			#errorlayer { text-align:center; font-size: 16px; }
+			.text-center { text-align:center; }
 		</style>
+		<script nonce="YXNzdXJl">
+			function doGoBack() {
+				window.history.back();
+			}
+			window.onload = function() {
+				gobacklinker.onclick = doGoBack;
+			}
+		</script>
 	</head>
 	<body>
 		<div class="row portal-area sub-entry-layer">
-		<br></br><br></br>
-		<div class="info-area">
-				Sorry, Account activation on your request has fail
-		</div>
-		<br></br>
-		<div style="text-align:center;">
-			<a href="javascript:window.history.back();">Go Back</a>
-		</div>
-		<br></br>
-		<div id="errorlayer">			
-			<%=error%>
-		</div>
-		<br/>
+			<br></br><br></br>
+			<div class="info-area">
+					Sorry, Account activation on your request has fail
+			</div>
+			<br></br>
+			<div class="text-center">
+				<a href="#" id="gobacklinker">Go Back</a>
+			</div>
+			<br></br>
+			<div id="errorlayer">			
+				<%=error%>
+			</div>
+			<br/>
 		</div>
 	</body>
 </html>

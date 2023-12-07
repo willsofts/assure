@@ -3,7 +3,7 @@ import { KnPageSetting, KnHandler } from "@willsofts/will-db";
 import { KnHeaderInfo, KnPagingInfo } from "../models/KnServAlias";
 import { KnLabelConfig } from "../utils/KnLabelConfig";
 import { KnPageUtility } from "../utils/KnPageUtility";
-import { DISPLAY_VERSION_CONTROL, DISPLAY_PROGRAM_CONTROL, DISPLAY_FONT_CONTROL } from "./EnvironmentVariable";
+import { DISPLAY_VERSION_CONTROL, DISPLAY_PROGRAM_CONTROL, DISPLAY_FONT_CONTROL, INLINE_BINDING } from "./EnvironmentVariable";
 
 const pageHandler = new KnHandler();
 
@@ -25,7 +25,7 @@ export class KnPageFacility extends KnPageUtility {
         }
     }
 
-    public createHeader(options: KnHeaderInfo) : string {
+    protected createBindingHeader(options: KnHeaderInfo) : string {
 		let caption = this.context.params?.caption;
 		if("false" == caption) {
 			return "";
@@ -74,7 +74,7 @@ export class KnPageFacility extends KnPageUtility {
 		return buf;
     }
 
-    public createHeaderInLine(options: KnHeaderInfo) : string {
+    protected createInLineHeader(options: KnHeaderInfo) : string {
 		let caption = this.context.params?.caption;
 		if("false" == caption) {
 			return "";
@@ -123,7 +123,15 @@ export class KnPageFacility extends KnPageUtility {
 		return buf;
     }
 
-    public buildPaging(options: KnPagingInfo = {jsFunction: "submitChapter",jsForm: "fschapterform", searchForm: "fssearchform"}) : string {
+    public createHeader(options: KnHeaderInfo) : string {
+		let inline = options?.inline || INLINE_BINDING;
+		if(inline) {
+			return this.createInLineHeader(options);
+		}
+		return this.createBindingHeader(options);
+	}
+	
+    protected buildBindingPaging(options: KnPagingInfo = {jsFunction: "submitChapter",jsForm: "fschapterform", searchForm: "fssearchform"}) : string {
         let fsRows = options.totalRows;
         if(!fsRows) fsRows = this.setting.totalRows;
 		let buf = "";
@@ -214,7 +222,7 @@ export class KnPageFacility extends KnPageUtility {
 		return buf;
     }
 
-    public buildPagingInLine(options: KnPagingInfo = {jsFunction: "submitChapter",jsForm: "fschapterform", searchForm: "fssearchform"}) : string {
+    protected buildInLinePaging(options: KnPagingInfo = {jsFunction: "submitChapter",jsForm: "fschapterform", searchForm: "fssearchform"}) : string {
         let fsRows = options.totalRows;
         if(!fsRows) fsRows = this.setting.totalRows;
 		let buf = "";
@@ -392,6 +400,14 @@ export class KnPageFacility extends KnPageUtility {
 		}
 		return buf;
     }
+
+    public buildPaging(options: KnPagingInfo = {jsFunction: "submitChapter",jsForm: "fschapterform", searchForm: "fssearchform"}) : string {
+		let inline = options?.inline || INLINE_BINDING;
+		if(inline) {
+			return this.buildInLinePaging(options);
+		}		
+		return this.buildBindingPaging(options);
+	}
 
     public createPaging(options: KnPagingInfo = {jsFunction: "submitChapter",jsForm: "fschapterform", searchForm: "fssearchform"}) : string {
         if(this.hasPaging(options.totalRows)) {

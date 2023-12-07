@@ -10,7 +10,7 @@
 						</div>
 						<div class="col-md-5 col-height">
 							<input class="form-control input-md alert-input" id="usertname" name="usertname" placeholder="Last Name(Thai)" autocomplete="off" size="50" value="<%=record.usertname%>"/>
-							<div id="usertname_alert" role="alert" class="has-error" style="display:none;"><%=label.get('usertname_alert','You can not leave this empty')%></div>
+							<div id="usertname_alert" role="alert" class="has-error fa-hidden"><%=label.get('usertname_alert','You can not leave this empty')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
@@ -19,7 +19,7 @@
 						</div>
 						<div class="col-md-5 col-height">
 							<input class="form-control input-md alert-input" id="usertsurname" name="usertsurname" placeholder="Last Name(Thai)" autocomplete="off" size="50" value="<%=record.usertsurname%>"/>
-							<div id="usertsurname_alert" role="alert" class="has-error" style="display:none;"><%=label.get('usertsurname_alert','You can not leave this empty')%></div>
+							<div id="usertsurname_alert" role="alert" class="has-error fa-hidden"><%=label.get('usertsurname_alert','You can not leave this empty')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
@@ -28,7 +28,7 @@
 						</div>
 						<div class="col-md-5 col-height">
 							<input class="form-control input-md alert-input" id="userename" name="userename" placeholder="First Name(English)" autocomplete="off" size="50" value="<%=record.userename%>"/>
-							<div id="userename_alert" role="alert" class="has-error" style="display:none;"><%=label.get('userename_alert','You can not leave this empty')%></div>
+							<div id="userename_alert" role="alert" class="has-error fa-hidden"><%=label.get('userename_alert','You can not leave this empty')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
@@ -37,7 +37,7 @@
 						</div>
 						<div class="col-md-5 col-height">
 							<input class="form-control input-md alert-input" id="useresurname" name="useresurname" placeholder="Last Name(English)" autocomplete="off" size="50" value="<%=record.useresurname%>"/>
-							<div id="useresurname_alert" role="alert" class="has-error" style="display:none;"><%=label.get('useresurname_alert','You can not leave this empty')%></div>
+							<div id="useresurname_alert" role="alert" class="has-error fa-hidden"><%=label.get('useresurname_alert','You can not leave this empty')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
@@ -46,7 +46,7 @@
 					</div>
 					<div class="col-md-3 col-height">
 						<input class="form-control input-md alert-input" id="displayname" name="displayname" autocomplete="off" size="50" value="<%=record.displayname%>" />
-						<div id="displayname_alert" role="alert" class="has-error" style="display:none;"><%=label.get('displayname_alert','You can not leave this empty')%></div>
+						<div id="displayname_alert" role="alert" class="has-error fa-hidden"><%=label.get('displayname_alert','You can not leave this empty')%></div>
 					</div>
 				</div>
 				<div class="row row-height">
@@ -55,7 +55,7 @@
 						</div>
 						<div class="col-md-3 col-height">
 							<input class="form-control input-md alert-input" id="email" name="email" placeholder="Email" autocomplete="off" size="30" value="<%=record.email%>"/>
-							<div id="email_alert" role="alert" class="has-error" style="display:none;"><%=label.get('email_alert','You can not leave this empty')%></div>
+							<div id="email_alert" role="alert" class="has-error fa-hidden"><%=label.get('email_alert','You can not leave this empty')%></div>
 						</div>
 				</div>
 				<div class="row row-height">
@@ -83,7 +83,7 @@
 						</div>
 				</div>
 				<div class="row row-height">
-					<div class="col-md-12 float-right pull-right text-right" style="margin-right: 10px;">
+					<div class="col-md-12 float-right pull-right text-right" id="buttoncoverlayer">
 						<input type="button" id="savebutton" class="btn btn-dark btn-sm" value="<%=label.get('savebutton','Save')%>"/>
 					</div>
 				</div>
@@ -91,7 +91,7 @@
 		</form>
 	</div>
 	<% } else { %>
-	<div id="entrylayer" class="entry-layer" style="text-align:center; font-size:25px;">
+	<div id="entrylayer" class="entry-layer entry-not-found">
 		<%=label.get('profilenotfound','Profile not found')%>
 	</div>
 	<% } %>

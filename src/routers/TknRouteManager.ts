@@ -5,17 +5,26 @@ import { TknUploadRouter } from "./TknUploadRouter";
 import { TknRenderRouter} from "./TknRenderRouter";
 import { TknLaunchRouter } from "./TknLaunchRouter";
 import { TknControlRouter } from './TknControlRouter';
-import { CONTENT_SECURITY_POLICY } from "../utils/EnvironmentVariable";
+import { CONTENT_SECURITY_POLICY, CONTENT_SECURITY_PATH } from "../utils/EnvironmentVariable";
 
 export class TknRouteManager extends TknBaseRouter {
+
+    public isContentSecurityPath(req: any) : boolean {
+        if(req && req.originalUrl && CONTENT_SECURITY_PATH) {
+            let paths = CONTENT_SECURITY_PATH.split(",");
+            for(let p of paths) {
+                if(req.originalUrl==p || (p!="/" && req.originalUrl.indexOf(p)>=0)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     private doHome(req: Request, res: Response,) {
         this.logger.debug('working '+this.dir+' - send /public/home.html');
         let parent = Utilities.getWorkingDir(this.dir); 
         this.logger.debug("parent path : "+parent);
-        if(CONTENT_SECURITY_POLICY!="") {
-            res.header("Content-Security-Policy", CONTENT_SECURITY_POLICY);
-        }
         res.sendFile(parent + '/public/home.html');        
     }
 
@@ -23,9 +32,6 @@ export class TknRouteManager extends TknBaseRouter {
         this.logger.debug('working '+this.dir+' - send /public/welcome.html');
         let parent = Utilities.getWorkingDir(this.dir as string); 
         this.logger.debug("parent path : "+parent);
-        if(CONTENT_SECURITY_POLICY!="") {
-            res.header("Content-Security-Policy", CONTENT_SECURITY_POLICY);
-        }
         res.sendFile(parent + '/public/welcome.html');
     }    
 
@@ -38,9 +44,15 @@ export class TknRouteManager extends TknBaseRouter {
 
         app.use(async (req: Request, res: Response, next: Function) => {
             try {
+                this.logger.debug(this.constructor.name+".route: url="+req.originalUrl);
                 this.logger.debug(this.constructor.name+".route: headers",req.headers);
                 //let ctx = await this.createContext(req);
                 //await AssureHandler.doAuthorize(ctx);
+                if(this.isContentSecurityPath(req)) {
+                    if(CONTENT_SECURITY_POLICY!="") {
+                        res.header("Content-Security-Policy", CONTENT_SECURITY_POLICY);
+                    }
+                }
             } catch(ex) { }
             next();
         });

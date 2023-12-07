@@ -37,7 +37,8 @@ function setupComponents() {
 			}
 		});					
 		return false;
-	}).trigger("click");	
+	}).trigger("click");
+	$("#loginlink").click(function() { loginLinkClick(); });
 }
 function clearingFields() {
 	forgotpassword_form.reset();

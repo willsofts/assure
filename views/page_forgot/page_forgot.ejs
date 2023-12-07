@@ -5,10 +5,11 @@
 		<%- include('../asset/meta') %>		
 		<%- include('../asset/styles') %>		
 		<%- include('../asset/scripts') %>		
+		<link rel="stylesheet" type="text/css" href="<%=meta.base_url%>/pages/page_forgot.css" />
 		<script type="text/javascript" src="<%=meta.base_url%>/pages/page_forgot.js"></script>
 	</head>
 	<body class="portalbody portalbody-off">
-		<div class="pt-page" style="width:99.8%; display: block;">
+		<div class="pt-page forgot-page">
 			<h1 class="page-header-title" title="page_forgot"><%=label.get('caption','Forgot Password')%></h1>		
 			<%- include('../partials/page_waiting') %>		
 			<%- include('./page_forgot_form') %>		

@@ -4,14 +4,18 @@
 		<title>Authenticator</title>
 		<link href="<%=meta.cdn_url%>/css/base_style.css" rel="stylesheet" type="text/css"></link>
 		<link href="<%=meta.cdn_url%>/css/user_style.css" rel="stylesheet" type="text/css"></link>
+		<style nonce="YXNzdXJl">
+			.qr-body { background-color: whitesmoke; }
+			.text-center { text-align: center; }
+		</style>
 	</head>
-	<body style="background-color: whitesmoke;">
+	<body class="qr-body">
 		<br/><br/>
-		<div style="text-align:center;">
+		<div class="text-center">
 			<h1>Scan QR Code add to Google Authenticator</h1>
 		</div>
 		<br/><br/>
-		<div style="text-align:center;">
+		<div class="text-center">
 			<img id="qrimg" src="<%=data.dataset?.factorimage%>"/>
 		</div>
 		<br/><br/>

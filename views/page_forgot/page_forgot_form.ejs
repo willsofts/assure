@@ -16,16 +16,16 @@
 							</div>
 							<input type="email" class="form-control input-md my-input alert-input" id="email" name="email" placeholder="Email" />
 						</div>		
-						<span id="email_alert" role="alert" class="has-error" style="display:none;"><%=label.get('email_alert','You can not leave this empty')%></span>
+						<span id="email_alert" role="alert" class="has-error fa-hidden"><%=label.get('email_alert','You can not leave this empty')%></span>
 					</div>
 				</div>
 				<div class="row row-heighter center-block">
 					<div class="col-md-4 col-height form-group" id="secureimage_layer">
 						<div class="btn-group mr-2" role="group">
-							<img id="secureimage" style="border: 1px solid gray;" alt=""/>
+							<img id="secureimage" alt=""/>
 						</div>
-						<div class="btn-group mr-2" role="group" style="vertical-align: bottom;">
-							<button id="secureimage_ctrl" title="Refresh" class="btn btn-sm btn-base" style="min-width:30px; " tabIndex="-1"><em class="fa fa-refresh" aria-hidden="true"></em></button>
+						<div class="btn-group mr-2" role="group" id="secureimage_ctrl_layer">
+							<button id="secureimage_ctrl" title="Refresh" class="btn btn-sm btn-base" tabIndex="-1"><em class="fa fa-refresh" aria-hidden="true"></em></button>
 						</div>
 					</div>
 				</div>
@@ -42,7 +42,7 @@
 							</div>
 							<input type="text" class="form-control input-md my-input alert-input" id="securecode" name="securecode" placeholder="<%=label.get('securecode_placeholder','Answer Code')%>" />
 						</div>	
-						<span id="securecode_alert" role="alert" class="has-error" style="display:none;"><%=label.get('securecode_alert','You can not leave this empty')%></span>
+						<span id="securecode_alert" role="alert" class="has-error fa-hidden"><%=label.get('securecode_alert','You can not leave this empty')%></span>
 					</div>
 				</div>
 				<hr/>

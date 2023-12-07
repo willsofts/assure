@@ -24,6 +24,7 @@ export interface KnHeaderInfo {
     versionLabel?: string;
     increaseLabel?: string;
     decreaseLabel?: string;
+    inline?: boolean;
     info?: any;
 }
 
@@ -32,6 +33,7 @@ export interface KnPagingInfo {
     jsForm: string;
     jsFunction?: string;
     searchForm?: string;
+    inline?: boolean;
     info?: any;
 }
 

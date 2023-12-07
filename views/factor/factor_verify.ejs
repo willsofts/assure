@@ -22,17 +22,17 @@
 				</div>
 				<div class="row row-height">
 					<div class="col-md-4"></div>
-					<div class="col-height col-md-4" style="min-height: 100px;">
+					<div class="col-height col-md-4 factor-code-layer">
 						<label for="factorcode" id="factorcode_label" class="control-label"><%=label.get('factorcode_label','Verify Code')%></label>
 						<div class="input-grouper">
 							<input type="text" id="factorcode" name="factorcode" class="form-control input-md irequired alert-input" maxlength="8" placeholder="Code"/>
 						</div>
-						<div id="factorcode_alert" role="alert" class="has-feedback has-error" style="display:none;"><%=label.get('factorcode_alert','You can not leave this empty')%></div>
+						<div id="factorcode_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('factorcode_alert','You can not leave this empty')%></div>
 					</div>
 				</div>			
 				<div class="row row-height">
 					<div class="col-md-4"></div>
-					<div class="col-md-4" style="margin-top:10px;">						
+					<div class="col-md-4 factor-link-layer">						
 						<%if(data.dataset?.factorflag!="1"){%>
 						<a href="javascript:void(0)" id="factorliker" class="factor-linker" title="Add Google Authenticator" tabIndex="-1" onclick="openFactorInfo()"><%=label.get('factor_label','Add 2FA')%></a>
 						<%}%>

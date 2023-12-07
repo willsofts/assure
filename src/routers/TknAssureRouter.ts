@@ -27,7 +27,7 @@ export class TknAssureRouter extends TknBaseRouter {
         if(req && req.originalUrl && EXCEPT_LAUNCH_PATH) {
             let paths = EXCEPT_LAUNCH_PATH.split(",");
             for(let p of paths) {
-                if(req.originalUrl.indexOf(p)>=0) {
+                if(req.originalUrl==p || req.originalUrl.indexOf(p)>=0) {
                     return true;
                 }
             }
