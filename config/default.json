@@ -1,6 +1,6 @@
 {
     "HTTP_PORT": 8080,
-    "CDN_URL": "https://cdn.jsdelivr.net/gh/willsofts/will-asset@1.0.17", 
+    "//CDN_URL": "https://cdn.jsdelivr.net/gh/willsofts/will-asset@1.0.18", 
     "BASE_URL": "",
     "REDIRECT_URL": "",
     "BASE_STORAGE": "session",
