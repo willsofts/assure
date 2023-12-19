@@ -186,17 +186,14 @@ export class KnPageFacility extends KnPageUtility {
 					break;
 				}
 			}
-			let fsStyle = "";
 			let fsSelected = "";
 			if(fsPages==fsPageNumber ||(fsPageNumber==1 && fsPages==0)) {
-				fsStyle = "style='text-decoration:underline;'";
 				fsSelected = "pageselectedclass active";
 			}
 			buf += table;
 			buf += "<li class=\"page-item page-column-class ";
             buf += fsSelected+"\">";
 			buf += "<A HREF=\"javascript:void(0)\" ";
-            buf += fsStyle;
             buf += " class=\"page-link pagenoclass fa-data-page ";
             buf += fsSelected;
 			buf += "\" data-paging=\""+fsPageNumber+"\">";
@@ -329,17 +326,14 @@ export class KnPageFacility extends KnPageUtility {
 					break;
 				}
 			}
-			let fsStyle = "";
 			let fsSelected = "";
 			if(fsPages==fsPageNumber ||(fsPageNumber==1 && fsPages==0)) {
-				fsStyle = "style='text-decoration:underline;'";
 				fsSelected = "pageselectedclass active";
 			}
 			buf += table;
 			buf += "<li class=\"page-item page-column-class ";
             buf += fsSelected+"\">";
 			buf += "<A HREF=\"javascript:void(0)\" ";
-            buf += fsStyle;
             buf += " class=\"page-link pagenoclass ";
             buf += fsSelected;
             buf += "\" onclick=\"if(this.disabled) return; ";

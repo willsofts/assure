@@ -161,7 +161,7 @@ label:active + textarea {
 
 input.idecimal { text-align: right; }
 
-a.pageselectedclass { background-color: #2F4F4F; }
+a.pageselectedclass { background-color: #2F4F4F; text-decoration: underline;}
 .pagination > .active > a,
 .pagination > .active > span,
 .pagination > .active > a:hover,
