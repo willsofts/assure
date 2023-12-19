@@ -391,11 +391,11 @@
 			$("#accessor_logout_link").click(function() { logOut(); });
 			$("#linklangen").click(function() { 
 				let img = $("#linklangen").attr("data-image");
-				$('#languageimage').attr('src',img+'/img/lang/EN.png'); fs_switchLanguage('EN',true);
+				$('#languageimage').attr('src',img); fs_switchLanguage('EN',true);
 			});
 			$("#linklangth").click(function() { 
 				let img = $("#linklangth").attr("data-image");
-				$('#languageimage').attr('src',img+'/img/lang/TH.png'); fs_switchLanguage('TH',true);
+				$('#languageimage').attr('src',img); fs_switchLanguage('TH',true);
 			});
 			$("#forgot_password").click(function() { forgotClick(); });
 			$("#main_button").click(function() { connectServer(); });
