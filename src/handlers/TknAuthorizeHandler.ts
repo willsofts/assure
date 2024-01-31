@@ -43,13 +43,13 @@ export class TknAuthorizeHandler extends TknSchemeHandler {
         if (atoken.identifier == undefined) {
             return Promise.reject(new VerifyError("Token is invalid",HTTP.UNAUTHORIZED,-16001));
         }
-        let ut = await this.getAuthorizeToken(db, atoken, VALIDATE_TOKEN_NOT_FOUND, VALIDATE_ANOMYMOUS_TOKEN);
+        let ut = await this.getAuthorizeToken(db, token, VALIDATE_TOKEN_NOT_FOUND, VALIDATE_ANOMYMOUS_TOKEN);
         return Promise.resolve(ut);
     }
 
-    public async getAuthorizeToken(db: KnDBConnector, atoken: AuthenTokenData, verifyTokenNotFound: boolean = true, verifyAnonymousToken: boolean = true) : Promise<UserTokenInfo | undefined> {
+    public async getAuthorizeToken(db: KnDBConnector, token: string, verifyTokenNotFound: boolean = true, verifyAnonymousToken: boolean = true) : Promise<UserTokenInfo | undefined> {
         let plib : PasswordLibrary = new PasswordLibrary();
-        let ut = await plib.getUserTokenInfo(db, atoken.identifier);
+        let ut = await plib.getUserTokenInfoByToken(db, token);
         if(verifyTokenNotFound && !ut.userid) {
             return Promise.reject(new VerifyError("Token not found",HTTP.UNAUTHORIZED,-16003)); 
         }
@@ -59,4 +59,16 @@ export class TknAuthorizeHandler extends TknSchemeHandler {
         return Promise.resolve(ut);
     }
 
+    public async getAuthorizeTokenByIdentifier(db: KnDBConnector, identifier: string, verifyTokenNotFound: boolean = true, verifyAnonymousToken: boolean = true) : Promise<UserTokenInfo | undefined> {
+        let plib : PasswordLibrary = new PasswordLibrary();
+        let ut = await plib.getUserTokenInfo(db, identifier);
+        if(verifyTokenNotFound && !ut.userid) {
+            return Promise.reject(new VerifyError("Token not found",HTTP.UNAUTHORIZED,-16003)); 
+        }
+        if(verifyAnonymousToken && "A"==ut.tokentype) {
+            return Promise.reject(new VerifyError("Token is anonymous",HTTP.UNAUTHORIZED,-16007)); 
+        }
+        return Promise.resolve(ut);
+    }
+    
 }

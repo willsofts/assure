@@ -15,7 +15,7 @@ export class TknSigninHandler extends TknSchemeHandler {
     public model : KnModel = { name: "tuser", alias: { privateAlias: this.section } };
 
     //declared addon actions name
-    public handlers = [ {name: "signin"}, {name: "signout"}, {name: "account"}, {name: "accesstoken"}, {name: "fetchtoken"}, {name: "validatetoken"}, {name: "access"} ];
+    public handlers = [ {name: "signin"}, {name: "signout"}, {name: "account"}, {name: "accesstoken"}, {name: "fetchtoken"}, {name: "renewtoken"}, {name: "validatetoken"}, {name: "access"} ];
     public tokener = new TknSigninTokenHandler();
 
     protected getSigninInfo(context: KnContextInfo) : KnSigninInfo {
@@ -40,6 +40,10 @@ export class TknSigninHandler extends TknSchemeHandler {
 
     public async fetchtoken(context: KnContextInfo) : Promise<Map<string,Object>> {
         return this.tokener.fetchtoken(context);
+	}
+    
+    public async renewtoken(context: KnContextInfo) : Promise<Map<string,Object>> {
+        return this.tokener.renewtoken(context);
 	}
 
     public async validatetoken(context: KnContextInfo) : Promise<AuthenTokenData | undefined> {        

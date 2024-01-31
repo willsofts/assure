@@ -17,7 +17,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
     public model : KnModel = { name: "tuser", alias: { privateAlias: this.section } };
 
     //declared addon actions name
-    public handlers = [ {name: "account"}, {name: "accesstoken"}, {name: "fetchtoken"}, {name: "validatetoken"}, {name: "removetoken"} ];
+    public handlers = [ {name: "account"}, {name: "accesstoken"}, {name: "fetchtoken"}, {name: "validatetoken"}, {name: "removetoken"}, {name: "renewtoken"} ];
 
     public async account(context: KnContextInfo) : Promise<Map<string,Object>> {
         return this.callFunctional(context, {operate: "account", raw: false}, this.doAccessToken);
@@ -33,6 +33,10 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
 
     public async removetoken(context: KnContextInfo) : Promise<Map<string,Object>> {
         return this.callFunctional(context, {operate: "removetoken", raw: false}, this.doRemoveToken);
+	}
+
+    public async renewtoken(context: KnContextInfo) : Promise<Map<string,Object>> {
+        return this.callFunctional(context, {operate: "renewtoken", raw: false}, this.doRenewToken);
 	}
 
     public async validatetoken(context: KnContextInfo) : Promise<AuthenTokenData | undefined> {
@@ -81,10 +85,10 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
 
     protected async doRemoveToken(context: KnContextInfo, model: KnModel = this.model) : Promise<KnResultSet> {
         let authtoken = context.params.authtoken;
-        this.logger.debug(this.constructor.name+".doRemoveToken: authtoken = "+authtoken);
         if(!authtoken || authtoken=="") {
             authtoken = this.getTokenKey(context);
         }
+        this.logger.debug(this.constructor.name+".doRemoveToken: authtoken = "+authtoken);
         if(!authtoken || authtoken=="") {
             return Promise.reject(new VerifyError("Invalid access token",HTTP.NOT_ACCEPTABLE,-3010));	
         }
@@ -97,6 +101,50 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         } finally {
             if(db) db.close();
         }
+    }
+
+    protected async doRenewToken(context: KnContextInfo, model: KnModel = this.model) : Promise<Map<string,Object>> {
+        let state = context.params.state;
+        let nonce = context.params.nonce;
+        let authtoken = context.params.authtoken;
+        if(!authtoken || authtoken=="") {
+            authtoken = this.getTokenKey(context);
+        }
+        this.logger.debug(this.constructor.name+".doRenewToken: authtoken = "+authtoken);
+        if(!authtoken || authtoken=="") {
+            return Promise.reject(new VerifyError("Invalid access token",HTTP.NOT_ACCEPTABLE,-3010));	
+        }
+        let userdata = await this.verifyAuthenToken(authtoken);
+        if(!userdata) {
+            return Promise.reject(new VerifyError("Invalid access token",HTTP.NOT_ACCEPTABLE,-3012));	
+        }
+        if((!state || state=="") || (!nonce || nonce=="")) {
+            return Promise.reject(new VerifyError("Invalid access state or nonce",HTTP.NOT_ACCEPTABLE,-3013));	
+        }
+        let db = this.getPrivateConnector(model);
+        try {
+            let authdata = {identifier:userdata?.identifier, site:userdata?.site, accessor:userdata?.accessor};
+            let body = this.createChangingToken(authdata);
+            await this.changeUserToken(db, authdata, state, nonce, body.get("authtoken") as string, body.get("expiretimes") as number, context);
+            return body;
+        } catch(ex: any) {
+            this.logger.error(this.constructor.name,ex);
+            return Promise.reject(this.getDBError(ex));
+        } finally {
+            if(db) db.close();
+        }
+    }
+    
+    public createChangingToken(authdata: AuthenTokenData, expireins: number = EXPIRE_TIMES) : Map<string,Object> {
+        let newtoken : string = AuthenToken.createAuthenToken(authdata);
+        let body : Map<string,Object> = new Map();
+        let now = new Date();
+        let expiretimes : number = now.getTime() + expireins;
+        let expdate = new Date(expiretimes);
+        body.set("expiretimes",expiretimes);
+        body.set("expireddate",Utilities.currentDate(expdate)+" "+Utilities.currentTime(expdate));
+        body.set("authtoken",newtoken);
+        return body;
     }
 
     public async createDiffie(context: KnContextInfo, db: KnDBConnector, token: KnUserToken) : Promise<KnDiffieInfo | undefined> {
@@ -313,6 +361,23 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         let sql = new KnSQL("delete from tusertoken where authtoken = ?authtoken ");
         sql.set("authtoken",authtoken);
         this.logger.info(this.constructor.name+".deleteTokenByToken",sql);
+        return sql.executeUpdate(db,context);
+    }
+
+    public async changeUserToken(db: KnDBConnector, authdata: AuthenTokenData, state: string, nonce: string, newtoken: string, expiretimes: number, context?: any) : Promise<KnResultSet> {
+        let expdate = new Date(expiretimes);
+        let sql = new KnSQL("update tusertoken set authtoken = ?newtoken ");
+        sql.append(", expiredate = ?expiredate, expiretime = ?expiretime, expiretimes = ?expiretimes ");
+        sql.append("where useruuid = ?useruuid ");
+        sql.append("and state = ?state and nonce = ?nonce ");
+        sql.set("expiredate",expdate,"DATE");
+        sql.set("expiretime",expdate,"TIME");
+        sql.set("expiretimes",expiretimes);
+        sql.set("newtoken",newtoken);
+        sql.set("useruuid",authdata.identifier);
+        sql.set("state",state);
+        sql.set("nonce",nonce);
+        this.logger.info(this.constructor.name+".changeUserToken",sql);
         return sql.executeUpdate(db,context);
     }
 
