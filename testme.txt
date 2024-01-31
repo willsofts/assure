@@ -37,6 +37,10 @@ validate token
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sign/validatetoken
 curl -X POST http://localhost:8080/api/sign/validatetoken -d authtoken=?
 
+renew token
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sign/renewtoken -d state=?&nonce=?
+curl -X POST http://localhost:8080/api/sign/renewtoken -d authtoken=?&state=?&nonce=?
+
 get user info after login with code & nonce
 curl http://localhost:8080/login-callback?nonce=?&code=?
 ex.
