@@ -84,6 +84,7 @@ CREATE TABLE IF NOT EXISTS `tattachfile` (
   `attachuser` varchar(50) DEFAULT NULL,
   `attachremark` varchar(250) DEFAULT NULL,
   `attachpath` varchar(350) DEFAULT NULL,
+  `attachsize` BIGINT(19) NULL DEFAULT NULL,
   `attachstream` longtext,
   PRIMARY KEY (`attachid`),
   KEY `attachno` (`attachno`)
