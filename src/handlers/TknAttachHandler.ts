@@ -88,7 +88,7 @@ export class TknAttachHandler extends TknSchemeHandler {
                 sql.append(", attachuser = ?attachuser ");
                 sql.set("attachuser",attachuser);
             }
-            sql.append(", attachpath = ?attachpath , attachstream = ?attachstream ");
+            sql.append(", attachpath = ?attachpath , attachsize = ?attachsize, attachstream = ?attachstream ");
             sql.append("where attachid = ?attachid ");
             sql.set("attachfile",file.filename);
             sql.set("sourcefile",file.originalname);
@@ -96,6 +96,7 @@ export class TknAttachHandler extends TknSchemeHandler {
             sql.set("attachtime",now,"TIME");
             sql.set("attachmillis",now.getTime());
             sql.set("attachpath",file.path);
+            sql.set("attachsize",file.size);
             sql.set("attachstream",stream);
             sql.set("attachid",attachid);
             let rs = await sql.executeUpdate(db,context);
@@ -103,8 +104,8 @@ export class TknAttachHandler extends TknSchemeHandler {
                 if(!attachno || attachno.trim().length==0) attachno = attachid;
                 if(!attachtype || attachtype.trim().length==0) attachtype = "NONE";
                 sql.clear();
-                sql.append("insert into tattachfile (attachid,attachno,attachtype,attachfile,sourcefile,attachdate,attachtime,attachmillis,attachuser,attachpath,attachstream) ");
-                sql.append("values(?attachid,?attachno,?attachtype,?attachfile,?sourcefile,?attachdate,?attachtime,?attachmillis,?attachuser,?attachpath,?attachstream) ");
+                sql.append("insert into tattachfile (attachid,attachno,attachtype,attachfile,sourcefile,attachdate,attachtime,attachmillis,attachuser,attachpath,attachsize,attachstream) ");
+                sql.append("values(?attachid,?attachno,?attachtype,?attachfile,?sourcefile,?attachdate,?attachtime,?attachmillis,?attachuser,?attachpath,?attachsize,?attachstream) ");
                 sql.set("attachid",attachid);
                 sql.set("attachno",attachno);
                 sql.set("attachtype",attachtype);
@@ -115,6 +116,7 @@ export class TknAttachHandler extends TknSchemeHandler {
                 sql.set("attachmillis",now.getTime());
                 sql.set("attachuser",attachuser);
                 sql.set("attachpath",file.path);
+                sql.set("attachsize",file.size);
                 sql.set("attachstream",stream);
                 rs = await sql.executeUpdate(db,context);
             }
