@@ -88,13 +88,15 @@ export class TknAttachHandler extends TknSchemeHandler {
                 sql.append(", attachuser = ?attachuser ");
                 sql.set("attachuser",attachuser);
             }
-            sql.append(", attachpath = ?attachpath , attachsize = ?attachsize, attachstream = ?attachstream ");
+            sql.append(", mimetype = ?mimetype, attachgroup = 'FI', attachpath = ?attachpath , ");
+            sql.append("attachsize = ?attachsize, attachstream = ?attachstream ");
             sql.append("where attachid = ?attachid ");
             sql.set("attachfile",file.filename);
             sql.set("sourcefile",file.originalname);
             sql.set("attachdate",now,"DATE");
             sql.set("attachtime",now,"TIME");
             sql.set("attachmillis",now.getTime());
+            sql.set("mimetype",file.mimetype);
             sql.set("attachpath",file.path);
             sql.set("attachsize",file.size);
             sql.set("attachstream",stream);
@@ -104,8 +106,10 @@ export class TknAttachHandler extends TknSchemeHandler {
                 if(!attachno || attachno.trim().length==0) attachno = attachid;
                 if(!attachtype || attachtype.trim().length==0) attachtype = "NONE";
                 sql.clear();
-                sql.append("insert into tattachfile (attachid,attachno,attachtype,attachfile,sourcefile,attachdate,attachtime,attachmillis,attachuser,attachpath,attachsize,attachstream) ");
-                sql.append("values(?attachid,?attachno,?attachtype,?attachfile,?sourcefile,?attachdate,?attachtime,?attachmillis,?attachuser,?attachpath,?attachsize,?attachstream) ");
+                sql.append("insert into tattachfile (attachid,attachno,attachtype,attachfile,sourcefile,attachdate,attachtime,");
+                sql.append("attachmillis,attachuser,mimetype,attachgroup,attachpath,attachsize,attachstream) ");
+                sql.append("values(?attachid,?attachno,?attachtype,?attachfile,?sourcefile,?attachdate,?attachtime,");
+                sql.append("?attachmillis,?attachuser,?mimetype,'FI',?attachpath,?attachsize,?attachstream) ");
                 sql.set("attachid",attachid);
                 sql.set("attachno",attachno);
                 sql.set("attachtype",attachtype);
@@ -115,12 +119,13 @@ export class TknAttachHandler extends TknSchemeHandler {
                 sql.set("attachtime",now,"TIME");
                 sql.set("attachmillis",now.getTime());
                 sql.set("attachuser",attachuser);
+                sql.set("mimetype",file.mimetype);
                 sql.set("attachpath",file.path);
                 sql.set("attachsize",file.size);
                 sql.set("attachstream",stream);
                 rs = await sql.executeUpdate(db,context);
             }
-            rs.rows = { ...rs.rows, attachid: attachid, attachno: attachno, attachtype: attachtype } ;
+            rs.rows = { ...rs.rows, attachid: attachid, attachno: attachno, attachtype: attachtype, sourcefile: file.originalname, attachfile: file.filename, attachsize: file.size, mimetype: file.mimetype } ;
             return this.createRecordSet(rs);
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
