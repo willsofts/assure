@@ -42,6 +42,27 @@ export class TknAttachHandler extends TknSchemeHandler {
         }
     }
 
+    public async removeAttach(attachid: string, model: KnModel = this.model) : Promise<KnRecordSet> {
+        this.logger.debug(this.constructor.name+".removeAttach: id="+attachid);
+        if(!attachid || attachid.trim().length==0) {
+            return Promise.reject(new VerifyError("Attach id is undefined",HTTP.NOT_ACCEPTABLE,-16010));
+        }
+        let db = this.getPrivateConnector(model);
+        try {
+            let sql = new KnSQL("delete from tattachfile ");
+            sql.append("where attachid = ?attachid ");
+            sql.set("attachid",attachid);
+            this.logger.info(this.constructor.name+".removeAttach",sql);
+            let rs = await sql.executeUpdate(db);
+            return this.createRecordSet(rs);
+        } catch(ex: any) {
+            this.logger.error(this.constructor.name,ex);
+            return Promise.reject(this.getDBError(ex));
+        } finally {
+            if(db) db.close();
+        }
+    }
+
     protected async doGet(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
         return this.getAttachInfo(context.params.id as string,model);
     }
@@ -136,6 +157,10 @@ export class TknAttachHandler extends TknSchemeHandler {
         } finally {
             if(db) db.close();
         }        
+    }
+
+    protected override async doRemove(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
+        return this.removeAttach(context.params.id as string,model);
     }
 
 }
