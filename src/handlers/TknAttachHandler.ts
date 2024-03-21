@@ -17,18 +17,21 @@ export class TknAttachHandler extends TknSchemeHandler {
         return this.callFunctional(context, {operate: "get", raw: false}, this.doGet);
     }
 
-    protected async doGet(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
+    public async attach(context: KnContextInfo) : Promise<KnRecordSet> {
+        return this.callFunctional(context, {operate: "attach", raw: false}, this.doAttach);
+    }
+
+    public async getAttachInfo(attachid: string, model: KnModel = this.model) : Promise<KnRecordSet> {
+        this.logger.debug(this.constructor.name+".getAttach: id="+attachid);
+        if(!attachid || attachid.trim().length==0) {
+            return Promise.reject(new VerifyError("Attach id is undefined",HTTP.NOT_ACCEPTABLE,-16010));
+        }
         let db = this.getPrivateConnector(model);
         try {
-            let attachid = context.params.id as string;
-            this.logger.debug(this.constructor.name+".doGet: id="+attachid);
-            if(!attachid || attachid.trim().length==0) {
-                return Promise.reject(new VerifyError("Attach id is undefined",HTTP.NOT_ACCEPTABLE,-16010));
-            }
             let sql = new KnSQL("select * from tattachfile ");
             sql.append("where attachid = ?attachid ");
             sql.set("attachid",attachid);
-            this.logger.info(this.constructor.name+".doGet",sql);
+            this.logger.info(this.constructor.name+".getAttach",sql);
             let rs = await sql.executeQuery(db);
             return this.createRecordSet(rs);
         } catch(ex: any) {
@@ -39,8 +42,8 @@ export class TknAttachHandler extends TknSchemeHandler {
         }
     }
 
-    public async attach(context: KnContextInfo) : Promise<KnRecordSet> {
-        return this.callFunctional(context, {operate: "attach", raw: false}, this.doAttach);
+    protected async doGet(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
+        return this.getAttachInfo(context.params.id as string,model);
     }
 
     protected async doAttach(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
