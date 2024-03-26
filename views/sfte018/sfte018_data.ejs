@@ -32,7 +32,7 @@
 					<tr>
 						<td class="text-center"><%=page.recordsNumber(index+1)%></td>
 						<td><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.tenantid%>"><%=item?.tenantname%></a></td>
-						<td class="text-center"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.tenantid%>"><%=page.format({value: item?.createdate, field:{type:"DATET"}})%></a></td>
+						<td class="text-center"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.tenantid%>"><%=page.format({value: item?.createdate, field:{type:"DATE"}})%></a></td>
 						<td class="text-center"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.tenantid%>"><%=item?.createtime%></a></td>
 						<td class="text-center"><a href="javascript:void(0)" class="alink-data fa-data-edit" data-key="<%=item?.tenantid%>"><%-page.serializeInactive(item?.inactive)%></a></td>
 						<td class="text-center">
