@@ -5,6 +5,7 @@ import { KnResponser } from "../utils/KnResponser";
 import { TknProgramHandler } from "../handlers/TknProgramHandler";
 import { KnPageRender } from '../utils/KnPageRender';
 import { TknAssureRouter } from './TknAssureRouter';
+import { TknProcessHandler } from "../handlers/TknProcessHandler";
 import path from 'path';
 import fs from 'fs';
 
@@ -91,6 +92,72 @@ export class TknLaunchRouter extends TknAssureRouter {
             res.render(renderpage, param, (err: Error, html: string) => {
                 if(err) {
                     this.logger.error(this.constructor.name+"doLaunch: error", err); 
+                    res.render("pages/error",{error: err, meta: info});
+                    return;
+                }
+                res.send(html);
+            });
+        } else {
+            if(!label) {
+                label = new KnLabelConfig("index", info.language);
+                try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doOpen: error",ex); }
+            }
+            res.render("pages/notfound",{error: "not found", meta: info, label: label});
+        }
+    }
+
+    public async doLaunchHandler(req: Request, res: Response, handler: TknProcessHandler) {
+        this.logger.debug(this.constructor.name+".doLaunchHandler: url",req.originalUrl);
+        let ctx = await this.createContext(req, req.params.program);
+        let valid = await this.isValidateLauncher(req,res,ctx);
+        if(!valid) return;
+        let subprog = ctx.params.subprog;
+        let info = this.getMetaInfo(ctx);
+        let workdir = Utilities.getWorkingDir(this.dir); 
+        let program = handler.progid;
+        let progpath = path.join(workdir, "views", program);
+        let foundview = fs.existsSync(progpath);
+        this.logger.debug(this.constructor.name+".doLaunchHandler: program="+program+", sub="+subprog+", found="+foundview+", path="+progpath);
+        let label = null;
+        let opername = program;
+        if (foundview) {
+            let rs = null;
+            try {
+                handler.logger = this.logger;
+                rs = await handler.execute(ctx) as any;
+                this.logger.debug(this.constructor.name+".doLaunchHandler: "+program+"/"+opername+", execute=", rs);
+            } catch(ex) {
+                this.logger.error(this.constructor.name+".doLaunchHandler: error",ex);
+                if("true"==ctx.params.ajax) {
+                    KnResponser.responseError(res,ex,"launch",opername);
+                    return;
+                }
+                res.render("pages/error",{error: ex, meta: info});
+                return;
+            }
+            if(rs?.error) {
+                this.logger.error(this.constructor.name+".doLaunchHandler: error",rs.error);
+                if("true"==ctx.params.ajax) {
+                    KnResponser.responseError(res,rs.error,"launch",opername);
+                    return;
+                }
+                let errorpage = rs?.renderer?rs.renderer:"pages/error";
+                res.render(errorpage,{error: rs.error, meta: info});
+                return;
+            }
+            let renderpage = program+"/"+program;
+            if(subprog) {                
+                delete req.params.subprog;
+                if(subprog.trim().length>0) renderpage = program+"/"+subprog;
+            }
+            if(rs && rs.renderer) renderpage = rs.renderer;
+            label = new KnLabelConfig(program, info.language);
+            try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doLaunch: error",ex); }
+            let page = new KnPageRender(program, ctx, label, handler, rs);
+            let param = { meta: info, page: page, label: label, data: rs };
+            res.render(renderpage, param, (err: Error, html: string) => {
+                if(err) {
+                    this.logger.error(this.constructor.name+"doLaunchHandler: error", err); 
                     res.render("pages/error",{error: err, meta: info});
                     return;
                 }
