@@ -170,3 +170,4 @@
 .ui-autocomplete .ui-menu-item .ui-state-focus {
 	background: none;
 }
+.ui-autocomplete { z-index: 1000; }
