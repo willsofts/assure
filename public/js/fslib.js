@@ -272,14 +272,14 @@ function formatDate(mydate) {
 	let ary_date = mydate.split(delimiter); 
 	let y=ary_date[2]; 
 	if ( y.length==2 ) { 
-	if (y>=80) { y = intDay.getYear()-100-(intDay.getYear()%100)+eval(y) ;   
-	}else { y = intDay.getYear()-(intDay.getYear()%100)+ eval(y) ;}  
+	if (y>=80) { y = intDay.getYear()-100-(intDay.getYear()%100)+Number(y) ;   
+	}else { y = intDay.getYear()-(intDay.getYear()%100)+ Number(y) ;}  
 	}else if ( y.length==3 )  return false; 
 	intDay.setYear(y);   
-	let m = eval(ary_date[1]) ; 
+	let m = Number(ary_date[1]) ; 
   if ( (m>0) && (m<=12) ) { intDay.setMonth(m);   intDay.setDate(0); } 
   else   return false ; 
-  let d = eval(ary_date[0]); 
+  let d = Number(ary_date[0]); 
   if ( (d>0) && (d<=intDay.getDate()) ) return true;  
   else return false; 
 } 
@@ -289,7 +289,7 @@ function validRangeDate(a,b){
 		if ( a!="" && b!="" ){ 
 			let vala = a.split("/").reverse().join(""); 
 			let valb = b.split("/").reverse().join(""); 
-			if ( eval(valb)<eval(vala) ) return false; 
+			if ( Number(valb)<Number(vala) ) return false; 
 		} 
 	 }catch(ex){  } 
 	 return true; 
@@ -306,7 +306,7 @@ function decreaseValue(avalue,addonvalue,decimal) {
 } 
 		  
 function forValue(avalue,addonvalue,decimal,flag) { 
-	let result = eval(removeComma(avalue)); 
+	let result = Number(removeComma(avalue)); 
 	if(decimal>0) { 
 		let mval = Math.pow(10,decimal); 
 		let addon = addonvalue * mval; 
@@ -328,7 +328,7 @@ function forValue(avalue,addonvalue,decimal,flag) {
 } 
 		 		 
 function parseNumber(avalue) { 
-	return eval(removeComma(avalue)); 
+	return Number(removeComma(avalue)); 
 } 
 		  
 function removeComma(avalue) { 
@@ -470,10 +470,10 @@ function formatNumber(element,maxvalue,decimal) {
 	  let data = element.value; 
 	  let point = 0 ; 
 	  if ( decimal != null && decimal !=  ""  )  { 
-	   point = ( eval(decimal) >= 0 ) ? eval(decimal) : 99  ;} 
+	   point = ( Number(decimal) >= 0 ) ? Number(decimal) : 99  ;} 
 	  let fraction = null ; 
 	  if ( maxvalue != null && maxvalue != "" ) { 
-	  if ( eval(maxvalue) >= 0 ) { 
+	  if ( Number(maxvalue) >= 0 ) { 
 	   fraction = maxvalue ; 
 	   if ( data.indexOf("-")>-1 )  fraction++; 	} 
 	  else 
@@ -487,7 +487,7 @@ function formatNumber(element,maxvalue,decimal) {
 	    dot = ( x[1].length > point )?('.'+x[1].substring(0,point)):('.'+x[1]) ; } 
 	   while ( x[0].length > 1 && x[0].charAt(0)=="0" ) { 
 	    x[0] = x[0].substring(1);	} 
-	   if ( (fraction == 0 && eval(x[0]) > 0 ) || 
+	   if ( (fraction == 0 && Number(x[0]) > 0 ) || 
 	    ( fraction > 0 && x[0].length > fraction ) ){ 
 	    element.value = valueBfChange ; return true;	} 
 	   data = x[0] + dot; 
