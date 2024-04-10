@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 import { KnModel } from "@willsofts/will-db";
-import { KnSQL, KnRecordSet } from '@willsofts/will-sql';
+import { KnSQL, KnRecordSet, KnDBConnector } from '@willsofts/will-sql';
 import { HTTP } from "@willsofts/will-api";
 import { VerifyError } from "../models/VerifyError";
 import { KnContextInfo } from '../models/KnCoreAlias';
@@ -21,25 +21,32 @@ export class TknAttachHandler extends TknSchemeHandler {
         return this.callFunctional(context, {operate: "attach", raw: false}, this.doAttach);
     }
 
-    public async getAttachInfo(attachid: string, model: KnModel = this.model) : Promise<KnRecordSet> {
-        this.logger.debug(this.constructor.name+".getAttach: id="+attachid);
+    public async getAttachInfo(attachid: string, context?: KnContextInfo, model: KnModel = this.model) : Promise<KnRecordSet> {
+        this.logger.debug(this.constructor.name+".getAttachInfo: id="+attachid);
         if(!attachid || attachid.trim().length==0) {
             return Promise.reject(new VerifyError("Attach id is undefined",HTTP.NOT_ACCEPTABLE,-16010));
         }
         let db = this.getPrivateConnector(model);
         try {
-            let sql = new KnSQL("select * from tattachfile ");
-            sql.append("where attachid = ?attachid ");
-            sql.set("attachid",attachid);
-            this.logger.info(this.constructor.name+".getAttach",sql);
-            let rs = await sql.executeQuery(db);
-            return this.createRecordSet(rs);
+            return await this.getAttachRecord(attachid,db,context,model);
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
             return Promise.reject(this.getDBError(ex));
         } finally {
             if(db) db.close();
         }
+    }
+
+    public async getAttachRecord(attachid: string, db: KnDBConnector, context?: KnContextInfo, model: KnModel = this.model) : Promise<KnRecordSet> {
+        if(!attachid || attachid.trim().length==0) {
+            return this.createRecordSet();
+        }
+        let sql = new KnSQL("select * from tattachfile ");
+        sql.append("where attachid = ?attachid ");
+        sql.set("attachid",attachid);
+        this.logger.info(this.constructor.name+".getAttachRecord",sql);
+        let rs = await sql.executeQuery(db,context);
+        return this.createRecordSet(rs);
     }
 
     public async removeAttach(attachid: string, model: KnModel = this.model) : Promise<KnRecordSet> {
@@ -64,7 +71,7 @@ export class TknAttachHandler extends TknSchemeHandler {
     }
 
     protected async doGet(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
-        return this.getAttachInfo(context.params.id as string,model);
+        return this.getAttachInfo(context.params.id as string,context,model);
     }
 
     protected async doAttach(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
