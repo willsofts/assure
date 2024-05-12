@@ -21,7 +21,7 @@ export abstract class TknBaseRouter {
     public buildContext(req: Request, pid?: string) : KnContextInfo {
         let params = {};
         const body = (req.body) ? req.body : {};
-        Object.assign(params, body, req.query, req.params);
+        Object.assign(params, req.params, body, req.query);
         let user = undefined;
         let session = (req as any).session;
         if(session && session.user) user = session.user;        

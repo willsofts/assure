@@ -104,7 +104,7 @@ export class TknBaseHandler extends KnHandler {
                 token = context.options.parentCtx.params.req.headers.authtoken || context.options.parentCtx.params.req.headers.tokenkey;
                 if(token) return token;
             }
-            if(context.params && context.params.authtoken) {
+            if(context.params) {
                 token = context.params.authtoken || context.params.tokenkey;
                 if(token) return token;
             }

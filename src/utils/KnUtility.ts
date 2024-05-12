@@ -88,6 +88,7 @@ export class KnUtility {
     }
 
     public static formatData(info: KnFormatInfo) : any {
+        if(info.field?.options?.disabledFormat) return info.value;
         if(info.value instanceof Date) {
             if(info.field?.type == "DATE") {
                 info.value = Utilities.formatDate(info.value as Date);
