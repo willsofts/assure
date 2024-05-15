@@ -6,7 +6,7 @@ import { Service } from "moleculer";
 import { Request, Response, RequestHandler } from 'express';
 import { JSONReply } from "@willsofts/will-api";
 import { KnResponser } from "../utils/KnResponser";;
-import { UPLOAD_RESOURCES_PATH } from "../utils/EnvironmentVariable";
+import { UPLOAD_RESOURCES_PATH, UPLOAD_FILE_TYPES, UPLOAD_FILE_SIZE } from "../utils/EnvironmentVariable";
 import { TknAttachHandler } from '../handlers/TknAttachHandler';
 import { TknBaseRouter } from './TknBaseRouter';
 
@@ -37,7 +37,7 @@ export class TknUploadRouter extends TknBaseRouter {
 		this.uploadfile = this.fileuploader.single(paramname);
     }
 
-	private buildMulter(fileTypes: RegExp = /jpeg|jpg|png|pdf/, fileSize: number = 10*1024*1024) : multer.Multer {
+	private buildMulter(fileTypes: RegExp = new RegExp(UPLOAD_FILE_TYPES,"i"), fileSize: number = UPLOAD_FILE_SIZE) : multer.Multer {
 		return multer({ 
 			storage: buddystorage,
 			limits : { fileSize : fileSize }, 
@@ -45,7 +45,8 @@ export class TknUploadRouter extends TknBaseRouter {
 				console.log("fileFilter:",file);
 				const filetypes = fileTypes;
 				const extname =  filetypes.test(path.extname(file.originalname).toLowerCase());
-				const mimetype = filetypes.test(file.mimetype);	  
+				const mimetype = filetypes.test(file.mimetype);
+				console.log("fileFilter: extname",extname+", mimetype",mimetype);	  
 				if(mimetype && extname) {
 					cb(null,true);
 				} else {

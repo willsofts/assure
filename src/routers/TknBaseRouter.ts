@@ -6,6 +6,7 @@ import { TknAuthorizeHandler } from "../handlers/TknAuthorizeHandler";
 import { TknSystemHandler } from "../handlers/TknSystemHandler";
 import { TknBaseHandler } from "../handlers/TknBaseHandler";
 import { KnResponser } from "../utils/KnResponser";
+import { VALIDATE_TOKEN } from "../utils/EnvironmentVariable";
 
 export abstract class TknBaseRouter {
     public readonly service: Service;
@@ -82,6 +83,7 @@ export abstract class TknBaseRouter {
     }
 
     protected async verifyAuthenToken(req: Request) : Promise<boolean> {
+        if(!VALIDATE_TOKEN) return Promise.resolve(true);
         let token = this.getAuthorizeToken(req); 
         try {
             let handler = new TknBaseHandler();
