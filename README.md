@@ -30,7 +30,7 @@ The project will run at http://localhost:8080/
 Since this project required database setup before starting you have to create database schema by run sql file under folder `/database/assuredb_mysql.sql` this sql snippet file come with MySQL. Example user access existing in `/database/readme.txt`.
 
 ## Configuration
-After setup database you may change configuration setting to access your database by `/config/default.json`. see more detail [will-sql](https://www.npmjs.com/package/will-sql)
+After setup database you may change configuration setting to access your database by `/config/default.json`. see more detail [will-sql](https://github.com/willsofts/will-sql)
 
 In case of setting http connection especially port (default at 8080) can be config by `/config/default.json` or environment setting in command prompt \
 ex. \
