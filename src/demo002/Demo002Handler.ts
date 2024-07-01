@@ -22,8 +22,8 @@ export class Demo002Handler extends TknOperateHandler {
             effecttime: { type: "TIME" },
             pincode: { type: "STRING" },
             marrystatus: { type: "STRING" },
-            licenses: { type: "STRING" },
-            languages: { type: "STRING" },
+            licenses: { type: "STRING", created: true, updated: true },
+            languages: { type: "STRING", created: true, updated: true },
             remark: { type: "STRING" },
             title: { type: "STRING" },
             caption: { type: "STRING" },
@@ -45,12 +45,12 @@ export class Demo002Handler extends TknOperateHandler {
             let languages = context.params["languages[]"];
             if(licenses && Array.isArray(licenses)) {
                 licenses = licenses.join(",");
-                sql.set("licenses",licenses);
             }
+            sql.set("licenses",licenses);
             if(languages && Array.isArray(languages)) {
                 languages = languages.join(",");
-                sql.set("languages",languages);
             }
+            sql.set("languages",languages);
             sql.set("amount",Utilities.parseFloat(context.params.amount));
             sql.set("age",Utilities.parseInteger(context.params.age));
             sql.set("effectdate",Utilities.parseDate(context.params.effectdate));
