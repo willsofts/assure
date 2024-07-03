@@ -93,6 +93,16 @@ export class Demo002Handler extends TknOperateHandler {
                     filter = " and ";
                 }
             }
+            let marrystatus = context.params["marrystatus[]"];
+            if(context.params.marrystatus) {
+                marrystatus = context.params.marrystatus;
+                if(!Array.isArray(marrystatus)) marrystatus = [context.params.marrystatus];
+            }
+            if(marrystatus && Array.isArray(marrystatus)) {
+                marrystatus = marrystatus.map(item => "'"+item+"'").join(",");
+                knsql.append(filter).append(model.name).append(".marrystatus IN (").append(marrystatus).append(")");
+                filter = " and ";
+            }
             return knsql;    
         }
         return super.buildFilterQuery(context, model, knsql, selector, action, subaction);
