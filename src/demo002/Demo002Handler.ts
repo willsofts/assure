@@ -94,7 +94,8 @@ export class Demo002Handler extends TknOperateHandler {
                 }
             }
             let marrystatus = context.params["marrystatus[]"];
-            if(context.params.marrystatus) {
+            if(marrystatus && !Array.isArray(marrystatus)) marrystatus = [marrystatus];
+            if(!marrystatus && context.params.marrystatus) {
                 marrystatus = context.params.marrystatus;
                 if(!Array.isArray(marrystatus)) marrystatus = [context.params.marrystatus];
             }
