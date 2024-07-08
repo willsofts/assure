@@ -9,7 +9,7 @@ import { KnUtility } from "../utils/KnUtility";
 
 export class TknDataTableHandler extends TknSchemeHandler {
     public model : KnModel = { name: "tconfig", alias: { privateAlias: this.section } };
-    public handlers = [ {name: "get"}, {name: "category"}, {name: "config"} ];
+    public handlers = [ {name: "get"}, {name: "category"}, {name: "config"}, {name: "configlist"} ];
 
     protected override async doGet(context: KnContextInfo, model: KnModel) : Promise<KnDataTableResultSet> {
         let vi = this.validateParameters(context.params,"tablename","keyfield");
@@ -22,12 +22,13 @@ export class TknDataTableHandler extends TknSchemeHandler {
     protected async getDataSet(context: KnContextInfo, model: KnModel) : Promise<KnDataTableResultSet> {
 		let tablename = context.params.tablename;
 		let keyfield = context.params.keyfield;
-		this.logger.info(this.constructor.name+".getDataSet : tablename="+tablename+", keyfield="+keyfield);
+        let orderfield = context.params.orderfield;
+		this.logger.info(this.constructor.name+".getDataSet : tablename="+tablename+", keyfield="+keyfield+", orderfield="+orderfield);
 		let db = this.getPrivateConnector(model);
 		try {
-			let rs = await this.getDataTable(db,[{tableName: tablename, keyField: keyfield}], true, context);
+			let rs = await this.getDataTable(db,[{tableName: tablename, keyField: keyfield, orderFields: orderfield}], true, context);
 			if(rs && rs.length>0) {
-                return rs[0];
+                return await this.createCipherData(context, "get", rs[0]);
             }
             let data = {tablename: tablename, resultset: this.createRecordSet() };
             return await this.createCipherData(context, "get", data);
@@ -43,10 +44,14 @@ export class TknDataTableHandler extends TknSchemeHandler {
         let captionFields = datasetting.captionFields || "nameen,nameth";
         knsql.clear();
         knsql.append("select ");
-        knsql.append(datasetting.keyField);
-        knsql.append(",").append(captionFields);
-        if(datasetting.addonFields) {
-            knsql.append(",").append(datasetting.addonFields);
+        if(datasetting.keyField && datasetting.keyField.trim().length>0) {
+            knsql.append(datasetting.keyField);
+            knsql.append(",").append(captionFields);
+            if(datasetting.addonFields) {
+                knsql.append(",").append(datasetting.addonFields);
+            }
+        } else {
+            knsql.append(" *");
         }
         knsql.append(" from ").append(datasetting.tableName);
         let filter = " where";
@@ -144,8 +149,27 @@ export class TknDataTableHandler extends TknSchemeHandler {
         return Promise.resolve(result);
     }
 
-    protected override async doList(context: any, model: KnModel) : Promise<KnRecordSet> {
-        return this.doFind(context, model);
+    protected override async doList(context: any, model: KnModel) : Promise<KnDataTableResultSet[]> {
+        let orderfield = context.params.orderfield;        
+        let tablenames = this.getParameterArray("tablename",context.params);
+		this.logger.info(this.constructor.name+".doList : tablename="+tablenames+", orderfield="+orderfield);
+        if(!tablenames) return Promise.reject(new VerifyError("Parameter not found (tablename)",HTTP.NOT_ACCEPTABLE,-16061));
+		let db = this.getPrivateConnector(model);
+		try {
+            let settings = tablenames.map((tablename: string) => { return {tableName: tablename, keyField: "", orderFields: orderfield}; });
+            this.logger.debug(this.constructor.name+".doList : settings",settings);
+			let rs = await this.getDataTable(db,settings, true, context);
+			if(rs && rs.length>0) {
+                return await this.createCipherData(context, "list", rs);
+            }
+            let data = tablenames.map((tablename: string) => { return {tablename: tablename, resultset: this.createRecordSet() }; });
+            return await this.createCipherData(context, "list", data);
+        } catch(ex: any) {
+            this.logger.error(this.constructor.name,ex);
+            return Promise.reject(this.getDBError(ex));
+		} finally {
+			if(db) db.close();
+		}        
     }
 
     protected override async doFind(context: any, model: KnModel) : Promise<KnRecordSet> {
@@ -173,6 +197,10 @@ export class TknDataTableHandler extends TknSchemeHandler {
         return this.callFunctional(context, {operate: "config", raw: false}, this.doConfig);
     }
 
+    public async configlist(context: KnContextInfo) : Promise<KnRecordSet> {
+        return this.callFunctional(context, {operate: "configlist", raw: false}, this.doConfigList);
+    }
+
     protected async doConfig(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
         let vi = this.validateParameters(context.params,"category");
         if(!vi.valid) {
@@ -180,6 +208,11 @@ export class TknDataTableHandler extends TknSchemeHandler {
         }
         let rs = await this.doFinding(context, model);
         return await this.createCipherData(context, "config", this.createRecordSet(rs));
+	}
+
+    protected async doConfigList(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
+        let rs = await this.doFinding(context, model);
+        return await this.createCipherData(context, "configlist", this.createRecordSet(rs));
 	}
 
 }

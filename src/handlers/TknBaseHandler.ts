@@ -361,4 +361,15 @@ export class TknBaseHandler extends KnHandler {
         return this.broker?.call(serviceName, params, options);
     }
 
+    public getParameterArray(paramname: string, params: any) : string[]|undefined {
+        if(!params || paramname.trim().length==0) return undefined;
+        let results = params[paramname+"[]"];
+        if(results && !Array.isArray(results)) results = [results];
+        if(!results && params[paramname]) {
+            results = params[paramname];
+            if(!Array.isArray(results)) results = [params[paramname]];
+        }
+        return results;
+    }
+
 }

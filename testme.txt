@@ -74,6 +74,9 @@ curl -X POST http://localhost:8080/upload/file -F filename=@D:\images\birth.png 
 data table
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/get -d "tablename=tactive&keyfield=activeid"
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/category -d "tablename=tactive&keyfield=activeid&valuefield=nameen"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/list -d "tablename=kt_marrystatus&orderfield=seqno"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/list -d "tablename=kt_marrystatus&tablename=kt_languages&orderfield=seqno"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/list -d "tablename[]=kt_marrystatus&tablename[]=kt_languages&orderfield=seqno"
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/apps/find -d "programid=sfte001"
 
 password policy
