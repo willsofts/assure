@@ -6,6 +6,8 @@
     "BASE_STORAGE": "session",
     "SECRET_KEY": "ASSURE_OF_SECRET_KEY",
     "VALIDATE_ANOMYMOUS_TOKEN": "false",
+    "//VALIDATE_TOKEN": "false",
+    "//XFRAME_OPTION": "false",
     "EXCEPT_AUTHORIZE_PATH": "/health,/sign,/policy,/fetch,/forgot,/captcha,/login,/auth",
     "DB_SECTION": "MYSQL",
     "MYSQL" : { "alias": "mysql2", "dialect": "mysql", "url":"", "user": "root", "password": "root", "host": "localhost", "port": 3306, "database": "assuredb", "options": { "charset": "utf8", "connectionLimit": 100 } },
