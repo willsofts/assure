@@ -137,7 +137,7 @@ export class TknMenuHandler extends TknProcessHandler {
 
     public getFavorProgram(db: KnDBConnector, userid: string, context?: any) : Promise<KnResultSet> {
         let knsql = new KnSQL();
-		knsql.append("select tprog.product,tprog.programid,tprog.progname,tprog.prognameth,tprog.progtype,tprog.appstype,tprog.description,");
+		knsql.append("select distinct tprog.programid,tprog.product,tprog.progname,tprog.prognameth,tprog.progtype,tprog.appstype,tprog.description,");
         knsql.append("tprog.parameters,tprog.progsystem,tprog.iconfile,tprog.iconstyle,tprog.shortname,tprog.shortnameth,tprog.progpath ");
 		knsql.append("from tprog,tproggrp,tusergrp ");
 		knsql.append("where tusergrp.userid = ?userid ");
