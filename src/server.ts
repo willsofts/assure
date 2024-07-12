@@ -36,7 +36,7 @@ const runner = new KnRunner(ExpressService);
 runner.start(process.argv).then(() => {
     if(runner.service) {
         let app = KnExpress.createApplication(runner.service);
-        console.log("working directory",__dirname);
+        runner.service.logger.debug("working directory",__dirname);
         new TknRouteManager(runner.service, __dirname).route(app);
         //this for SAML login supported
         new TknSAMLManager(runner.service, __dirname).route(app);
@@ -49,8 +49,13 @@ runner.start(process.argv).then(() => {
                     servicenames.push(s.name);
                 }
             }
-            console.log("service names",servicenames);
-            console.log("number of services",servicenames.length);
+            if(runner.service) {
+                runner.service.logger.debug("service names",servicenames);
+                runner.service.logger.debug("number of services",servicenames.length);
+            } else {
+                console.debug("service names",servicenames);
+                console.log("number of services",servicenames.length);
+            }
         });
     }
 });

@@ -9,7 +9,7 @@ import { TknProcessHandler } from "./TknProcessHandler";
 export class TknMenuHandler extends TknProcessHandler {
     public progid = "menu";
     public model : KnModel = { name: "tfavor", alias: { privateAlias: this.section } };
-    public handlers = [ {name: "favor"}, {name: "side"}, {name: "prog"}, {name: "box"}, {name: "html"} ];
+    public handlers = [ {name: "favor"}, {name: "side"}, {name: "prog"}, {name: "box"}, {name: "html"}, {name: "favorprog"} ];
 
     protected override validateRequireFields(context: any, model: KnModel, action: string) : Promise<KnValidateInfo> {
         let vi = this.validateParameters(context.params,"userid");
@@ -88,6 +88,21 @@ export class TknMenuHandler extends TknProcessHandler {
         }
     }
 
+    protected async doFavorProg(context: any, model: KnModel) : Promise<KnResultSet> {
+        await this.validateRequireFields(context, model, "favorprog");
+        let db = this.getPrivateConnector(model);
+        try {
+            let userid = context.params.userid || this.userToken?.userid;
+            let rs = await this.getFavorProgram(db, userid, context);
+            return await this.createCipherData(context, "favorprog", this.createRecordSet(rs));
+        } catch(ex: any) {
+            this.logger.error(this.constructor.name,ex);
+            return Promise.reject(this.getDBError(ex));
+		} finally {
+			if(db) db.close();
+        }
+    }
+
     public async favor(context: KnContextInfo) : Promise<any> {
         return this.callFunctional(context, {operate: "favor", raw: false}, this.doFavor);
     }
@@ -104,6 +119,10 @@ export class TknMenuHandler extends TknProcessHandler {
         return this.callFunctional(context, {operate: "box", raw: false}, this.doBox);
     }
 
+    public async favorprog(context: KnContextInfo) : Promise<any> {
+        return this.callFunctional(context, {operate: "favorprog", raw: false}, this.doFavorProg);
+    }
+
     public getFavorMenu(db: KnDBConnector, userid: string, context?: any) : Promise<KnResultSet> {
         let knsql = new KnSQL();
         knsql.append("select tprog.programid,tprog.shortname as progname,tprog.shortnameth as prognameth,tprog.iconfile,tfavor.seqno,tprod.url ");
@@ -118,7 +137,8 @@ export class TknMenuHandler extends TknProcessHandler {
 
     public getFavorProgram(db: KnDBConnector, userid: string, context?: any) : Promise<KnResultSet> {
         let knsql = new KnSQL();
-		knsql.append("select tprog.* ");
+		knsql.append("select tprog.product,tprog.programid,tprog.progname,tprog.prognameth,tprog.progtype,tprog.appstype,tprog.description,");
+        knsql.append("tprog.parameters,tprog.progsystem,tprog.iconfile,tprog.iconstyle,tprog.shortname,tprog.shortnameth,tprog.progpath ");
 		knsql.append("from tprog,tproggrp,tusergrp ");
 		knsql.append("where tusergrp.userid = ?userid ");
 		knsql.append("and tusergrp.groupname = tproggrp.groupname ");
@@ -155,7 +175,7 @@ export class TknMenuHandler extends TknProcessHandler {
 		} else {
 			knsql.append("tprog.shortnameth as shortname");			
 		}
-		knsql.append(",tfavor.seqno,tprod.url ");
+		knsql.append(",tfavor.seqno,tprod.url,tprog.shortname as shortnameen,tprog.shortnameth ");
 		knsql.append("from tfavor ");
 		knsql.append("left join tprog ON tfavor.programid = tprog.programid ");
 		knsql.append("left join tprod ON tprod.product = tprog.product ");
