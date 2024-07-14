@@ -4,7 +4,7 @@
         if(idx < len) {
             let r = rows[idx];
 %>
-<a href="javascript:void(0)" class="tile fa-box-title fav-app" seqno="<%=idx+1%>" pid="<%=r['programid']%>" url="<%=r['url']%>" title="<%=r['programid']%>"><div class="icon"><img class="fa fa-app-image" src="<%=meta.cdn_url%>/img/apps/<%=r['iconfile']%>" alt=""/></div><span class="title"><%=r['progname']%></span></a>
+<a href="javascript:void(0)" class="tile fa-box-title fav-app" seqno="<%=idx+1%>" pid="<%=r['programid']%>" url="<%=r['url']%>" title="<%=r['programid']%>"><div class="icon"><img class="fa fa-app-image" src="<%=meta.cdn_url%>/img/apps/<%=r['iconfile']%>" alt=""/></div><span class="title"><%=r['shortname']%></span></a>
 <%      } else { %>
     <a href="javascript:void(0)" class="tile fa-box-title fav-blank" title="New Favorite" seqno="<%=idx+1%>"><div class="icon"><img class="fa fa-app-image" src="<%=meta.cdn_url%>/img/apps/fs_icon.png" alt=""/></div><span class="title">Add New</span></a>
 <%      } 
