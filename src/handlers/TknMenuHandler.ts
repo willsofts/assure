@@ -125,7 +125,7 @@ export class TknMenuHandler extends TknProcessHandler {
 
     public getFavorMenu(db: KnDBConnector, userid: string, context?: any) : Promise<KnResultSet> {
         let knsql = new KnSQL();
-        knsql.append("select tprog.programid,tprog.progname,tprog.prognameth,tprog.shortname,tprog.shortnameth,tprog.iconfile,tfavor.seqno,tprod.url ");
+        knsql.append("select tprog.programid,tprog.progname,tprog.prognameth,tprog.shortname,tprog.shortnameth,tprog.iconfile,,tprog.progpath,tfavor.seqno,tprod.url ");
         knsql.append("from tfavor ");
         knsql.append("left join tprog ON tfavor.programid = tprog.programid ");
         knsql.append("left join tprod ON tprod.product = tprog.product ");
@@ -151,7 +151,7 @@ export class TknMenuHandler extends TknProcessHandler {
     public getSideBarMenu(db: KnDBConnector, userid: string, context?: any) : Promise<KnResultSet> {
         let knsql = new KnSQL();
         knsql.append("select tprod.url,tprod.verified,tprog.product,tprog.programid,");
-        knsql.append("tprog.progname,tprog.prognameth,tprog.iconstyle,tprog.progtype,");
+        knsql.append("tprog.progname,tprog.prognameth,tprog.iconstyle,tprog.progtype,tprog.progpath,");
         knsql.append("tgroup.seqno as grpno,tgroup.groupname,tgroup.nameen,tgroup.nameth,");
         knsql.append("tgroup.iconstyle as groupstyle,tproggrp.seqno as prgno,tproggrp.parameters ");
         knsql.append("from tprod,tprog,tproggrp,tusergrp,tgroup ");

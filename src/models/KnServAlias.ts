@@ -7,6 +7,7 @@ export interface KnMetaInfo {
     api_url: string;
     base_url: string; 
     cdn_url: string;
+    img_url: string;
     redirect_url: string; 
     message_url: string;
     language: string;
