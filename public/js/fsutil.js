@@ -120,7 +120,7 @@ function recentApplication(appid,url,params) {
 				let row = json.body.rows[0];
 				let $li = $("<li></li>");
 				let $alink = $("<a href='javascript:void(0)'></a>");
-				$alink.click(function() { open_page(appid,url,params); }).html(row["description"]);
+				$alink.addClass("dropdown-item").click(function() { open_page(appid,url,params); }).html(row["description"]);
 				$li.append($alink).attr("appid",appid).attr("url",url).appendTo($rlist);	
 				$("#recentcaret").show();
 			}
