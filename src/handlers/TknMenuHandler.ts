@@ -125,7 +125,7 @@ export class TknMenuHandler extends TknProcessHandler {
 
     public getFavorMenu(db: KnDBConnector, userid: string, context?: any) : Promise<KnResultSet> {
         let knsql = new KnSQL();
-        knsql.append("select tprog.programid,tprog.progname,tprog.prognameth,tprog.shortname,tprog.shortnameth,tprog.iconfile,,tprog.progpath,tfavor.seqno,tprod.url ");
+        knsql.append("select tprog.programid,tprog.progname,tprog.prognameth,tprog.shortname,tprog.shortnameth,tprog.iconfile,tprog.progpath,tfavor.seqno,tprod.url ");
         knsql.append("from tfavor ");
         knsql.append("left join tprog ON tfavor.programid = tprog.programid ");
         knsql.append("left join tprod ON tprod.product = tprog.product ");
