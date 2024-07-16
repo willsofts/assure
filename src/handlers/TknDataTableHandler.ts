@@ -77,7 +77,8 @@ export class TknDataTableHandler extends TknSchemeHandler {
         if(disableColumnSchema) {
             delete rs.columns;
         }
-        let category = (setting as any).setting?.categoryName ? (setting as any).setting?.categoryName : setting.tableName;
+        let dts = setting as KnDataMapEntitySetting;
+        let category = dts.setting?.categoryName ? dts.setting?.categoryName : setting.tableName;
         return {tablename: setting.tableName, category: category, resultset: rs};    
     }
 
