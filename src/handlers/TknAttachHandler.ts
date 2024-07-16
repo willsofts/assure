@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid';
-import { KnModel } from "@willsofts/will-db";
+import { KnModel, KnSetting } from "@willsofts/will-db";
 import { KnSQL, KnRecordSet, KnDBConnector } from '@willsofts/will-sql';
 import { HTTP } from "@willsofts/will-api";
 import { VerifyError } from "../models/VerifyError";
@@ -9,7 +9,7 @@ import fs from "fs";
 
 export class TknAttachHandler extends TknSchemeHandler {
     public model : KnModel = { name: "tattachfile", alias: { privateAlias: this.section } };
-
+    public settings: KnSetting = { rowsPerPage: 20, maxRowsPerPage: 100, maxLimit: 10, disableColumnSchema: true, disablePageOffset: true, disableQueryPaging: true };
     //declared addon actions name
     public handlers = [ {name: "get"}, {name: "attach"} ];
 
@@ -168,6 +168,11 @@ export class TknAttachHandler extends TknSchemeHandler {
 
     protected override async doRemove(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
         return this.removeAttach(context.params.id as string,model);
+    }
+
+    protected override async doList(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
+        let rs = await this.doFinding(context,model,"list");
+        return this.createRecordSet(rs);
     }
 
 }
