@@ -114,6 +114,7 @@ export interface KnDataTableResultSet {
     tablename: string;
     resultset: KnResultSet;
     options?: any;
+    category?: string;
 }
 
 export interface KnDataMapSetting {

@@ -77,7 +77,8 @@ export class TknDataTableHandler extends TknSchemeHandler {
         if(disableColumnSchema) {
             delete rs.columns;
         }
-        return {tablename: setting.tableName, resultset: rs};    
+        let category = (setting as any).setting?.categoryName ? (setting as any).setting?.categoryName : setting.tableName;
+        return {tablename: setting.tableName, category: category, resultset: rs};    
     }
 
     /**

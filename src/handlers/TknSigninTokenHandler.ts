@@ -171,7 +171,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         let body : Map<string,Object> = new Map();
         let now = new Date();
         let sql = new KnSQL("select tuser.userid,tuser.username,tuser.userpassword,tuser.passwordexpiredate,tuser.site,");
-        sql.append("tuser.accessdate,tuser.accesstime,tuser.changeflag,tuser.newflag,tuser.loginfailtimes,tuser.failtime,tuser.lockflag,");
+        sql.append("tuser.accessdate,tuser.accesstime,tuser.changeflag,tuser.newflag,tuser.loginfailtimes,tuser.failtime,tuser.lockflag,tuser.firstpage,");
         sql.append("tuserinfo.userename,tuserinfo.useresurname,tuserinfo.email,tuserinfo.displayname,tuserinfo.langcode,tuserinfo.activeflag,tuserinfo.usercontents,");
         sql.append("tusertoken.expiretimes,tusertoken.code,tusertoken.state,tusertoken.nonce,tusertoken.authtoken,tusertoken.accesscontents,");
         sql.append("tusertoken.prime,tusertoken.generator,tusertoken.publickey,tusertoken.useruuid,tusertoken.factorcode ");
@@ -238,6 +238,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         body.set("factorflag", row?.factorflag);
         body.set("factorid", row?.factorid);
         body.set("factorcode", row?.factorcode);
+        body.set("firstpage", row?.firstpage);
         body.set("usercontents",row.usercontents);
         let accessinfo = row.accesscontents;
         if(Utilities.isString(row.accesscontents) && row.accesscontents.trim().length>0) {

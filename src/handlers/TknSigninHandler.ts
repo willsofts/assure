@@ -149,7 +149,7 @@ export class TknSigninHandler extends TknSchemeHandler {
         response.head.composeNoError();
         let body : Map<string,Object> = new Map(); 
         let sql = new KnSQL("select tuser.userid,tuser.username,tuser.userpassword,tuser.passwordexpiredate,tuser.site,");
-        sql.append("tuser.accessdate,tuser.accesstime,tuser.changeflag,tuser.newflag,tuser.loginfailtimes,tuser.failtime,tuser.lockflag,");
+        sql.append("tuser.accessdate,tuser.accesstime,tuser.changeflag,tuser.newflag,tuser.loginfailtimes,tuser.failtime,tuser.lockflag,tuser.firstpage,");
         sql.append("tuserinfo.userename,tuserinfo.useresurname,tuserinfo.email,tuserinfo.displayname,tuserinfo.activeflag,tuserinfo.langcode,tuserinfo.usercontents ");
         sql.append("from tuser,tuserinfo ");
         sql.append("where tuser.username = ?username ");
@@ -292,7 +292,7 @@ export class TknSigninHandler extends TknSchemeHandler {
         response.head.composeNoError();
         let body : Map<string,Object> = new Map(); 
         let sql = new KnSQL("select tuser.userid,tuser.username,tuser.userpassword,tuser.passwordexpiredate,tuser.site,");
-        sql.append("tuser.accessdate,tuser.accesstime,tuser.changeflag,tuser.newflag,tuser.loginfailtimes,tuser.failtime,tuser.lockflag,");
+        sql.append("tuser.accessdate,tuser.accesstime,tuser.changeflag,tuser.newflag,tuser.loginfailtimes,tuser.failtime,tuser.lockflag,tuser.firstpage,");
         sql.append("tuserinfo.userename,tuserinfo.useresurname,tuserinfo.email,tuserinfo.displayname,tuserinfo.activeflag,tuserinfo.langcode,tuserinfo.usercontents ");
         sql.append("from tuser,tuserinfo ");
         sql.append("where tuser.username = ?username ");
