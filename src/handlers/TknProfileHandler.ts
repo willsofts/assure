@@ -1,4 +1,4 @@
-import { KnModel } from "@willsofts/will-db";
+import { KnModel, KnTrackingInfo } from "@willsofts/will-db";
 import { Utilities } from "@willsofts/will-util";
 import { HTTP } from "@willsofts/will-api";
 import { KnDBConnector, KnSQL, KnResultSet, KnRecordSet } from "@willsofts/will-sql";
@@ -9,6 +9,7 @@ import { VerifyError } from "../models/VerifyError";
 import { KnCategory } from "../utils/KnCategory";
 
 export class TknProfileHandler extends TknSchemeHandler {
+	public progid = "profile";
 	public model : KnModel = { name: "tuserinfo", alias: { privateAlias: this.section } };
 
     //declared addon actions name
@@ -20,6 +21,10 @@ export class TknProfileHandler extends TknSchemeHandler {
 
     public getDataSetting(name: string) : KnDataMapEntitySetting | undefined {
 		return {tableName: "tconstant", addonFilters: "typename='tlanguage'", keyField: "typeid", addonFields: "seqno", orderFields: "seqno", setting: { categoryName: "tklanguage", keyName: "typeid", valueNames: ["nameen"]} };
+    }
+
+    public override trackingInfo(action: string, modelname?: string, tracker?: string) : KnTrackingInfo {
+        return super.trackingInfo(action, modelname, tracker?tracker:(this.progid==""?this.constructor.name:this.progid));
     }
 
     /* override to handle launch router when invoked from menu */
