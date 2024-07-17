@@ -22,6 +22,7 @@ const CategoryService : ServiceSchema = {
     actions: {
         async groups(context: any) {
             let names = context.params.names;
+            if(!names) names = context.params["names[]"];
             if(Utilities.isString(names)) {
                 names = names.split(",");
             }
@@ -44,9 +45,11 @@ const CategoryService : ServiceSchema = {
         },
         async lists(context: any) {
             let names = context.params.names;
+            if(!names) names = context.params["names[]"];
             if(Utilities.isString(names)) {
                 names = names.split(",");
             }
+            console.log("names",names);
             if(!names || names.length==0) {
                 return Promise.reject(new VerifyError("Parameter not found (names)",HTTP.NOT_ACCEPTABLE,-16061));
             }
