@@ -68,8 +68,12 @@ var except_apps = ["page_profile","page_change","page_first","page_login","page_
 function open_program(appid,url,params,apath) {
 	let fs_newwindows = "1"==$("#accessor_label").data("NEW");
 	console.log("open_program(appid="+appid+", path="+apath+", url="+url+", params="+params+")");
-	if(!apath) apath = "";
-	let appurl = apath+"/gui/"+appid; //+"?seed="+Math.random()+(params?"&"+params:"");
+	let html = false; 
+	let appurl = "/gui/"+appid; //+"?seed="+Math.random()+(params?"&"+params:"");
+	if(apath && $.trim(apath)!="") {
+		appurl = apath;
+		html = apath.indexOf(".html") > 0;
+	}
 	if(url && $.trim(url)!="") {
 		appurl = "/load/"+appid; //+"?seed="+Math.random()+(params?"&"+params:"");
 	}
@@ -78,6 +82,7 @@ function open_program(appid,url,params,apath) {
 	let authtoken = getAccessorToken();
 	if(fs_newwindows) {
 		let awin = openNewWindow({
+			method: html?"GET":"POST",
 			url : appurl,
 			windowName: "fs_window_"+appid,
 			params: "authtoken="+authtoken+"&language="+fs_default_language+(params?"&"+params:"")
@@ -90,15 +95,16 @@ function open_program(appid,url,params,apath) {
 		$("#pagecontainer").hide();
 		$("#workingframe").show();
 		submitWindow({
+			method: html?"GET":"POST",
 			url : appurl,
 			windowName: "workingframe",
 			params: "authtoken="+authtoken+"&language="+fs_default_language+(params?"&"+params:"")
 		});
 		startWaiting();
 	}
-	recentApplication(appid,url,params);
+	recentApplication(appid,url,params,apath);
 }
-function recentApplication(appid,url,params) {
+function recentApplication(appid,url,params,apath) {
 	let $rlist = $("#recentmenulist");
 	let $items = $rlist.find("li");
 	if($items.length>15) return;
@@ -120,7 +126,7 @@ function recentApplication(appid,url,params) {
 				let row = json.body.rows[0];
 				let $li = $("<li></li>");
 				let $alink = $("<a href='javascript:void(0)'></a>");
-				$alink.addClass("dropdown-item").click(function() { open_page(appid,url,params); }).html(row["description"]);
+				$alink.addClass("dropdown-item").click(function() { open_page(appid,url,params,apath); }).html(row["description"]);
 				$li.append($alink).attr("appid",appid).attr("url",url).appendTo($rlist);	
 				$("#recentcaret").show();
 			}

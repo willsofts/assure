@@ -19,11 +19,12 @@ if(data.dataset?.sidemap && data.dataset?.sidelist) {
                 let iconstyle = element["iconstyle"];
                 let progid = element["programid"];
                 let url = element["url"];
+                let path = element["progpath"];
                 let progtype = element["progtype"];
                 if("I"!=progtype) {                
                 %>
                 <li>
-                    <a href="javascript:void(0)" class="fa-link-menu-item dropdown-item collapsed active active-item menu-desktop" data-pid="<%=progid%>" data-url="<%=url%>">
+                    <a href="javascript:void(0)" class="fa-link-menu-item dropdown-item collapsed active active-item menu-desktop" data-pid="<%=progid%>" data-url="<%=url%>" data-path="<%=path%>">
                         <em class="<%=groupstyle%>"></em>
                         <span class="nav-label"><%=progname%></span>
                     </a>
@@ -48,10 +49,10 @@ if(data.dataset?.sidemap && data.dataset?.sidelist) {
                     let iconstyle = program["iconstyle"];
                     let progid = program["programid"];
                     let url = program["url"];
-                    let progtype = program["progtype"];
+                    let path = program["progpath"];
                     %>
                     <li>
-                        <a href="javascript:void(0)" class="fa-link-menu-item dropdown-item collapsed active active-item" data-pid="<%=progid%>" data-url="<%=url%>">
+                        <a href="javascript:void(0)" class="fa-link-menu-item dropdown-item collapsed active active-item" data-pid="<%=progid%>" data-url="<%=url%>" data-path="<%=path%>" >
                             <em class="<%=groupstyle%>"></em>
                             <span class="nav-label"><%=progname%></span>
                         </a>
@@ -74,10 +75,11 @@ if(data.dataset?.sidemap && data.dataset?.sidelist) {
                             let iconstyle = element["iconstyle"];
                             let progid = element["programid"];
                             let url = element["url"];
+                            let path = element["progpath"];
                             let progtype = element["progtype"];
                             if("I"!=progtype) {
                             %>
-                            <li><a href="javascript:void(0)" class="fa-link-menu-item menu-desktop <%=iconstyle%>" data-pid="<%=progid%>" data-url="<%=url%>" title="<%=progid%>"><%=progname %></a></li>
+                            <li><a href="javascript:void(0)" class="fa-link-menu-item menu-desktop <%=iconstyle%>" data-pid="<%=progid%>" data-url="<%=url%>" data-path="<%=path%>" title="<%=progid%>"><%=progname %></a></li>
                             <%	    
                             }                                        
                         }

@@ -31,9 +31,9 @@ export class TknSystemHandler extends TknBaseHandler {
             if(!info.tracker) info.tracker = context.meta.pid;
             this.call("logging.insert",{...context.params, info: info},{meta: context.meta}).catch(ex => this.logger.error(this.constructor.name,ex));
             /*
-            let tracking = new TknTrackingHandler();
-            tracking.trackInfo = info;   
-            tracking.insert(context).catch(ex => this.logger.error(this.constructor.name,ex));
+            let logging = new TknLoggingHandler();
+            logging.trackInfo = info;   
+            logging.insert(context).catch(ex => this.logger.error(this.constructor.name,ex));
             */
         }
         return Promise.resolve();

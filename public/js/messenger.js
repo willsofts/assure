@@ -10,7 +10,7 @@ function sendMessageToParent(data) {
     } catch(ex) { console.log(ex); }
 }
 function handleRequestMessage(data) {
-    if(data.type=="storage") {
+    if(data && data.type=="storage") {
         if(data.API_URL) API_URL = data.API_URL;
         if(data.BASE_URL) BASE_URL = data.BASE_URL;
         if(data.API_TOKEN) API_TOKEN = data.API_TOKEN;

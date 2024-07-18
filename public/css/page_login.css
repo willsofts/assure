@@ -53,3 +53,14 @@
 
 #fspolicylayer { color: navy; font-size: 0.8rem; }
 #fspolicylayer span:first-child { text-decoration: underline; }
+
+.link-button {
+	min-width: 220px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.pass-word { color:darkcyan; font-style: italic; }
+.go-word { color:lightseagreen; font-style: italic; }
+
+#workingframe { border:none; margin:0px; display:none; }

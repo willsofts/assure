@@ -21,7 +21,7 @@
 			function setupOpenLink(alink) {
 				let pid = alink.attr("pid");
 				let url = alink.attr("url");
-				if(pid && pid!="") alink.click(function(evt) { open_page(pid,url,null,null,alink); });
+				if(pid && pid!="") alink.click(function() { open_page(pid,url,null,alink.attr("data-path"),alink); });
 			}
 			function setupTodo(alink) {
 				if(!CDN_URL) CDN_URL = "";
@@ -62,7 +62,11 @@
 				if(!fs_prog || !fs_title || !fs_icon) return;
 				let fs_seqno = alink.attr("seqno");
 				let fs_user = $("#main_user").val();
-				let $newlink = $("<a href=\"javascript:void(0);\" class=\"tile fa-box-title fav-app\" pid=\""+fs_prog+"\" seqno=\""+fs_seqno+"\"><div class=\"icon\"><img class=\"fa fa-app-image\" src=\""+CDN_URL+"/img/apps/"+fs_icon+"\" /></div><span class=\"title\">"+fs_title+"</span></a>");
+				let $img = $("<img class=\"fa fa-app-image\" src=\""+CDN_URL+"/img/apps/"+fs_icon+"\"></img>");
+				let $div = $("<div class=\"icon\"></div>").append($img);
+				let $span = $("<span class=\"title\">"+fs_title+"</span>");
+				let $newlink = $("<a href=\"javascript:void(0);\" class=\"tile fa-box-title fav-app\" pid=\""+fs_prog+"\" seqno=\""+fs_seqno+"\"></a>");
+				$newlink.append($div).append($span);
 				if(fs_prog && fs_prog!="") {
 					let authtoken = getAccessorToken();
 					jQuery.ajax({
@@ -70,12 +74,22 @@
 						type: "POST",
 						data: { userid: fs_user, programid: fs_prog, seqno: fs_seqno },
 						headers : { "authtoken": authtoken },
-						dataType: "html",
+						dataType: "json",
 						contentType: defaultContentType,
 						error : function(transport,status,errorThrown) { 
 							submitFailure(transport,status,errorThrown);  
 						},
-						success: function(data,status,transport){ 
+						success: function(data,status,transport) { 
+							console.log("insertNewFavorMenu:",data);
+							if(data.body.rows && data.body.rows.length >0) {
+								let row = data.body.rows[0];
+								let iconfile = row.iconfile;
+								if(!iconfile || $.trim(iconfile)=="") {
+									iconfile = "application.png";
+								}
+								$img.attr("src",CDN_URL+"/img/apps/"+iconfile);
+								$newlink.attr("data-path",row.progpath?row.progpath:"");
+							}
 							$newlink.insertBefore(alink);
 							setupOpenLink($newlink);
 							setupTodo($newlink);

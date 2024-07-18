@@ -10,13 +10,14 @@
             let programid = r["programid"];
             let url = r["url"];
             let shortname = r["shortname"];
+            let path = r["progpath"];
             if(iconfile && iconfile!="") {
 %>
-<a href="javascript:void(0)" class="tile fa-box-title fav-app fa-link-app" data-pid="<%=programid%>" data-url="<%=url%>" title="<%=programid%>"><div class="icon"><img class="fa fa-app-image" src="<%=meta.cdn_url%>/img/apps/<%=iconfile%>" alt=""/></div><span class="title"><%=shortname%></span></a>		
+<a href="javascript:void(0)" class="tile fa-box-title fav-app fa-link-app" data-pid="<%=programid%>" data-url="<%=url%>" data-path="<%=path%>" title="<%=programid%>"><div class="icon"><img class="fa fa-app-image" src="<%=meta.cdn_url%>/img/apps/<%=iconfile%>" alt=""/></div><span class="title"><%=shortname%></span></a>		
 <%                
             } else {
 %>
-<a href="javascript:void(0)" class="tile fa-box-title fav-app fa-link-app" data-pid="<%=programid%>" data-url="<%=url%>" title="<%=programid%>"><div class="icon"><img class="fa fa-app-image" src="<%=meta.cdn_url%>/img/apps/application.png" alt=""/></div><span class="title"><%=shortname%></span></a>		
+<a href="javascript:void(0)" class="tile fa-box-title fav-app fa-link-app" data-pid="<%=programid%>" data-url="<%=url%>" data-path="<%=path%>" title="<%=programid%>"><div class="icon"><img class="fa fa-app-image" src="<%=meta.cdn_url%>/img/apps/application.png" alt=""/></div><span class="title"><%=shortname%></span></a>
 <%
             }
         }

@@ -1,5 +1,5 @@
 import { KnModel } from "@willsofts/will-db";
-import { KnDBConnector, KnSQL, KnResultSet } from '@willsofts/will-sql';
+import { KnDBConnector, KnSQL, KnResultSet, KnRecordSet } from '@willsofts/will-sql';
 import { HTTP } from "@willsofts/will-api";
 import { KnContextInfo, KnValidateInfo, KnDataSet, KnDataTable, KnDataMapRecordSetting } from '../models/KnCoreAlias';
 import { VerifyError } from '../models/VerifyError';
@@ -175,7 +175,7 @@ export class TknMenuHandler extends TknProcessHandler {
 		} else {
 			knsql.append("tprog.shortnameth as shortname");			
 		}
-		knsql.append(",tfavor.seqno,tprod.url,tprog.shortname as shortnameen,tprog.shortnameth,tprog.progname,tprog.prognameth ");
+		knsql.append(",tfavor.seqno,tprod.url,tprog.shortname as shortnameen,tprog.shortnameth,tprog.progname,tprog.prognameth,tprog.progpath ");
 		knsql.append("from tfavor ");
 		knsql.append("left join tprog ON tfavor.programid = tprog.programid ");
 		knsql.append("left join tprod ON tprod.product = tprog.product ");
@@ -210,6 +210,27 @@ export class TknMenuHandler extends TknProcessHandler {
             list.push(r);
         }
         return {sidemap: Object.fromEntries(sidemap), sidelist: Object.fromEntries(sidelist)};
+    }
+
+    protected override async performCreating(context: any, model: KnModel, db: KnDBConnector): Promise<KnResultSet> {
+        let programid = context.params.programid;
+        await super.performCreating(context, model, db);
+        return await this.getProgramInfo(db, programid, context);
+    }    
+
+    public async getProgramInfo(db: KnDBConnector, programid: string,context?: any): Promise<KnRecordSet> {
+        let knsql = new KnSQL();
+        knsql.append("select tprog.programid,tprog.progname,tprog.prognameth,tprog.iconfile,");
+        knsql.append("tprog.shortname,tprog.parameters,tprog.progpath,tprog.progtype,");
+        knsql.append("tprog.progsystem,tprog.shortname,tprog.shortnameth,");
+        knsql.append("tprod.url,tprod.verified,tprod.centerflag,tprod.startdate,"); 
+        knsql.append("tprod.serialid,tprod.nameen,tprod.nameth ");
+        knsql.append("from tprog ");
+        knsql.append("left join tprod ON tprod.product = tprog.product "); 
+        knsql.append("where tprog.programid = ?programid ");
+        knsql.set("programid",programid);
+        let rs = await knsql.executeQuery(db,context);
+        return this.createRecordSet(rs);
     }
 
 }

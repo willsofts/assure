@@ -830,7 +830,8 @@ function notAllowRightClick() {
 function submitWindow(settings) {
 	let p = settings;
 	if((p.url && p.url!="") && p.params) {
-		let frm = $("<form method='POST'></form>");
+		let method = p.method || "POST";
+		let frm = $("<form method='"+method+"'></form>");
 		frm.attr("action",p.url);
 		frm.attr("target",p.windowName);
 		if(typeof(p.params)==="string") {
@@ -870,6 +871,7 @@ function submitWindow(settings) {
 }		 
 function openNewWindow(settings) {
 	let defaultSettings = {
+		method: "POST",
 		url : "",
 		windowName : "_blank",
 		windowWidth : window.screen.availWidth,

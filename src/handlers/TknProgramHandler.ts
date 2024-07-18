@@ -31,6 +31,10 @@ export class TknProgramHandler extends TknSchemeHandler {
     }
 
     public async performRetrieving(context: KnContextInfo, db: KnDBConnector): Promise<KnRecordSet> {
+        return await this.getProgramInfo(db,context.params.program,context);
+    }
+
+    public async getProgramInfo(db: KnDBConnector,programid: string, context?: KnContextInfo): Promise<KnRecordSet> {
         let knsql = new KnSQL();
         knsql.append("select tprog.programid,tprog.progname,tprog.prognameth,tprog.iconfile,");
         knsql.append("tprog.shortname,tprog.parameters,tprog.progpath,tprog.progtype,");
@@ -40,7 +44,7 @@ export class TknProgramHandler extends TknSchemeHandler {
         knsql.append("from tprog ");
         knsql.append("left join tprod ON tprod.product = tprog.product "); 
         knsql.append("where tprog.programid = ?programid ");
-        knsql.set("programid",context.params.program);
+        knsql.set("programid",programid);
         let rs = await knsql.executeQuery(db,context);
         return this.createRecordSet(rs);
     }

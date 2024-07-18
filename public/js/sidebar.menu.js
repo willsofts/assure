@@ -35,7 +35,7 @@
 					$(element).click(function() {
 						let pid = $(this).attr("data-pid");
 						let url = $(this).attr("data-url");
-						open_page(pid,url);
+						open_page(pid,url,null,$(this).attr("data-path"));
 					});
 				});
 			}
