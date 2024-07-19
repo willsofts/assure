@@ -189,7 +189,7 @@ export class TknBaseHandler extends KnHandler {
     }
     
     public async verifyAuthenToken(token?: string, verifyTokenKey: boolean = true, verifyIdentifier: boolean = true) : Promise<AuthenTokenData | undefined> {
-        if (token != undefined) {
+        if (token && token.trim().length > 0) {
             const atoken: AuthenTokenData = AuthenToken.verifyAuthenToken(token as string, false);
             if (verifyIdentifier && (atoken.identifier == undefined)) {
                 return Promise.reject(new VerifyError("Token is invalid",HTTP.UNAUTHORIZED,-16001));
