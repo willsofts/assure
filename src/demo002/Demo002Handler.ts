@@ -30,35 +30,34 @@ export class Demo002Handler extends TknOperateHandler {
             assets: { type: "INTEGER" },
             credit: { type: "DECIMAL" },
             passcode: { type: "STRING" },
-            createdate: { type: "DATE" },
-            createtime: { type: "TIME" },
-            editdate: { type: "DATE" },
-            edittime: { type: "TIME" },
+            createdate: { type: "DATE", created: true },
+            createtime: { type: "TIME", created: true },
+            editdate: { type: "DATE", created: true, updated: true },
+            edittime: { type: "TIME", created: true, updated: true },
         },
     };
 
     /* try to assign individual parameters under this context */
     protected override assignParameters(context: KnContextInfo, sql: KnSQLInterface, action?: string, mode?: string) {
         console.log("action="+action+",mode="+mode);
-        if(KnOperation.COLLECT!=action) {
-            let licenses = context.params["licenses[]"];
-            let languages = context.params["languages[]"];
-            if(licenses && Array.isArray(licenses)) {
-                licenses = licenses.join(",");
-            }
-            sql.set("licenses",licenses);
-            if(languages && Array.isArray(languages)) {
-                languages = languages.join(",");
-            }
-            sql.set("languages",languages);
+        if(KnOperation.COLLECT != action) {
+            let createdate = Utilities.parseDate(context.params.createdate);
+            let createtime = Utilities.parseTime(context.params.createtime);
+            let editdate = Utilities.parseDate(context.params.editdate);
+            let edittime = Utilities.parseTime(context.params.edittime);
+            let now = Utilities.now();
+            let licenses = this.getParameterArray("licenses",context.params);
+            let languages = this.getParameterArray("languages",context.params);
+            sql.set("licenses",licenses ? licenses.join(",") : licenses);
+            sql.set("languages",languages ? languages.join(",") : languages);
             sql.set("amount",Utilities.parseFloat(context.params.amount));
             sql.set("age",Utilities.parseInteger(context.params.age));
-            sql.set("effectdate",Utilities.parseDate(context.params.effectdate));
-            sql.set("effecttime",Utilities.parseTime(context.params.effecttime));
-            sql.set("createdate",Utilities.parseDate(context.params.createdate));
-            sql.set("createtime",Utilities.parseTime(context.params.createtime));
-            sql.set("editdate",Utilities.parseDate(context.params.editdate));
-            sql.set("edittime",Utilities.parseTime(context.params.edittime));
+            sql.set("effectdate",Utilities.parseDate(context.params.effectdate),"DATE");
+            sql.set("effecttime",Utilities.parseTime(context.params.effecttime),"TIME");
+            sql.set("createdate",createdate?createdate:now,"DATE");
+            sql.set("createtime",createtime?createtime:now,"TIME");
+            sql.set("editdate",editdate?editdate:now,"DATE");
+            sql.set("edittime",edittime?edittime:now,"TIME");
             sql.set("assets",Utilities.parseInteger(context.params.assets));
             sql.set("credit",Utilities.parseFloat(context.params.credit));
         }
@@ -93,6 +92,7 @@ export class Demo002Handler extends TknOperateHandler {
                     filter = " and ";
                 }
             }
+            /*
             let marrystatus = context.params["marrystatus[]"];
             if(marrystatus && !Array.isArray(marrystatus)) marrystatus = [marrystatus];
             if(!marrystatus && context.params.marrystatus) {
@@ -100,8 +100,16 @@ export class Demo002Handler extends TknOperateHandler {
                 if(!Array.isArray(marrystatus)) marrystatus = [context.params.marrystatus];
             }
             if(marrystatus && Array.isArray(marrystatus)) {
-                marrystatus = marrystatus.map(item => "'"+item+"'").join(",");
-                knsql.append(filter).append(model.name).append(".marrystatus IN (").append(marrystatus).append(")");
+            */
+            let marrystatus = this.getParameterArray("marrystatus",params);
+            if(marrystatus) {
+                let marrystatuses = marrystatus.map(item => "'"+item+"'").join(",");
+                knsql.append(filter).append(model.name).append(".marrystatus IN (").append(marrystatuses).append(")");
+                filter = " and ";
+            }
+            if(params.title && params.title!="") {
+                knsql.append(filter).append(model.name).append(".title LIKE ?title");
+                knsql.set("title","%"+params.title+"%");
                 filter = " and ";
             }
             return knsql;    
@@ -118,8 +126,10 @@ export class Demo002Handler extends TknOperateHandler {
                 let row = this.transformData(rs.rows[0]);
                 let licenses = row.licenses;
                 let languages = row.languages;
-                if(licenses && licenses.trim().length>0) row.licenses = licenses.split(",");
-                if(languages && languages.trim().length>0) row.languages = languages.split(",");
+                if(licenses && licenses.trim().length>0) licenses = licenses.split(",");
+                if(languages && languages.trim().length>0) languages = languages.split(",");
+                row.licenses = licenses ? licenses : [];
+                row.languages = languages ? languages : [];
                 let result = {action: KnOperation.RETRIEVE, entity: {}, dataset: row};
                 return result;
             }
