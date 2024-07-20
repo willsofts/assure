@@ -123,7 +123,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         }
         let db = this.getPrivateConnector(model);
         try {
-            let authdata = {identifier:userdata?.identifier, site:userdata?.site, accessor:userdata?.accessor};
+            let authdata = {identifier:userdata?.identifier, site:userdata?.site, accessor:userdata?.accessor, type: "S"};
             let body = this.createChangingToken(authdata);
             await this.changeUserToken(db, authdata, state, nonce, body.get("authtoken") as string, body.get("expiretimes") as number, context);
             return body;
@@ -152,7 +152,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         let dh = await handler.createDiffie(context);
         console.log(this.constructor.name+".createDiffie",dh);
         await handler.saveDiffie(db, {useruuid: token.useruuid }, dh, context);
-        let info = handler.createKnDiffieInfo(dh);
+        let info = handler.createDiffieInfo(dh);
         return Promise.resolve(info);
     }
 
@@ -251,7 +251,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
 
     public async createUserAccess(db: KnDBConnector, usrinfo: KnUserAccessInfo, context?: any) : Promise<KnUserToken> {
         let useruuid : string = uuid();
-        let authdata = {identifier:useruuid, site:usrinfo.site, accessor:usrinfo.userid};
+        let authdata = {identifier:useruuid, site:usrinfo.site, accessor:usrinfo.userid, type: "S"};
         let authtoken : string = AuthenToken.createAuthenToken(authdata);
         return this.createUserToken(db, usrinfo, useruuid, authtoken, "S", EXPIRE_TIMES, context);
     }

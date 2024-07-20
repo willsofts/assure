@@ -14,7 +14,7 @@ export class TknLoginHandler extends TknSchemeHandler {
     public model : KnModel = { name: "tusertoken", alias: { privateAlias: this.section } };
 
     //declared addon actions name
-    public handlers = [ {name: "logincallback"}, {name: "logoutcallback"}, {name: "anonymouslogin"} ];
+    public handlers = [ {name: "logincallback"}, {name: "logoutcallback"}, {name: "anonymouslogin"}, {name: "anonymous"} ];
 
     public async logincallback(context: KnContextInfo) : Promise<KnLoginInfoContents> {
 		return this.callFunctional(context, {operate: "logincallback", raw: false}, this.doLoginCallback);
@@ -26,6 +26,10 @@ export class TknLoginHandler extends TknSchemeHandler {
 
 	public async anonymouslogin(context: KnContextInfo) : Promise<KnAnonymousInfoContents> {
 		return this.callFunctional(context, {operate: "anonymouslogin", raw: false}, this.doAnonymousLogin);
+	}
+
+	public async anonymous(context: KnContextInfo) : Promise<KnAnonymousInfoContents> {
+		return this.callFunctional(context, {operate: "anonymous", raw: false}, this.doAnonymousLogin);
 	}
 
 	protected async doLoginCallback(context: KnContextInfo, model: KnModel) : Promise<KnLoginInfoContents> {
@@ -162,9 +166,9 @@ export class TknLoginHandler extends TknSchemeHandler {
 
 	public doAnonymousLogin(context: KnContextInfo, model: KnModel) : Promise<KnAnonymousInfoContents> {
 		let identifier : string = uuid();
-		let site = context.params.site;
-		let accessor = context.params.accessor;
-		let authdata = {identifier, site, accessor};
+		let site = context.params.site || "ANONYM";
+		let accessor = context.params.accessor || "anonymous";
+		let authdata = {identifier, site, accessor, type: "A"};
 		let authtoken : string = AuthenToken.createAuthenToken(authdata);
 		let response : KnAnonymousInfoContents = { userUuid: identifier, authToken: authtoken };
 		this.saveAnonymousToken(context, model, authdata, authtoken);

@@ -3,7 +3,7 @@ import { UserTokenInfo, PasswordLibrary } from '@willsofts/will-lib';
 import { HTTP } from "@willsofts/will-api";
 import { VerifyError } from "../models/VerifyError";
 import { KnContextInfo } from '../models/KnCoreAlias';
-import { VALIDATE_TOKEN, ALWAYS_VALIDATE_TOKEN } from "../utils/EnvironmentVariable";
+import { VALIDATE_TOKEN, ALWAYS_VALIDATE_TOKEN, VALIDATE_ANOMYMOUS_TOKEN } from "../utils/EnvironmentVariable";
 import { TknSchemeHandler } from "./TknSchemeHandler";
 
 export class TknAuthenticateHandler extends TknSchemeHandler {
@@ -19,7 +19,10 @@ export class TknAuthenticateHandler extends TknSchemeHandler {
     protected async doAuthenticate(context: KnContextInfo, model: KnModel) : Promise<UserTokenInfo | undefined> {
         if(!VALIDATE_TOKEN) return Promise.resolve(undefined);
 		let atoken = await this.getAuthenToken(context, false, true);
-		if (atoken != undefined) {
+		if (atoken != undefined && (atoken.identifier && atoken.identifier.trim().length > 0)) {
+            if(VALIDATE_ANOMYMOUS_TOKEN && atoken.type == "A") {
+                return Promise.reject(new VerifyError("Token is anonymous",HTTP.UNAUTHORIZED,-16007)); 
+            }
             let db = this.getPrivateConnector(model); 
             try {
                 let plib : PasswordLibrary = new PasswordLibrary();

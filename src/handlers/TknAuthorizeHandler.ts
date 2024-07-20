@@ -43,6 +43,9 @@ export class TknAuthorizeHandler extends TknSchemeHandler {
         if (atoken.identifier == undefined) {
             return Promise.reject(new VerifyError("Token is invalid",HTTP.UNAUTHORIZED,-16001));
         }
+        if(VALIDATE_ANOMYMOUS_TOKEN && atoken.type == "A") {
+            return Promise.reject(new VerifyError("Token is anonymous",HTTP.UNAUTHORIZED,-16007)); 
+        }
         let ut = await this.getAuthorizeToken(db, token, VALIDATE_TOKEN_NOT_FOUND, VALIDATE_ANOMYMOUS_TOKEN);
         return Promise.resolve(ut);
     }

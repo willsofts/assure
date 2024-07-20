@@ -23,7 +23,7 @@ export class TknDiffieHandler extends TknSchemeHandler {
     public async doDiffie(context: KnContextInfo, model: KnModel) : Promise<any> {
         let dh = await this.createDiffie(context);
         this.logger.debug(this.constructor.name+".doDiffie: dh",dh);
-        let info = this.createKnDiffieInfo(dh);
+        let info = this.createDiffieInfo(dh);
         let body = { info: info };
         this.doSaveDiffie(context, model, dh).then(rs => { this.logger.debug(this.constructor.name+".doSaveDiffie",rs); });
         return Promise.resolve(body);
@@ -52,7 +52,7 @@ export class TknDiffieHandler extends TknSchemeHandler {
         return Promise.resolve(dh);
     }
 
-    public createKnDiffieInfo(dh: DH) : KnDiffieInfo {
+    public createDiffieInfo(dh: DH) : KnDiffieInfo {
         return { 
             prime: dh.prime, 
             generator: dh.generator,

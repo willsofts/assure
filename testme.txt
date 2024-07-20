@@ -13,6 +13,7 @@ curl -X POST -H "Authorization: Basic WC07N8/G9Zqn/68+Am9H7X3CjLLPhP6vUCi2/FjKx8
 
 take anonymous login
 curl -X POST http://localhost:8080/api/login/anonymouslogin -d "site=FWS&accessor=tester"
+curl -X POST http://localhost:8080/api/login/anonymous
 
 after login it response authtoken then using it as request header["authtoken"]
 
@@ -84,6 +85,7 @@ curl -X POST -H "AuthToken: ?" http://localhost:8080/api/password/policy
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/password/policies
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/passwordpolicy/execute?language=EN
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/passwordpolicy/execute?language=TH
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/passwordpolicy/categories
 
 menu
 curl "http://localhost:8080/gui/menu/favor?userid=tso"

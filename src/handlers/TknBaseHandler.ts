@@ -8,7 +8,7 @@ import { HTTP, JSONReply } from "@willsofts/will-api";
 import { KnAccessor } from '../models/KnAccessor';
 import { VerifyError } from "../models/VerifyError";
 import { KnAuthorizationInfo, KnContextInfo, KnValidateInfo, RESERVED_FIELDS } from '../models/KnCoreAlias';
-import { VALIDATE_TOKEN, DB_SECTION } from "../utils/EnvironmentVariable";
+import { VALIDATE_TOKEN, DB_SECTION, VALIDATE_ANOMYMOUS_TOKEN} from "../utils/EnvironmentVariable";
 
 export class TknBaseHandler extends KnHandler {
     public accessor?: KnAccessor;
@@ -130,7 +130,7 @@ export class TknBaseHandler extends KnHandler {
             }
         }
         if(!result) {
-            let token = await this.getAuthenToken(context, false, false);
+            let token = await this.getAuthenToken(context, false, false, false);
             if(token) {
                 result = { useruuid : token.identifier, userid: token.accessor, site: token.site };
             }
@@ -183,16 +183,19 @@ export class TknBaseHandler extends KnHandler {
         return Promise.resolve(dh);
     }
     
-    public async getAuthenToken(context: KnContextInfo, verifyTokenKey: boolean = true, verifyIdentifier: boolean = true) : Promise<AuthenTokenData | undefined> {
+    public async getAuthenToken(context: KnContextInfo, verifyTokenKey: boolean = true, verifyIdentifier: boolean = true, verifyAnonymous: boolean = VALIDATE_ANOMYMOUS_TOKEN) : Promise<AuthenTokenData | undefined> {
         let token = this.getTokenKey(context);
-        return await this.verifyAuthenToken(token, verifyTokenKey, verifyIdentifier);
+        return await this.verifyAuthenToken(token, verifyTokenKey, verifyIdentifier, verifyAnonymous);
     }
     
-    public async verifyAuthenToken(token?: string, verifyTokenKey: boolean = true, verifyIdentifier: boolean = true) : Promise<AuthenTokenData | undefined> {
+    public async verifyAuthenToken(token?: string, verifyTokenKey: boolean = true, verifyIdentifier: boolean = true, verifyAnonymous: boolean = VALIDATE_ANOMYMOUS_TOKEN) : Promise<AuthenTokenData | undefined> {
         if (token && token.trim().length > 0) {
             const atoken: AuthenTokenData = AuthenToken.verifyAuthenToken(token as string, false);
             if (verifyIdentifier && (atoken.identifier == undefined)) {
                 return Promise.reject(new VerifyError("Token is invalid",HTTP.UNAUTHORIZED,-16001));
+            }
+            if(verifyAnonymous && (atoken.type == "A")) {
+                return Promise.reject(new VerifyError("Token is anonymous",HTTP.UNAUTHORIZED,-16007)); 
             }
             return Promise.resolve(atoken);
         }
@@ -359,6 +362,14 @@ export class TknBaseHandler extends KnHandler {
     
     public async call(serviceName: string, params: any, options?: any) : Promise<any> {
         return this.broker?.call(serviceName, params, options);
+    }
+
+    public isRecordNotFound(err: Error) : boolean {
+        if(err instanceof VerifyError) {
+            let ve = err as VerifyError;
+            return -16004==ve.errno;
+        }
+        return false;
     }
 
     public getParameterArray(paramname: string, params: any) : string[]|undefined {
