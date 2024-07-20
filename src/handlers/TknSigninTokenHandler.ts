@@ -41,7 +41,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
 
     public async validatetoken(context: KnContextInfo) : Promise<AuthenTokenData | undefined> {
         await this.exposeFunctional(context, this.model, {operate:"validatetoken"});
-        return this.getAuthenToken(context, true, true);
+        return this.getAuthenToken(context, true, true, false);
 	}
 
     protected async doAccessToken(context: KnContextInfo, model: KnModel = this.model) : Promise<Map<string,Object>> {
