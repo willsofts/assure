@@ -85,7 +85,7 @@ function open_program(appid,url,params,apath) {
 			method: html?"GET":"POST",
 			url : appurl,
 			windowName: "fs_window_"+appid,
-			params: "authtoken="+authtoken+"&language="+fs_default_language+(params?"&"+params:"")
+			params: "seed="+Math.random()+"&authtoken="+authtoken+"&language="+fs_default_language+(params?"&"+params:"")
 		});
 		awin.focus();
 	} else {
@@ -98,7 +98,7 @@ function open_program(appid,url,params,apath) {
 			method: html?"GET":"POST",
 			url : appurl,
 			windowName: "workingframe",
-			params: "authtoken="+authtoken+"&language="+fs_default_language+(params?"&"+params:"")
+			params: "seed="+Math.random()+"&authtoken="+authtoken+"&language="+fs_default_language+(params?"&"+params:"")
 		});
 		startWaiting();
 	}
