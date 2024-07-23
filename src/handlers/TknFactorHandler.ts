@@ -85,4 +85,20 @@ export class TknFactorHandler extends TknProcessHandler {
         });                
     }
 
+    protected override async doGet(context: KnContextInfo, model: KnModel) : Promise<KnFactorInfo> {
+        let vi = this.validateParameters(context.params,"factorid");
+        if(!vi.valid) {
+            return Promise.reject(new VerifyError("Parameter not found ("+vi.info+")",HTTP.NOT_ACCEPTABLE,-16061));
+        }
+        let db = this.getPrivateConnector(model);
+        try {
+            return await this.getFactorInfo(db, context.params.factorid, false);
+        } catch(ex: any) {
+            this.logger.error(this.constructor.name,ex);
+            return Promise.reject(this.getDBError(ex));
+		} finally {
+			if(db) db.close();
+        }
+    }
+
 }
