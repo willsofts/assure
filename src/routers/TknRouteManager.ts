@@ -5,6 +5,7 @@ import { TknUploadRouter } from "./TknUploadRouter";
 import { TknRenderRouter} from "./TknRenderRouter";
 import { TknLaunchRouter } from "./TknLaunchRouter";
 import { TknControlRouter } from './TknControlRouter';
+import { TknDownloadRouter } from './TknDownloadRouter';
 import { CONTENT_SECURITY_POLICY, CONTENT_SECURITY_PATH } from "../utils/EnvironmentVariable";
 
 export class TknRouteManager extends TknBaseRouter {
@@ -41,13 +42,12 @@ export class TknRouteManager extends TknBaseRouter {
         let uploader = new TknUploadRouter(this.service, this.dir);
         let launcher = new TknLaunchRouter(this.service, this.dir);
         let controler = new TknControlRouter(this.service, this.dir);
+        let downloader = new TknDownloadRouter(this.service, this.dir);
 
         app.use(async (req: Request, res: Response, next: Function) => {
             try {
                 this.logger.debug(this.constructor.name+".route: url="+req.originalUrl);
                 this.logger.debug(this.constructor.name+".route: headers",req.headers);
-                //let ctx = await this.createContext(req);
-                //await AssureHandler.doAuthorize(ctx);
                 if(this.isContentSecurityPath(req)) {
                     if(CONTENT_SECURITY_POLICY!="") {
                         res.header("Content-Security-Policy", CONTENT_SECURITY_POLICY);
@@ -75,6 +75,9 @@ export class TknRouteManager extends TknBaseRouter {
             let valid = await this.verifyToken(req,res); if(!valid) return; 
             uploader.doUpload(req,res); 
         });
+        app.get("/download/file", (req: Request, res: Response) => { downloader.doDownload(req,res); });
+        app.post("/download/file", (req: Request, res: Response) => { downloader.doDownload(req,res); });
+
         // curl -X POST http://localhost:8080/upload/file -F filename=@D:\images\birth.png -F type=IMG
 
     }

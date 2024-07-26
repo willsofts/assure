@@ -22,6 +22,7 @@ export const MAX_FAILURE = parseInt(config.env("MAX_FAILURE","3")) || 3;
 export const MAX_WAITTIME = parseInt(config.env("MAX_WAITTIME","180000")) || 180000; //3 minutes (3x60x1000)
 
 export const EXCEPT_AUTHORIZE_PATH: string = config.env("EXCEPT_AUTHORIZE_PATH");
+export const DOWNLOAD_RESOURCES_PATH: string = config.env("DOWNLOAD_RESOURCES_PATH") || os.tmpdir();
 export const UPLOAD_RESOURCES_PATH: string = config.env("UPLOAD_RESOURCES_PATH") || os.tmpdir();
 export const NEWS_URL_ALWAYS_OPEN: boolean = config.env("NEWS_URL_ALWAYS_OPEN") === "true";
 export const AUTHEN_BY_VERIFY_DOMAIN: boolean = config.env("AUTHEN_BY_VERIFY_DOMAIN","false") === "true";
