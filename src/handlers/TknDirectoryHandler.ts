@@ -20,15 +20,24 @@ export class TknDirectoryHandler extends TknSchemeHandler {
         knsql.append(selector);
         knsql.append(" from ");
         knsql.append(model.name);
-        knsql.append(" where inactive='0' "); 
+        knsql.append(" where inactive = '0' "); 
         knsql.append("and invisible = ?invisible ");
         knsql.append("and systemtype = ?systemtype ");
-        let invisible = params.invisible && params.invisible!="" ? params.invisible : "0";
-        let systemtype = params.systemtype && params.systemtype!="" ? params.systemtype : "W";
+        let invisible = params.invisible && params.invisible!="" ? params.invisible : "0"; //only visible
+        //systemtype: W=Web,I=iOS,A=Android
+        let systemtype = params.systemtype && params.systemtype!="" ? params.systemtype : "W"; //only WEB
+        //appstype: W=Web,S=SPA
         if(params.appstype && params.appstype!="") {
             knsql.append("and appstype = ?appstype ");
             knsql.set("appstype",params.appstype);
         }
+        //domaintype: S=SAML,B=B2C,D=DIRECTORY
+        if(params.domaintype && params.domaintype!="") {
+            knsql.append("and domaintype = ?domaintype ");
+            knsql.set("domaintype",params.domaintype);
+        } else {
+            knsql.append("and domaintype != 'D' "); //not LDAP
+        }        
         knsql.set("invisible",invisible);
         knsql.set("systemtype",systemtype);
         return knsql;    
@@ -55,7 +64,7 @@ export class TknDirectoryHandler extends TknSchemeHandler {
 
 	public async getDirectoryInfo(db: KnDBConnector, domainid: string, context?: any) : Promise<KnResultSet> {
         let sql = new KnSQL();
-        sql.append("select * from tdirectory where domainid = ?domainid and inactive='0' ");
+        sql.append("select * from tdirectory where domainid = ?domainid and inactive = '0' ");
         sql.set("domainid",domainid);
         let rs = await sql.executeQuery(db, context);
 		this.logger.debug(this.constructor.name+".getDirectoryInfo","effected "+rs.rows.length+" rows.");
@@ -75,4 +84,10 @@ export class TknDirectoryHandler extends TknSchemeHandler {
         return Promise.resolve(this.createRecordSet(rs));
     }
     
+    public override async doRetrieve(context: KnContextInfo, model: KnModel = this.model) : Promise<KnRecordSet> {
+        context.params.appstype = 'S'; //only SPA
+        let rs = await this.doFinding(context, model);
+        return Promise.resolve(this.createRecordSet(rs));
+    }
+
 }
