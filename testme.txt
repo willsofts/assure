@@ -118,3 +118,15 @@ curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sfte001/retrieve -d "pr
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sfte001/insert -d "programid=tso001&product=PROMPT&progname=TSO Testing&prognameth=TSO Testing&progtype=F&appstype=W&description=TSO Testing&parameters=&progsystem=F&iconfile=tso001.png&iconstyle=&shortname=TSO&shortnameth=TSO&progpath="
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sfte001/insert -d "programid=tso001&product=PROMPT&progname=TSO Testing&prognameth=TSO Testing&progtype=F&appstype=W&description=TSO Testing&progsystem=F&iconfile=tso001.png&shortname=TSO&shortnameth=TSO&"
 
+permit
+curl -X POST http://localhost:8080/api/permit/retrieve -d "progid=sfte007&userid=tso"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/permit/retrieve -d "progid=sfte007"
+curl -X POST http://localhost:8080/api/permit/get -d "progid=sfte007&userid=tso" //return json dataset
+ex. {"head":{"model":"api","method":"permit.get","errorcode":"0","errorflag":"N","errordesc":""},"body":{"sfte007":{"all":true,"delete":true,"export":true,"import":true,"insert":true,"print":true,"printl":true,"prints":true,"retrieve":true,"update":true}}}
+curl -X POST http://localhost:8080/api/permit/list -d "progid=sfte007&userid=tso" //return json data array
+ex. {"head":{"model":"api","method":"permit.list","errorcode":"0","errorflag":"N","errordesc":""},"body":[{"progid":"sfte007","permits":[{"name":"all","value":true},{"name":"delete","value":true},{"name":"export","value":true},{"name":"import","value":true},{"name":"insert","value":true},{"name":"print","value":true},{"name":"printl","value":true},{"name":"prints","value":true},{"name":"retrieve","value":true},{"name":"update","value":true}]}]}
+
+SSO
+curl http://localhost:8080/api/directory/retrieve
+curl http://localhost:8080/auth/directory/retrieve
+
