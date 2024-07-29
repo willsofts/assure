@@ -206,4 +206,40 @@ export class TknSAMLRouter extends TknAssureRouter {
         }
     }
 
+    public async doList(req: Request, res: Response, next: Function) {    
+        this.logger.debug(this.constructor.name+".doList : "+req.originalUrl);
+        let ctx = await this.createContext(req,"authen");
+        try {
+            let handler = new TknDirectoryHandler();
+            let rs = await handler.doList(ctx);
+            let response: JSONReply = new JSONReply();
+            response.head.modeling("authen","config");
+            response.body = rs;
+            res.contentType('application/json');
+            res.end(JSON.stringify(response));
+            return;
+        } catch(ex: any) {
+            this.logger.error(this.constructor.name+".doList: error",ex);
+            KnResponser.responseError(res,ex,"authen","config");
+        }
+    }
+
+    public async doRetrieve(req: Request, res: Response, next: Function) {    
+        this.logger.debug(this.constructor.name+".doRetrieve : "+req.originalUrl);
+        let ctx = await this.createContext(req,"authen");
+        try {
+            let handler = new TknDirectoryHandler();
+            let rs = await handler.doRetrieve(ctx);
+            let response: JSONReply = new JSONReply();
+            response.head.modeling("authen","config");
+            response.body = rs;
+            res.contentType('application/json');
+            res.end(JSON.stringify(response));
+            return;
+        } catch(ex: any) {
+            this.logger.error(this.constructor.name+".doRetrieve: error",ex);
+            KnResponser.responseError(res,ex,"authen","config");
+        }
+    }
+
 }

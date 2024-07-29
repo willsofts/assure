@@ -16,6 +16,10 @@ export class TknSAMLManager extends TknBaseRouter {
         app.get("/auth/acquire", (req: Request, res: Response, next: Function) => { authener.doAcquire(req,res,next); });
         app.get("/auth/config/:domainid", (req: Request, res: Response, next: Function) => { authener.doConfig(req,res,next); });
         app.post("/auth/config/:domainid", (req: Request, res: Response, next: Function) => { authener.doConfig(req,res,next); });
+        app.get("/auth/directory/list", (req: Request, res: Response, next: Function) => { authener.doList(req,res,next); });
+        app.post("/auth/directory/list", (req: Request, res: Response, next: Function) => { authener.doList(req,res,next); });
+        app.get("/auth/directory/retrieve", (req: Request, res: Response, next: Function) => { authener.doRetrieve(req,res,next); });
+        app.post("/auth/directory/retrieve", (req: Request, res: Response, next: Function) => { authener.doRetrieve(req,res,next); });
 
     }
 
