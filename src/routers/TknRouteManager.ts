@@ -22,6 +22,13 @@ export class TknRouteManager extends TknBaseRouter {
         return false;
     }
 
+    private doLogin(req: Request, res: Response,) {
+        this.logger.debug('working '+this.dir+' - send /public/login/index.html');
+        let parent = Utilities.getWorkingDir(this.dir); 
+        this.logger.debug("parent path : "+parent);
+        res.sendFile(parent + '/public/login/index.html');        
+    }
+
     private doHome(req: Request, res: Response,) {
         this.logger.debug('working '+this.dir+' - send /public/home.html');
         let parent = Utilities.getWorkingDir(this.dir); 
@@ -60,6 +67,7 @@ export class TknRouteManager extends TknBaseRouter {
         app.get("/", (req: Request, res: Response) => { this.doHome(req,res); });
         app.get('/home', (req: Request, res: Response) => { this.doHome(req,res); });  
         app.get('/welcome', (req: Request, res: Response) => { this.doWelcome(req,res); });  
+        app.get('/login', (req: Request, res: Response) => { this.doLogin(req,res); });  
         
         app.get('/main', (req: Request, res: Response) => { render.doMain(req,res); });
         app.get('/index', (req: Request, res: Response) => { render.doLogin(req,res); });

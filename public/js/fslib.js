@@ -1123,13 +1123,13 @@ function confirmDialog(msg, okCallback, cancelCallback, width, height) {
 		return;
     } catch (ex) { console.log(ex.description); }
 }
-function submitFailure(xhr, status, errorThrown) {
+function submitFailure(xhr, status, errorThrown, checking=true) {
 	stopWaiting();
 	console.log(xhr.responseText);
 	console.log("status = "+status+" : xhr = "+xhr.status);
 	errorThrown = parseErrorThrown(xhr, status, errorThrown);
 	alertbox(errorThrown, function() { 
-		if(xhr.status==401) { 
+		if(checking && xhr.status==401) { 
 			//window.open("index.jsp","_self"); 
 			try {
 				window.parent.reLogin();
