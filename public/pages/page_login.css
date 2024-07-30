@@ -41,3 +41,12 @@
 .go-word { color:lightseagreen; font-style: italic; }
 
 #workingframe { border:none; margin:0px; display:none; }
+
+#page_login_toplayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+#page_login_area { padding-top: 180px; }
