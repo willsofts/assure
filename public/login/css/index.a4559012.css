@@ -4280,6 +4280,12 @@ a.tile.fa-box-title.fav-app:hover .todo { display: block;
 }
 
 
+#page_login_toplayer[data-v-254dd38e] { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+}
+#page_login_area[data-v-254dd38e] { padding-top: 170px;
+}
+
+
 .loading-span[data-v-844669f2] { color: #1E90FF; font-size: 2.0rem;
 }
 .loading-layer[data-v-844669f2] { text-align: center; font-size: 2.0rem; padding-top: 50px;
