@@ -20,7 +20,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
     public handlers = [ {name: "account"}, {name: "accesstoken"}, {name: "fetchtoken"}, {name: "validatetoken"}, {name: "removetoken"}, {name: "renewtoken"} ];
 
     public async account(context: KnContextInfo) : Promise<Map<string,Object>> {
-        return this.callFunctional(context, {operate: "account", raw: false}, this.doAccessToken);
+        return this.callFunctional(context, {operate: "account", raw: false}, this.doAccountToken);
 	}
 
     public async accesstoken(context: KnContextInfo) : Promise<Map<string,Object>> {
@@ -380,6 +380,63 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         sql.set("nonce",nonce);
         this.logger.info(this.constructor.name+".changeUserToken",sql);
         return sql.executeUpdate(db,context);
+    }
+
+    public async processAccountToken(db: KnDBConnector, token: AuthenTokenData, context?: any) : Promise<Map<string,Object>> {
+        let body : Map<string,Object> = new Map();
+        let now = new Date();
+        let sql = new KnSQL("select tuser.userid,tuser.username,tuser.userpassword,tuser.passwordexpiredate,tuser.site,");
+        sql.append("tuser.accessdate,tuser.accesstime,tuser.changeflag,tuser.newflag,tuser.loginfailtimes,tuser.failtime,tuser.lockflag,tuser.firstpage,");
+        sql.append("tuserinfo.userename,tuserinfo.useresurname,tuserinfo.email,tuserinfo.displayname,tuserinfo.langcode,tuserinfo.activeflag,tuserinfo.usercontents,");
+        sql.append("tusertoken.expiretimes,tusertoken.code,tusertoken.state,tusertoken.nonce,tusertoken.authtoken,tusertoken.accesscontents,");
+        sql.append("tusertoken.prime,tusertoken.generator,tusertoken.publickey,tusertoken.useruuid,tusertoken.factorcode ");
+        sql.append("from tuser ");
+        sql.append("left join tuserinfo on tuserinfo.userid = tuser.userid ");
+        sql.append("left join tusertoken on tusertoken.useruuid = ?useruuid ");
+        sql.append("and tusertoken.expiretimes >= ?expiretimes ");
+        sql.append("and tusertoken.outdate is null and tusertoken.outtime is null ");
+        sql.append("and tusertoken.userid = tuser.userid ");
+        sql.append("where tuser.userid = ?userid "); 
+        sql.set("expiretimes",now.getTime());
+        sql.set("useruuid",token.identifier);
+        sql.set("userid",token.accessor);
+        let rs = await sql.executeQuery(db,context);
+        this.logger.debug(this.constructor.name+".processAccountToken: effected "+rs.rows.length+" rows.");
+        if(rs.rows && rs.rows.length>0) {
+            let row = rs.rows[0];
+            let handler = new TknTwoFactorHandler();
+            let factorInfo = await handler.getFactorInfo(db, row.userid, true);                
+            let token = new KnUserToken(row.useruuid,row.expiretimes,row.code,row.state,row.nonce,row.authtoken);
+            let dh = { prime: row.prime, generator: row.generator, publickey: row.publickey };
+            let ainfo = {userid: row.userid, email: row.email };
+            this.composeResponseBody(body,token,row.username,{...row, ...factorInfo, ...ainfo},false,dh);
+        } else {
+            return Promise.reject(new VerifyError("Invalid access token",HTTP.NOT_ACCEPTABLE,-3023));
+        }
+        return Promise.resolve(body);
+    }
+
+    protected async doAccountToken(context: KnContextInfo, model: KnModel = this.model) : Promise<Map<string,Object>> {
+        let token = this.getTokenKey(context);
+        this.logger.debug(this.constructor.name+".doAccountToken: token = "+token);
+        if(!token || token=="") {
+            return Promise.reject(new VerifyError("Invalid access token",HTTP.NOT_ACCEPTABLE,-3021));	
+        }
+        let authtoken = await this.verifyAuthenToken(token);
+        if(!authtoken) {
+            return Promise.reject(new VerifyError("Invalid access token",HTTP.NOT_ACCEPTABLE,-3022));	
+        }
+        let db = this.getPrivateConnector(model);
+        try {
+            let body = await this.processAccountToken(db, authtoken, context);
+            this.updateUserAccessing(context, { userid: body.get("userid") as string }, model);
+            return body;
+        } catch(ex: any) {
+            this.logger.error(this.constructor.name,ex);
+            return Promise.reject(this.getDBError(ex));
+        } finally {
+            if(db) db.close();
+        }
     }
 
 }
