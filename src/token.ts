@@ -7,5 +7,12 @@ let useruuid = Arguments.getString(args,uuid(),"-uuid");
 let site = Arguments.getString(args,"FWS","-site");
 let userid = Arguments.getString(args,"tester","-user");
 let expired = Arguments.getString(args,"24h","-expire"); 
-let token = AuthenToken.createAuthenToken({identifier:useruuid as string, site:site, accessor:userid},expired);
-console.log(token);
+let authtoken = Arguments.getString(args,undefined,"-token"); 
+let secret = Arguments.getString(args,undefined,"-secret"); 
+if(authtoken && authtoken.trim().length > 0) {
+    let info = AuthenToken.verifyAuthenToken(authtoken,false,secret);
+    console.log(info);
+} else {
+    let token = AuthenToken.createAuthenToken({identifier:useruuid as string, site:site, accessor:userid},expired,secret);
+    console.log(token);
+}
