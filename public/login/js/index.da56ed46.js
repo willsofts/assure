@@ -1,7 +1,7 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 7244:
+/***/ 4995:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36,25 +36,25 @@ function appinfo_setDefaultLanguage(language) {
   console.log("set default_language=" + language);
   if (language && language.trim().length > 0) DEFAULT_LANGUAGE = language;
 }
-function getApiToken() {
+function appinfo_getApiToken() {
   return API_TOKEN;
 }
-function getApiUrl() {
+function appinfo_getApiUrl() {
   return API_URL;
 }
-function getBaseUrl() {
+function appinfo_getBaseUrl() {
   return BASE_URL;
 }
-function getCdnUrl() {
+function appinfo_getCdnUrl() {
   return CDN_URL;
 }
-function getImgUrl() {
+function appinfo_getImgUrl() {
   return IMG_URL;
 }
 function getBaseStorage() {
   return BASE_STORAGE;
 }
-function getDefaultRawParameters() {
+function appinfo_getDefaultRawParameters() {
   return DEFAULT_RAW_PARAMETERS;
 }
 function appinfo_setApiToken(value) {
@@ -235,7 +235,7 @@ DH.prototype.getAccessorToken = function () {
   return "";
 };
 DH.prototype.requestPublicKey = function (dh, callback, aurl) {
-  if (!aurl) aurl = getApiUrl() + "/api/crypto/dh";
+  if (!aurl) aurl = appinfo_getApiUrl() + "/api/crypto/dh";
   let authtoken = this.getAccessorToken();
   jquery_default().ajax({
     url: aurl,
@@ -264,7 +264,7 @@ DH.prototype.requestPublicKey = function (dh, callback, aurl) {
   });
 };
 DH.prototype.submitPublicKey = function (callback, aurl) {
-  if (!aurl) aurl = getApiUrl() + "/api/crypto/dh";
+  if (!aurl) aurl = appinfo_getApiUrl() + "/api/crypto/dh";
   let authtoken = this.getAccessorToken();
   jquery_default().ajax({
     url: aurl,
@@ -288,7 +288,7 @@ DH.prototype.submitPublicKey = function (callback, aurl) {
   });
 };
 DH.prototype.updatePublicKey = function (callback, aurl) {
-  if (!aurl) aurl = getApiUrl() + "/api/crypto/update";
+  if (!aurl) aurl = appinfo_getApiUrl() + "/api/crypto/update";
   let authtoken = this.getAccessorToken();
   jquery_default().ajax({
     url: aurl,
@@ -361,7 +361,7 @@ function getAccessorToken() {
   if (json && json.authtoken) {
     return json.authtoken;
   }
-  let token = getApiToken();
+  let token = appinfo_getApiToken();
   if (token && token != "") return token;
   return "";
 }
@@ -377,12 +377,12 @@ function sendMessageInterface(win) {
   let msg = {
     type: "storage",
     moderator: moderator,
-    API_URL: getApiUrl(),
-    BASE_URL: getBaseUrl(),
-    CDN_URL: getCdnUrl(),
-    IMG_URL: getImgUrl(),
+    API_URL: appinfo_getApiUrl(),
+    BASE_URL: appinfo_getBaseUrl(),
+    CDN_URL: appinfo_getCdnUrl(),
+    IMG_URL: appinfo_getImgUrl(),
     DEFAULT_LANGUAGE: appinfo_getDefaultLanguage(),
-    API_TOKEN: getApiToken(),
+    API_TOKEN: appinfo_getApiToken(),
     accessorinfo: info
   };
   return sendMessageToFrame(msg, win);
@@ -435,17 +435,21 @@ function sendMessageToOpener(data) {
   return false;
 }
 function handleRequestMessage(data) {
+  console.log("handleRequestMessage: data", data);
   if (data.type == "storage") {
-    if (data.API_URL) setApiUrl(data.API_URL);
-    if (data.BASE_URL) setBaseUrl(data.BASE_URL);
-    if (data.CDN_URL) setCdnUrl(data.CDN_URL);
-    if (data.IMG_URL) setImgUrl(data.IMG_URL);
-    if (data.DEFAULT_LANGUAGE) setDefaultLanguage(data.DEFAULT_LANGUAGE);
-    if (data.API_TOKEN) setApiToken(data.API_TOKEN);
+    if (data.API_URL !== undefined) setApiUrl(data.API_URL);
+    if (data.BASE_URL !== undefined) setBaseUrl(data.BASE_URL);
+    if (data.CDN_URL !== undefined) setCdnUrl(data.CDN_URL);
+    if (data.IMG_URL !== undefined) setImgUrl(data.IMG_URL);
+    if (data.DEFAULT_LANGUAGE !== undefined) setDefaultLanguage(data.DEFAULT_LANGUAGE);
+    if (data.API_TOKEN !== undefined) setApiToken(data.API_TOKEN);
     if (data.accessorinfo) {
       saveAccessorInfo(data.accessorinfo);
     }
-    console.log("handleRequestMessage: accessor info", data.accessorinfo);
+    console.info("handleRequestMessage: accessor info", data.accessorinfo);
+    console.info("handleRequestMessage: DEFAULT_LANGUAGE=" + getDefaultLanguage(), ", BASE_STORAGE=" + getBaseUrl(), ", DEFAULT_RAW_PARAMETERS=" + getDefaultRawParameters());
+    console.info("handleRequestMessage: API_URL=" + getApiUrl(), ", BASE_URL=" + getBaseUrl(), ", CDN_URL=" + getCdnUrl(), ", IMG_URL=" + getImgUrl());
+    console.info("handleRequestMessage: API_TOKEN=" + getApiToken());
   }
   if (messagingCallback) messagingCallback(data);
 }
@@ -898,7 +902,7 @@ function serializeParameters(parameters, addonParameters, raw) {
   }
   let jsondata = {};
   let cipherdata = false;
-  if (raw || getDefaultRawParameters()) {
+  if (raw || appinfo_getDefaultRawParameters()) {
     jsondata = parameters;
   } else {
     let dh = messenger_getDH();
@@ -960,7 +964,7 @@ function startSSO(domainid, callback) {
   setSSOCallback(callback);
   startWaiting();
   jquery_default().ajax({
-    url: getBaseUrl() + "/auth/config/" + domainid,
+    url: appinfo_getBaseUrl() + "/auth/config/" + domainid,
     type: "POST",
     data: {
       ajax: true
@@ -1112,7 +1116,7 @@ function getTokenPopup(request) {
 function tryLogIn(username) {
   startWaiting();
   jquery_default().ajax({
-    url: getApiUrl() + "/api/sign/access",
+    url: appinfo_getApiUrl() + "/api/sign/access",
     type: "POST",
     contentType: DEFAULT_CONTENT_TYPE,
     data: {
@@ -1262,10 +1266,10 @@ function openProgram(app, accessor, favorite, callback) {
   let url = app.url;
   let params = app.parameters;
   let apath = app.progpath;
-  let appurl = getBaseUrl() + "/gui/" + appid;
+  let appurl = appinfo_getBaseUrl() + "/gui/" + appid;
   let html = false;
   if (apath && apath.trim().length > 0) {
-    appurl = getBaseUrl() + apath;
+    appurl = appinfo_getBaseUrl() + apath;
     html = apath.indexOf(".html") > 0;
   }
   if (url && url.trim().length > 0) {
@@ -1324,7 +1328,7 @@ function forceLogout(info) {
   let authtoken = getAccessorToken();
   console.log("useruuid=" + useruuid + ", authtoken=" + authtoken);
   jquery_default().ajax({
-    url: getApiUrl() + "/api/sign/signout",
+    url: appinfo_getApiUrl() + "/api/sign/signout",
     data: {
       useruuid: useruuid
     },
@@ -1371,7 +1375,7 @@ function validAccessToken(callback) {
 function doAccessToken(token, callback, info) {
   if (token && token.trim().length > 0) {
     jquery_default().ajax({
-      url: getApiUrl() + "/api/sign/accesstoken",
+      url: appinfo_getApiUrl() + "/api/sign/accesstoken",
       headers: {
         "authtoken": token
       },
@@ -2000,7 +2004,7 @@ const menuData = {
       };
       let formdata = serializeParameters(params);
       jquery_default().ajax({
-        url: getApiUrl() + "/api/menu/side",
+        url: appinfo_getApiUrl() + "/api/menu/side",
         data: formdata.jsondata,
         headers: formdata.headers,
         type: "POST",
@@ -2183,13 +2187,13 @@ function FavorMenuvue_type_template_id_6a30f900_render(_ctx, _cache, $props, $se
       this.favorite.reset();
     },
     getFavorIcon(item) {
-      return item.iconfile && item.iconfile.trim().length > 0 ? getImgUrl() + "/img/apps/" + item.iconfile : this.getDefaultFavorIcon(item);
+      return item.iconfile && item.iconfile.trim().length > 0 ? appinfo_getImgUrl() + "/img/apps/" + item.iconfile : this.getDefaultFavorIcon(item);
     },
     getFavorSeqno(item, index) {
       return item.seqno ? item.seqno : index;
     },
     getDefaultFavorIcon(item) {
-      return item.type == 'new' ? getImgUrl() + "/img/apps/favorite.png" : getImgUrl() + "/img/apps/application.png";
+      return item.type == 'new' ? appinfo_getImgUrl() + "/img/apps/favorite.png" : appinfo_getImgUrl() + "/img/apps/application.png";
     },
     getDisplayFavorName(item) {
       return this.accessor.lang === 'EN' ? item.shortname : item.shortnameth;
@@ -2214,7 +2218,7 @@ function FavorMenuvue_type_template_id_6a30f900_render(_ctx, _cache, $props, $se
       };
       let formdata = serializeParameters(params);
       jquery_default().ajax({
-        url: getApiUrl() + "/api/menu/favor",
+        url: appinfo_getApiUrl() + "/api/menu/favor",
         data: formdata.jsondata,
         headers: formdata.headers,
         type: "POST",
@@ -2246,7 +2250,7 @@ function FavorMenuvue_type_template_id_6a30f900_render(_ctx, _cache, $props, $se
         userid: access_user
       });
       jquery_default().ajax({
-        url: getApiUrl() + "/api/menu/favorprog",
+        url: appinfo_getApiUrl() + "/api/menu/favorprog",
         data: formdata.jsondata,
         headers: formdata.headers,
         type: "POST",
@@ -2280,7 +2284,7 @@ function FavorMenuvue_type_template_id_6a30f900_render(_ctx, _cache, $props, $se
         };
         let formdata = serializeParameters(params);
         jquery_default().ajax({
-          url: getApiUrl() + "/api/menu/insert",
+          url: appinfo_getApiUrl() + "/api/menu/insert",
           data: formdata.jsondata,
           headers: formdata.headers,
           type: "POST",
@@ -2317,7 +2321,7 @@ function FavorMenuvue_type_template_id_6a30f900_render(_ctx, _cache, $props, $se
       };
       let formdata = serializeParameters(params);
       jquery_default().ajax({
-        url: getApiUrl() + "/api/menu/remove",
+        url: appinfo_getApiUrl() + "/api/menu/remove",
         data: formdata.jsondata,
         headers: formdata.headers,
         type: "POST",
@@ -2716,7 +2720,7 @@ function SSOPanelvue_type_template_id_5d76dc28_scoped_true_render(_ctx, _cache, 
     loadSettings() {
       console.log("SSOPanel.vue loadSettings ...");
       jquery_default().ajax({
-        url: getApiUrl() + "/auth/directory/retrieve",
+        url: appinfo_getApiUrl() + "/auth/directory/retrieve",
         type: "POST",
         dataType: "json",
         contentType: DEFAULT_CONTENT_TYPE,
@@ -2867,7 +2871,7 @@ const formData = {
       console.log("startLogin: params", params);
       startWaiting();
       jquery_default().ajax({
-        url: getApiUrl() + "/api/sign/signin",
+        url: appinfo_getApiUrl() + "/api/sign/signin",
         type: "POST",
         contentType: DEFAULT_CONTENT_TYPE,
         data: params,
@@ -2951,29 +2955,29 @@ function WorkerFramevue_type_template_id_727089f2_render(_ctx, _cache, $props, $
 }
 ;// CONCATENATED MODULE: ./src/components/WorkerFrame.vue?vue&type=template&id=727089f2
 
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/menu/WorkerMenu.vue?vue&type=template&id=1436d7dd
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/menu/WorkerMenu.vue?vue&type=template&id=1613f4f0
 
-const WorkerMenuvue_type_template_id_1436d7dd_hoisted_1 = {
+const WorkerMenuvue_type_template_id_1613f4f0_hoisted_1 = {
   id: "page_first_sub",
   class: "panel-body pt-page-body",
   align: "center"
 };
-const WorkerMenuvue_type_template_id_1436d7dd_hoisted_2 = {
+const WorkerMenuvue_type_template_id_1613f4f0_hoisted_2 = {
   class: "favor-navbox-tiles"
 };
-const WorkerMenuvue_type_template_id_1436d7dd_hoisted_3 = ["onClick", "data-pid", "data-url", "title"];
-const WorkerMenuvue_type_template_id_1436d7dd_hoisted_4 = {
+const WorkerMenuvue_type_template_id_1613f4f0_hoisted_3 = ["onClick", "data-pid", "data-url", "title"];
+const WorkerMenuvue_type_template_id_1613f4f0_hoisted_4 = {
   class: "icon"
 };
-const WorkerMenuvue_type_template_id_1436d7dd_hoisted_5 = ["src"];
-const WorkerMenuvue_type_template_id_1436d7dd_hoisted_6 = {
+const WorkerMenuvue_type_template_id_1613f4f0_hoisted_5 = ["src"];
+const WorkerMenuvue_type_template_id_1613f4f0_hoisted_6 = {
   class: "title"
 };
-function WorkerMenuvue_type_template_id_1436d7dd_render(_ctx, _cache, $props, $setup, $data, $options) {
+function WorkerMenuvue_type_template_id_1613f4f0_render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", {
     id: "page_first",
     class: (0,shared_esm_bundler/* normalizeClass */.C4)(["pt-page", $props.visible ? 'pt-page-current pt-page-moveFromRight' : 'pt-page-moveToRightFade'])
-  }, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", WorkerMenuvue_type_template_id_1436d7dd_hoisted_1, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", WorkerMenuvue_type_template_id_1436d7dd_hoisted_2, [((0,runtime_core_esm_bundler/* openBlock */.uX)(true), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, (0,runtime_core_esm_bundler/* renderList */.pI)($setup.favorite.favorlists, (item, index) => {
+  }, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", WorkerMenuvue_type_template_id_1613f4f0_hoisted_1, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", WorkerMenuvue_type_template_id_1613f4f0_hoisted_2, [((0,runtime_core_esm_bundler/* openBlock */.uX)(true), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, (0,runtime_core_esm_bundler/* renderList */.pI)($setup.favorite.favorlists, (item, index) => {
     return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, {
       key: index
     }, [item.type != 'new' ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("a", {
@@ -2984,14 +2988,14 @@ function WorkerMenuvue_type_template_id_1436d7dd_render(_ctx, _cache, $props, $s
       "data-pid": item.programid,
       "data-url": item.url,
       title: item.programid
-    }, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", WorkerMenuvue_type_template_id_1436d7dd_hoisted_4, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("img", {
+    }, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", WorkerMenuvue_type_template_id_1613f4f0_hoisted_4, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("img", {
       class: "fa fa-app-image",
       src: $options.getAppIcon(item),
       alt: ""
-    }, null, 8, WorkerMenuvue_type_template_id_1436d7dd_hoisted_5)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("span", WorkerMenuvue_type_template_id_1436d7dd_hoisted_6, (0,shared_esm_bundler/* toDisplayString */.v_)($options.getDisplayAppName(item)), 1)], 8, WorkerMenuvue_type_template_id_1436d7dd_hoisted_3)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)], 64);
+    }, null, 8, WorkerMenuvue_type_template_id_1613f4f0_hoisted_5)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("span", WorkerMenuvue_type_template_id_1613f4f0_hoisted_6, (0,shared_esm_bundler/* toDisplayString */.v_)($options.getDisplayAppName(item)), 1)], 8, WorkerMenuvue_type_template_id_1613f4f0_hoisted_3)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)], 64);
   }), 128))])])], 2);
 }
-;// CONCATENATED MODULE: ./src/components/menu/WorkerMenu.vue?vue&type=template&id=1436d7dd
+;// CONCATENATED MODULE: ./src/components/menu/WorkerMenu.vue?vue&type=template&id=1613f4f0
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/menu/WorkerMenu.vue?vue&type=script&lang=js
 
@@ -3026,17 +3030,16 @@ function WorkerMenuvue_type_template_id_1436d7dd_render(_ctx, _cache, $props, $s
   },
   methods: {
     getAppIcon(item) {
-      return item.iconfile && item.iconfile.trim().length > 0 ? getImgUrl() + "/img/apps/" + item.iconfile : this.getDefaultAppIcon();
+      return item.iconfile && item.iconfile.trim().length > 0 ? appinfo_getImgUrl() + "/img/apps/" + item.iconfile : this.getDefaultAppIcon();
     },
     getDefaultAppIcon() {
-      return getImgUrl() + "/img/apps/application.png";
+      return appinfo_getImgUrl() + "/img/apps/application.png";
     },
     getDisplayAppName(item) {
       return this.accessor.lang === 'EN' ? item.shortname : item.shortnameth;
     },
     openAppClick(item) {
       openPage(item, this.accessor, this.favorite);
-      this.$root.hideMeu();
     }
   }
 });
@@ -3048,7 +3051,7 @@ function WorkerMenuvue_type_template_id_1436d7dd_render(_ctx, _cache, $props, $s
 
 
 ;
-const WorkerMenu_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(WorkerMenuvue_type_script_lang_js, [['render',WorkerMenuvue_type_template_id_1436d7dd_render]])
+const WorkerMenu_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(WorkerMenuvue_type_script_lang_js, [['render',WorkerMenuvue_type_template_id_1613f4f0_render]])
 
 /* harmony default export */ var WorkerMenu = (WorkerMenu_exports_);
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/form/ProfileForm.vue?vue&type=template&id=ec298144
@@ -3539,7 +3542,7 @@ const ProfileFormvue_type_script_lang_js_formData = {
         ajax: true
       }, params, true);
       jquery_default().ajax({
-        url: getApiUrl() + "/api/category/lists",
+        url: appinfo_getApiUrl() + "/api/category/lists",
         data: formdata.jsondata,
         headers: formdata.headers,
         type: "POST",
@@ -3577,7 +3580,7 @@ const ProfileFormvue_type_script_lang_js_formData = {
       let formdata = serializeParameters(jsondata, dataRecord);
       startWaiting();
       jquery_default().ajax({
-        url: getApiUrl() + "/api/profile/update",
+        url: appinfo_getApiUrl() + "/api/profile/update",
         data: formdata.jsondata,
         headers: formdata.headers,
         type: "POST",
@@ -3623,7 +3626,7 @@ const ProfileFormvue_type_script_lang_js_formData = {
         let formdata = serializeParameters(jsondata, params);
         startWaiting();
         jquery_default().ajax({
-          url: getApiUrl() + "/api/profile/get",
+          url: appinfo_getApiUrl() + "/api/profile/get",
           data: formdata.jsondata,
           headers: formdata.headers,
           type: "POST",
@@ -3988,7 +3991,7 @@ const ChangeFormvue_type_script_lang_js_formData = {
         ajax: true
       }, null, true);
       jquery_default().ajax({
-        url: getApiUrl() + "/api/passwordpolicy/categories",
+        url: appinfo_getApiUrl() + "/api/passwordpolicy/categories",
         data: formdata.jsondata,
         headers: formdata.headers,
         type: "POST",
@@ -4022,7 +4025,7 @@ const ChangeFormvue_type_script_lang_js_formData = {
       let formdata = serializeParameters(jsondata, dataRecord);
       startWaiting();
       jquery_default().ajax({
-        url: getApiUrl() + "/api/password/change",
+        url: appinfo_getApiUrl() + "/api/password/change",
         data: formdata.jsondata,
         headers: formdata.headers,
         type: "POST",
@@ -4536,7 +4539,7 @@ const ForgotFormvue_type_script_lang_js_formData = {
         capid: this.localData.capid
       };
       jquery_default().ajax({
-        url: getApiUrl() + "/api/captcha/create",
+        url: appinfo_getApiUrl() + "/api/captcha/create",
         data: formdata,
         type: "POST",
         dataType: "json",
@@ -4578,7 +4581,7 @@ const ForgotFormvue_type_script_lang_js_formData = {
       console.log("sendRecord: formdata", formdata);
       startWaiting();
       jquery_default().ajax({
-        url: getApiUrl() + "/api/forgot/password",
+        url: appinfo_getApiUrl() + "/api/forgot/password",
         data: formdata,
         type: "POST",
         dataType: "json",
@@ -4892,7 +4895,7 @@ const FactorFormvue_type_script_lang_js_formData = {
       if (this.alreadyLoaded) return;
       startWaiting();
       jquery_default().ajax({
-        url: getApiUrl() + "/api/factor/get",
+        url: appinfo_getApiUrl() + "/api/factor/get",
         data: formdata,
         type: "POST",
         dataType: "json",
@@ -4927,7 +4930,7 @@ const FactorFormvue_type_script_lang_js_formData = {
       console.log("submitRecord: formdata", formdata);
       startWaiting();
       jquery_default().ajax({
-        url: getApiUrl() + "/api/factor/verify",
+        url: appinfo_getApiUrl() + "/api/factor/verify",
         data: formdata,
         type: "POST",
         dataType: "json",
@@ -5400,9 +5403,9 @@ console.log("Vue version", runtime_core_esm_bundler/* version */.rE);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(7244); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(4995); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=index.bfd81b72.js.map
+//# sourceMappingURL=index.da56ed46.js.map
