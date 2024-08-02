@@ -871,6 +871,7 @@ function submitWindow(settings) {
 }		 
 function openNewWindow(settings) {
 	let defaultSettings = {
+		newTab: true,
 		method: "POST",
 		url : "",
 		windowName : "_blank",
@@ -896,8 +897,13 @@ function openNewWindow(settings) {
 	let wy = (sh - p.windowHeight) / 2; 
 	let fs_features = "top="+wy+",left="+wx+",width="+p.windowWidth+",height="+p.windowHeight+","+p.windowFeatures;
 	let fs_window = null;
-	if(p.params) fs_window = window.open("",p.windowName,fs_features); 
-	else fs_window = window.open(p.url,p.windowName,fs_features); 
+	if(p.newTab) {
+		if(p.params) fs_window = window.open("",p.windowName); 
+		else fs_window = window.open(p.url,p.windowName); 
+	} else {
+		if(p.params) fs_window = window.open("",p.windowName,fs_features); 
+		else fs_window = window.open(p.url,p.windowName,fs_features); 
+	}
 	fs_window.opener = self; 
 	try {	 
 		window.parent.addWindow(fs_window); 

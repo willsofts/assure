@@ -586,6 +586,7 @@ function submitWindow(settings) {
 }
 function openNewWindow(settings) {
   let defaultSettings = {
+    newTab: true,
     method: "POST",
     url: "",
     windowName: "_blank",
@@ -609,12 +610,17 @@ function openNewWindow(settings) {
   let sh = window.screen.availHeight;
   let wx = (sw - p.windowWidth) / 2;
   let wy = (sh - p.windowHeight) / 2;
-  let fs_features = "top=" + wy + ",left=" + wx + ",width=" + p.windowWidth + ",height=" + p.windowHeight + "," + p.windowFeatures;
   let fs_window = null;
-  if (p.params) fs_window = window.open("", p.windowName, fs_features);else fs_window = window.open(p.url, p.windowName, fs_features);
+  let fs_features = "top=" + wy + ",left=" + wx + ",width=" + p.windowWidth + ",height=" + p.windowHeight + "," + p.windowFeatures;
+  if (p.newTab) {
+    if (p.params) fs_window = window.open("", p.windowName);else fs_window = window.open(p.url, p.windowName);
+  } else {
+    if (p.params) fs_window = window.open("", p.windowName, fs_features);else fs_window = window.open(p.url, p.windowName, fs_features);
+  }
   fs_window.opener = self;
   try {
     addWindow(fs_window);
+    console.log("fs_window", fs_window);
   } catch (ex) {
     console.error(ex);
   }
@@ -881,6 +887,15 @@ function startApplication(pid, callback) {
   jquery_default()(document).on("mousedown", function (e) {
     mouseX = e.pageX;
     mouseY = e.pageY;
+  });
+  jquery_default()(window).on("beforeunload", function (e) {
+    if (fs_winary.length > 0) {
+      e.preventDefault();
+      e.returnValue = "";
+      return "";
+    }
+  }).on("unload", function () {
+    closeChildWindows();
   });
   //disable bootstrap modal auto close when click outside and ESC key
   try {
@@ -5408,4 +5423,4 @@ console.log("Vue version", runtime_core_esm_bundler/* version */.rE);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=index.da56ed46.js.map
+//# sourceMappingURL=index.633e4c4c.js.map

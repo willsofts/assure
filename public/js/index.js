@@ -448,7 +448,14 @@
 					sendMessageInterface(json.body);
 					verifyAfterLogin(json);
 				}
-			});				
+			});
+			$(window).on("beforeunload",function(e) { 
+				if(fs_winary.length > 0) {
+					e.preventDefault();
+					e.returnValue = "";
+					return "";
+				}
+			}).on("unload",function() { closeChildWindows(); });		
 		});
 		window.onmessage = function(e) {
 			console.log("main: onmessage:",e.data);
