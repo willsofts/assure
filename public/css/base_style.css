@@ -425,3 +425,5 @@ a:hover { text-decoration: none; }
 .fa-hidden { display: none; }
 .btn-cover-layer { margin-right: 10px; }
 #fswaitlayer { display:none; position:absolute; left:1px; top:1px; z-Index:9999; }
+.input-group-lookup { border-radius: 0; }
+.input-group-clear { border-radius: 0 .25rem .25rem 0; }
