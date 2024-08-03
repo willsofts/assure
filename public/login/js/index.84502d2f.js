@@ -1,7 +1,7 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 4995:
+/***/ 1132:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16,6 +16,12 @@ var bootstrap = __webpack_require__(5707);
 // EXTERNAL MODULE: ./node_modules/bootbox/bootbox.js
 var bootbox = __webpack_require__(954);
 var bootbox_default = /*#__PURE__*/__webpack_require__.n(bootbox);
+;// CONCATENATED MODULE: ./src/assets/json/program_message.json
+var program_message_namespaceObject = /*#__PURE__*/JSON.parse('[{"code":"QS0001","TH":"คุณต้องการลบรายการนี้ใช่หรือไม่ %s","EN":"Do you want to delete this transaction? %s"},{"code":"QS0002","TH":"คุณต้องการบันทึกรายการนี้ใช่หรือไม่","EN":"Do you want to save this transaction?"},{"code":"QS0003","TH":"คุณต้องการยกเลิกรายการนี้ใช่หรือไม่","EN":"Do you want to cancel this transaction?"},{"code":"QS0004","TH":"บันทึกรายการเรียบร้อยแล้ว %s","EN":"Process Success %s"},{"code":"QS0005","TH":"ท่านต้องการลบรายการนี้ใช่หรือไม่ %s","EN":"Do you want to delete this record? %s"},{"code":"QS0006","TH":"คุณต้องการส่งรายการนี้ใช่หรือไม่","EN":"Do you want to send this transaction?"},{"code":"QS0007","TH":"คุณต้องการปรับปรุงรายการนี้ใช่หรือไม่","EN":"Do you want to update this transaction?"},{"code":"QS0008","TH":"คุณต้องการล้างรายการนี้ใช่หรือไม่","EN":"Do you want to clear this?"},{"code":"QS0009","TH":"คุณต้องการดำเนินการ รายการนี้ใช่หรือไม่","EN":"Do you want to process this transaction?"},{"code":"QS0010","TH":"คุณต้องการบันทึกเป็นรายการนี้ใช่หรือไม่","EN":"Do you want to save as this transaction ?"},{"code":"QS0011","TH":"คุณต้องการยืนยันการรับรายการนี้ใช่หรือไม่","EN":"Do you want to receive this transaction?"},{"code":"QS0012","TH":"คุณต้องการล้างและเริ่มใหม่รายการนี้ใช่หรือไม่","EN":"Do you want to reset this transaction?"},{"code":"QS0013","TH":"คุณต้องการลบ %s รายการใช่หรือไม่","EN":"Do you want to delete %s row(s)?"},{"code":"QS0014","TH":"คุณต้องการยืนยันการอนุมัติ  %s รายการนี้ใช่หรือไม่","EN":"Are you sure to confirm approve the %s request?"},{"code":"QS0015","TH":"คุณต้องการยืนยันการปฏิเสธ  %s รายการนี้ใช่หรือไม่","EN":"Are you sure to reject %s?"},{"code":"QS0016","TH":"คุณต้องการยืนยันการสร้างใบคำร้องใช่หรือไม่","EN":"Do you want to create this request?"},{"code":"QS0017","TH":"คุณต้องการนำเข้ารายการนี้ใช่หรือไม่","EN":"Do you want to import this transaction?"},{"code":"QS0018","TH":"คุณต้องการนำออกรายการนี้ใช่หรือไม่","EN":"Do you want to export this transaction?"},{"code":"QS0019","TH":"คุณต้องการส่งรายการนี้ใหม่ใช่หรือไม่?","EN":"Do you want to resend this transaction?"},{"code":"QS0020","TH":"คุณต้องการยืนยันการแก้ไขใหม่  %s รายการนี้ใช่หรือไม่","EN":"Are you sure to revise %s?"},{"code":"fsconfirmbtn","TH":"ตกลง","EN":"OK"},{"code":"fscancelbtn","TH":"ยกเลิก","EN":"Cancel"},{"code":"fssavebtn","TH":"บันทึก","EN":"Save"},{"code":"fsclosebtn","TH":"ปิด","EN":"Close"},{"code":"fsokbtn","TH":"ตกลง","EN":"OK"},{"code":"fsmessagetitle","TH":"ข้อความ","EN":"Message"},{"code":"fsaccepttitle","TH":"ยืนยัน","EN":"Confirm"},{"code":"fssuccessmsg","TH":"การดำเนินการสำเร็จ","EN":"Process success"},{"code":"fsfailmsg","TH":"การดำเนินการไม่สำเร็จ","EN":"Process fail"},{"code":"fsalert","TH":"คำเตือน","EN":"Alert"},{"code":"fswarn","TH":"คำเตือน","EN":"Warning"},{"code":"fsconfirm","TH":"ยืนยัน","EN":"Confirmation"},{"code":"fsinfo","TH":"ข้อความ","EN":"Information"},{"code":"QS8021","TH":"ท่านไม่มีสิทธิ์ดูรายการนี้","EN":"No permission to retrieve this transaction"},{"code":"QS8022","TH":"ท่านไม่มีสิทธิ์แก้ไขรายการนี้","EN":"No permission to edit this transaction"},{"code":"QS8023","TH":"ท่านไม่มีสิทธิ์ลบรายการนี้","EN":"No permission to delete this transaction"},{"code":"QS8024","TH":"ท่านไม่มีสิทธิ์สร้างรายการนี้","EN":"No permission to add this transaction"},{"code":"QS8025","TH":"ท่านไม่มีสิทธิ์นำเข้ารายการนี้","EN":"No permission to import this transaction"},{"code":"QS8026","TH":"ท่านไม่มีสิทธิ์นำออกรายการนี้","EN":"No permission to export this transaction"},{"code":"QS0101","TH":"ไม่พบข้อมูลที่ต้องการ โปรดกรุณาระบุและค้นหาใหม่","EN":"Record not found"},{"code":"QS0102","TH":"นำเข้าข้อมูลไม่ถูกต้อง","EN":"Invalid input"},{"code":"QS0103","TH":"ข้อมูลไม่ได้ระบุ","EN":"Value is undefined"},{"code":"QS0104","TH":"ปรับปรุงข้อมูลเรียบร้อย","EN":"Update success"},{"code":"QS0105","TH":"นำเข้าข้อมูลซ้ำซ้อน","EN":"Duplicate record"},{"code":"QS0201","TH":"Reset password success, Please verify your email for new password changed","EN":"Reset password success, Please verify your email for new password changed"},{"code":"QS0202","TH":"Reset Two Factor Success","EN":"Reset Two Factor Success"}]');
+;// CONCATENATED MODULE: ./src/assets/json/default_label.json
+var default_label_namespaceObject = /*#__PURE__*/JSON.parse('[{"language":"TH","label":[{"name":"english_lang","value":"อังกฤษ"},{"name":"thai_lang","value":"ไทย"},{"name":"title_new","value":"สร้างใหม่"},{"name":"title_edit","value":"แก้ไข"},{"name":"title_view","value":"มอง"},{"name":"save_button","value":"บันทึก"},{"name":"delete_button","value":"ลบ"},{"name":"retrieve_button","value":"เรียกดู"},{"name":"search_button","value":"ค้นหา"},{"name":"saveas_button","value":"บันทึกเป็น"},{"name":"submit_button","value":"ส่งข้อมูล"},{"name":"cancel_button","value":"ยกเลิก"},{"name":"clear_button","value":"ล้าง"},{"name":"reset_button","value":"ล้าง"},{"name":"update_button","value":"ปรับปรุง"},{"name":"close_button","value":"ปิด"},{"name":"send_button","value":"ส่ง"},{"name":"complete_button","value":"สำเร็จ"},{"name":"download_button","value":"ดาวน์โหลด"},{"name":"insert_button","value":"เพิ่ม"},{"name":"executebutton","value":"ปฏิบัติการ"},{"name":"ok_button","value":"ตกลง"},{"name":"import_button","value":"นำเข้า"},{"name":"export_button","value":"นำออก"},{"name":"remove_button","value":"ลบ"},{"name":"upload_button","value":"อัพโหลด"},{"name":"consend_button","value":"ส่งแบบสอบถาม"},{"name":"version_label","value":"รุ่น"},{"name":"action_label","value":" "},{"name":"active_label","value":"ใช้งาน"},{"name":"inactive_label","value":"ไม่ใช้งาน"},{"name":"all_label","value":"ทั้งหมด"},{"name":"seqno_label","value":"ลำดับที่"},{"name":"page_notfound","value":"ไม่พบหน้าใช้งาน"},{"name":"record_notfound","value":"ไม่พบรายการ"},{"name":"trx_notfound","value":"ไม่พบรายการ"},{"name":"invalid_alert","value":"กรอกข้อมูลไม่ถูกต้อง"},{"name":"empty_alert","value":"กรุณากรอกข้อมูล"},{"name":"email_alert","value":"อีเมลไม่ถูกต้อง"}]},{"language":"EN","label":[{"name":"english_lang","value":"English"},{"name":"thai_lang","value":"Thai"},{"name":"title_new","value":"Add New"},{"name":"title_edit","value":"Edit"},{"name":"title_view","value":"View"},{"name":"save_button","value":"Save"},{"name":"delete_button","value":"Delete"},{"name":"retrieve_button","value":"Retrieve"},{"name":"search_button","value":"Search"},{"name":"saveas_button","value":"Save As"},{"name":"submit_button","value":"Submit"},{"name":"cancel_button","value":"Cancel"},{"name":"clear_button","value":"Clear"},{"name":"reset_button","value":"Clear"},{"name":"close_button","value":"Close"},{"name":"update_button","value":"Update"},{"name":"send_button","value":"Send"},{"name":"complete_button","value":"Complete"},{"name":"download_button","value":"Down Load"},{"name":"insert_button","value":"Insert"},{"name":"execute_button","value":"Execute"},{"name":"ok_button","value":"OK"},{"name":"import_button","value":"Import"},{"name":"export_button","value":"Export"},{"name":"remove_button","value":"Remove"},{"name":"upload_button","value":"Upload"},{"name":"consend_button","value":"Send"},{"name":"version_label","value":"Version"},{"name":"action_label","value":" "},{"name":"active_label","value":"Active"},{"name":"inactive_label","value":"Inactive"},{"name":"all_label","value":"All"},{"name":"seqno_label","value":"No."},{"name":"page_notfound","value":"Page not found"},{"name":"record_notfound","value":"Record not found"},{"name":"trx_notfound","value":"Transaction not found"},{"name":"invalid_alert","value":"Invalid input"},{"name":"empty_alert","value":"This cannot be empty"},{"name":"email_alert","value":"Invalid email address"}]}]');
+;// CONCATENATED MODULE: ./src/assets/json/program_label.json
+var program_label_namespaceObject = /*#__PURE__*/JSON.parse('[{"language":"TH","label":[{"name":"system_label","value":"Assure"},{"name":"login_label","value":"เข้าระบบ"},{"name":"username_label","value":"บัญชีผู้ใช้"},{"name":"password_label","value":"รหัสผ่าน"},{"name":"forgot_label","value":"ลืมรหัสผ่าน"},{"name":"signin_label","value":"เข้าสู่ระบบ"},{"name":"profile_label","value":"ข้อมูลส่วนตัว"},{"name":"changepwd_label","value":"เปลี่ยนรหัสผ่าน"},{"name":"logout_label","value":"ออกจากระบบ"},{"name":"profile_caption","value":"ข้อมูลส่วนตัว"},{"name":"profilenotfound_label","value":"ไม่พบข้อมูลผู้ใช้งาน"},{"name":"usertname_label","value":"ชื่อ(ไทย)"},{"name":"usertsurname_label","value":"นามสกุล(ไทย)"},{"name":"userename_label","value":"ชื่อ(อังกฤษ)"},{"name":"useresurname_label","value":"นามสกุล(อังกฤษ)"},{"name":"displayname_label","value":"ชื่อที่ใช้แสดง"},{"name":"email_label","value":"อีเมล"},{"name":"mobile_label","value":"โทรศัพท์"},{"name":"lineid_label","value":"ไอดีไลน์"},{"name":"langcode_label","value":"แสดงภาษา"},{"name":"changepassword_caption","value":"เปลี่ยนรหัสผ่าน"},{"name":"oldpassword_label","value":"รหัสผ่านเก่า"},{"name":"userpassword_label","value":"รหัสผ่านใหม่"},{"name":"confirmpassword_label","value":"ยืนยันรหัสผ่าน"},{"name":"matchpassword_alert","value":"รหัสผ่านใหม่กับยืนยันรหัสผ่านไม่ตรงกัน"},{"name":"passwordforce_label","value":"ระบบบังคับให้ท่านต้องทำการเปลี่ยนรหัสผ่านใหม่ โปรดระบุรหัสผ่านใหม่ของท่าน"},{"name":"passwordexpire_label","value":"รหัสผ่านของท่านหมดอายุการใช้งาน โปรดระบุรหัสผ่านใหม่ของท่าน"},{"name":"forgot_caption","value":"ลืมรหัสผ่าน"},{"name":"securecode_label","value":"คำตอบลับจากภาพ"},{"name":"resetpwd_label","value":"การตั้งรหัสผ่านใหม่สำเร็จ"},{"name":"requestmsg_label","value":"โปรดตรวจสอบ  ระบบได้ส่งการยืนยันคำร้องไปยังอีเมล์ของท่าน"},{"name":"resetmsg_label","value":"โปรดตรวจสอบ  ระบบได้ส่งรหัสผ่านใหม่ไปยังอีเมล์ของท่าน"},{"name":"requestpwd_label","value":"คำร้องการขอตั้งรหัสผ่านใหม่สำเร็จ"},{"name":"resetlogin_label","value":"เข้าสู่ระบบ"},{"name":"securecode_info","value":"โปรดระบุผลลัพธ์จากการบวกเลขทั้งสองจำนวนตามภาพที่กำหนด"},{"name":"forgotpassword_info","value":"โปรดระบุรหัสผู้ใช้งานกับที่อยู่อีเมล์พร้อมรหัสลับจากภาพที่กำหนด"},{"name":"factor_caption","value":"การตรวจสอบ"},{"name":"factor_label","value":"เพิ่ม 2FA"},{"name":"factorcode_label","value":"รหัสตรวจสอบ"},{"name":"submit_button","value":"ยอมรับ"},{"name":"sso_label","value":"ลงชื่อเข้าใช้ระบบแบบครั้งเดียว"}]},{"language":"EN","label":[{"name":"system_label","value":"Assure"},{"name":"login_label","value":"Log In"},{"name":"username_label","value":"User name"},{"name":"password_label","value":"Password"},{"name":"forgot_label","value":"Forgot Password"},{"name":"signin_label","value":"Sign In"},{"name":"profile_label","value":"Profile"},{"name":"changepwd_label","value":"Change Password"},{"name":"logout_label","value":"Log Out"},{"name":"profile_caption","value":"User Profile"},{"name":"profilenotfound_label","value":"Profile not found"},{"name":"usertname_label","value":"First Name(Thai)"},{"name":"usertsurname_label","value":"Last Name(Thai)"},{"name":"userename_label","value":"First Name(English)"},{"name":"useresurname_label","value":"Last Name(English)"},{"name":"displayname_label","value":"Display Name"},{"name":"email_label","value":"Email"},{"name":"mobile_label","value":"Mobile"},{"name":"lineid_label","value":"Line ID"},{"name":"changepassword_caption","value":"Change Password"},{"name":"oldpassword_label","value":"Old Password"},{"name":"userpassword_label","value":"New Password"},{"name":"confirmpassword_label","value":"Confirm Password"},{"name":"matchpassword_alert","value":"New Password does not match to Confirm Password"},{"name":"passwordforce_label","value":"The system force you to change password, please specify your new password."},{"name":"passwordexpire_label","value":"Your password was expired, please specify your new password."},{"name":"forgot_caption","value":"Forgot Password"},{"name":"securecode_label","value":"Answer Code"},{"name":"resetpwd_label","value":"Reset password success"},{"name":"requestmsg_label","value":"Please verify your email for request and activation changed"},{"name":"resetmsg_label","value":"Please verify your email for new password changed"},{"name":"requestpwd_label","value":"Request reset password success"},{"name":"resetlogin_label","value":"Log In"},{"name":"securecode_info","value":"Please specify the result of two value operate from image"},{"name":"forgotpassword_info","value":"Please identify your email address with secure code from image"},{"name":"factor_caption","value":"Verification"},{"name":"factor_label","value":"Add 2FA"},{"name":"factorcode_label","value":"Verify Code"},{"name":"submit_button","value":"Submit"},{"name":"sso_label","value":"Login via Single Sign-On"}]}]');
 ;// CONCATENATED MODULE: ./src/assets/js/appinfo.js
 var DEFAULT_LANGUAGE = "EN";
 var API_URL = "";
@@ -78,22 +84,96 @@ function setBaseStorage(value) {
 function setDefaultRawParameters(value) {
   DEFAULT_RAW_PARAMETERS = value;
 }
-// EXTERNAL MODULE: ./node_modules/@azure/msal-browser/dist/app/PublicClientApplication.mjs + 107 modules
-var PublicClientApplication = __webpack_require__(3798);
-// EXTERNAL MODULE: ./node_modules/@azure/msal-common/dist/logger/Logger.mjs
-var Logger = __webpack_require__(5767);
+var default_labels = [];
+var program_labels = [];
+var program_message = [];
+function getProgramMessage() {
+  return program_message;
+}
+function appinfo_getDefaultLabels() {
+  return default_labels;
+}
+function appinfo_getProgramLabels() {
+  return program_labels;
+}
+function setProgramMessage(message) {
+  program_message = message;
+}
+function setDefaultLabels(labels) {
+  default_labels = labels;
+}
+function setProgramLabels(labels) {
+  program_labels = labels;
+}
+function appInit(settings = {
+  program_message,
+  default_labels,
+  program_labels
+}) {
+  setProgramMessage(settings.program_message);
+  setDefaultLabels(settings.default_labels);
+  setProgramLabels(settings.program_labels);
+}
+// EXTERNAL MODULE: ./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
+var runtime_core_esm_bundler = __webpack_require__(6768);
+// EXTERNAL MODULE: ./node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js
+var runtime_dom_esm_bundler = __webpack_require__(5130);
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/VueSure.vue?vue&type=template&id=79963e85
+
+const _hoisted_1 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
+  id: "fswaitlayer",
+  class: "fa fa-spinner fa-spin"
+}, null, -1);
+const _hoisted_2 = {
+  id: "mainlayer",
+  ref: "mainlayer"
+};
+const _hoisted_3 = {
+  id: "forcelayer",
+  ref: "forcelayer"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_HeaderBar = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("HeaderBar");
+  const _component_LoginForm = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("LoginForm");
+  const _component_WorkerFrame = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("WorkerFrame");
+  return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, [_hoisted_1, (0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_2, [(0,runtime_core_esm_bundler/* createVNode */.bF)(_component_HeaderBar, {
+    ref: "headerBar",
+    visible: $setup.menuVisible,
+    labels: $setup.labels,
+    onLanguageChanged: $options.changeLanguage,
+    onMenuSelected: $options.menuSelected
+  }, null, 8, ["visible", "labels", "onLanguageChanged", "onMenuSelected"]), (0,runtime_core_esm_bundler/* createVNode */.bF)(_component_LoginForm, {
+    ref: "loginForm",
+    visible: $setup.loginVisible,
+    labels: $setup.labels,
+    version: "v1.0.0",
+    onSuccess: $options.loginSuccess,
+    onForgot: $options.forgotPassword
+  }, null, 8, ["visible", "labels", "onSuccess", "onForgot"]), (0,runtime_core_esm_bundler/* createVNode */.bF)(_component_WorkerFrame, {
+    ref: "workerFrame",
+    visible: $setup.workingVisible,
+    labels: $setup.labels
+  }, null, 8, ["visible", "labels"])], 512), [[runtime_dom_esm_bundler/* vShow */.aG, $setup.isShowing == true]]), (0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_3, [((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createBlock */.Wv)(runtime_core_esm_bundler/* KeepAlive */.PR, null, [((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createBlock */.Wv)((0,runtime_core_esm_bundler/* resolveDynamicComponent */.$y)($setup.currentForcePage), {
+    ref: "forceComponent",
+    labels: $setup.labels,
+    onActivated: $options.componentActivated,
+    onSuccess: $options.processSuccess
+  }, null, 40, ["labels", "onActivated", "onSuccess"]))], 1024))], 512), [[runtime_dom_esm_bundler/* vShow */.aG, $setup.isShowing == false]])], 64);
+}
+;// CONCATENATED MODULE: ./src/VueSure.vue?vue&type=template&id=79963e85
+
+// EXTERNAL MODULE: ./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
+var reactivity_esm_bundler = __webpack_require__(144);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.push.js
 var es_array_push = __webpack_require__(4114);
-;// CONCATENATED MODULE: ./src/assets/json/smart_message.json
-var smart_message_namespaceObject = /*#__PURE__*/JSON.parse('[{"code":"QS0001","TH":"คุณต้องการลบรายการนี้ใช่หรือไม่ %s","EN":"Do you want to delete this transaction? %s"},{"code":"QS0002","TH":"คุณต้องการบันทึกรายการนี้ใช่หรือไม่","EN":"Do you want to save this transaction?"},{"code":"QS0003","TH":"คุณต้องการยกเลิกรายการนี้ใช่หรือไม่","EN":"Do you want to cancel this transaction?"},{"code":"QS0004","TH":"บันทึกรายการเรียบร้อยแล้ว %s","EN":"Process Success %s"},{"code":"QS0005","TH":"ท่านต้องการลบรายการนี้ใช่หรือไม่ %s","EN":"Do you want to delete this record? %s"},{"code":"QS0006","TH":"คุณต้องการส่งรายการนี้ใช่หรือไม่","EN":"Do you want to send this transaction?"},{"code":"QS0007","TH":"คุณต้องการปรับปรุงรายการนี้ใช่หรือไม่","EN":"Do you want to update this transaction?"},{"code":"QS0008","TH":"คุณต้องการล้างรายการนี้ใช่หรือไม่","EN":"Do you want to clear this?"},{"code":"QS0009","TH":"คุณต้องการดำเนินการ รายการนี้ใช่หรือไม่","EN":"Do you want to process this transaction?"},{"code":"QS0010","TH":"คุณต้องการบันทึกเป็นรายการนี้ใช่หรือไม่","EN":"Do you want to save as this transaction ?"},{"code":"QS0011","TH":"คุณต้องการยืนยันการรับรายการนี้ใช่หรือไม่","EN":"Do you want to receive this transaction?"},{"code":"QS0012","TH":"คุณต้องการล้างและเริ่มใหม่รายการนี้ใช่หรือไม่","EN":"Do you want to reset this transaction?"},{"code":"QS0013","TH":"คุณต้องการลบ %s รายการใช่หรือไม่","EN":"Do you want to delete %s row(s)?"},{"code":"QS0014","TH":"คุณต้องการยืนยันการอนุมัติ  %s รายการนี้ใช่หรือไม่","EN":"Are you sure to confirm approve the %s request?"},{"code":"QS0015","TH":"คุณต้องการยืนยันการปฏิเสธ  %s รายการนี้ใช่หรือไม่","EN":"Are you sure to reject %s?"},{"code":"QS0016","TH":"คุณต้องการยืนยันการสร้างใบคำร้องใช่หรือไม่","EN":"Do you want to create this request?"},{"code":"QS0017","TH":"คุณต้องการนำเข้ารายการนี้ใช่หรือไม่","EN":"Do you want to import this transaction?"},{"code":"QS0018","TH":"คุณต้องการนำออกรายการนี้ใช่หรือไม่","EN":"Do you want to export this transaction?"},{"code":"QS0019","TH":"คุณต้องการส่งรายการนี้ใหม่ใช่หรือไม่?","EN":"Do you want to resend this transaction?"},{"code":"QS0020","TH":"คุณต้องการยืนยันการแก้ไขใหม่  %s รายการนี้ใช่หรือไม่","EN":"Are you sure to revise %s?"},{"code":"fsconfirmbtn","TH":"ตกลง","EN":"OK"},{"code":"fscancelbtn","TH":"ยกเลิก","EN":"Cancel"},{"code":"fssavebtn","TH":"บันทึก","EN":"Save"},{"code":"fsclosebtn","TH":"ปิด","EN":"Close"},{"code":"fsokbtn","TH":"ตกลง","EN":"OK"},{"code":"fsmessagetitle","TH":"ข้อความ","EN":"Message"},{"code":"fsaccepttitle","TH":"ยืนยัน","EN":"Confirm"},{"code":"fssuccessmsg","TH":"การดำเนินการสำเร็จ","EN":"Process success"},{"code":"fsfailmsg","TH":"การดำเนินการไม่สำเร็จ","EN":"Process fail"},{"code":"fsalert","TH":"คำเตือน","EN":"Alert"},{"code":"fswarn","TH":"คำเตือน","EN":"Warning"},{"code":"fsconfirm","TH":"ยืนยัน","EN":"Confirmation"},{"code":"fsinfo","TH":"ข้อความ","EN":"Information"},{"code":"QS8021","TH":"ท่านไม่มีสิทธิ์ดูรายการนี้","EN":"No permission to retrieve this transaction"},{"code":"QS8022","TH":"ท่านไม่มีสิทธิ์แก้ไขรายการนี้","EN":"No permission to edit this transaction"},{"code":"QS8023","TH":"ท่านไม่มีสิทธิ์ลบรายการนี้","EN":"No permission to delete this transaction"},{"code":"QS8024","TH":"ท่านไม่มีสิทธิ์สร้างรายการนี้","EN":"No permission to add this transaction"},{"code":"QS8025","TH":"ท่านไม่มีสิทธิ์นำเข้ารายการนี้","EN":"No permission to import this transaction"},{"code":"QS8026","TH":"ท่านไม่มีสิทธิ์นำออกรายการนี้","EN":"No permission to export this transaction"},{"code":"QS0101","TH":"ไม่พบข้อมูลที่ต้องการ โปรดกรุณาระบุและค้นหาใหม่","EN":"Record not found"},{"code":"QS0102","TH":"นำเข้าข้อมูลไม่ถูกต้อง","EN":"Invalid input"},{"code":"QS0103","TH":"ข้อมูลไม่ได้ระบุ","EN":"Value is undefined"},{"code":"QS0104","TH":"ปรับปรุงข้อมูลเรียบร้อย","EN":"Update success"},{"code":"QS0105","TH":"นำเข้าข้อมูลซ้ำซ้อน","EN":"Duplicate record"},{"code":"QS0201","TH":"Reset password success, Please verify your email for new password changed","EN":"Reset password success, Please verify your email for new password changed"},{"code":"QS0202","TH":"Reset Two Factor Success","EN":"Reset Two Factor Success"}]');
 ;// CONCATENATED MODULE: ./src/assets/js/msgutil.js
-
 
 function msgutil_getMessageCode(errcode, params, defaultMessage) {
   if (errcode && errcode.trim().length > 0) {
+    let program_message = getProgramMessage();
     let lang = appinfo_getDefaultLanguage();
     if (!lang || lang.trim().length == 0) lang = "EN";
-    let msg = smart_message_namespaceObject.find(item => {
+    let msg = program_message.find(item => {
       return item.code == errcode;
     });
     if (msg) {
@@ -374,6 +454,7 @@ function removeAccessorInfo() {
 function sendMessageInterface(win) {
   let moderator = win ? "opener" : "parent";
   let info = getAccessorInfo();
+  let options = getStorage("accessoptions");
   let msg = {
     type: "storage",
     moderator: moderator,
@@ -383,7 +464,8 @@ function sendMessageInterface(win) {
     IMG_URL: appinfo_getImgUrl(),
     DEFAULT_LANGUAGE: appinfo_getDefaultLanguage(),
     API_TOKEN: appinfo_getApiToken(),
-    accessorinfo: info
+    accessorinfo: info,
+    accessoptions: options
   };
   return sendMessageToFrame(msg, win);
 }
@@ -443,6 +525,7 @@ function handleRequestMessage(data) {
     if (data.IMG_URL !== undefined) setImgUrl(data.IMG_URL);
     if (data.DEFAULT_LANGUAGE !== undefined) setDefaultLanguage(data.DEFAULT_LANGUAGE);
     if (data.API_TOKEN !== undefined) setApiToken(data.API_TOKEN);
+    if (data.accessoptions !== undefined) setStorage("accessoptions", data.accessoptions);
     if (data.accessorinfo) {
       saveAccessorInfo(data.accessorinfo);
     }
@@ -496,6 +579,7 @@ window.onmessage = function (e) {
       payload = JSON.parse(e.data);
     }
     //in case of parent window, try to send accessor info
+
     if (payload.type == "accessorinfo") {
       sendMessageInterface(getCurrentWindow());
       return;
@@ -606,21 +690,20 @@ function openNewWindow(settings) {
   } catch (ex) {
     console.error(ex);
   }
-  let sw = window.screen.availWidth;
-  let sh = window.screen.availHeight;
-  let wx = (sw - p.windowWidth) / 2;
-  let wy = (sh - p.windowHeight) / 2;
   let fs_window = null;
-  let fs_features = "top=" + wy + ",left=" + wx + ",width=" + p.windowWidth + ",height=" + p.windowHeight + "," + p.windowFeatures;
   if (p.newTab) {
     if (p.params) fs_window = window.open("", p.windowName);else fs_window = window.open(p.url, p.windowName);
   } else {
+    let sw = window.screen.availWidth;
+    let sh = window.screen.availHeight;
+    let wx = (sw - p.windowWidth) / 2;
+    let wy = (sh - p.windowHeight) / 2;
+    let fs_features = "top=" + wy + ",left=" + wx + ",width=" + p.windowWidth + ",height=" + p.windowHeight + "," + p.windowFeatures;
     if (p.params) fs_window = window.open("", p.windowName, fs_features);else fs_window = window.open(p.url, p.windowName, fs_features);
   }
   fs_window.opener = self;
   try {
     addWindow(fs_window);
-    console.log("fs_window", fs_window);
   } catch (ex) {
     console.error(ex);
   }
@@ -966,252 +1049,12 @@ function decryptCipherData(headers, data) {
   }
   return data;
 }
-;// CONCATENATED MODULE: ./src/assets/js/auth.js
-
-
-
-
-var ssoCallback;
-function setSSOCallback(callback) {
-  ssoCallback = callback;
-}
-function startSSO(domainid, callback) {
-  setSSOCallback(callback);
-  startWaiting();
-  jquery_default().ajax({
-    url: appinfo_getBaseUrl() + "/auth/config/" + domainid,
-    type: "POST",
-    data: {
-      ajax: true
-    },
-    dataType: "json",
-    contentType: DEFAULT_CONTENT_TYPE,
-    error: function (transport, status, errorThrown) {
-      submitFailure(transport, status, errorThrown, false);
-    },
-    success: async function (data, status, xhr) {
-      console.log("success : " + xhr.responseText);
-      stopWaiting();
-      trySSOLogin(data);
-    }
-  });
-}
-async function trySSOLogin(data) {
-  msalConfig.auth = {
-    ...data.body.config.auth,
-    authType: data.body.type,
-    navigateToLoginRequestUrl: true
-  };
-  console.log("auth config", msalConfig.auth);
-  delete msalConfig.auth.clientSecret;
-  msalObject = new PublicClientApplication/* PublicClientApplication */.vq(msalConfig);
-  await msalObject.initialize();
-  msalObject.handleRedirectPromise().then(ssoHandleResponse).catch(error => {
-    console.error(error);
-  });
-  ssoSignIn();
-}
-const msalConfig = {
-  auth: {
-    clientId: "",
-    authority: "",
-    redirectUri: ""
-  },
-  cache: {
-    cacheLocation: "sessionStorage",
-    // This configures where your cache will be stored
-    storeAuthStateInCookie: false // Set this to "true" if you are having issues on IE11 or Edge
-  },
-  system: {
-    loggerOptions: {
-      loggerCallback: (level, message, containsPii) => {
-        if (containsPii) {
-          return;
-        }
-        switch (level) {
-          case Logger/* LogLevel */.$.Error:
-            console.error(message);
-            return;
-          case Logger/* LogLevel */.$.Info:
-            console.info(message);
-            return;
-          case Logger/* LogLevel */.$.Verbose:
-            console.debug(message);
-            return;
-          case Logger/* LogLevel */.$.Warning:
-            console.warn(message);
-            return;
-        }
-      }
-    }
-  }
-};
-const loginRequest = {
-  scopes: ["openid"]
-};
-let msalObject = null;
-let username = "";
-let ssoSignedIn = false;
-function isSSOSignedIn() {
-  return ssoSignedIn;
-}
-function ssoSelectAccount(response) {
-  if (!msalObject) return;
-  const currentAccounts = msalObject.getAllAccounts();
-  if (currentAccounts.length === 0) {
-    return;
-  } else if (currentAccounts.length > 1) {
-    console.warn("Multiple accounts detected.");
-  } else if (currentAccounts.length === 1) {
-    ssoSignedIn = true;
-    username = currentAccounts[0].username;
-    if (!username || username == "") {
-      if (response) username = response.account.idTokenClaims.given_name;
-    }
-    tryLogIn(username);
-  }
-}
-function ssoHandleResponse(response) {
-  console.log("handleResponse", response);
-  if (response !== null) {
-    ssoSignedIn = true;
-    username = response.account.username;
-    if (!username || username == "") {
-      username = response.account.idTokenClaims.given_name;
-    }
-    tryLogIn(username);
-  } else {
-    ssoSelectAccount(response);
-  }
-}
-async function ssoSignIn() {
-  if (!msalObject) return;
-  try {
-    let response = await msalObject.loginPopup(loginRequest);
-    ssoHandleResponse(response);
-  } catch (error) {
-    console.error(error);
-    alertDialog(error.description);
-  }
-}
-function ssoSignOut() {
-  if (!msalObject) throw new Error("Configuration not found");
-  if (!ssoSignedIn) throw new Error("Account does not signed in");
-  let homeurl = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/login";
-  console.log("homeurl", homeurl);
-  const logoutRequest = {
-    account: msalObject.getAccountByUsername(username),
-    postLogoutRedirectUri: homeurl,
-    //msalConfig.auth.redirectUri || homeurl,
-    mainWindowRedirectUri: homeurl //msalConfig.auth.redirectUri || homeurl
-  };
-  console.log("logoutRequest", logoutRequest);
-  msalObject.logoutPopup(logoutRequest).then(() => {
-    ssoSignedIn = false;
-    username = "";
-  });
-  return true;
-}
-function getTokenPopup(request) {
-  request.account = msalObject.getAccountByUsername(username);
-  return msalObject.acquireTokenSilent(request).catch(error => {
-    console.warn("silent token acquisition fails. acquiring token using popup");
-    if (error instanceof InteractionRequiredAuthError) {
-      return msalObject.acquireTokenPopup(request).then(tokenResponse => {
-        console.log(tokenResponse);
-        return tokenResponse;
-      }).catch(error => {
-        console.error(error);
-      });
-    } else {
-      console.warn(error);
-    }
-  });
-}
-function tryLogIn(username) {
-  startWaiting();
-  jquery_default().ajax({
-    url: appinfo_getApiUrl() + "/api/sign/access",
-    type: "POST",
-    contentType: DEFAULT_CONTENT_TYPE,
-    data: {
-      username: username
-    },
-    dataType: "json",
-    error: function (transport, status, errorThrown) {
-      submitFailure(transport, status, errorThrown, false);
-    },
-    success: function (data, status, xhr) {
-      console.log("success : " + xhr.responseText);
-      stopWaiting();
-      //loginSuccess(data);
-      if (ssoCallback) ssoCallback(data);
-    }
-  });
-}
-function doSSOLogout() {
-  ssoSignOut();
-}
-// EXTERNAL MODULE: ./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
-var runtime_core_esm_bundler = __webpack_require__(6768);
-// EXTERNAL MODULE: ./node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js
-var runtime_dom_esm_bundler = __webpack_require__(5130);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/VueSure.vue?vue&type=template&id=79963e85
-
-const _hoisted_1 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
-  id: "fswaitlayer",
-  class: "fa fa-spinner fa-spin"
-}, null, -1);
-const _hoisted_2 = {
-  id: "mainlayer",
-  ref: "mainlayer"
-};
-const _hoisted_3 = {
-  id: "forcelayer",
-  ref: "forcelayer"
-};
-function render(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_HeaderBar = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("HeaderBar");
-  const _component_LoginForm = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("LoginForm");
-  const _component_WorkerFrame = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("WorkerFrame");
-  return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, [_hoisted_1, (0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_2, [(0,runtime_core_esm_bundler/* createVNode */.bF)(_component_HeaderBar, {
-    ref: "headerBar",
-    visible: $setup.menuVisible,
-    labels: $setup.labels,
-    onLanguageChanged: $options.changeLanguage,
-    onMenuSelected: $options.menuSelected
-  }, null, 8, ["visible", "labels", "onLanguageChanged", "onMenuSelected"]), (0,runtime_core_esm_bundler/* createVNode */.bF)(_component_LoginForm, {
-    ref: "loginForm",
-    visible: $setup.loginVisible,
-    labels: $setup.labels,
-    version: "v1.0.0",
-    onSuccess: $options.loginSuccess,
-    onForgot: $options.forgotPassword
-  }, null, 8, ["visible", "labels", "onSuccess", "onForgot"]), (0,runtime_core_esm_bundler/* createVNode */.bF)(_component_WorkerFrame, {
-    ref: "workerFrame",
-    visible: $setup.workingVisible,
-    labels: $setup.labels
-  }, null, 8, ["visible", "labels"])], 512), [[runtime_dom_esm_bundler/* vShow */.aG, $setup.isShowing == true]]), (0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_3, [((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createBlock */.Wv)(runtime_core_esm_bundler/* KeepAlive */.PR, null, [((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createBlock */.Wv)((0,runtime_core_esm_bundler/* resolveDynamicComponent */.$y)($setup.currentForcePage), {
-    ref: "forceComponent",
-    labels: $setup.labels,
-    onActivated: $options.componentActivated,
-    onSuccess: $options.processSuccess
-  }, null, 40, ["labels", "onActivated", "onSuccess"]))], 1024))], 512), [[runtime_dom_esm_bundler/* vShow */.aG, $setup.isShowing == false]])], 64);
-}
-;// CONCATENATED MODULE: ./src/VueSure.vue?vue&type=template&id=79963e85
-
-// EXTERNAL MODULE: ./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
-var reactivity_esm_bundler = __webpack_require__(144);
-;// CONCATENATED MODULE: ./src/assets/json/default_label.json
-var default_label_namespaceObject = /*#__PURE__*/JSON.parse('[{"language":"TH","label":[{"name":"english_lang","value":"อังกฤษ"},{"name":"thai_lang","value":"ไทย"},{"name":"title_new","value":"สร้างใหม่"},{"name":"title_edit","value":"แก้ไข"},{"name":"title_view","value":"มอง"},{"name":"save_button","value":"บันทึก"},{"name":"delete_button","value":"ลบ"},{"name":"retrieve_button","value":"เรียกดู"},{"name":"search_button","value":"ค้นหา"},{"name":"saveas_button","value":"บันทึกเป็น"},{"name":"submit_button","value":"ส่งข้อมูล"},{"name":"cancel_button","value":"ยกเลิก"},{"name":"clear_button","value":"ล้าง"},{"name":"reset_button","value":"ล้าง"},{"name":"update_button","value":"ปรับปรุง"},{"name":"close_button","value":"ปิด"},{"name":"send_button","value":"ส่ง"},{"name":"complete_button","value":"สำเร็จ"},{"name":"download_button","value":"ดาวน์โหลด"},{"name":"insert_button","value":"เพิ่ม"},{"name":"executebutton","value":"ปฏิบัติการ"},{"name":"ok_button","value":"ตกลง"},{"name":"import_button","value":"นำเข้า"},{"name":"export_button","value":"นำออก"},{"name":"remove_button","value":"ลบ"},{"name":"upload_button","value":"อัพโหลด"},{"name":"consend_button","value":"ส่งแบบสอบถาม"},{"name":"version_label","value":"รุ่น"},{"name":"action_label","value":" "},{"name":"active_label","value":"ใช้งาน"},{"name":"inactive_label","value":"ไม่ใช้งาน"},{"name":"all_label","value":"ทั้งหมด"},{"name":"seqno_label","value":"ลำดับที่"},{"name":"page_notfound","value":"ไม่พบหน้าใช้งาน"},{"name":"record_notfound","value":"ไม่พบรายการ"},{"name":"trx_notfound","value":"ไม่พบรายการ"},{"name":"invalid_alert","value":"กรอกข้อมูลไม่ถูกต้อง"},{"name":"empty_alert","value":"กรุณากรอกข้อมูล"},{"name":"email_alert","value":"อีเมลไม่ถูกต้อง"}]},{"language":"EN","label":[{"name":"english_lang","value":"English"},{"name":"thai_lang","value":"Thai"},{"name":"title_new","value":"Add New"},{"name":"title_edit","value":"Edit"},{"name":"title_view","value":"View"},{"name":"save_button","value":"Save"},{"name":"delete_button","value":"Delete"},{"name":"retrieve_button","value":"Retrieve"},{"name":"search_button","value":"Search"},{"name":"saveas_button","value":"Save As"},{"name":"submit_button","value":"Submit"},{"name":"cancel_button","value":"Cancel"},{"name":"clear_button","value":"Clear"},{"name":"reset_button","value":"Clear"},{"name":"close_button","value":"Close"},{"name":"update_button","value":"Update"},{"name":"send_button","value":"Send"},{"name":"complete_button","value":"Complete"},{"name":"download_button","value":"Down Load"},{"name":"insert_button","value":"Insert"},{"name":"execute_button","value":"Execute"},{"name":"ok_button","value":"OK"},{"name":"import_button","value":"Import"},{"name":"export_button","value":"Export"},{"name":"remove_button","value":"Remove"},{"name":"upload_button","value":"Upload"},{"name":"consend_button","value":"Send"},{"name":"version_label","value":"Version"},{"name":"action_label","value":" "},{"name":"active_label","value":"Active"},{"name":"inactive_label","value":"Inactive"},{"name":"all_label","value":"All"},{"name":"seqno_label","value":"No."},{"name":"page_notfound","value":"Page not found"},{"name":"record_notfound","value":"Record not found"},{"name":"trx_notfound","value":"Transaction not found"},{"name":"invalid_alert","value":"Invalid input"},{"name":"empty_alert","value":"This cannot be empty"},{"name":"email_alert","value":"Invalid email address"}]}]');
-;// CONCATENATED MODULE: ./src/assets/json/program_label.json
-var program_label_namespaceObject = /*#__PURE__*/JSON.parse('[{"language":"TH","label":[{"name":"system_label","value":"Assure"},{"name":"login_label","value":"เข้าระบบ"},{"name":"username_label","value":"บัญชีผู้ใช้"},{"name":"password_label","value":"รหัสผ่าน"},{"name":"forgot_label","value":"ลืมรหัสผ่าน"},{"name":"signin_label","value":"เข้าสู่ระบบ"},{"name":"profile_label","value":"ข้อมูลส่วนตัว"},{"name":"changepwd_label","value":"เปลี่ยนรหัสผ่าน"},{"name":"logout_label","value":"ออกจากระบบ"},{"name":"profile_caption","value":"ข้อมูลส่วนตัว"},{"name":"profilenotfound_label","value":"ไม่พบข้อมูลผู้ใช้งาน"},{"name":"usertname_label","value":"ชื่อ(ไทย)"},{"name":"usertsurname_label","value":"นามสกุล(ไทย)"},{"name":"userename_label","value":"ชื่อ(อังกฤษ)"},{"name":"useresurname_label","value":"นามสกุล(อังกฤษ)"},{"name":"displayname_label","value":"ชื่อที่ใช้แสดง"},{"name":"email_label","value":"อีเมล"},{"name":"mobile_label","value":"โทรศัพท์"},{"name":"lineid_label","value":"ไอดีไลน์"},{"name":"langcode_label","value":"แสดงภาษา"},{"name":"changepassword_caption","value":"เปลี่ยนรหัสผ่าน"},{"name":"oldpassword_label","value":"รหัสผ่านเก่า"},{"name":"userpassword_label","value":"รหัสผ่านใหม่"},{"name":"confirmpassword_label","value":"ยืนยันรหัสผ่าน"},{"name":"matchpassword_alert","value":"รหัสผ่านใหม่กับยืนยันรหัสผ่านไม่ตรงกัน"},{"name":"passwordforce_label","value":"ระบบบังคับให้ท่านต้องทำการเปลี่ยนรหัสผ่านใหม่ โปรดระบุรหัสผ่านใหม่ของท่าน"},{"name":"passwordexpire_label","value":"รหัสผ่านของท่านหมดอายุการใช้งาน โปรดระบุรหัสผ่านใหม่ของท่าน"},{"name":"forgot_caption","value":"ลืมรหัสผ่าน"},{"name":"securecode_label","value":"คำตอบลับจากภาพ"},{"name":"resetpwd_label","value":"การตั้งรหัสผ่านใหม่สำเร็จ"},{"name":"requestmsg_label","value":"โปรดตรวจสอบ  ระบบได้ส่งการยืนยันคำร้องไปยังอีเมล์ของท่าน"},{"name":"resetmsg_label","value":"โปรดตรวจสอบ  ระบบได้ส่งรหัสผ่านใหม่ไปยังอีเมล์ของท่าน"},{"name":"requestpwd_label","value":"คำร้องการขอตั้งรหัสผ่านใหม่สำเร็จ"},{"name":"resetlogin_label","value":"เข้าสู่ระบบ"},{"name":"securecode_info","value":"โปรดระบุผลลัพธ์จากการบวกเลขทั้งสองจำนวนตามภาพที่กำหนด"},{"name":"forgotpassword_info","value":"โปรดระบุรหัสผู้ใช้งานกับที่อยู่อีเมล์พร้อมรหัสลับจากภาพที่กำหนด"},{"name":"factor_caption","value":"การตรวจสอบ"},{"name":"factor_label","value":"เพิ่ม 2FA"},{"name":"factorcode_label","value":"รหัสตรวจสอบ"},{"name":"submit_button","value":"ยอมรับ"},{"name":"sso_label","value":"ลงชื่อเข้าใช้ระบบแบบครั้งเดียว"}]},{"language":"EN","label":[{"name":"system_label","value":"Assure"},{"name":"login_label","value":"Log In"},{"name":"username_label","value":"User name"},{"name":"password_label","value":"Password"},{"name":"forgot_label","value":"Forgot Password"},{"name":"signin_label","value":"Sign In"},{"name":"profile_label","value":"Profile"},{"name":"changepwd_label","value":"Change Password"},{"name":"logout_label","value":"Log Out"},{"name":"profile_caption","value":"User Profile"},{"name":"profilenotfound_label","value":"Profile not found"},{"name":"usertname_label","value":"First Name(Thai)"},{"name":"usertsurname_label","value":"Last Name(Thai)"},{"name":"userename_label","value":"First Name(English)"},{"name":"useresurname_label","value":"Last Name(English)"},{"name":"displayname_label","value":"Display Name"},{"name":"email_label","value":"Email"},{"name":"mobile_label","value":"Mobile"},{"name":"lineid_label","value":"Line ID"},{"name":"changepassword_caption","value":"Change Password"},{"name":"oldpassword_label","value":"Old Password"},{"name":"userpassword_label","value":"New Password"},{"name":"confirmpassword_label","value":"Confirm Password"},{"name":"matchpassword_alert","value":"New Password does not match to Confirm Password"},{"name":"passwordforce_label","value":"The system force you to change password, please specify your new password."},{"name":"passwordexpire_label","value":"Your password was expired, please specify your new password."},{"name":"forgot_caption","value":"Forgot Password"},{"name":"securecode_label","value":"Answer Code"},{"name":"resetpwd_label","value":"Reset password success"},{"name":"requestmsg_label","value":"Please verify your email for request and activation changed"},{"name":"resetmsg_label","value":"Please verify your email for new password changed"},{"name":"requestpwd_label","value":"Request reset password success"},{"name":"resetlogin_label","value":"Log In"},{"name":"securecode_info","value":"Please specify the result of two value operate from image"},{"name":"forgotpassword_info","value":"Please identify your email address with secure code from image"},{"name":"factor_caption","value":"Verification"},{"name":"factor_label","value":"Add 2FA"},{"name":"factorcode_label","value":"Verify Code"},{"name":"submit_button","value":"Submit"},{"name":"sso_label","value":"Login via Single Sign-On"}]}]');
 ;// CONCATENATED MODULE: ./src/assets/js/labelutil.js
-
-
 
 function getLabel(name, defaultLabel, lang = getDefaultLanguage()) {
   let result = undefined;
+  let default_labels = getDefaultLabels();
+  let program_labels = getProgramLabels();
   if (!lang || lang.trim().length == 0) lang = "EN";
   let label_item = getLabelItem(name, lang, program_labels);
   if (label_item) {
@@ -1248,8 +1091,10 @@ function getLabelObject(lang = appinfo_getDefaultLanguage(), label_category) {
   return undefined;
 }
 function getLabelModel(lang = appinfo_getDefaultLanguage()) {
-  let default_item = getLabelObject(lang, default_label_namespaceObject);
-  let program_item = getLabelObject(lang, program_label_namespaceObject);
+  let default_labels = appinfo_getDefaultLabels();
+  let program_labels = appinfo_getProgramLabels();
+  let default_item = getLabelObject(lang, default_labels);
+  let program_item = getLabelObject(lang, program_labels);
   let default_model = {};
   let program_model = {};
   if (default_item) {
@@ -1498,6 +1343,196 @@ const favorite = (0,reactivity_esm_bundler/* ref */.KR)({
     this.recentlists = value;
   }
 });
+// EXTERNAL MODULE: ./node_modules/@azure/msal-browser/dist/app/PublicClientApplication.mjs + 107 modules
+var PublicClientApplication = __webpack_require__(3798);
+// EXTERNAL MODULE: ./node_modules/@azure/msal-common/dist/logger/Logger.mjs
+var Logger = __webpack_require__(5767);
+;// CONCATENATED MODULE: ./src/assets/js/auth.js
+
+
+
+
+var ssoCallback;
+function setSSOCallback(callback) {
+  ssoCallback = callback;
+}
+function startSSO(domainid, callback) {
+  setSSOCallback(callback);
+  startWaiting();
+  jquery_default().ajax({
+    url: appinfo_getBaseUrl() + "/auth/config/" + domainid,
+    type: "POST",
+    data: {
+      ajax: true
+    },
+    dataType: "json",
+    contentType: DEFAULT_CONTENT_TYPE,
+    error: function (transport, status, errorThrown) {
+      submitFailure(transport, status, errorThrown, false);
+    },
+    success: async function (data, status, xhr) {
+      console.log("success : " + xhr.responseText);
+      stopWaiting();
+      trySSOLogin(data);
+    }
+  });
+}
+async function trySSOLogin(data) {
+  msalConfig.auth = {
+    ...data.body.config.auth,
+    authType: data.body.type,
+    navigateToLoginRequestUrl: true
+  };
+  console.log("auth config", msalConfig.auth);
+  delete msalConfig.auth.clientSecret;
+  msalObject = new PublicClientApplication/* PublicClientApplication */.vq(msalConfig);
+  await msalObject.initialize();
+  msalObject.handleRedirectPromise().then(ssoHandleResponse).catch(error => {
+    console.error(error);
+  });
+  ssoSignIn();
+}
+const msalConfig = {
+  auth: {
+    clientId: "",
+    authority: "",
+    redirectUri: ""
+  },
+  cache: {
+    cacheLocation: "sessionStorage",
+    // This configures where your cache will be stored
+    storeAuthStateInCookie: false // Set this to "true" if you are having issues on IE11 or Edge
+  },
+  system: {
+    loggerOptions: {
+      loggerCallback: (level, message, containsPii) => {
+        if (containsPii) {
+          return;
+        }
+        switch (level) {
+          case Logger/* LogLevel */.$.Error:
+            console.error(message);
+            return;
+          case Logger/* LogLevel */.$.Info:
+            console.info(message);
+            return;
+          case Logger/* LogLevel */.$.Verbose:
+            console.debug(message);
+            return;
+          case Logger/* LogLevel */.$.Warning:
+            console.warn(message);
+            return;
+        }
+      }
+    }
+  }
+};
+const loginRequest = {
+  scopes: ["openid"]
+};
+let msalObject = null;
+let username = "";
+let ssoSignedIn = false;
+function isSSOSignedIn() {
+  return ssoSignedIn;
+}
+function ssoSelectAccount(response) {
+  if (!msalObject) return;
+  const currentAccounts = msalObject.getAllAccounts();
+  if (currentAccounts.length === 0) {
+    return;
+  } else if (currentAccounts.length > 1) {
+    console.warn("Multiple accounts detected.");
+  } else if (currentAccounts.length === 1) {
+    ssoSignedIn = true;
+    username = currentAccounts[0].username;
+    if (!username || username == "") {
+      if (response) username = response.account.idTokenClaims.given_name;
+    }
+    tryLogIn(username);
+  }
+}
+function ssoHandleResponse(response) {
+  console.log("handleResponse", response);
+  if (response !== null) {
+    ssoSignedIn = true;
+    username = response.account.username;
+    if (!username || username == "") {
+      username = response.account.idTokenClaims.given_name;
+    }
+    tryLogIn(username);
+  } else {
+    ssoSelectAccount(response);
+  }
+}
+async function ssoSignIn() {
+  if (!msalObject) return;
+  try {
+    let response = await msalObject.loginPopup(loginRequest);
+    ssoHandleResponse(response);
+  } catch (error) {
+    console.error(error);
+    alertDialog(error.description);
+  }
+}
+function ssoSignOut() {
+  if (!msalObject) throw new Error("Configuration not found");
+  if (!ssoSignedIn) throw new Error("Account does not signed in");
+  let homeurl = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/login";
+  console.log("homeurl", homeurl);
+  const logoutRequest = {
+    account: msalObject.getAccountByUsername(username),
+    postLogoutRedirectUri: homeurl,
+    //msalConfig.auth.redirectUri || homeurl,
+    mainWindowRedirectUri: homeurl //msalConfig.auth.redirectUri || homeurl
+  };
+  console.log("logoutRequest", logoutRequest);
+  msalObject.logoutPopup(logoutRequest).then(() => {
+    ssoSignedIn = false;
+    username = "";
+  });
+  return true;
+}
+function getTokenPopup(request) {
+  request.account = msalObject.getAccountByUsername(username);
+  return msalObject.acquireTokenSilent(request).catch(error => {
+    console.warn("silent token acquisition fails. acquiring token using popup");
+    if (error instanceof InteractionRequiredAuthError) {
+      return msalObject.acquireTokenPopup(request).then(tokenResponse => {
+        console.log(tokenResponse);
+        return tokenResponse;
+      }).catch(error => {
+        console.error(error);
+      });
+    } else {
+      console.warn(error);
+    }
+  });
+}
+function tryLogIn(username) {
+  startWaiting();
+  jquery_default().ajax({
+    url: appinfo_getApiUrl() + "/api/sign/access",
+    type: "POST",
+    contentType: DEFAULT_CONTENT_TYPE,
+    data: {
+      username: username
+    },
+    dataType: "json",
+    error: function (transport, status, errorThrown) {
+      submitFailure(transport, status, errorThrown, false);
+    },
+    success: function (data, status, xhr) {
+      console.log("success : " + xhr.responseText);
+      stopWaiting();
+      //loginSuccess(data);
+      if (ssoCallback) ssoCallback(data);
+    }
+  });
+}
+function doSSOLogout() {
+  ssoSignOut();
+}
 // EXTERNAL MODULE: ./node_modules/@vue/shared/dist/shared.esm-bundler.js
 var shared_esm_bundler = __webpack_require__(4232);
 ;// CONCATENATED MODULE: ./src/assets/img/app_logo.png
@@ -5225,6 +5260,13 @@ const VueSure_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(VueSurevue
 
 
 
+appInit({
+  program_message: program_message_namespaceObject,
+  default_labels: default_label_namespaceObject,
+  program_labels: program_label_namespaceObject
+});
+
+
 console.log("Vue version", runtime_core_esm_bundler/* version */.rE);
 (0,runtime_dom_esm_bundler/* createApp */.Ef)(VueSure).mount('#app');
 
@@ -5418,9 +5460,9 @@ console.log("Vue version", runtime_core_esm_bundler/* version */.rE);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(4995); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(1132); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=index.633e4c4c.js.map
+//# sourceMappingURL=index.84502d2f.js.map
