@@ -10,6 +10,7 @@
 <script type="text/javascript" src="<%=meta.cdn_url%>/cryptojs/rollups/aes.js" defer></script>
 <script type="text/javascript" src="<%=meta.cdn_url%>/cryptojs/rollups/sha256.js" defer></script>
 <script type="text/javascript" src="<%=meta.cdn_url%>/cryptojs/components/mode-ecb.js" defer></script>
+<script type="text/javascript" src="<%=meta.cdn_url%>/cryptojs/secure-ls.min.js" defer></script>
 <script type="text/javascript" src="<%=meta.cdn_url%>/js/calendar/calendar-min.js" defer></script>
 <script type="text/javascript" src="<%=meta.cdn_url%>/js/date-min.js" defer></script>
 <script type="text/javascript" src="<%=meta.cdn_url%>/js/dh.js"></script>
@@ -23,5 +24,6 @@
 	BASE_URL = "<%=meta.base_url%>";
 	CDN_URL = "<%=meta.cdn_url%>";
 	BASE_STORAGE = "<%=meta.storage%>";
+	SECURE_STORAGE = <%=meta.secure_storage%>;
 	META_INFO = <%-JSON.stringify(meta.info) %>;
 </script>
