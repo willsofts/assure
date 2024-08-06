@@ -11,9 +11,11 @@ function sendMessageToParent(data) {
 }
 function handleRequestMessage(data) {
     if(data && data.type=="storage") {
-        if(data.API_URL) API_URL = data.API_URL;
-        if(data.BASE_URL) BASE_URL = data.BASE_URL;
-        if(data.API_TOKEN) API_TOKEN = data.API_TOKEN;
+        if(data.API_URL !== undefined) API_URL = data.API_URL;
+        if(data.BASE_URL !== undefined) BASE_URL = data.BASE_URL;
+        if(data.API_TOKEN !== undefined) API_TOKEN = data.API_TOKEN;
+        if(data.BASE_STORAGE !== undefined) BASE_STORAGE = data.BASE_STORAGE;
+        if(data.SECURE_STORAGE !== undefined) SECURE_STORAGE = data.SECURE_STORAGE;
         if(data.accessorinfo) {
             saveAccessorInfo(data.accessorinfo);
         }
