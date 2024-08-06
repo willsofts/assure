@@ -13,6 +13,7 @@ var BASE_URL = "";
 var CDN_URL = "";
 var API_TOKEN = null;
 var BASE_STORAGE = "";
+var SECURE_STORAGE = true;
 var META_INFO = {};
 function getWindowByName(winname) {
 	if(!winname) return null;
@@ -1617,13 +1618,28 @@ function createMandatoryParameters(aform) {
 	});
 	return result;
 }
+var secureEngine;
+function getSecureEngine() {
+    if(!secureEngine) {
+        secureEngine = SECURE_STORAGE ? new SecureLS.default({storage: "local"==BASE_STORAGE ? localStorage : sessionStorage}) : null;
+		console.info("secure engine:",secureEngine);
+    }
+    return secureEngine;
+}
 function getStorage(key) {
+    let secureLs = getSecureEngine();
+    if(secureLs) return secureLs.get(key);    
 	if("local"==BASE_STORAGE) {
 		return localStorage.getItem(key);
 	}
     return sessionStorage.getItem(key);
 }
 function setStorage(key,value) {
+    let secureLs = getSecureEngine();
+    if(secureLs) {
+        secureLs.set(key,value);
+        return;
+    }
 	if("local"==BASE_STORAGE) {
 		localStorage.setItem(key,value);
 		return;
@@ -1631,6 +1647,11 @@ function setStorage(key,value) {
 	sessionStorage.setItem(key,value);
 }
 function removeStorage(key) {
+    let secureLs = getSecureEngine();
+    if(secureLs) {
+        secureLs.remove(key);
+        return;
+    }
 	if("local"==BASE_STORAGE) {
 		localStorage.removeItem(key);
 		return;

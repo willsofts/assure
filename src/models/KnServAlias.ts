@@ -15,6 +15,7 @@ export interface KnMetaInfo {
     raw_parameters: boolean;
     token?: string;
     storage?: string;
+    secure_storage?: boolean,
     info?: any;
 }
 
