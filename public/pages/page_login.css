@@ -160,7 +160,7 @@
 .login-input-field label {
 	position: absolute;
 	top: 50%;
-	left: 15px;
+	left: 35px;
 	transform: translateY(-50%);
 	font-size: 19px;
 	pointer-events: none;
@@ -175,4 +175,15 @@
 	font-size: 16px;
 	padding: 0 10px;
 	background-color: #FBF4ED;
+	left: 15px;
 }
+.login-icon {
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 16px; 
+	color: gray;
+}
+#main_username { padding-left: 25px; }	
+#main_pass { padding-left: 25px; }	
