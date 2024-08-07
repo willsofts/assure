@@ -4240,10 +4240,12 @@ table.partition-table { background-color: #41B883; }
 	box-shadow: 0 0 3px 3px lightgray;
 	border-radius: 3px;
 	cursor: pointer;
-	transition: width 2s;
+	/*transition: width 2s;*/
+	transition: transform 2s ease;
 }
 .div-login-shape:hover {
-	width: 320px;
+	/*width: 320px;*/
+	transform: rotateY(-35deg);
 }
 #login_logo_label { 
 	font-size:55px; 
@@ -4295,7 +4297,7 @@ table.partition-table { background-color: #41B883; }
 .login-input-field label {
 	position: absolute;
 	top: 50%;
-	left: 15px;
+	left: 35px;
 	transform: translateY(-50%);
 	font-size: 19px;
 	pointer-events: none;
@@ -4310,7 +4312,18 @@ table.partition-table { background-color: #41B883; }
 	font-size: 16px;
 	padding: 0 10px;
 	background-color: white;
+	left: 15px;
 }
+.login-icon {
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 16px; 
+	color: gray;
+}
+#main_username { padding-left: 25px; }	
+#main_pass { padding-left: 25px; }
 
 .favor-navbox-tiles {
   padding: 25px;
