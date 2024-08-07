@@ -1,0 +1,85 @@
+				<div id="page_login">
+					<div id="page_login_toplayer" class="page-login-logo">                				
+						<div id="login_logo_label"><span class="pass-word">PASS</span> &amp; <span class="go-word">GO</span></div>
+					</div>
+					<div id="pager_login" class="pt-page pt-page-current">
+						<div id="page_login_area">
+                			<div id="page_login_entry" class="page-login-entry">
+								<input type="hidden" id="main_useruuid" />
+	                        	<div class="main-form" id="main_form" name="main_form">
+	                                <div id="loginformlayer" class="login_form login-portal-area">
+										<input type="hidden" id="main_state" name="state" value="<%=meta.state%>"/>
+										<input type="hidden" id="main_nonce" name="nonce" value="<%=meta.nonce%>"/>
+										<br/>     
+	                                	<label id="login_label" class="login-label">Log In</label>   
+										<br/>  
+										<br/>    
+										<div class="input-group-name">
+											<label id="login_user_label" class="login-label">User name</label>
+											<input type="text" id="main_username" name="username" class="form-control input-md" placeholder="User" maxlength="60"/>
+											<input type="hidden" id="main_user" />
+										</div>
+	                                    <br/>
+										<div class="input-group-password">
+											<label id="login_password_label" class="login-label">Password</label>
+											<input type="password" id="main_pass" name="password" class="form-control input-md" placeholder="Password" autocomplete="off" />
+										</div>
+	                                    <br/>
+										<div class="input-group-forgot"> 
+											<a href="javascript:void(0)" id="forgot_password" class="enter-class login-label" title="Forgot Password">Forgot Password</a>
+										</div>
+										<br/>										
+										<div id="login_button_layer" class="login_button_layer">
+	                                    	<input type="button" id="main_button" class="form-control input-md" value="Sign In"/>
+	                                    </div>
+	                                    <br/>
+										<div class="row">
+											<div class="col-md-12 text-center">
+												<label class="login-label"><%=meta.version%></label>
+											</div>
+										</div>
+	                                    <br/>
+										<div id="ssologinlayer">
+	                                    <% let rows = data.dataset?.rows;
+											if(rows && rows.length > 0) { %>
+	                                    <div class="login_button_layer">
+	                                    	<fieldset class="login-field-set">
+	                                    		<legend class="login-legend">
+	                                    	<label class="login-label">Login via Single Sign-On</label>
+	                                    		</legend>
+	                                    	</fieldset>
+	                                    </div>		
+	                                    	<%
+	                                    		for(let r of rows) {
+													if(r.appstype=="W") {
+	                                    				let domainid = r["domainid"]
+	                                    				let description = r["description"] %>
+										<div class="login_button_layer">
+											<div class="link-button-cover">
+	                                    		<a class="link-button form-control input-md fa-link-sso-saml" href="javascript:void(0)" data-domain="<%=domainid%>"><%=description %></a>
+											</div>
+	                                    </div>
+	                                    	<%
+													}
+	                                    		}
+	                                    		for(let r of rows) {
+													if(r.appstype=="S") {
+	                                    				let domainid = r["domainid"]
+	                                    				let description = r["description"] %>
+										<div class="login_button_layer">
+											<div class="link-button-cover">
+												<a class="link-button form-control input-md fa-link-sso-biz" href="javascript:void(0)" data-domain="<%=domainid%>"><%=description %></a>
+											</div>
+										</div>				
+											<%
+													}
+	                                    		}
+											}
+	                                    %>
+										</div>
+	                                </div>
+	                            </div>
+                            </div>
+						</div>
+                    </div>                                                        
+				</div>
