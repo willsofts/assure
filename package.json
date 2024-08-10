@@ -31,7 +31,7 @@
     "@willsofts/will-dh": "^1.0.2",
     "@willsofts/will-lib": "^1.0.25",
     "@willsofts/will-run": "^1.0.13",
-    "@willsofts/will-sql": "^1.0.30",
+    "@willsofts/will-sql": "^1.0.31",
     "@willsofts/will-util": "^1.0.20",
     "activedirectory": "^0.7.2",
     "axios": "^1.2.1",
