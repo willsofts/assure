@@ -36,7 +36,7 @@ export class TknTrailingHandler extends TknSchemeHandler {
     };
     public trailInfo? : KnTrailingInfo;
 
-    protected override assignParameters(context: KnContextInfo, sql: KnSQLInterface, action?: string, mode?: string) {
+    protected override async assignParameters(context: KnContextInfo, sql: KnSQLInterface, action?: string, mode?: string) {
         let now = Utilities.now();
         if(KnOperation.CREATE==action) {
             sql.set("curtime",now.getTime());

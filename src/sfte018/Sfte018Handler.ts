@@ -36,7 +36,7 @@ export class Sfte018Handler extends TknOperateHandler {
     };
 
     /* try to assign individual parameters under this context */
-    protected override assignParameters(context: KnContextInfo, sql: KnSQLInterface, action?: string, mode?: string) {
+    protected override async assignParameters(context: KnContextInfo, sql: KnSQLInterface, action?: string, mode?: string) {
         sql.set("editdate",Utilities.now(),"DATE");
         sql.set("edittime",Utilities.now(),"TIME");
         sql.set("edituser",this.userToken?.userid);
@@ -230,7 +230,7 @@ export class Sfte018Handler extends TknOperateHandler {
             createtime: Utilities.currentTime(now),
         };
         let knsql = this.buildInsertQuery(context, model, KnOperation.CREATE);
-        this.assignParameters(context,knsql,KnOperation.CREATE,KnOperation.CREATE);
+        await this.assignParameters(context,knsql,KnOperation.CREATE,KnOperation.CREATE);
         knsql.set("tenantid",record.tenantid);
         knsql.set("applicationid",record.applicationid);
         knsql.set("privatekeys",record.privatekeys);

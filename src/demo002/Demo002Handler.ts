@@ -32,15 +32,19 @@ export class Demo002Handler extends TknOperateHandler {
             passcode: { type: "STRING" },
             createdate: { type: "DATE", created: true },
             createtime: { type: "TIME", created: true },
+            createuser: { type: "STRING", created: true, updated: false, selected: false },
             editdate: { type: "DATE", created: true, updated: true },
             edittime: { type: "TIME", created: true, updated: true },
+            edituser: { type: "STRING", created: true, updated: true, selected: false },
         },
     };
 
     /* try to assign individual parameters under this context */
-    protected override assignParameters(context: KnContextInfo, sql: KnSQLInterface, action?: string, mode?: string) {
+    protected override async assignParameters(context: KnContextInfo, sql: KnSQLInterface, action?: string, mode?: string) {
         console.log("action="+action+",mode="+mode);
         if(KnOperation.COLLECT != action) {
+            let tokenInfo = await this.getUserTokenInfo(context,true);
+            let curuser = tokenInfo?.userid;
             let createdate = Utilities.parseDate(context.params.createdate);
             let createtime = Utilities.parseTime(context.params.createtime);
             let editdate = Utilities.parseDate(context.params.editdate);
@@ -56,8 +60,10 @@ export class Demo002Handler extends TknOperateHandler {
             sql.set("effecttime",Utilities.parseTime(context.params.effecttime),"TIME");
             sql.set("createdate",createdate?createdate:now,"DATE");
             sql.set("createtime",createtime?createtime:now,"TIME");
+            sql.set("createuser",curuser);
             sql.set("editdate",editdate?editdate:now,"DATE");
             sql.set("edittime",edittime?edittime:now,"TIME");
+            sql.set("edituser",curuser);
             sql.set("assets",Utilities.parseInteger(context.params.assets));
             sql.set("credit",Utilities.parseFloat(context.params.credit));
         }

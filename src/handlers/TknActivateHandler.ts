@@ -81,7 +81,7 @@ export class TknActivateHandler extends TknSchemeHandler {
         return this.activateInfo;
     }
 
-    protected override assignParameters(context: KnContextInfo, sql: KnSQLInterface, action?: string, mode?: string) {
+    protected override async assignParameters(context: KnContextInfo, sql: KnSQLInterface, action?: string, mode?: string) {
         if(KnOperation.CREATE==action) {
             sql.set("senddate",Utilities.now(),"DATE");
             sql.set("sendtime",Utilities.now(),"TIME");

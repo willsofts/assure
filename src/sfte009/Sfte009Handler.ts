@@ -39,7 +39,7 @@ export class Sfte009Handler extends TknOperateHandler {
     };
 
     /* try to assign individual parameters under this context */
-    protected override assignParameters(context: KnContextInfo, sql: KnSQLInterface, action?: string, mode?: string) {
+    protected override async assignParameters(context: KnContextInfo, sql: KnSQLInterface, action?: string, mode?: string) {
         sql.set("editdate",Utilities.now(),"DATE");
         sql.set("edittime",Utilities.now(),"TIME");
         sql.set("edituser",this.userToken?.userid);

@@ -27,7 +27,7 @@ export class Demo001Handler extends TknOperateHandler {
     };
 
     /* try to assign individual parameters under this context */
-    protected override assignParameters(context: KnContextInfo, sql: KnSQLInterface, action?: string, mode?: string) {
+    protected override async assignParameters(context: KnContextInfo, sql: KnSQLInterface, action?: string, mode?: string) {
         console.log("action="+action+",mode="+mode);
         if(KnOperation.COLLECT!=action) {
             let fieldflag = context.params.fieldflag;
