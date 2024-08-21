@@ -32,7 +32,7 @@ const GatewayService : ServiceSchema = {
         }
     },
     started() {
-        this.broker.call("$node.services").then((services: any) => {
+        (this as any).broker.call("$node.services").then((services: any) => {
             let servicenames = [];
             for(let s of services) {
                 if(s.name!="$node" && s.name!="api") {
