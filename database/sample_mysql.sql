@@ -7,6 +7,36 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+CREATE TABLE IF NOT EXISTS `kt_languages` (
+  `langid` varchar(5) NOT NULL,
+  `nameen` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `nameth` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `seqno` int NOT NULL,
+  PRIMARY KEY (`langid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+INSERT INTO `kt_languages` (`langid`, `nameen`, `nameth`, `seqno`) VALUES
+	('CN', 'Chinese', 'จีน', 3),
+	('EN', 'English', 'อังกฤษ', 2),
+	('FR', 'French', 'ฝรั่งเศส', 6),
+	('JP', 'Japan', 'ญี่ปุ่น', 4),
+	('KR', 'Korea', 'เกาหลี', 5),
+	('TH', 'Thai', 'ไทย', 1);
+
+CREATE TABLE IF NOT EXISTS `kt_marrystatus` (
+  `statusid` varchar(1) NOT NULL,
+  `nameen` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `nameth` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `seqno` int NOT NULL,
+  PRIMARY KEY (`statusid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+INSERT INTO `kt_marrystatus` (`statusid`, `nameen`, `nameth`, `seqno`) VALUES
+	('D', 'Divorce', 'หย่า', 3),
+	('M', 'Married', 'สมรส', 2),
+	('S', 'Single', 'โสด', 1),
+	('W', 'Widow', 'หม้าย', 4);
+
 CREATE TABLE IF NOT EXISTS `sample` (
   `fieldchar` char(20) NOT NULL,
   `fielddecimal` decimal(22,6) DEFAULT NULL,
@@ -16,26 +46,21 @@ CREATE TABLE IF NOT EXISTS `sample` (
   `fieldvarchar` varchar(15) DEFAULT NULL,
   `fieldflag` char(1) DEFAULT NULL,
   `fieldbox` varchar(50) DEFAULT NULL,
-  `fieldtext` mediumtext,
+  `fieldtext` text,
   `fielddatetime` datetime DEFAULT NULL,
   `fieldtimestamp` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`fieldchar`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=tis620;
 
 INSERT INTO `sample` (`fieldchar`, `fielddecimal`, `fielddate`, `fieldtime`, `fieldinteger`, `fieldvarchar`, `fieldflag`, `fieldbox`, `fieldtext`, `fielddatetime`, `fieldtimestamp`) VALUES
-	('666', 666.000000, '2018-11-15', '10:00:00', 66, NULL, '1', NULL, 'อิทธิพล คชินทร', NULL, NULL),
 	('A001', 1200.000000, '2016-11-01', '10:00:00', 1200, 'Q', '1', NULL, 'ประจักษ์ เสียงทอง', NULL, NULL),
 	('A002', 1300.000000, '2016-11-01', '10:00:00', 1300, 'Q', '1', NULL, 'ไพเราะ  เทียนทอง', NULL, NULL),
-	('A003', 2100.000000, '2018-08-27', '11:11:11', 10000, NULL, '1', NULL, 'สมภพ  ปรางศร', NULL, NULL),
 	('AAA', 26900.000000, '2014-04-30', '12:00:00', 8900, 'E', '0', NULL, 'อัสนัย โพธิ์ทอง', NULL, NULL),
 	('ABS', 1000.000000, '2016-02-12', '10:00:00', 450, 'E', '1', NULL, 'S&P', NULL, NULL),
 	('AIA', 90000.000000, '2013-08-15', '10:00:00', 100, 'P', '1', NULL, 'อุทัย เอื้อเก่ง', NULL, NULL),
-	('ATS', 77777.000000, '2018-08-27', '12:40:39', 90, NULL, NULL, NULL, 'วีระพงค์  แก้วเทศ', NULL, NULL),
-	('AXA', 45000.000000, '2018-08-27', '10:00:00', 1200, NULL, NULL, NULL, 'สุริยพงศ์  ศรีมาตร', NULL, NULL),
-	('AZA', 55555.000000, '2018-08-20', '10:30:00', 300, NULL, NULL, NULL, 'เอมอร ดำรงกุล', NULL, NULL),
 	('B2S', 5670.000000, '2013-08-07', '15:00:00', 65800, 'R', '1', NULL, 'อุทุมพร กุลาดี', NULL, NULL),
-	('BAY', 43250.255900, '2015-12-20', '10:30:00', 6500, 'E', '1', NULL, 'ไตรจักร จารุวิจิตร', NULL, NULL),
-	('BBL', 250350.000000, '2015-12-21', '10:35:50', 6560, 'E', '1', NULL, 'อัจฉรา ดำงาม', NULL, NULL),
+	('BAY', 43250.255900, '2015-12-20', '10:30:00', 6500, 'E', '1', NULL, 'ไตรจักร จารุวิจิตร', '2024-04-02 15:57:55', '2024-04-02 08:57:55'),
+	('BBL', 11350.000000, '2015-12-21', '10:35:50', 6560, 'E', '1', NULL, 'อัจฉรา ดำงาม', NULL, NULL),
 	('CIMB', 1250000.000000, '2015-12-28', '14:03:00', 5500, 'E', '1', NULL, 'เอกดนัย คงทน', NULL, NULL),
 	('J01', 12200.000000, '2016-11-01', '10:00:00', 100, 'Q', '1', NULL, 'ทิพยเนตร  ฟ้าหวั่น', NULL, NULL),
 	('J02', 2300.000000, '2016-11-01', '10:00:00', 200, 'Q', '1', NULL, 'พิศมัย  บัวอุไร', NULL, NULL),
@@ -47,16 +72,10 @@ INSERT INTO `sample` (`fieldchar`, `fielddecimal`, `fielddate`, `fieldtime`, `fi
 	('T001', 7510.000000, '2016-11-01', '10:00:00', 1250, 'Q', '1', NULL, 'จิระเดช  ฟ้าหวั่น', NULL, NULL),
 	('TAS', 14500.000000, '2017-08-30', '10:00:00', 1200, 'E', '1', NULL, 'ทิพยเนตร ใจภักดี', NULL, NULL),
 	('TCNB', 453500.556000, '2016-01-08', '15:50:00', 7500, 'E', '1', NULL, 'อำไพ บุญเรือง', NULL, NULL),
-	('TEST1', 1100.500000, '2024-08-15', '10:10:10', 110, 'Testing', 'X', NULL, NULL, '2024-08-15 10:10:10', NULL),
-	('TEST2', 1100.500000, '2024-08-15', '10:10:10', 110, 'Testing', 'X', NULL, NULL, '2024-08-15 10:10:10', NULL),
 	('TMB', 23500.570000, '2015-09-16', '12:00:00', 6500, 'E', '1', NULL, 'อุลาวรรณ ไชยเพชร\r\n', NULL, NULL),
 	('TME', 45600.250000, '2015-10-16', '14:00:00', 8900, 'E', '0', NULL, 'อุไรวรรณ รัตนพันธุ์', NULL, NULL),
 	('TSO', 600.000000, '2016-11-01', '13:00:00', 6000, 'E', 'F', NULL, 'ไชยโย กุยยากานนท์', NULL, NULL),
-	('TSO4', 400.000000, '2016-11-01', '11:00:00', 4700, 'E', '0', NULL, 'พิกุล เนตรทอง', NULL, NULL),
-	('TSO5', 500.000000, '2016-11-01', '12:00:00', 5000, 'E', 'F', NULL, 'วิจิตร  ศิลปชัย', NULL, NULL),
-	('TSO7', 700.000000, '2016-11-01', '13:00:00', 7000, 'E', 'F', NULL, 'อุไร  ทองอุไร', NULL, NULL),
-	('TSO8', 800.000000, '2016-11-01', '14:00:00', 8000, 'E', 'F', NULL, 'ขจีวรรณ  เทียนทอง', NULL, NULL),
-	('TSO9', 45211.000000, '2017-08-30', '10:00:00', 700, 'E', '1', NULL, 'ไชโย  ฟ้าหวั่น', NULL, NULL);
+	('TST1', 12530.253600, '2023-12-06', '01:05:00', 1452, 'E', '0', NULL, 'Tester Test', '2023-12-06 12:05:03', '2023-12-06 05:05:03');
 
 CREATE TABLE IF NOT EXISTS `sampling` (
   `account` varchar(50) NOT NULL,
@@ -114,7 +133,9 @@ INSERT INTO `sampling` (`account`, `amount`, `age`, `gender`, `domestic`, `effec
 	('1-4-20202-2', 800000.00, 33, 'M', '1', '2024-07-19', '12:00:00', '8521000', 'S', 'CAR', 'TH,EN,CN', 'ทดสอบ', 'สวัสดี', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 	('1-4-32030-0', 580000.00, 30, 'M', '1', '2024-07-19', '12:00:01', '52512000', 'S', 'CAR', 'TH', 'ทดสอบทดสอบ', 'สวัสดี', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 	('1-4-40120-0', 550000.00, 25, 'M', '1', '2024-07-19', '12:00:01', '12410100', 'S', 'CAR', 'TH,EN', 'ทดสอบ', 'สวัสดีปีใหม่', NULL, NULL, NULL, NULL, '2024-07-19', '14:40:10', NULL, '2024-07-19', '14:40:10', NULL, NULL),
-	('5-5-55555-5', 555000.00, 55, 'M', '1', '2024-08-20', '15:15:00', '55555', 'S', 'CAR,TRUCK', 'TH,EN', 'ทดสอบ 55', '55 เทส', NULL, 0, NULL, NULL, '2024-08-20', '17:04:57', NULL, '2024-08-20', '17:04:57', NULL, NULL);
+	('4-1-51201-0', 650000.00, 26, 'M', '1', '2024-07-19', '12:00:01', '56200000', 'S', 'CAR,BOAT', 'TH,EN,JP', 'ทดสอบนะ', 'สวัสดีเมษา', NULL, NULL, NULL, NULL, '2024-07-19', '14:51:37', NULL, '2024-07-19', '14:51:37', NULL, NULL),
+	('5-5-55555-0', 550000.00, 56, 'M', '1', '2024-08-21', '15:15:00', '5101010', 'M', 'CAR', 'TH,EN', 'ทดสอบ', 'ทดสอบทดสอบ', NULL, NULL, NULL, NULL, '2024-08-21', '11:28:35', 'tso', '2024-08-21', '11:28:35', 'tso', NULL),
+	('5-5-55555-5', 5555000.00, 55, 'M', '1', '2024-08-25', '15:15:01', '55555555', 'M', 'CAR,TRUCK', 'TH,EN', 'ทดสอบ 55', 'ทดสอบ 555', NULL, NULL, NULL, NULL, '2024-08-20', '15:48:19', NULL, '2024-08-20', '15:48:19', NULL, NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
