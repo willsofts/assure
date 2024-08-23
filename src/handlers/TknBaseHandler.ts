@@ -130,7 +130,7 @@ export class TknBaseHandler extends KnHandler {
             }
         }
         if(!result) {
-            let token = await this.getAuthenToken(context, false, false, false);
+            let token = await this.getAuthenToken(context, false, false, false, true);
             if(token) {
                 result = { useruuid : token.identifier, userid: token.accessor, site: token.site };
             }
@@ -183,14 +183,14 @@ export class TknBaseHandler extends KnHandler {
         return Promise.resolve(dh);
     }
     
-    public async getAuthenToken(context: KnContextInfo, verifyTokenKey: boolean = true, verifyIdentifier: boolean = true, verifyAnonymous: boolean = VALIDATE_ANOMYMOUS_TOKEN) : Promise<AuthenTokenData | undefined> {
+    public async getAuthenToken(context: KnContextInfo, verifyTokenKey: boolean = true, verifyIdentifier: boolean = true, verifyAnonymous: boolean = VALIDATE_ANOMYMOUS_TOKEN, ignoreExpired: boolean = false) : Promise<AuthenTokenData | undefined> {
         let token = this.getTokenKey(context);
-        return await this.verifyAuthenToken(token, verifyTokenKey, verifyIdentifier, verifyAnonymous);
+        return await this.verifyAuthenToken(token, verifyTokenKey, verifyIdentifier, verifyAnonymous, ignoreExpired);
     }
     
-    public async verifyAuthenToken(token?: string, verifyTokenKey: boolean = true, verifyIdentifier: boolean = true, verifyAnonymous: boolean = VALIDATE_ANOMYMOUS_TOKEN) : Promise<AuthenTokenData | undefined> {
+    public async verifyAuthenToken(token?: string, verifyTokenKey: boolean = true, verifyIdentifier: boolean = true, verifyAnonymous: boolean = VALIDATE_ANOMYMOUS_TOKEN, ignoreExpired: boolean = false) : Promise<AuthenTokenData | undefined> {
         if (token && token.trim().length > 0) {
-            const atoken: AuthenTokenData = AuthenToken.verifyAuthenToken(token as string, false);
+            const atoken: AuthenTokenData = AuthenToken.verifyAuthenToken(token as string, ignoreExpired);
             if (verifyIdentifier && (atoken.identifier == undefined)) {
                 return Promise.reject(new VerifyError("Token is invalid",HTTP.UNAUTHORIZED,-16001));
             }
