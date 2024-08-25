@@ -52,3 +52,5 @@ export const CONTENT_SECURITY_PATH: string = config.env("CONTENT_SECURITY_PATH",
 export const INLINE_BINDING: boolean = config.env("INLINE_BINDING") === "true";
 export const UPLOAD_FILE_TYPES : string = config.env("UPLOAD_FILE_TYPES","jpeg|jpg|png|pdf|txt|text|csv|doc|docx|xls|xlsx");
 export const UPLOAD_FILE_SIZE : number = parseInt(config.env("UPLOAD_FILE_SIZE","10485760")) || 10*1024*1024; //10MB
+
+export const DISABLE_DIFFIE: boolean = config.env("DISABLE_DIFFIE","false") === "true";

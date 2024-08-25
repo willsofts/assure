@@ -5,6 +5,7 @@ import { KnDBConnector, KnSQL, KnResultSet, KnRecordSet } from "@willsofts/will-
 import { KnContextInfo, KnDiffieInfo } from '../models/KnCoreAlias';
 import { TknAuthorizeHandler } from "./TknAuthorizeHandler";
 import { TknSchemeHandler } from "./TknSchemeHandler";
+import { DISABLE_DIFFIE } from "../utils/EnvironmentVariable";
 
 export class TknDiffieHandler extends TknSchemeHandler {
     public model : KnModel = { name: "tusertoken", alias: { privateAlias: this.section } };
@@ -96,6 +97,7 @@ export class TknDiffieHandler extends TknSchemeHandler {
     }
     
     protected override async doUpdate(context: any, model: KnModel) : Promise<KnRecordSet> {
+        if(DISABLE_DIFFIE) return Promise.reject(new Error("Disable diffie-hellman handshake"));
         let result : KnResultSet = { rows: null, columns: null };
         let userInfo = null;
         let token = this.getTokenKey(context);
