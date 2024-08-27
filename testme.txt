@@ -72,12 +72,23 @@ curl -X POST http://localhost:8080/upload/file
 ex.
 curl -X POST http://localhost:8080/upload/file -F filename=@D:\images\birth.png -F type=IMG -F no=123456
 
-data table
+data table service
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/get -d "tablename=tactive&keyfield=activeid"
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/category -d "tablename=tactive&keyfield=activeid&valuefield=nameen"
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/list -d "tablename=kt_marrystatus&orderfield=seqno"
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/list -d "tablename=kt_marrystatus&tablename=kt_languages&orderfield=seqno"
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/list -d "tablename[]=kt_marrystatus&tablename[]=kt_languages&orderfield=seqno"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/get -d "tablename=kt_marrystatus&keyfield=statusid"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/category -d "tablename=kt_marrystatus&keyfield=statusid&valuefield=nameen"
+curl -X POST -H "AuthToken: ?" -H "Content-Type: application/json" http://localhost:8080/api/datatable/list -d "{\"tablename\": [\"kt_marrystatus\", \"kt_languages\"], \"orderfield\": \"seqno\"}"
+
+data category service (setting.json)
+curl -X POST http://localhost:8080/api/category/groups -d "names=tklanguage"
+curl -X POST -H "Content-Type: application/json" http://localhost:8080/api/category/groups -d "{\"names\": [\"tklanguage\", \"tkactive\"] }"
+curl -X POST http://localhost:8080/api/category/lists -d "names=tklanguage"
+curl -X POST -H "Content-Type: application/json" http://localhost:8080/api/category/lists -d "{\"names\": [\"tklanguage\", \"tkactive\"] }"
+
+apps service 
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/apps/find -d "programid=sfte001"
 
 password policy
@@ -118,7 +129,7 @@ curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sfte001/retrieve -d "pr
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sfte001/insert -d "programid=tso001&product=PROMPT&progname=TSO Testing&prognameth=TSO Testing&progtype=F&appstype=W&description=TSO Testing&parameters=&progsystem=F&iconfile=tso001.png&iconstyle=&shortname=TSO&shortnameth=TSO&progpath="
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/sfte001/insert -d "programid=tso001&product=PROMPT&progname=TSO Testing&prognameth=TSO Testing&progtype=F&appstype=W&description=TSO Testing&progsystem=F&iconfile=tso001.png&shortname=TSO&shortnameth=TSO&"
 
-permit
+permit service
 curl -X POST http://localhost:8080/api/permit/retrieve -d "progid=sfte007&userid=tso"
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/permit/retrieve -d "progid=sfte007"
 curl -X POST http://localhost:8080/api/permit/get -d "progid=sfte007&userid=tso" //return json dataset
@@ -130,3 +141,7 @@ SSO
 curl http://localhost:8080/api/directory/retrieve
 curl http://localhost:8080/auth/directory/retrieve
 
+expose service
+curl -X POST -H "Content-Type: application/json" -H "AuthToken: ?" http://localhost:8080/api/expose/cipher -d "{ \"ciphertext\": \"???\" }"
+ex.
+curl -X POST -H "Content-Type: application/json" -H "AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiMWEzMDkzNjktNWFjMi00YWU2LTgwMmQtNWYwZGI4ODZjYjFkIiwic2l0ZSI6IkZXUyIsImFjY2Vzc29yIjoidHNvIiwidHlwZSI6IlMiLCJpYXQiOjE3MjQzODc1MDksImV4cCI6MTcyNDQ1MjMwOX0.IM_3FSVs5-IBT40xes3yFmiYfx0_T6JedP2KajUWFZs" http://localhost:8080/api/expose/cipher -d "{ \"ciphertext\": \"XdYju1WEh7CFK76KIf3NsnB/cIQL0nTCVcOlXjiAzeLWs1b5cn/fSLCPYZSBwn+eZd76jmalq2GzKHpLpuofngennC9Lkmdy7XUdWfHzYD2qIpDa1UF/mI1FAH8abD//GIJZ/I9VYctEzJTNpoyjir+/0IefPzvZocDvAEIIFi6DU3f5UeCwwDdBHQ05tt9Q\" }"
