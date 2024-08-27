@@ -82,14 +82,19 @@ curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/get -d "table
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/category -d "tablename=kt_marrystatus&keyfield=statusid&valuefield=nameen"
 curl -X POST -H "AuthToken: ?" -H "Content-Type: application/json" http://localhost:8080/api/datatable/list -d "{\"tablename\": [\"kt_marrystatus\", \"kt_languages\"], \"orderfield\": \"seqno\"}"
 
-data category service (setting.json)
-curl -X POST http://localhost:8080/api/category/groups -d "names=tklanguage"
-curl -X POST -H "Content-Type: application/json" http://localhost:8080/api/category/groups -d "{\"names\": [\"tklanguage\", \"tkactive\"] }"
-curl -X POST http://localhost:8080/api/category/lists -d "names=tklanguage"
-curl -X POST -H "Content-Type: application/json" http://localhost:8080/api/category/lists -d "{\"names\": [\"tklanguage\", \"tkactive\"] }"
+category
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/category/groups -d "names=tactive"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/category/groups -d "names=tactive&names=tlanguage"
+curl -X POST -H "AuthToken: ?" -H "Content-Type: application/json" http://localhost:8080/api/category/groups -d "{\"names\":\"tactive\"}"
+curl -X POST -H "AuthToken: ?" -H "Content-Type: application/json" http://localhost:8080/api/category/groups -d "{\"names\":[\"tactive\",\"tlanguage\"]}"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/category/lists -d "names=tactive"
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/category/lists -d "names=tactive&names=tlanguage"
 
 apps service 
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/apps/find -d "programid=sfte001"
+
+style
+curl -X POST -H "AuthToken: ?" http://localhost:8080/api/style/category
 
 password policy
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/password/policy
