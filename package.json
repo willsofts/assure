@@ -13,6 +13,7 @@
     "runins": "kn-runner --instances cpu ./dist/services ./dist/worker ./dist/operators ./dist/gateway",
     "worker": "kn-runner --repl ./dist/services ./dist/workers ./dist/operators",
     "gateway": "kn-runner ./dist/gateway",
+    "gateways": "kn-runner ./dist/services ./dist/workers ./dist/gateway",
     "service": "kn-runner ./dist/services ./dist/workers ./dist/operators",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
