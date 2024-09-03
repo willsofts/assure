@@ -1,4 +1,6 @@
+var fs_current_domainid;
 function startSSO(domainid) {
+    fs_current_domainid = domainid;
     startWaiting();
     jQuery.ajax({
         url: BASE_URL+"/auth/config/"+domainid,
@@ -75,28 +77,30 @@ let ssoSignedIn = false;
 function ssoSelectAccount () {
     if(!msalObject) return;
     const currentAccounts = msalObject.getAllAccounts();
+    console.log("ssoSelectAccount:",currentAccounts);
     if (currentAccounts.length === 0) {
         return;
     } else if (currentAccounts.length > 1) {
         console.warn("Multiple accounts detected.");
     } else if (currentAccounts.length === 1) {
         ssoSignedIn = true;
-        username = currentAccounts[0].username;
+        let acct = currentAccounts[0];
+        username = acct.username;
         if(!username || username=="") {
             username = response.account.idTokenClaims.given_name;
         }
-        tryLogIn(username);
+        tryLogIn(username,acct.tenantId);
     }
 }
 function ssoHandleResponse(response) {
-    console.log("handleResponse",response);
+    console.log("ssoHandleResponse:",response);
     if (response !== null) {
         ssoSignedIn = true;
         username = response.account.username;
         if(!username || username=="") {
             username = response.account.idTokenClaims.given_name;
         }
-        tryLogIn(username);
+        tryLogIn(username,response.tenantId,response.accessToken);
     } else {
         ssoSelectAccount();
     }
@@ -144,13 +148,14 @@ function getTokenPopup(request) {
             }
     });
 }
-function tryLogIn(username){
+function tryLogIn(username,tenant,token) {
+    console.log("tryLogin: username="+username+", domainid="+fs_current_domainid+", tenant="+tenant+", token="+token);
     startWaiting();
     jQuery.ajax({
         url: API_URL+"/api/sign/access",
         type: "POST",
         contentType: defaultContentType,
-        data: {username: username}, 
+        data: {username: username, domainid: fs_current_domainid, accesstoken: token}, 
         dataType: "html",
         error : function(transport,status,errorThrown) { 
             stopWaiting();

@@ -319,10 +319,12 @@ var Logger = __webpack_require__(5767);
 
 
 var ssoCallback;
+var sso_current_domainid;
 function setSSOCallback(callback) {
   ssoCallback = callback;
 }
 function startSSO(domainid, callback) {
+  sso_current_domainid = domainid;
   setSSOCallback(callback);
   (0,will_app/* startWaiting */.eF)();
   jquery_default().ajax({
@@ -411,11 +413,12 @@ function ssoSelectAccount(response) {
     console.warn("Multiple accounts detected.");
   } else if (currentAccounts.length === 1) {
     ssoSignedIn = true;
-    username = currentAccounts[0].username;
+    let acct = currentAccounts[0];
+    username = acct.username;
     if (!username || username == "") {
       if (response) username = response.account.idTokenClaims.given_name;
     }
-    tryLogIn(username);
+    tryLogIn(username, acct.tenantId);
   }
 }
 function ssoHandleResponse(response) {
@@ -426,7 +429,7 @@ function ssoHandleResponse(response) {
     if (!username || username == "") {
       username = response.account.idTokenClaims.given_name;
     }
-    tryLogIn(username);
+    tryLogIn(username, response.tenantId, response.accessToken);
   } else {
     ssoSelectAccount(response);
   }
@@ -475,13 +478,16 @@ function getTokenPopup(request) {
     }
   });
 }
-function tryLogIn(username) {
+function tryLogIn(username, tenant, token) {
+  console.log("tryLogin: username=" + username + ", domainid=" + sso_current_domainid + ", tenant=" + tenant + ", token=" + token);
   (0,will_app/* startWaiting */.eF)();
   jquery_default().ajax({
     url: (0,will_app/* getApiUrl */.e9)() + "/api/sign/access",
     type: "POST",
     data: JSON.stringify({
-      username: username
+      username: username,
+      domainid: sso_current_domainid,
+      accesstoken: token
     }),
     dataType: "json",
     contentType: will_app/* DEFAULT_CONTENT_TYPE */.Xh,
@@ -4438,4 +4444,4 @@ console.log("Vue version", runtime_core_esm_bundler/* version */.rE);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=index.fe529bcf.js.map
+//# sourceMappingURL=index.c7fa87f1.js.map

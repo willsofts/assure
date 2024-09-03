@@ -92,6 +92,8 @@ export class TknSigninHandler extends TknSchemeHandler {
     }
 
     protected async doAccess(context: KnContextInfo, model: KnModel) : Promise<JSONReply> {
+        let domainid = context.params.domainid;
+        if(!domainid || domainid.trim().length == 0) return Promise.reject(new VerifyError("Invalid access",HTTP.BAD_REQUEST,-16083));
         let db = this.getPrivateConnector(model);
         try {
             let signinfo = await this.getBasicSigninInfo(context, db);    
