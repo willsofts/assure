@@ -150,3 +150,7 @@ expose service
 curl -X POST -H "Content-Type: application/json" -H "AuthToken: ?" http://localhost:8080/api/expose/cipher -d "{ \"ciphertext\": \"???\" }"
 ex.
 curl -X POST -H "Content-Type: application/json" -H "AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiMWEzMDkzNjktNWFjMi00YWU2LTgwMmQtNWYwZGI4ODZjYjFkIiwic2l0ZSI6IkZXUyIsImFjY2Vzc29yIjoidHNvIiwidHlwZSI6IlMiLCJpYXQiOjE3MjQzODc1MDksImV4cCI6MTcyNDQ1MjMwOX0.IM_3FSVs5-IBT40xes3yFmiYfx0_T6JedP2KajUWFZs" http://localhost:8080/api/expose/cipher -d "{ \"ciphertext\": \"XdYju1WEh7CFK76KIf3NsnB/cIQL0nTCVcOlXjiAzeLWs1b5cn/fSLCPYZSBwn+eZd76jmalq2GzKHpLpuofngennC9Lkmdy7XUdWfHzYD2qIpDa1UF/mI1FAH8abD//GIJZ/I9VYctEzJTNpoyjir+/0IefPzvZocDvAEIIFi6DU3f5UeCwwDdBHQ05tt9Q\" }"
+
+PM2
+pm2 start -i max --name server dist/server.js
+pm2 start -i max --name server dist/server.js -- ./dist/services ./dist/workers ./dist/operators
