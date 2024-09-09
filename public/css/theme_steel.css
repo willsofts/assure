@@ -1,0 +1,145 @@
+/* user color */
+.login_form input[type="button"]{
+	background-color: whitesmoke;
+	border-color: slategray;
+}
+.login_form input[type="button"]:focus,
+.login_form input[type="button"]:hover{
+	background: slategray;
+	color: white;
+}
+.login_form label {
+	color: slategray;
+	font-weight : bold;
+}
+#login_logo_label {
+	font-size: 85px;
+	font-weight: bold;
+	color: slategray;
+	text-shadow: 3px 7px 7px white;
+}
+#page_login_toplayer {	
+	background-image: -webkit-linear-gradient(white, #F8F8FF);
+	background-image: -o-linear-gradient(white, #F8F8FF);
+	background-image: -moz-linear-gradient(white, #F8F8FF);
+	background-image: linear-gradient(white, #F8F8FF);
+}
+div.link-button-cover a:hover {
+	background: slategray;
+	color: white;
+}
+
+.navigatebar-top {
+	background-color: slategray;
+}
+#footerbar { 
+	background-color: slategray;
+}
+.sidebar-menu {
+	background-color: slategray;
+}
+.pt-page h1 { background-color: slategray;  }
+.pt-page th { background-color: slategray }
+.pt-page-header { 
+	background-color: slategray; 
+}
+.btn-primary {
+	border: 1px solid lightslategray;
+	background-color: lightslategray;
+	min-width: 60px;	
+}
+.btn-dark {
+	border: 1px solid lightslategray;
+	background-color: lightslategray;	
+	min-width: 60px;	
+}
+.btn-spot {
+	border: 1px solid lightslategray;
+	background-color: lightslategray;		
+	min-width: 60px;	
+}
+.btn-spot:hover,
+.btn-spot:focus,
+.btn-spot:active,
+.btn-spot.active,
+.open > .dropdown-toggle.btn-spot {
+ background-color: slategray;
+}
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active,
+.btn-dark.active,
+.open > .dropdown-toggle.btn-dark {
+ background-color: slategray;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primay:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+	background-color: slategray;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+	background-color: slategray;
+	border-color: slategray;
+}
+.page-item.active .page-link {
+	background-color: slategray;
+	border-color: slategray;	
+}
+.favor-navbox-tiles .tile {
+  background-color: slategray;
+}
+.favor-dropdown-menu { 
+	background-color: slategray;
+}
+#favordropdownmenu {
+	background-color: slategray;
+}
+
+body {
+	background-color: white;
+}
+.table-striped > tbody > tr:nth-child(even) > td,
+.table-striped > tbody > tr:nth-child(even) > th {
+  background-color: whitesmoke;
+}
+.navbox-tiles .tile {
+  background-color: darkgray;
+}
+#loginformarea {	
+	background-image: -webkit-linear-gradient(white,#F8F8FF);
+	background-image: -o-linear-gradient(white,#F8F8FF);
+	background-image: -moz-linear-gradient(white,#F8F8FF);
+	background-image: linear-gradient(white, #F8F8FF);
+}
+.portal-area {
+	background-color: white;
+}
+table.partition-table { background-color: slategray; }
+.topic-row { background-color: slategray; }
+
+.sidebar li a.active { 
+	background-color: lightslategray;
+}
+.sidebar ul li > a.active:hover {
+	background-color: lightslategray;
+}
+.sidebar ul li .sub-menu li a:hover { 
+	background-color: slategray;
+}
+#sidebarheader { 
+	background-color: lightslategray;
+}
+#fsprogramcontrolbar {
+	background-color: slategray; 
+}
+.program-controlbar { background-color: slategray; }
+.favor-new-item { background-color: darkgray; }
+.pass-word { color:darkcyan; font-style: italic; }
+.go-word { color:lightseagreen; font-style: italic; }

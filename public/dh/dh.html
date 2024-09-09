@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>DH Hand Shake</title>		
+		<meta charset="UTF-8">
+		<meta http-equiv="Cache-Control" content="no-store">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="-1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/willsofts/will-asset@1.0.20/img/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/willsofts/will-asset@1.0.20/bootstrap/css/bootstrap.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="/cryptojs/dh/jsbn.js" defer></script>
+		<script type="text/javascript" src="/cryptojs/dh/jsbn2.js" defer></script>
+		<script type="text/javascript" src="/cryptojs/rollups/aes.js" defer></script>
+		<script type="text/javascript" src="/cryptojs/rollups/sha256.js" defer></script>
+		<script type="text/javascript" src="/cryptojs/components/mode-ecb.js" defer></script>
+		<script type="text/javascript" src="/js/dh.js"></script>
+		<script type="text/javascript" nonce="YXNzdXJl">
+			fs_default_raw_parameters = false;
+			fs_default_language = "EN";
+			API_URL = "";
+			BASE_URL = "";
+			CDN_URL = "";
+			BASE_STORAGE = "session";
+			SECURE_STORAGE = true;
+			META_INFO = {"appstype":""};
+
+			function settingDiffie() {
+				const dh = new DH();
+				dh.prime = prime.value;
+				dh.generator = generator.value;
+				dh.otherPublicKey = publickey.value;
+				dh.compute();
+				dh.updatePublicKey();
+				let msg = "privateKey = "+dh.privateKey;
+        		msg += "\npublicKey = "+dh.publicKey;
+        		msg += "\nsharedKey = "+dh.sharedKey;
+        		msg += "\notherPublicKey = "+dh.otherPublicKey;
+				console.log(msg);
+				texts.value = msg;
+			}
+			function getAccessorInfo() {
+				return { authtoken : token.value }
+			}
+		</script>		
+	</head>
+	<body class="portalbody portalbody-off">
+		<h4>Diffie-Hellman Hand Shake</h4>
+		<table>
+			<tr><td>Prime</td><td><input type="text" id="prime" size="100"/></td></tr>
+			<tr><td>Generator</td><td><input type="text" id="generator" size="100"/></td></tr>
+			<tr><td>Other Public Key</td><td><input type="text" id="publickey" size="100"/></td></tr>
+			<tr><td>Token</td><td><input type="text" id="token" size="100"/></td></tr>
+			<tr><td colspan="2"><button onclick="settingDiffie()">Setting DH</button></td></tr>
+		</table>
+		<textarea id="texts" cols="110" rows="5"></textarea>
+	</body>
+</html>

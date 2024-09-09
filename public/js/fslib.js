@@ -15,6 +15,7 @@ var API_TOKEN = null;
 var BASE_STORAGE = "";
 var SECURE_STORAGE = true;
 var META_INFO = {};
+var CHAT_URL = "";
 function getWindowByName(winname) {
 	if(!winname) return null;
 	for(let i=0,isz=fs_winary.length;i<isz;i++) {

@@ -16,6 +16,7 @@ export interface KnMetaInfo {
     token?: string;
     storage?: string;
     secure_storage?: boolean,
+    chat_url?: string,
     info?: any;
 }
 

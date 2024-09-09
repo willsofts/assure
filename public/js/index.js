@@ -94,6 +94,7 @@
 					$("#avatarimage").attr("src",avatar);
 				}
 			}
+			startReceiveBroadcast();
 		}
 		function startWorking(unloadFirstPage,firstpage) {
 			$("#navigatebar").removeClass("fa-hidden");

@@ -45,7 +45,7 @@ div.link-button-cover a:hover {
 }
 .btn-primary {
 	border: 1px solid #A95805;
-	background-color: #A95805;
+	background-color: #A95805;	
 	min-width: 60px;	
 }
 .btn-dark {
@@ -139,6 +139,6 @@ table.partition-table { background-color: #ED7D31; }
 #fsprogramcontrolbar {
 	background-color: #ED7D31; 
 }
+.program-controlbar { background-color: #ED7D31; }
 .pass-word { color:darkcyan; font-style: italic; }
 .go-word { color:lightseagreen; font-style: italic; }
-.program-controlbar { background-color: #ED7D31; }
