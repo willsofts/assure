@@ -1,7 +1,7 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 8606:
+/***/ 852:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27,7 +27,7 @@ var will_app = __webpack_require__(4122);
 var runtime_core_esm_bundler = __webpack_require__(6768);
 // EXTERNAL MODULE: ./node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js
 var runtime_dom_esm_bundler = __webpack_require__(5130);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/VueSure.vue?vue&type=template&id=64766ac4
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/VueSure.vue?vue&type=template&id=323bee40
 
 const _hoisted_1 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
   id: "fswaitlayer",
@@ -69,7 +69,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onSuccess: $options.processSuccess
   }, null, 40, ["labels", "onActivated", "onSuccess"]))], 1024))], 512), [[runtime_dom_esm_bundler/* vShow */.aG, $setup.isShowing == false]])], 64);
 }
-;// CONCATENATED MODULE: ./src/VueSure.vue?vue&type=template&id=64766ac4
+;// CONCATENATED MODULE: ./src/VueSure.vue?vue&type=template&id=323bee40
 
 // EXTERNAL MODULE: ./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
 var reactivity_esm_bundler = __webpack_require__(144);
@@ -511,11 +511,12 @@ var esm = __webpack_require__(7910);
 
 
 
+let socket = null;
 function startReceiveBroadcast() {
   let chat_url = (0,will_app/* getChatUrl */.eh)();
   console.log("start receive bc: ", chat_url);
   if (chat_url && chat_url.trim().length > 0) {
-    var socket = (0,esm/* default */.Ay)(chat_url);
+    socket = (0,esm/* default */.Ay)(chat_url);
     socket.on('broadcast-message', function (msg) {
       console.log("broadcast-message:", msg);
       let div = jquery_default()("<div class='bc-layer'></div>");
@@ -535,6 +536,9 @@ function startReceiveBroadcast() {
       div.append(link).append(span).appendTo(body);
     });
   }
+}
+function stopReceiveBroadcast() {
+  if (socket) socket.disconnect();
 }
 // EXTERNAL MODULE: ./node_modules/@vue/shared/dist/shared.esm-bundler.js
 var shared_esm_bundler = __webpack_require__(4232);
@@ -4199,6 +4203,7 @@ const FactorForm_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(FactorF
       if (isSSOSignedIn()) {
         doSSOLogout();
       }
+      stopReceiveBroadcast();
     },
     goLogIn() {
       this.isShowing = true;
@@ -4472,9 +4477,9 @@ console.log("Vue version", runtime_core_esm_bundler/* version */.rE);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(8606); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(852); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=index.97d6fb28.js.map
+//# sourceMappingURL=index.1c4c4aaa.js.map
