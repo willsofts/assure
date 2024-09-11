@@ -924,6 +924,7 @@ function parseErrorThrown(xhr,status,errorThrown) {
 	try{
 		if(xhr.status==400 || xhr.status==401) errorThrown = xhr.responseText; //400=Bad Request,401=Unauthen
 		let json = $.parseJSON(xhr.responseText);
+		if(json.message) errorThrown = json.message;
 		if(json.text) errorThrown = json.text;
         if(json.head.errordesc) errorThrown = json.head.errordesc;
 	}catch(ex) { }
