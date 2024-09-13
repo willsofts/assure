@@ -13,7 +13,7 @@ npm run start
 ```
 
 ## How To Install
-This project need [@willsofts](https://github.com/willsofts) libraries to run that is private access, then you have to gain access key and setting in your own environment before start installation from administrator. \
+This project need [@willsofts](https://github.com/willsofts) libraries to run that is private access, then you have to gain access key from administrator and setting in your own environment before start installation. \
 ex. \
 Window
 
