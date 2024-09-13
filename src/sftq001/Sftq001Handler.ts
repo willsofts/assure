@@ -38,11 +38,13 @@ export class Sftq001Handler extends TknOperateHandler {
             knsql.append(model.name);
             if(!counting) {
                 knsql.append(" left join tprog on tprog.programid = ").append(model.name).append(".progid ");    
+            }
+            if(params.userid && params.userid!="") {
+                knsql.append(" join tuser on tuser.userid = ").append(model.name).append(".userid ");    
+                knsql.append("and tuser.username LIKE ?username ");
+                knsql.set("username","%"+params.userid+"%");
+            } else {
                 knsql.append(" left join tuser on tuser.userid = ").append(model.name).append(".userid ");    
-                if(params.userid && params.userid!="") {
-                    knsql.append("and tuser.username LIKE ?username ");
-                    knsql.set("username","%"+params.userid+"%");
-                }
             }
             let filter = " where ";
             /*
