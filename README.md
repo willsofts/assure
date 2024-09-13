@@ -42,6 +42,14 @@ Linux
 
     export HTTP_PORT=8888 
 
+To disable validate token in development mode you can setting environment or change `/config/default.json` before start up project 
+
+    set VALIDATE_TOKEN=false
+
+or
+    
+    export VALIDATE_TOKEN=false
+
 ## Example
 
 This project contains examples API that it can invoke by [curl](https://curl.se/download.html):
