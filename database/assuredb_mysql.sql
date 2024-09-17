@@ -415,6 +415,15 @@ INSERT INTO `tgroup` (`groupname`, `supergroup`, `nameen`, `nameth`, `seqno`, `i
 	('TESTER', 'ADMIN', 'Tester', 'ผู้ทดสอบ', 13, 'fa fa-desktop', '0', 'O', NULL, NULL, '2023-09-09', '14:33:09', 'tso');
 /*!40000 ALTER TABLE `tgroup` ENABLE KEYS */;
 
+-- Dumping structure for table promptdb.tlabel
+CREATE TABLE IF NOT EXISTS `tlabel` (
+  `labelid` varchar(50) NOT NULL COMMENT 'program id',
+  `langcode` varchar(10) NOT NULL COMMENT 'tlanguage.language',
+  `labelname` varchar(50) NOT NULL,
+  `labelvalue` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`labelid`,`langcode`,`labelname`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table keep label';
+
 -- Dumping structure for table assuredb.tnpwd
 CREATE TABLE IF NOT EXISTS `tnpwd` (
   `reservenum` varchar(50) NOT NULL,
