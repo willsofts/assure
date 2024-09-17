@@ -79,7 +79,7 @@ export class TknLabelHandler extends TknSchemeHandler {
             for(let item of value.label) { data[item.name] = item.value };
             labels[key] = data;
         }
-        return this.createCipherData(context, "collect", labels);
+        return this.createCipherData(context, "retrieve", labels);
     }
 
 }
