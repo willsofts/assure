@@ -1,4 +1,4 @@
-## Assure Project
+## Moleculer Express Template (MEXT)
 
 This is project introduce to node application with http server and express framework under moleculer engine
 
@@ -30,7 +30,7 @@ The project will run at http://localhost:8080/
 Since this project required database setup before starting you have to create database schema by run sql file under folder `/database/assuredb_mysql.sql` this sql snippet file come with MySQL. Example user access existing in `/database/readme.txt`.
 
 ## Configuration
-After setup database you may change configuration setting to access your database by `/config/default.json`. see more detail [will-sql](https://www.npmjs.com/package/will-sql)
+After setup database you may change configuration setting to access your database by `/config/default.json`. see more detail [will-sql](https://github.com/willsofts/will-sql)
 
 In case of setting http connection especially port (default at 8080) can be config by `/config/default.json` or environment setting in command prompt \
 ex. \
@@ -42,17 +42,9 @@ Linux
 
     export HTTP_PORT=8888 
 
-To disable validate token in development mode you can setting environment or change `/config/default.json` before start up project 
-
-    set VALIDATE_TOKEN=false
-
-or
-    
-    export VALIDATE_TOKEN=false
-
 ## Example
 
-This project contains examples API that it can invoke by [curl](https://curl.se/download.html):
+This project contains examples API that can invoke by [curl](https://curl.se/download.html):
 
 * curl http://localhost:8080/api/fetch/hello 
 * curl http://localhost:8080/api/fetch/hello?name=test  (query parameter)
@@ -97,7 +89,8 @@ How to provide application service.
 
 2. make folder and create renderer under `views` path ex. `views/demo001`, under this folder contains `ejs` file to be render
 3. make folder and create browser supporter under `public` path ex. `public/demo001`, under this folder contains html, js, css etc. files.
-4. make service class under folder `operators` path ex. `operators/demo001.service.ts`, this is important thing in order to be load into framework and invoked by broker service
+4. make service class under folder `operators` path ex. `operators/demo001.service.ts`, this is important thing in order to be load into framework and invoked by broker service and caller \
+(naming convension have to defined file name as xxxx.service.ts)
 
 
 #### Broadcasting
