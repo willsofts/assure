@@ -1,4 +1,12 @@
 /* user color */
+.login_form button:focus,
+.login_form button:hover{
+	background: #018759;
+	color: white;
+}
+.login_form button {
+	border-color: #018759;
+}
 .login_form input[type="button"]{
 	background-color: whitesmoke;
 	border-color: #018759;
