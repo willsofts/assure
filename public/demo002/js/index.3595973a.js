@@ -3241,6 +3241,7 @@ function openCalendar(src) {
       }
     });
     dpkr.datepicker("show");
+    jquery_default()(document).off('focusin');
     return;
   } catch (ex) {
     console.error(ex);
@@ -3380,7 +3381,7 @@ function parseNumber(avalue) {
   return Number(removeComma(avalue));
 }
 function removeComma(avalue) {
-  let result = avalue;
+  let result = avalue + "";
   while (result.indexOf(",") > -1) {
     result = removeDelimiter(result, ",");
   }
@@ -5751,4 +5752,4 @@ console.info("Vue version", runtime_core_esm_bundler/* version */.rE);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=index.e645b193.js.map
+//# sourceMappingURL=index.3595973a.js.map
