@@ -75,8 +75,9 @@ function openCalendar(src) {
 				let fn = dpkr.data("afterSelectDatePicker");
 				if(fn) fn(input,inst);
 			}
-		});
+		})
 		dpkr.datepicker("show");
+		$(document).unbind('focusin');
 		return;
 	}catch (ex)	{ }
 }
@@ -138,6 +139,7 @@ function openMonthCalendar(src) {
 			$(".ui-datepicker-calendar").hide();
 		});
 		dpkr.datepicker("show");
+		$(document).unbind('focusin');
 		return;
 	}catch (ex)	{ }
 }
