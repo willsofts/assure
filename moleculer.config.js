@@ -24,7 +24,8 @@ module.exports = {
         }
     ],
     registry: {
-        strategy: "RoundRobin"
+        strategy: "RoundRobin",
+        preferLocal: false,
     },
     /*    
     transporter: "NATS",
