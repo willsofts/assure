@@ -7,6 +7,7 @@ import { KnCategory } from "../utils/KnCategory";
 import { TknDataTableHandler } from '../handlers/TknDataTableHandler';
 import { VerifyError } from '../models/VerifyError';
 import { TheCategories } from "../utils/TheCategories";
+import { TknExposeHandler } from "../handlers/TknExposeHandler";
 
 const CategoryService : ServiceSchema = {
     name: "category",
@@ -21,12 +22,15 @@ const CategoryService : ServiceSchema = {
     },
     actions: {
         async groups(context: any) {
-            let names = context.params.names;
-            if(!names) names = context.params["names[]"];
+            let exposer = new TknExposeHandler();
+            exposer.logger = this.logger;
+            let params = await exposer.exposeCipher(context);
+            let names = params.names;
+            if(!names) names = params["names[]"];
             if(Utilities.isString(names)) {
                 names = names.split(",");
             }
-            console.log("names",names);
+            this.logger.debug("names",names);
             if(!names || names.length==0) {
                 return Promise.reject(new VerifyError("Parameter not found (names)",HTTP.NOT_ACCEPTABLE,-16061));
             }
@@ -44,12 +48,15 @@ const CategoryService : ServiceSchema = {
             }
         },
         async lists(context: any) {
-            let names = context.params.names;
-            if(!names) names = context.params["names[]"];
+            let exposer = new TknExposeHandler();
+            exposer.logger = this.logger;
+            let params = await exposer.exposeCipher(context);
+            let names = params.names;
+            if(!names) names = params["names[]"];
             if(Utilities.isString(names)) {
                 names = names.split(",");
             }
-            console.log("names",names);
+            this.logger.debug("names",names);
             if(!names || names.length==0) {
                 return Promise.reject(new VerifyError("Parameter not found (names)",HTTP.NOT_ACCEPTABLE,-16061));
             }
