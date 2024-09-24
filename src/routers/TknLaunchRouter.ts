@@ -173,6 +173,7 @@ export class TknLaunchRouter extends TknAssureRouter {
     }
     
     public async doLoad(req: Request, res: Response) {
+        //this method try to load program that exist in table tprog
         this.logger.debug(this.constructor.name+".doLoad: url="+req.originalUrl);
         let ctx = null;
         let info = null;
@@ -195,8 +196,8 @@ export class TknLaunchRouter extends TknAssureRouter {
                     info = this.getMetaInfo(ctx);
                 }
                 res.render("pages/error",{error: ex, meta: info});
+                return;
             }
-            return;
         }
         if(!info || !ctx) {
             ctx = this.buildContext(req);
@@ -209,6 +210,7 @@ export class TknLaunchRouter extends TknAssureRouter {
     }
 
     public async doOpen(req: Request, res: Response) {
+        //this method try to open from views path
         this.logger.debug(this.constructor.name+".doOpen: url="+req.originalUrl);
         let label = null;
         let ctx = null;
@@ -238,6 +240,34 @@ export class TknLaunchRouter extends TknAssureRouter {
             label = new KnLabelConfig("index", info.language);
             try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doOpen: error",ex); }
         }
+        res.render("pages/notfound",{error: "not found", meta: info, label: label});
+    }
+
+    public async doShow(req: Request, res: Response) {
+        //this method try to open html file from public path
+        this.logger.debug(this.constructor.name+".doShow: url="+req.originalUrl+", params=",req.params);
+        let ctx = await this.createContext(req, req.params.program);
+        let valid = await this.isValidateLauncher(req,res,ctx);
+        if(!valid) return;
+        let workdir = Utilities.getWorkingDir(this.dir); 
+        let program = req.params.program;
+        let subprog = req.params.subprog;
+        if(program) {
+            let pager = program;
+            if(subprog && subprog.trim().length>0) pager += "/"+subprog;
+            else pager += "/"+program;
+            pager = pager + ".html";
+            let htmlfile = path.join(workdir, "public", pager);
+            let foundfile = fs.existsSync(htmlfile);
+            this.logger.debug(this.constructor.name+".doShow: htmlfile="+htmlfile," found="+foundfile);
+            if(foundfile) {
+                res.redirect("/"+pager);
+                return;
+            }
+        }
+        let info = this.getMetaInfo(ctx);
+        let label = new KnLabelConfig("index", info.language);
+        try { await label.load(workdir); } catch(ex) { this.logger.error(this.constructor.name+".doOpen: error",ex); }
         res.render("pages/notfound",{error: "not found", meta: info, label: label});
     }
 

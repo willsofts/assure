@@ -77,6 +77,8 @@ export class TknRouteManager extends TknBaseRouter {
         app.post("/load/:program", (req: Request, res: Response) => { launcher.doLoad(req,res); });
         app.get("/open/:program/:subprog?", (req: Request, res: Response) => { launcher.doOpen(req,res); });
         app.post("/open/:program/:subprog?", (req: Request, res: Response) => { launcher.doOpen(req,res); });
+        app.get("/show/:program/:subprog?", (req: Request, res: Response) => { launcher.doShow(req,res); });
+        app.post("/show/:program/:subprog?", (req: Request, res: Response) => { launcher.doShow(req,res); });
         app.get("/control/:program/:id", (req: Request, res: Response) => { controler.doLaunch(req,res); });
         app.post("/control/:program/:id", (req: Request, res: Response) => { controler.doLaunch(req,res); });
         app.post("/upload/file", async (req: Request, res: Response) => { 
