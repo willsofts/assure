@@ -4,6 +4,7 @@ import { KnExpress, KnRunner } from "@willsofts/will-run";
 import { TknAssureHandler } from "./handlers/TknAssureHandler";
 import { TknRouteManager } from './routers/TknRouteManager';
 import { TknSAMLManager } from './routers/TknSAMLManager';
+import { TknReportManager } from "./routers/TknReportManager";
 
 const ExpressService : ServiceSchema = {
     name: "api",
@@ -40,6 +41,8 @@ runner.start(process.argv).then(() => {
         new TknRouteManager(runner.service, __dirname).route(app);
         //this for SAML login supported
         new TknSAMLManager(runner.service, __dirname).route(app);
+        //this is for report operator
+        new TknReportManager(runner.service, __dirname).route(app);
     }
     if(runner.broker) {
         runner.broker.call("$node.services").then((services: any) => {

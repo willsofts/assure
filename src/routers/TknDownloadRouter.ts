@@ -4,6 +4,7 @@ import mime from 'mime-types';
 import { Request, Response } from 'express';
 import { TknBaseRouter } from './TknBaseRouter';
 import { DOWNLOAD_RESOURCES_PATH } from "../utils/EnvironmentVariable";
+import { HTTP } from "@willsofts/will-api";
 
 export class TknDownloadRouter extends TknBaseRouter {
 
@@ -15,7 +16,7 @@ export class TknDownloadRouter extends TknBaseRouter {
             let file = path.join(DOWNLOAD_RESOURCES_PATH,filename);
             await this.performDownload(file, res);
         } else {
-            res.send("Filename not specified");
+            res.status(HTTP.NOT_ACCEPTABLE).send("File name not specified");
         }
     }
 
@@ -42,7 +43,7 @@ export class TknDownloadRouter extends TknBaseRouter {
         }
         if(!found) {
             let name = path.basename(filename);
-            res.send("File not found ("+name+")");
+            res.status(HTTP.NOT_FOUND).send("File not found ("+name+")");
         }
     }
 
