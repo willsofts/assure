@@ -76,11 +76,11 @@ export class TknProcessHandler extends TknSystemHandler {
         return Promise.resolve(this.userToken);
     }
  
-    public transformData(rs: any, fields?: KnFieldSetting) : KnDataSet {
+    public transformData(rs: any, fields?: KnFieldSetting, formatter: Function = this.formatData) : KnDataSet {
         if(!fields) {
             fields = this.model?.fields;
         }
-        return KnUtility.transformData(rs, fields, this.formatData);
+        return KnUtility.transformData(rs, fields, formatter);
     }
 
     public override trackingInfo(action: string, modelname?: string, tracker?: string) : KnTrackingInfo {
