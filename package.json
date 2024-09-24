@@ -35,7 +35,7 @@
     "@willsofts/will-sql": "^1.0.31",
     "@willsofts/will-util": "^1.0.20",
     "activedirectory": "^0.7.2",
-    "axios": "^1.2.1",
+    "axios": "^1.7.7",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
     "bootstrap": "^4.6.0",
