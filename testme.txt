@@ -70,7 +70,9 @@ curl -v -X POST http://localhost:8080/api/captcha/create
 upload file
 curl -X POST http://localhost:8080/upload/file
 ex.
-curl -X POST http://localhost:8080/upload/file -F filename=@D:\images\birth.png -F type=IMG -F no=123456
+curl -X POST http://localhost:8080/upload/file -F filename=@D:\images\birth.png -F type=IMG -F no=123456 -F group=FI
+defined id:
+curl -X POST http://localhost:8080/upload/file -F filename=@D:\images\birth.png -F type=IMG -F no=123456 -F id=12345
 
 data table service
 curl -X POST -H "AuthToken: ?" http://localhost:8080/api/datatable/get -d "tablename=tactive&keyfield=activeid"
@@ -154,3 +156,7 @@ curl -X POST -H "Content-Type: application/json" -H "AuthToken: eyJhbGciOiJIUzI1
 PM2
 pm2 start -i max --name server dist/server.js
 pm2 start -i max --name server dist/server.js -- ./dist/services ./dist/workers ./dist/operators
+
+Report
+curl http://localhost:8080/report/demo002
+curl http://localhost:8080/report/demo002/demo002/pdf
