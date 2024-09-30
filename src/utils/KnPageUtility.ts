@@ -98,4 +98,9 @@ export class KnPageUtility {
 		return value == null || value == undefined;
 	}
 
+	public isBool(checker: string, value: any) : boolean {
+		if(value === undefined) return false;
+		return value == checker;
+	}
+
 }
