@@ -16,6 +16,7 @@
         "tkvisible" : {"tableName": "tconstant", "addonFilters": "typename='tvisible'", "keyField": "typeid", "addonFields": "seqno", "orderFields": "seqno", "setting": { "categoryName": "tkvisible", "keyName": "typeid", "valueNames": ["namen"]} },
         "tkbranchtype" : {"tableName": "tconstant", "addonFilters": "typename='tbranchtype'", "keyField": "typeid", "addonFields": "seqno", "orderFields": "seqno", "setting": { "categoryName": "tkbranchtype", "keyName": "typeid", "valueNames": ["namen"]} },
 
+        "tprogprod" : {"tableName": "tprog", "addonTables": "join tprod on tprod.product = tprog.product", "addonFields":"tprod.url", "keyField": "programid", "orderFields": "programid", "captionFields": "progname,prognameth", "nameen": "progname", "nameth": "prognameth", "setting": { "keyName": "programid", "valueNames": ["progname"]} },        
         "tprod" : {"tableName": "tprod", "keyField": "product", "addonFields": "seqno", "orderFields": "seqno", "setting": { "keyName": "product", "valueNames": ["nameen"]} },
         "tprog" : {"tableName": "tprog", "keyField": "programid", "orderFields": "programid", "captionFields": "progname,prognameth", "nameen": "progname", "nameth": "prognameth", "setting": { "keyName": "programid", "valueNames": ["progname"]} },        
         "tcompbranch" : {"tableName": "tcompbranch", "keyField": "branch", "checkActive": true, "checkSite": true, "setting": { "keyName": "branch", "valueNames": ["nameen"]} },

@@ -98,6 +98,7 @@ export interface KnDataTable {
 export interface KnDataTableSetting {
     tableName: string;
     keyField: string;
+    addonTables?: string;
     addonFields?: string;
     orderFields?: string;
     checkActive?: boolean;

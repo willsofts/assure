@@ -52,8 +52,14 @@ export class TknDataTableHandler extends TknSchemeHandler {
             }
         } else {
             knsql.append(" *");
+            if(datasetting.addonFields) {
+                knsql.append(",").append(datasetting.addonFields);
+            }
         }
         knsql.append(" from ").append(datasetting.tableName);
+        if(datasetting.addonTables) {
+            knsql.append(" ").append(datasetting.addonTables);
+        }
         let filter = " where";
         if(datasetting.checkActive) {
             knsql.append(filter).append(" (inactive is null or inactive != '1') ");

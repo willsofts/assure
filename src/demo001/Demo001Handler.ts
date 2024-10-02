@@ -90,6 +90,7 @@ export class Demo001Handler extends TknOperateHandler {
     protected async performCategories(context: KnContextInfo, model: KnModel, db: KnDBConnector) : Promise<KnDataTable> {
         let settings = this.getCategorySetting(context, "tkprogtype", "tkactive");
         return await this.getDataCategories(context, db, settings);
+        //return await this.getDataLists(context, db, settings);
     }
 
     /* override to handle launch router when invoked from menu */
