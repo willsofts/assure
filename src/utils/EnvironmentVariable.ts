@@ -56,3 +56,4 @@ export const UPLOAD_FILE_TYPES : string = config.env("UPLOAD_FILE_TYPES","jpeg|j
 export const UPLOAD_FILE_SIZE : number = parseInt(config.env("UPLOAD_FILE_SIZE","10485760")) || 10*1024*1024; //10MB
 
 export const DISABLE_DIFFIE: boolean = config.env("DISABLE_DIFFIE","false") === "true";
+export const VALIDATE_PERMISSION: boolean = config.env("VALIDATE_PERMISSION","false") === "true";

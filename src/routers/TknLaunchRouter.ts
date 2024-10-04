@@ -8,6 +8,7 @@ import { TknAssureRouter } from './TknAssureRouter';
 import { TknProcessHandler } from "../handlers/TknProcessHandler";
 import path from 'path';
 import fs from 'fs';
+import querystring from 'querystring';
 
 export class TknLaunchRouter extends TknAssureRouter {
 
@@ -261,6 +262,14 @@ export class TknLaunchRouter extends TknAssureRouter {
             let foundfile = fs.existsSync(htmlfile);
             this.logger.debug(this.constructor.name+".doShow: htmlfile="+htmlfile," found="+foundfile);
             if(foundfile) {
+                let params = ctx.params;
+                delete params.program;
+                delete params.subprog;
+                delete params.authtoken;
+                delete params.tokenkey;                
+                let query = querystring.stringify(params);
+                if(query && query.trim().length>0) pager += "?"+query;
+                this.logger.debug(this.constructor.name+".doShow: redirect="+pager);
                 res.redirect("/"+pager);
                 return;
             }
