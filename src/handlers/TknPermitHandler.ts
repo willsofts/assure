@@ -20,7 +20,7 @@ export class TknPermitHandler extends TknSchemeHandler {
         const uniqueProgid = new Set<string>();
         if(rs && rs.rows.length > 0) {
             rs.rows.forEach((item:any) => { uniqueProgid.add(item.progid); });
-            uniqueProgid.forEach((id:any) => { ds[id] = {}; });
+            uniqueProgid.forEach((id:string) => { ds[id] = {}; });
             for(let row of rs.rows) {
                 let dspid = ds[row.progid];
                 let cv = Utilities.parseBoolean(row.permvalue);
@@ -36,6 +36,7 @@ export class TknPermitHandler extends TknSchemeHandler {
             for(let id of progids) {
                 let prg = progary.find((item:string) => id == item);
                 if(!prg) ds[id] = Object.assign({},this.defaultPermits);
+                else ds[id].launch = true; 
             }            
         }        
         return Promise.resolve(ds);
