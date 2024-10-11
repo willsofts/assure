@@ -322,6 +322,7 @@ export class Sfte007Handler extends TknOperateHandler {
                     msg += "Administrator<br/>";
                 }
                 msg = Utilities.translateVariables(msg, info);
+                //this.mailing(context, {email: info.email, subject: tmp?tmp.subjecttitle:"Account Changed", message: msg});
                 this.doSendMail(context, model, {email: info.email, subject: tmp?tmp.subjecttitle:"Account Changed", message: msg});
             }
 		} catch(ex: any) {
@@ -405,11 +406,8 @@ export class Sfte007Handler extends TknOperateHandler {
         await knsql.executeUpdate(db);            
         knsql.clear();
         knsql.append("insert into tusercomp(userid,site) values(?userid,?site)");
-        if(context.params.usersites) {
-            let usersites = context.params.usersites;
-            if(Utilities.isString(usersites)) {
-                usersites = [usersites];
-            }
+        let usersites = this.getParameterArray("usersites",context.params);
+        if(usersites) {
             for(let usersite of usersites) {
                 knsql.clearParameter();
                 knsql.set("userid",context.params.userid);
@@ -425,11 +423,8 @@ export class Sfte007Handler extends TknOperateHandler {
         await knsql.executeUpdate(db,context);
         knsql.clear();
         knsql.append("insert into tuserbranch(site,branch,userid) values(?site,?branch,?userid)");
-        if(context.params.userbranches) {
-            let userbranches = context.params.userbranches;
-            if(Utilities.isString(userbranches)) {
-                userbranches = [userbranches];
-            }
+        let userbranches = this.getParameterArray("userbranches",context.params);
+        if(userbranches) {
             for(let userbranch of userbranches) {
                 knsql.clearParameter();
                 knsql.set("site",site);
@@ -446,11 +441,8 @@ export class Sfte007Handler extends TknOperateHandler {
         await knsql.executeUpdate(db,context);
         knsql.clear();
         knsql.append("insert into tuserrole(userid,roleid) values(?userid,?roleid)");
-        if(context.params.userroles) {
-            let userroles = context.params.userroles;
-            if(Utilities.isString(userroles)) {
-                userroles = [userroles];
-            }
+        let userroles = this.getParameterArray("userroles",context.params);
+        if(userroles) {
             for(let userrole of userroles) {
                 let flag = rolemap.get(userrole);
                 if("1"==flag) {
@@ -469,11 +461,8 @@ export class Sfte007Handler extends TknOperateHandler {
         await knsql.executeUpdate(db,context);
         knsql.clear();
         knsql.append("insert into tusergrp(userid,groupname) values(?userid,?groupname)");
-        if(context.params.usergroups) {
-            let usergroups = context.params.usergroups;
-            if(Utilities.isString(usergroups)) {
-                usergroups = [usergroups];
-            }
+        let usergroups = this.getParameterArray("usergroups",context.params);
+        if(usergroups) {
             for(let usergroup of usergroups) {
                 let ut = utmap.get(usergroup);
                 if(ut) {
