@@ -326,7 +326,7 @@ table.recordset-table-class tr td { height: 40px; }
 	 font-weight: normal; 
 	 color: #FFFFFF;
 }
-.entry-dialog-layer { margin-left: 15px; margin-right: 5px;}
+.entry-dialog-layer { margin-left: 15px; margin-right: 5px; margin-top: 5px; }
 
 .ui-widget-overlay {
   opacity: 0.0;
