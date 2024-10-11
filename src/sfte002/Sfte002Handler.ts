@@ -442,12 +442,12 @@ export class Sfte002Handler extends TknOperateHandler {
     }   
 
     public async updateProgramSequence(context: KnContextInfo, model: KnModel, db: KnDBConnector) : Promise<KnRecordSet> {
-        let progid = context.params.progid;
+        let progid = this.getParameterArray("progid",context.params);
         let result = this.createRecordSet();
         let knsql = new KnSQL();
         knsql.append("update tproggrp set seqno = ?seqno ");
 		knsql.append("where groupname = ?groupname and programid = ?programid ");
-        if(progid && progid.length) {
+        if(progid && progid.length>0) {
             for(let i=0;i<progid.length;i++) {
                 knsql.set("seqno",i+1);
                 knsql.set("groupname",context.params.groupname);
