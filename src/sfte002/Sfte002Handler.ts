@@ -29,7 +29,7 @@ export class Sfte002Handler extends TknOperateHandler {
         },
     };
     public handlers = OPERATE_HANDLERS.concat([ 
-        {name: "permit"}, {name: "proglist"}, {name: "proginsert"}, {name: "progupdate"}, {name: "progremove"} 
+        {name: "permit"}, {name: "proglist"}, {name: "proginsert"}, {name: "progupdate"}, {name: "progremove"}, {name: "progpermit"}
     ]);
 
     public async permit(context: KnContextInfo) : Promise<any> {
@@ -50,6 +50,14 @@ export class Sfte002Handler extends TknOperateHandler {
 
     public async progremove(context: KnContextInfo) : Promise<any> {
         return this.callFunctional(context, {operate: "progremove", raw: false}, this.doProgRemove);
+    }
+
+    public async progpermit(context: KnContextInfo) : Promise<any> {
+        return this.callFunctional(context, {operate: "progpermit", raw: false}, this.doProgPermit);
+    }
+
+    public async doProgPermit(context: KnContextInfo, model: KnModel) : Promise<KnDataTable> {
+        return await this.getDataPermit(context, model);
     }
 
     /* try to assign individual parameters under this context */
@@ -118,7 +126,7 @@ export class Sfte002Handler extends TknOperateHandler {
     protected override async doRetrieving(context: KnContextInfo, model: KnModel, action: string = KnOperation.RETRIEVE): Promise<KnDataTable> {
         let db = this.getPrivateConnector(model);
         try {
-            let rs = await this.performRetrieving(context, model, db);
+            let rs = await this.performRetrieving(context, db, context.params.groupname);
             if(rs.rows.length>0) {
                 let row = this.transformData(rs.rows[0]);
                 return this.createDataTable(KnOperation.RETRIEVE, row);
@@ -132,10 +140,11 @@ export class Sfte002Handler extends TknOperateHandler {
         }
     }
 
-    protected async performRetrieving(context: KnContextInfo, model: KnModel, db: KnDBConnector): Promise<KnRecordSet> {
+    protected async performRetrieving(context: KnContextInfo, db: KnDBConnector, groupname: string): Promise<KnRecordSet> {
+        if(!groupname || groupname.trim().length == 0) return this.createRecordSet();
         let knsql = new KnSQL();
         knsql.append("select * from tgroup where groupname = ?groupname ");
-        knsql.set("groupname",context.params.groupname);
+        knsql.set("groupname",groupname);
         let rs = await knsql.executeQuery(db,context);
         return this.createRecordSet(rs);
     }
@@ -160,7 +169,7 @@ export class Sfte002Handler extends TknOperateHandler {
     public override async getDataRetrieval(context: KnContextInfo, model: KnModel) : Promise<KnDataTable> {
         let db = this.getPrivateConnector(model);
         try {
-            let rs = await this.performRetrieving(context, model, db);
+            let rs = await this.performRetrieving(context, db, context.params.groupname);
             if(rs.rows.length>0) {
                 let row = this.transformData(rs.rows[0]);
                 let dt = await this.performCategories(context, model, db);
@@ -219,6 +228,18 @@ export class Sfte002Handler extends TknOperateHandler {
             dt.dataset.programid = context.params.progid;
             dt.dataset.permits = Object.fromEntries(permmap);
             dt.renderer = "sfte002/sfte002_permit_dialog";
+            let gs = await this.performRetrieving(context,db,context.params.groupid);
+            if(gs && gs.rows.length > 0) {
+                let row = gs.rows[0];
+                dt.dataset.groupnameen = row.nameen;
+                dt.dataset.groupnameth = row.nameth;
+            }
+            let ps = await this.getProgInfo(context,db,context.params.progid);
+            if(ps && ps.rows.length > 0) {
+                let row = ps.rows[0];
+                dt.dataset.prognameen = row.progname;
+                dt.dataset.prognameth = row.prognameth;
+            }
             return dt;
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
@@ -474,6 +495,15 @@ export class Sfte002Handler extends TknOperateHandler {
 		} finally {
 			if(db) db.close();
         }
+    }
+
+    protected async getProgInfo(context: KnContextInfo, db: KnDBConnector, progid: string): Promise<KnRecordSet> {
+        if(!progid || progid.trim().length == 0) return this.createRecordSet();
+        let knsql = new KnSQL();
+        knsql.append("select * from tprog where programid = ?programid ");
+        knsql.set("programid",progid);
+        let rs = await knsql.executeQuery(db,context);
+        return this.createRecordSet(rs);
     }
 
 }
