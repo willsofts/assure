@@ -240,6 +240,12 @@ export class Sfte002Handler extends TknOperateHandler {
                 dt.dataset.prognameen = row.progname;
                 dt.dataset.prognameth = row.prognameth;
             }
+            let pgs = await this.getProgGroup(context,db,context.params.groupid,context.params.progid);
+            if(pgs && pgs.rows.length > 0) {
+                let row = pgs.rows[0];
+                dt.dataset.parameters = row.parameters;
+                dt.dataset.seqno = row.seqno;
+            }
             return dt;
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
@@ -292,13 +298,13 @@ export class Sfte002Handler extends TknOperateHandler {
         }
     }
 
-    public async getProgGroup(context: KnContextInfo, model: KnModel, db: KnDBConnector) : Promise<KnRecordSet> {
+    public async getProgGroup(context: KnContextInfo, db: KnDBConnector, groupname: string, programid: string) : Promise<KnRecordSet> {
         let knsql = new KnSQL();
         knsql.append("select * from tproggrp ");
         knsql.append("where groupname = ?groupname ");
         knsql.append("and programid = ?programid ");
-        knsql.set("groupname",context.params.groupname);
-        knsql.set("programid",context.params.programid);
+        knsql.set("groupname",groupname);
+        knsql.set("programid",programid);
         let rs = await knsql.executeQuery(db,context);
         return this.createRecordSet(rs);    
     }
@@ -396,7 +402,7 @@ export class Sfte002Handler extends TknOperateHandler {
     public async doProgInserting(context: KnContextInfo, model: KnModel): Promise<KnRecordSet> {
         let db = this.getPrivateConnector(model);
         try {
-            let rs = await this.getProgGroup(context, model, db);
+            let rs = await this.getProgGroup(context, db, context.params.groupname, context.params.programid);
             if(rs.rows.length>0) {
                 return rs;
             } else {
