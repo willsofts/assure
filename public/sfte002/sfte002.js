@@ -529,7 +529,7 @@ function displayProgramInfo(pid,pname,para,seqno) {
 	let $table = $("<table class='prog-item-table-class'></table>");
 	let $item = $('<li class="prog-item-class ui-state-active"></li>');	
 	let $tr = $("<tr></tr>");
-	let $td1 = $('<td class="cclass progno-column" align="center"></td').append(seqno);
+	let $td1 = $('<td class="cclass progno-column" align="center"></td>').append(seqno);
 	let $td2 = $('<td class="cclass progid-column" align="center"></td>').append(pid);
 	let $td3 = $('<td class="cclass progname-column">&nbsp;</td>').append(pname);
 	let $td4 = $('<td class="cclass progctrl-column" align="center"></td>');
