@@ -6,7 +6,7 @@ import { TknDataTableHandler} from '../handlers/TknDataTableHandler';
 import { VerifyError } from '../models/VerifyError';
 import { Utilities } from "@willsofts/will-util";
 import { TknOperateHandler } from '../handlers/TknOperateHandler';
-import { CDN_URL } from "../utils/EnvironmentVariable";
+import { IMG_URL } from "../utils/EnvironmentVariable";
 
 export class Sfte001Handler extends TknOperateHandler {
 
@@ -127,9 +127,9 @@ export class Sfte001Handler extends TknOperateHandler {
     }
 
     protected getIconImage(iconfile?: string) : string {
-        let iconimage = CDN_URL+"/img/apps/apps.png";
+        let iconimage = IMG_URL+"/img/apps/apps.png";
         if(iconfile && iconfile.trim().length>0) {
-            iconimage = CDN_URL+"/img/apps/"+iconfile;
+            iconimage = IMG_URL+"/img/apps/"+iconfile;
         }
         return iconimage;
     }

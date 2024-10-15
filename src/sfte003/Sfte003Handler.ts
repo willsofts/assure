@@ -5,7 +5,7 @@ import { Utilities } from "@willsofts/will-util";
 import { TknOperateHandler } from '../handlers/TknOperateHandler';
 import { KnValidateInfo, KnContextInfo, KnDataTable } from '../models/KnCoreAlias';
 import { VerifyError } from "../models/VerifyError";
-import { CDN_URL } from "../utils/EnvironmentVariable";
+import { IMG_URL } from "../utils/EnvironmentVariable";
 
 export class Sfte003Handler extends TknOperateHandler {
 
@@ -86,9 +86,9 @@ export class Sfte003Handler extends TknOperateHandler {
     }
 
     protected getIconImage(iconfile?: string): string {
-        let iconimage = CDN_URL+"/img/module/module.png";
+        let iconimage = IMG_URL+"/img/module/module.png";
         if(iconfile && iconfile.trim().length>0) {
-            iconimage = CDN_URL+"/img/module/"+iconfile;
+            iconimage = IMG_URL+"/img/module/"+iconfile;
         }
         return iconimage;
     }
