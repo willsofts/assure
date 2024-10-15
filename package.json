@@ -30,7 +30,7 @@
     "@willsofts/will-api": "^1.0.13",
     "@willsofts/will-db": "^1.0.54",
     "@willsofts/will-dh": "^1.0.2",
-    "@willsofts/will-lib": "^1.0.26",
+    "@willsofts/will-lib": "^1.0.27",
     "@willsofts/will-run": "^1.0.13",
     "@willsofts/will-sql": "^1.0.31",
     "@willsofts/will-util": "^1.0.20",
