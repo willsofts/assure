@@ -30,6 +30,7 @@ export class Sfte005Handler extends TknOperateHandler {
             displayname: { type: "STRING", calculated: true },
             photoimage: { type: "STRING", calculated: true },
             email: { type: "STRING", calculated: true },
+            mobile: { type: "STRING", calculated: true },
             gender: { type: "STRING", calculated: true },
             lineid: { type: "STRING", calculated: true },
             inactive: { type: "STRING", calculated: true },
