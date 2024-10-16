@@ -392,7 +392,7 @@
 
 /***/ }),
 
-/***/ 4064:
+/***/ 8284:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -732,43 +732,43 @@ var exportHelper = __webpack_require__(1241);
 const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.A)(SearchFormvue_type_script_lang_js, [['render',SearchFormvue_type_template_id_30be2b12_render]])
 
 /* harmony default export */ var SearchForm = (__exports__);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/EntryForm.vue?vue&type=template&id=5d91174d
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/EntryForm.vue?vue&type=template&id=22386323
 
-const EntryFormvue_type_template_id_5d91174d_hoisted_1 = {
+const EntryFormvue_type_template_id_22386323_hoisted_1 = {
   key: 0,
   class: "modal-title"
 };
-const EntryFormvue_type_template_id_5d91174d_hoisted_2 = {
+const EntryFormvue_type_template_id_22386323_hoisted_2 = {
   key: 1,
   class: "modal-title"
 };
-const EntryFormvue_type_template_id_5d91174d_hoisted_3 = {
+const EntryFormvue_type_template_id_22386323_hoisted_3 = {
   class: "row row-height"
 };
-const EntryFormvue_type_template_id_5d91174d_hoisted_4 = {
+const EntryFormvue_type_template_id_22386323_hoisted_4 = {
   class: "col-md-3 col-height col-label"
 };
-const EntryFormvue_type_template_id_5d91174d_hoisted_5 = {
+const EntryFormvue_type_template_id_22386323_hoisted_5 = {
   for: "username"
 };
-const EntryFormvue_type_template_id_5d91174d_hoisted_6 = {
+const EntryFormvue_type_template_id_22386323_hoisted_6 = {
   class: "col-height col-md-6"
 };
-const EntryFormvue_type_template_id_5d91174d_hoisted_7 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", {
+const EntryFormvue_type_template_id_22386323_hoisted_7 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", {
   class: "required"
 }, "*", -1);
-const EntryFormvue_type_template_id_5d91174d_hoisted_8 = {
+const EntryFormvue_type_template_id_22386323_hoisted_8 = {
   key: 0,
   class: "has-error"
 };
-const EntryFormvue_type_template_id_5d91174d_hoisted_9 = {
+const EntryFormvue_type_template_id_22386323_hoisted_9 = {
   key: 0,
   class: "row row-height"
 };
-const EntryFormvue_type_template_id_5d91174d_hoisted_10 = {
+const EntryFormvue_type_template_id_22386323_hoisted_10 = {
   class: "col-md-3 col-height col-label"
 };
-const EntryFormvue_type_template_id_5d91174d_hoisted_11 = {
+const EntryFormvue_type_template_id_22386323_hoisted_11 = {
   for: "userpassword",
   class: "control-label"
 };
@@ -967,14 +967,14 @@ const _hoisted_70 = {
 const _hoisted_71 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("em", {
   class: "fa fa-close fa-btn-icon"
 }, null, -1);
-function EntryFormvue_type_template_id_5d91174d_render(_ctx, _cache, $props, $setup, $data, $options) {
+function EntryFormvue_type_template_id_22386323_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_InputMask = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("InputMask");
   const _component_DialogForm = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("DialogForm");
   return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createBlock */.Wv)(_component_DialogForm, {
     ref: "dialogForm"
   }, {
-    header: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [$options.insertMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("h4", EntryFormvue_type_template_id_5d91174d_hoisted_1, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.title_new), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true), $options.updateMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("h4", EntryFormvue_type_template_id_5d91174d_hoisted_2, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.title_edit), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)]),
-    default: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_5d91174d_hoisted_3, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_5d91174d_hoisted_4, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", EntryFormvue_type_template_id_5d91174d_hoisted_5, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.username_label), 1)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_5d91174d_hoisted_6, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
+    header: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [$options.insertMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("h4", EntryFormvue_type_template_id_22386323_hoisted_1, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.title_new), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true), $options.updateMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("h4", EntryFormvue_type_template_id_22386323_hoisted_2, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.title_edit), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)]),
+    default: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_22386323_hoisted_3, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_22386323_hoisted_4, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", EntryFormvue_type_template_id_22386323_hoisted_5, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.username_label), 1)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_22386323_hoisted_6, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
       class: (0,shared_esm_bundler/* normalizeClass */.C4)(["input-group has-validation", {
         'has-error': $setup.v$.username.$error
       }])
@@ -985,7 +985,7 @@ function EntryFormvue_type_template_id_5d91174d_render(_ctx, _cache, $props, $se
       id: "username",
       picture: "(50)x",
       disabled: $setup.disabledKeyField
-    }, null, 8, ["modelValue", "disabled"]), EntryFormvue_type_template_id_5d91174d_hoisted_7], 2), $setup.v$.username.$error ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("span", EntryFormvue_type_template_id_5d91174d_hoisted_8, (0,shared_esm_bundler/* toDisplayString */.v_)($setup.v$.username.$errors[0].$message), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)])]), $options.insertMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", EntryFormvue_type_template_id_5d91174d_hoisted_9, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_5d91174d_hoisted_10, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", EntryFormvue_type_template_id_5d91174d_hoisted_11, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.userpassword_label), 1)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_12, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_13, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
+    }, null, 8, ["modelValue", "disabled"]), EntryFormvue_type_template_id_22386323_hoisted_7], 2), $setup.v$.username.$error ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("span", EntryFormvue_type_template_id_22386323_hoisted_8, (0,shared_esm_bundler/* toDisplayString */.v_)($setup.v$.username.$errors[0].$message), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)])]), $options.insertMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", EntryFormvue_type_template_id_22386323_hoisted_9, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_22386323_hoisted_10, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", EntryFormvue_type_template_id_22386323_hoisted_11, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.userpassword_label), 1)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_12, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_13, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
       type: "text",
       ref: "userpassword",
       "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => $setup.localData.userpassword = $event),
@@ -1104,7 +1104,7 @@ function EntryFormvue_type_template_id_5d91174d_render(_ctx, _cache, $props, $se
     _: 1
   }, 512);
 }
-;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=template&id=5d91174d
+;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=template&id=22386323
 
 // EXTERNAL MODULE: ./node_modules/@vuelidate/core/dist/index.mjs
 var dist = __webpack_require__(7760);
@@ -1475,20 +1475,23 @@ const EntryFormvue_type_script_lang_js_defaultData = {
         }
       });
     },
-    copyPassword() {
-      let copyText = document.getElementById("userpassword");
-      copyText.select();
-      copyText.setSelectionRange(0, 99999);
-      document.execCommand("copy");
+    async copyPassword() {
+      try {
+        let copyText = document.getElementById("userpassword");
+        copyText.select();
+        await navigator.clipboard.writeText(copyText.value);
+      } catch (ex) {
+        console.error(ex);
+      }
     }
   }
 });
 ;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=script&lang=js
  
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-12.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/EntryForm.vue?vue&type=style&index=0&id=5d91174d&lang=css
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-12.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/EntryForm.vue?vue&type=style&index=0&id=22386323&lang=css
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=style&index=0&id=5d91174d&lang=css
+;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=style&index=0&id=22386323&lang=css
 
 ;// CONCATENATED MODULE: ./src/components/EntryForm.vue
 
@@ -1498,7 +1501,7 @@ const EntryFormvue_type_script_lang_js_defaultData = {
 ;
 
 
-const EntryForm_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(EntryFormvue_type_script_lang_js, [['render',EntryFormvue_type_template_id_5d91174d_render]])
+const EntryForm_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(EntryFormvue_type_script_lang_js, [['render',EntryFormvue_type_template_id_22386323_render]])
 
 /* harmony default export */ var EntryForm = (EntryForm_exports_);
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/AppVfte005.vue?vue&type=script&lang=js
@@ -1871,9 +1874,9 @@ console.info("Vue version", runtime_core_esm_bundler/* version */.rE);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(4064); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(8284); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=index.c0bf2611.js.map
+//# sourceMappingURL=index.780a2e5b.js.map
