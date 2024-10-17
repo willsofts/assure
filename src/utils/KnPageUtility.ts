@@ -1,10 +1,12 @@
 import { Utilities } from "@willsofts/will-util";
 import { KnUtility } from "./KnUtility";
 import { KnContextInfo, KnFormatInfo, INSERT_MODES, UPDATE_MODES, RETRIEVE_MODES, DELETE_MODES, COLLECT_MODES } from "../models/KnCoreAlias";
+import { KnMask } from "./KnMask";
 
 export class KnPageUtility {
     public progid : string;
     public context: KnContextInfo;
+	public mask = new KnMask();
 
     constructor(progid: string, context: KnContextInfo) {
         this.progid = progid;

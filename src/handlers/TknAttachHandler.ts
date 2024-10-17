@@ -38,9 +38,7 @@ export class TknAttachHandler extends TknSchemeHandler {
     }
 
     public async getAttachRecord(attachid: string, db: KnDBConnector, context?: KnContextInfo, model: KnModel = this.model) : Promise<KnRecordSet> {
-        if(!attachid || attachid.trim().length==0) {
-            return this.createRecordSet();
-        }
+        if(!attachid || attachid.trim().length==0) return this.createRecordSet();        
         let sql = new KnSQL("select * from tattachfile ");
         sql.append("where attachid = ?attachid ");
         sql.set("attachid",attachid);
@@ -56,11 +54,7 @@ export class TknAttachHandler extends TknSchemeHandler {
         }
         let db = this.getPrivateConnector(model);
         try {
-            let sql = new KnSQL("delete from tattachfile ");
-            sql.append("where attachid = ?attachid ");
-            sql.set("attachid",attachid);
-            this.logger.info(this.constructor.name+".removeAttach",sql);
-            let rs = await sql.executeUpdate(db);
+            let rs = await this.performRemoveAttach(attachid,db);
             return this.createRecordSet(rs);
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
@@ -70,6 +64,16 @@ export class TknAttachHandler extends TknSchemeHandler {
         }
     }
 
+    public async performRemoveAttach(attachid: string, db: KnDBConnector) : Promise<KnRecordSet> {
+        if(!attachid || attachid.trim().length==0) return this.createRecordSet();
+        let sql = new KnSQL("delete from tattachfile ");
+        sql.append("where attachid = ?attachid ");
+        sql.set("attachid",attachid);
+        this.logger.info(this.constructor.name+".performRemoveAttach",sql);
+        let rs = await sql.executeUpdate(db);
+        return this.createRecordSet(rs);
+    }
+
     public async removeAttachNo(attachno: string, model: KnModel = this.model) : Promise<KnRecordSet> {
         this.logger.debug(this.constructor.name+".removeAttach: no="+attachno);
         if(!attachno || attachno.trim().length==0) {
@@ -77,11 +81,7 @@ export class TknAttachHandler extends TknSchemeHandler {
         }
         let db = this.getPrivateConnector(model);
         try {
-            let sql = new KnSQL("delete from tattachfile ");
-            sql.append("where attachno = ?attachno ");
-            sql.set("attachno",attachno);
-            this.logger.info(this.constructor.name+".removeAttach",sql);
-            let rs = await sql.executeUpdate(db);
+            let rs = await this.performRemoveAttachNo(attachno,db);
             return this.createRecordSet(rs);
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
@@ -89,6 +89,16 @@ export class TknAttachHandler extends TknSchemeHandler {
         } finally {
             if(db) db.close();
         }
+    }
+
+    public async performRemoveAttachNo(attachno: string, db: KnDBConnector) : Promise<KnRecordSet> {
+        if(!attachno || attachno.trim().length==0) return this.createRecordSet();
+        let sql = new KnSQL("delete from tattachfile ");
+        sql.append("where attachno = ?attachno ");
+        sql.set("attachno",attachno);
+        this.logger.info(this.constructor.name+".performRemoveAttachNo",sql);
+        let rs = await sql.executeUpdate(db);
+        return this.createRecordSet(rs);
     }
 
     protected async doGet(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
