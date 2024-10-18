@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 import { KnModel, KnOperation } from "@willsofts/will-db";
-import { KnDBConnector, KnSQLInterface, KnRecordSet, KnSQL } from "@willsofts/will-sql";
+import { KnDBConnector, KnSQLInterface, KnRecordSet, KnSQL, KnResultSet } from "@willsofts/will-sql";
 import { HTTP } from "@willsofts/will-api";
 import { KnValidateInfo, KnContextInfo, KnDataTable } from '../models/KnCoreAlias';
 import { VerifyError } from '../models/VerifyError';
@@ -16,7 +16,7 @@ export class Sfte009Handler extends TknOperateHandler {
         name: "tdirectory", 
         alias: { privateAlias: this.section }, 
         fields: {
-            domainid: { type: "STRING", key: true },
+            domainid: { type: "STRING", key: true, created: true },
             domainname: { type: "STRING" },
             description: { type: "STRING", created: true },
             applicationid: { type: "STRING", created: true },
@@ -192,6 +192,14 @@ export class Sfte009Handler extends TknOperateHandler {
         dt.renderer = "sfte009/sfte009_dialog";
         dt.dataset["domainid"] = uuid();
         return dt;
+    }
+    
+    protected override async doCreating(context: KnContextInfo, model: KnModel): Promise<KnResultSet> {
+        let domainid = context.params.domainid;
+        if(!domainid || domainid.trim().length==0) {
+            context.params.domainid = uuid();
+        }
+        return await super.doCreating(context,model);
     }
     
 }
