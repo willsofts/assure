@@ -48,16 +48,19 @@ export class TknAccountHandler extends TknProcessHandler {
 
     public async createActivation(db: KnDBConnector, info: KnActivateInfo): Promise<KnResultSet> {
         let handler = new TknActivateHandler();
+        handler.obtain(this.broker,this.logger);
         return await handler.createActivation(db, info);
     }
 
     public override async doCreate(context: KnContextInfo, model: KnModel) : Promise<KnActivateInfo> {
         let handler = new TknActivateHandler();
+        handler.obtain(this.broker,this.logger);
         return await handler.doCreate(context, model, DEFAULT_ACCOUNT_INVALIDATE_TIMES);
     }
 
     public async doInactivate(context: KnContextInfo, model: KnModel) : Promise<KnActivateInfo> {
         let handler = new TknActivateHandler();
+        handler.obtain(this.broker,this.logger);
         let vi = handler.validateKeyFields(context);
         if(!vi.valid) {
             return Promise.reject(new VerifyError("Parameter not found ("+vi.info+")",HTTP.NOT_ACCEPTABLE,-16061));
@@ -76,6 +79,7 @@ export class TknAccountHandler extends TknProcessHandler {
     public async doInactivating(context: KnContextInfo, model: KnModel, db: KnDBConnector) : Promise<KnActivateInfo> {
         let eng = KnUtility.isEnglish(context);
         let handler = new TknActivateHandler();
+        handler.obtain(this.broker,this.logger);
         let ainfo = await handler.doInactivating(context, db);
         if(ainfo) {
             let rs = await this.getAccountInfo(db, ainfo.activateuser, ainfo.activateremark, context);

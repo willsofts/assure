@@ -16,7 +16,15 @@ export class TknSigninHandler extends TknSchemeHandler {
 
     //declared addon actions name
     public handlers = [ {name: "signin"}, {name: "signout"}, {name: "account"}, {name: "accesstoken"}, {name: "fetchtoken"}, {name: "renewtoken"}, {name: "validatetoken"}, {name: "access"} ];
-    public tokener = new TknSigninTokenHandler();
+    private tokener : TknSigninTokenHandler | undefined = undefined;
+
+    public getTokener() : TknSigninTokenHandler {
+        if(!this.tokener) {
+            this.tokener = new TknSigninTokenHandler();
+            this.tokener.obtain(this.broker,this.logger);
+        }
+        return this.tokener;
+    }
 
     protected getSigninInfo(context: KnContextInfo) : KnSigninInfo {
         return { username: context.params.username, password: context.params.password, site: context.params.site };
@@ -31,23 +39,23 @@ export class TknSigninHandler extends TknSchemeHandler {
 	}
 
     public async account(context: KnContextInfo) : Promise<Map<string,Object>> {
-        return this.tokener.account(context);
+        return this.getTokener().account(context);
 	}
 
     public async accesstoken(context: KnContextInfo) : Promise<Map<string,Object>> {
-        return this.tokener.accesstoken(context);
+        return this.getTokener().accesstoken(context);
 	}
 
     public async fetchtoken(context: KnContextInfo) : Promise<Map<string,Object>> {
-        return this.tokener.fetchtoken(context);
+        return this.getTokener().fetchtoken(context);
 	}
     
     public async renewtoken(context: KnContextInfo) : Promise<Map<string,Object>> {
-        return this.tokener.renewtoken(context);
+        return this.getTokener().renewtoken(context);
 	}
 
     public async validatetoken(context: KnContextInfo) : Promise<AuthenTokenData | undefined> {        
-        return this.tokener.validatetoken(context);
+        return this.getTokener().validatetoken(context);
 	}
 
     public async access(context: KnContextInfo) : Promise<JSONReply> {
@@ -202,17 +210,17 @@ export class TknSigninHandler extends TknSchemeHandler {
                     response.head.composeError("-3002","Invalid user or password");
                 } else {
                     try {
-                        let factorInfo = await this.tokener.processTwoFactor(context, db, row);
+                        let factorInfo = await this.getTokener().processTwoFactor(context, db, row);
                         await db.beginWork();
                         try {
                             if(tempmatch) {
                                 await plib.updatePasswordFromTemporary(db, tmppwd?.trxid, userid);
                             }
                             let usrinfo = {userid: userid, site: site, code: pcode, state: pstate, nonce: pnonce, loginfo: loginfo};
-                            let token  = await this.tokener.createUserAccess(db, usrinfo, context);
-                            let dhinfo = await this.tokener.createDiffie(context, db, token);
+                            let token  = await this.getTokener().createUserAccess(db, usrinfo, context);
+                            let dhinfo = await this.getTokener().createDiffie(context, db, token);
                             let ainfo = {userid: row.userid, email: row.email };
-                            this.tokener.composeResponseBody(body, token, pname, {...row, ...factorInfo, ...ainfo, accesscontents: loginfo}, tempmatch, dhinfo);
+                            this.getTokener().composeResponseBody(body, token, pname, {...row, ...factorInfo, ...ainfo, accesscontents: loginfo}, tempmatch, dhinfo);
                             await db.commitWork();    
                         } catch(er: any) {
                             this.logger.error(this.constructor.name,er);
@@ -232,9 +240,9 @@ export class TknSigninHandler extends TknSchemeHandler {
         }
         try {
             if(passed) {
-                this.tokener.updateUserAccessing(context, { userid: body.get("userid") as string, username: pname, lockflag: "0"});
+                this.getTokener().updateUserAccessing(context, { userid: body.get("userid") as string, username: pname, lockflag: "0"});
             } else {
-                this.tokener.updateUserAccessing(context, { username: pname, lockflag: "1"});
+                this.getTokener().updateUserAccessing(context, { username: pname, lockflag: "1"});
             }    
         } catch(ex) {
             this.logger.error(this.constructor.name,ex);
@@ -276,7 +284,7 @@ export class TknSigninHandler extends TknSchemeHandler {
 
     public async processSignout(db: KnDBConnector, useruuid: string, context?: any) : Promise<Map<string,Object>> {
         let body : Map<string,string> = new Map();
-        let rs = await this.tokener.deleteTokenByUser(db, useruuid, context);
+        let rs = await this.getTokener().deleteTokenByUser(db, useruuid, context);
         this.logger.debug(this.constructor.name+".processSignout: affected "+rs.rows.affectedRows+" rows.");
         if(rs.rows.affectedRows>0) {
             body.set("affected",rs.rows.affectedRows);
@@ -316,14 +324,14 @@ export class TknSigninHandler extends TknSchemeHandler {
             if(passed) {
                 let tempmatch = false;
                 try {
-                    let factorInfo = await this.tokener.processTwoFactor(context, db, row);
+                    let factorInfo = await this.getTokener().processTwoFactor(context, db, row);
                     await db.beginWork();
                     try {
                         let usrinfo = {userid: userid, site: site, code: pcode, state: pstate, nonce: pnonce, loginfo: loginfo};
-                        let token  = await this.tokener.createUserAccess(db, usrinfo, context);
-                        let dhinfo = await this.tokener.createDiffie(context, db, token);
+                        let token  = await this.getTokener().createUserAccess(db, usrinfo, context);
+                        let dhinfo = await this.getTokener().createDiffie(context, db, token);
                         let ainfo = {userid: row.userid, email: row.email };
-                        this.tokener.composeResponseBody(body, token, pname, {...row, ...factorInfo, ...ainfo, accesscontents: loginfo}, tempmatch, dhinfo);
+                        this.getTokener().composeResponseBody(body, token, pname, {...row, ...factorInfo, ...ainfo, accesscontents: loginfo}, tempmatch, dhinfo);
                         await db.commitWork();    
                     } catch(er: any) {
                         this.logger.error(this.constructor.name,er);
@@ -341,7 +349,7 @@ export class TknSigninHandler extends TknSchemeHandler {
             response.head.composeError("-4004","Account not found ("+pname+")");
         }
         try {
-            this.tokener.updateUserAccessing(context, { userid: body.get("userid") as string, lockflag: "0"});
+            this.getTokener().updateUserAccessing(context, { userid: body.get("userid") as string, lockflag: "0"});
         } catch(ex) {
             this.logger.error(this.constructor.name,ex);
         }

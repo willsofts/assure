@@ -55,17 +55,17 @@ export class TknSigninPromptHandler extends TknSigninHandler {
                 if(rs.rows && rs.rows.length>0) {
                     row = rs.rows[0];
                 }
-                let factorInfo = await this.tokener.processTwoFactor(context, db, row);
+                let factorInfo = await this.getTokener().processTwoFactor(context, db, row);
                 await db.beginWork();
                 try {
                     await alib.saveUserInfo(db, pu);
                     let usrinfo = {userid: pu.userid as string, site: row.site, code: pcode, state: pstate, nonce: pnonce, loginfo: pu};
-                    let token  = await this.tokener.createUserAccess(db, usrinfo, context);
-                    let dhinfo = await this.tokener.createDiffie(context, db, token);
+                    let token  = await this.getTokener().createUserAccess(db, usrinfo, context);
+                    let dhinfo = await this.getTokener().createDiffie(context, db, token);
                     let ainfo = {userid: row.userid, email: row.email };
-                    this.tokener.composeResponseBody(body, token, pname, {...row, ...factorInfo, ...ainfo, accesscontents: pu}, false, dhinfo);
+                    this.getTokener().composeResponseBody(body, token, pname, {...row, ...factorInfo, ...ainfo, accesscontents: pu}, false, dhinfo);
                     await db.commitWork();    
-                    this.tokener.updateUserAccessing(context, { userid: pu.userid as string });
+                    this.getTokener().updateUserAccessing(context, { userid: pu.userid as string });
                 } catch(er: any) {
                     this.logger.error(this.constructor.name,er);
                     await db.rollbackWork();

@@ -19,6 +19,7 @@ export class TknFactorHandler extends TknProcessHandler {
 
     public async doVerify(context: KnContextInfo, model: KnModel) : Promise<KnFactorVerifyInfo> {
         let handler = new TknTwoFactorHandler();
+        handler.obtain(this.broker,this.logger);
         let info = await handler.doVerify(context, handler.model);
         if(info.verified && info.delta==0) {
             handler.doConfirm(context, handler.model);
@@ -66,6 +67,7 @@ export class TknFactorHandler extends TknProcessHandler {
 
     public async getFactorInfo(db: KnDBConnector, id: string, findByUser: boolean = true) : Promise<KnFactorInfo> {
         let handler = new TknTwoFactorHandler();
+        handler.obtain(this.broker,this.logger);
         let info = await handler.getFactorInfo(db, id, findByUser);
         this.logger.debug(this.constructor.name+".getFactorInfo:",info);
         if(info && info.factorfound) {

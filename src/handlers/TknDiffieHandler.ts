@@ -105,8 +105,9 @@ export class TknDiffieHandler extends TknSchemeHandler {
         let db = this.getPrivateConnector(model);
         try {
             if (token != undefined) {
-                let alib : TknAuthorizeHandler = new TknAuthorizeHandler();
-                userInfo = await alib.getAuthorizeTokenInfo(db, token);
+                let handler : TknAuthorizeHandler = new TknAuthorizeHandler();
+                handler.obtain(this.broker,this.logger);
+                userInfo = await handler.getAuthorizeTokenInfo(db, token);
             }            
             if(userInfo) {                
                 let dh = await this.getUserDiffie(userInfo,false,true);

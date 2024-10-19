@@ -320,12 +320,14 @@ export class TknProcessHandler extends TknSystemHandler {
 
     public async getDataCategories(context: KnContextInfo, db: KnDBConnector, settings : KnDataMapEntitySetting[]) : Promise<KnDataTable> {
         let handler = new TknDataTableHandler();
+        handler.obtain(this.broker,this.logger);
         let dt = await handler.getDataCategory(db, settings, true, context); //map
         return this.createDataTable("categories", {}, dt);
     }
 
     public async getDataLists(context: KnContextInfo, db: KnDBConnector, settings : KnDataMapEntitySetting[]) : Promise<KnDataTable> {
         let handler = new TknDataTableHandler();
+        handler.obtain(this.broker,this.logger);
         let dt = await handler.getDataTable(db, settings, true, context); //list
         return this.createDataTable("categories", {}, dt);
     }

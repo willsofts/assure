@@ -39,6 +39,7 @@ export class TknProfileHandler extends TknSchemeHandler {
 		try {
 			let settings = KnCategory.getSetting(context, this.getDataSetting, undefined, "tklanguage");
             let handler = new TknDataTableHandler();
+			handler.obtain(this.broker,this.logger);
             let ds = await handler.getDataCategory(db, settings, true, context);
 			let rs = await this.getUserProfile(db,userid,context);
 			let data = {action: "execute", entity: ds, dataset: this.createRecordSet(rs)};

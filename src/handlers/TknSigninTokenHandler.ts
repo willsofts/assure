@@ -148,7 +148,8 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
     }
 
     public async createDiffie(context: KnContextInfo, db: KnDBConnector, token: KnUserToken) : Promise<KnDiffieInfo | undefined> {
-        let handler : TknDiffieHandler = new TknDiffieHandler();
+        let handler = new TknDiffieHandler();
+        handler.obtain(this.broker,this.logger);
         let dh = await handler.createDiffie(context);
         console.log(this.constructor.name+".createDiffie",dh);
         await handler.saveDiffie(db, {useruuid: token.useruuid }, dh, context);
@@ -158,6 +159,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
 
     public async processTwoFactor(context: KnContextInfo, db: KnDBConnector, row: any) : Promise<KnFactorInfo> {
         let handler = new TknTwoFactorHandler();
+        handler.obtain(this.broker,this.logger);
         let info = await handler.getFactorInfo(db, row.userid, true);
         if(info.factorverify && !info.factorfound && info.factorid.trim().length==0) {
             info.userid = row.userid;
@@ -193,6 +195,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         if(rs.rows && rs.rows.length>0) {
             let row = rs.rows[0];
             let handler = new TknTwoFactorHandler();
+            handler.obtain(this.broker,this.logger);
             let factorInfo = await handler.getFactorInfo(db, row.userid, true);                
             let token = new KnUserToken(row.useruuid,row.expiretimes,row.code,row.state,row.nonce,row.authtoken);
             let dh = { prime: row.prime, generator: row.generator, publickey: row.publickey };
@@ -405,6 +408,7 @@ export class TknSigninTokenHandler extends TknSchemeHandler {
         if(rs.rows && rs.rows.length>0) {
             let row = rs.rows[0];
             let handler = new TknTwoFactorHandler();
+            handler.obtain(this.broker,this.logger);
             let factorInfo = await handler.getFactorInfo(db, row.userid, true);                
             let token = new KnUserToken(row.useruuid,row.expiretimes,row.code,row.state,row.nonce,row.authtoken);
             let dh = { prime: row.prime, generator: row.generator, publickey: row.publickey };

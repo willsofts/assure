@@ -179,6 +179,7 @@ export class TknLoginHandler extends TknSchemeHandler {
 		let db = this.getPrivateConnector(model);
 		try {
 			let handler = new TknSigninTokenHandler();
+			handler.obtain(this.broker,this.logger);
 			return await handler.createUserToken(db,{userid: authdata.accessor as string, site: authdata.site},authdata.identifier,authtoken,"A");
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);

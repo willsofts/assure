@@ -44,17 +44,17 @@ export class TknSigninActiveDirectoryHandler extends TknSigninHandler {
                 if(rs.rows && rs.rows.length>0) {
                     row = rs.rows[0];
                 }
-                let factorInfo = await this.tokener.processTwoFactor(context, db, row);
+                let factorInfo = await this.getTokener().processTwoFactor(context, db, row);
                 await db.beginWork();
                 try {
                     await alib.saveUserInfo(db, au);
                     let usrinfo = {userid: au.accountName, site: row.site, code: pcode, state: pstate, nonce: pnonce, loginfo: loginfo};
-                    let token  = await this.tokener.createUserAccess(db, usrinfo, context);
-                    let dhinfo = await this.tokener.createDiffie(context, db, token);
+                    let token  = await this.getTokener().createUserAccess(db, usrinfo, context);
+                    let dhinfo = await this.getTokener().createDiffie(context, db, token);
                     let ainfo = {userid: row.userid, email: row.email };
-                    this.tokener.composeResponseBody(body, token, pname, {...row, ...factorInfo, ...ainfo, accesscontents: loginfo}, false, dhinfo);
+                    this.getTokener().composeResponseBody(body, token, pname, {...row, ...factorInfo, ...ainfo, accesscontents: loginfo}, false, dhinfo);
                     await db.commitWork();    
-                    this.tokener.updateUserAccessing(context, { userid: au.accountName });
+                    this.getTokener().updateUserAccessing(context, { userid: au.accountName });
                 } catch(er: any) {
                     this.logger.error(this.constructor.name,er);
                     await db.rollbackWork();
