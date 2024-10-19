@@ -20,8 +20,8 @@ export class Sfte010Handler extends TknOperateHandler {
         },
     };
     public handlers = OPERATE_HANDLERS.concat([
-        {name: "insertpolicy"}, {name: "updatepolicy"},
-        {name: "insertnum"}, {name: "retrievalnum"}, {name: "updatenum"}, {name: "removenum"}, {name: "searchnum"}, {name: "addnum"}
+        {name: "insertpolicy"}, {name: "updatepolicy"}, {name: "retrievepolicy"}, 
+        {name: "insertnum"}, {name: "retrievenum"}, {name: "retrievalnum"}, {name: "updatenum"}, {name: "removenum"}, {name: "searchnum"}, {name: "addnum"}, {name: "collectnum"}
     ]);
 
     /* try to validate fields for insert, update, delete, retrieve */
@@ -135,7 +135,8 @@ export class Sfte010Handler extends TknOperateHandler {
         let db = this.getPrivateConnector(model);
         try {
             let handler = new TknPasswordStrategyHandler();
-            let rs =  await handler.performRetrievePolicy(db); 
+            handler.obtain(this.broker,this.logger);
+            let rs = await handler.performRetrievePolicy(db); 
             if(rs.rows.length>0) {
                 let row = handler.transformData(rs.rows[0]);
                 return this.createDataTable(KnOperation.RETRIEVAL, row, {}, "sfte010/sfte010");
@@ -157,18 +158,51 @@ export class Sfte010Handler extends TknOperateHandler {
         return this.callFunctional(context, {operate: KnOperation.UPDATE, raw: false}, this.doUpdatePolicy);
     }
 
+    public async retrievepolicy(context: KnContextInfo) : Promise<any> {
+        return this.callFunctional(context, {operate: KnOperation.RETRIEVE, raw: false}, this.doRetrievePolicy);
+    }
+
+    protected async doRetrievePolicy(context: KnContextInfo, model: KnModel) : Promise<KnDataTable> {
+        let db = this.getPrivateConnector(model);
+        try {
+            let handler = new TknPasswordStrategyHandler();
+            handler.obtain(this.broker,this.logger);
+            let rs = await handler.performRetrievePolicy(db); 
+            if(rs.rows.length>0) {
+                let row = handler.transformData(rs.rows[0]);
+                return this.createDataTable(KnOperation.RETRIEVE, row);
+            }
+            return this.recordNotFound();
+        } catch(ex: any) {
+            this.logger.error(this.constructor.name,ex);
+            return Promise.reject(this.getDBError(ex));
+		} finally {
+			if(db) db.close();
+        }
+    }
+
     public async doInsertPolicy(context: KnContextInfo, model: KnModel) : Promise<any> {
         let handler = new TknPasswordStrategyHandler();
+        handler.obtain(this.broker,this.logger);
         return await handler.doInsert(context, handler.model);
     }
 
     public async doUpdatePolicy(context: KnContextInfo, model: KnModel) : Promise<any> {
         let handler = new TknPasswordStrategyHandler();
+        handler.obtain(this.broker,this.logger);
         return await handler.doUpdate(context, handler.model);
     }
 
     public async insertnum(context: KnContextInfo) : Promise<any> {
         return this.callFunctional(context, {operate: KnOperation.INSERT, raw: false}, this.doInsertNumber);
+    }
+
+    public async collectnum(context: KnContextInfo) : Promise<any> {
+        return this.callFunctional(context, {operate: KnOperation.SEARCH, raw: false}, this.doCollectNumber);
+    }
+
+    public async retrievenum(context: KnContextInfo) : Promise<any> {
+        return this.callFunctional(context, {operate: KnOperation.RETRIEVAL, raw: false}, this.doRetrieveNumber);
     }
 
     public async retrievalnum(context: KnContextInfo) : Promise<any> {
@@ -193,11 +227,25 @@ export class Sfte010Handler extends TknOperateHandler {
 
     public async doInsertNumber(context: KnContextInfo, model: KnModel) : Promise<any> {
         let handler = new Sfte011Handler();
+        handler.obtain(this.broker,this.logger);
         return await handler.doInsert(context, handler.model);
+    }
+
+    public async doCollectNumber(context: KnContextInfo, model: KnModel) : Promise<any> {
+        let handler = new Sfte011Handler();
+        handler.obtain(this.broker,this.logger);
+        return await handler.collect(context);
+    }
+
+    public async doRetrieveNumber(context: KnContextInfo, model: KnModel) : Promise<any> {
+        let handler = new Sfte011Handler();
+        handler.obtain(this.broker,this.logger);
+        return await handler.retrieve(context);
     }
 
     public async doRetrievalNumber(context: KnContextInfo, model: KnModel) : Promise<any> {
         let handler = new Sfte011Handler();
+        handler.obtain(this.broker,this.logger);
         let ds = await handler.getDataRetrieval(context, handler.model);
         ds.renderer = "sfte010/sfte011_dialog";
         return this.buildHtml("/views/"+ds.renderer, ds, context);
@@ -205,16 +253,19 @@ export class Sfte010Handler extends TknOperateHandler {
 
     public async doUpdateNumber(context: KnContextInfo, model: KnModel) : Promise<any> {
         let handler = new Sfte011Handler();
+        handler.obtain(this.broker,this.logger);
         return await handler.doUpdate(context, handler.model);
     }
 
     public async doRemoveNumber(context: KnContextInfo, model: KnModel) : Promise<any> {
         let handler = new Sfte011Handler();
+        handler.obtain(this.broker,this.logger);
         return await handler.doRemove(context, handler.model);
     }
 
     public async doSearchNumber(context: KnContextInfo, model: KnModel) : Promise<any> {
         let handler = new Sfte011Handler();
+        handler.obtain(this.broker,this.logger);
         let ds = await handler.getDataSearch(context, handler.model);
         ds.renderer = "sfte010/sfte011_data";
         return this.buildHtml("/views/"+ds.renderer, ds, context);
@@ -222,6 +273,7 @@ export class Sfte010Handler extends TknOperateHandler {
 
     public async doAddNumber(context: KnContextInfo, model: KnModel) : Promise<any> {
         let handler = new Sfte011Handler();
+        handler.obtain(this.broker,this.logger);
         let ds = await handler.getDataAdd(context, handler.model);
         ds.renderer = "sfte010/sfte011_dialog";
         return this.buildHtml("/views/"+ds.renderer, ds, context);
