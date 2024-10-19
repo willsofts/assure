@@ -392,7 +392,7 @@
 
 /***/ }),
 
-/***/ 2213:
+/***/ 408:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -732,42 +732,42 @@ var exportHelper = __webpack_require__(1241);
 const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.A)(SearchFormvue_type_script_lang_js, [['render',SearchFormvue_type_template_id_7287cb32_render]])
 
 /* harmony default export */ var SearchForm = (__exports__);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/EntryForm.vue?vue&type=template&id=befe736a
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/EntryForm.vue?vue&type=template&id=1ae3a3e4
 
-const EntryFormvue_type_template_id_befe736a_hoisted_1 = {
+const EntryFormvue_type_template_id_1ae3a3e4_hoisted_1 = {
   key: 0,
   class: "modal-title"
 };
-const EntryFormvue_type_template_id_befe736a_hoisted_2 = {
+const EntryFormvue_type_template_id_1ae3a3e4_hoisted_2 = {
   key: 1,
   class: "modal-title"
 };
-const EntryFormvue_type_template_id_befe736a_hoisted_3 = {
+const EntryFormvue_type_template_id_1ae3a3e4_hoisted_3 = {
   class: "row row-height"
 };
-const EntryFormvue_type_template_id_befe736a_hoisted_4 = {
+const EntryFormvue_type_template_id_1ae3a3e4_hoisted_4 = {
   class: "col-md-3 col-height col-label"
 };
-const EntryFormvue_type_template_id_befe736a_hoisted_5 = {
+const EntryFormvue_type_template_id_1ae3a3e4_hoisted_5 = {
   for: "username"
 };
-const EntryFormvue_type_template_id_befe736a_hoisted_6 = {
+const EntryFormvue_type_template_id_1ae3a3e4_hoisted_6 = {
   class: "col-height col-md-6"
 };
-const EntryFormvue_type_template_id_befe736a_hoisted_7 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", {
+const EntryFormvue_type_template_id_1ae3a3e4_hoisted_7 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", {
   class: "required"
 }, "*", -1);
-const EntryFormvue_type_template_id_befe736a_hoisted_8 = {
+const EntryFormvue_type_template_id_1ae3a3e4_hoisted_8 = {
   key: 0,
   class: "has-error"
 };
-const EntryFormvue_type_template_id_befe736a_hoisted_9 = {
+const EntryFormvue_type_template_id_1ae3a3e4_hoisted_9 = {
   class: "row row-height"
 };
-const EntryFormvue_type_template_id_befe736a_hoisted_10 = {
+const EntryFormvue_type_template_id_1ae3a3e4_hoisted_10 = {
   class: "col-md-3 col-height col-label"
 };
-const EntryFormvue_type_template_id_befe736a_hoisted_11 = {
+const EntryFormvue_type_template_id_1ae3a3e4_hoisted_11 = {
   for: "usertname"
 };
 const _hoisted_12 = {
@@ -952,14 +952,14 @@ const _hoisted_65 = {
 const _hoisted_66 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("em", {
   class: "fa fa-close fa-btn-icon"
 }, null, -1);
-function EntryFormvue_type_template_id_befe736a_render(_ctx, _cache, $props, $setup, $data, $options) {
+function EntryFormvue_type_template_id_1ae3a3e4_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_InputMask = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("InputMask");
   const _component_DialogForm = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("DialogForm");
   return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createBlock */.Wv)(_component_DialogForm, {
     ref: "dialogForm"
   }, {
-    header: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [$options.insertMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("h4", EntryFormvue_type_template_id_befe736a_hoisted_1, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.title_new), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true), $options.updateMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("h4", EntryFormvue_type_template_id_befe736a_hoisted_2, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.title_edit), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)]),
-    default: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_befe736a_hoisted_3, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_befe736a_hoisted_4, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", EntryFormvue_type_template_id_befe736a_hoisted_5, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.username_label), 1)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_befe736a_hoisted_6, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
+    header: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [$options.insertMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("h4", EntryFormvue_type_template_id_1ae3a3e4_hoisted_1, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.title_new), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true), $options.updateMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("h4", EntryFormvue_type_template_id_1ae3a3e4_hoisted_2, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.title_edit), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)]),
+    default: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_1ae3a3e4_hoisted_3, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_1ae3a3e4_hoisted_4, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", EntryFormvue_type_template_id_1ae3a3e4_hoisted_5, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.username_label), 1)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_1ae3a3e4_hoisted_6, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
       class: (0,shared_esm_bundler/* normalizeClass */.C4)(["input-group has-validation", {
         'has-error': $setup.v$.username.$error
       }])
@@ -970,7 +970,7 @@ function EntryFormvue_type_template_id_befe736a_render(_ctx, _cache, $props, $se
       id: "username",
       picture: "(50)x",
       disabled: $setup.disabledKeyField
-    }, null, 8, ["modelValue", "disabled"]), EntryFormvue_type_template_id_befe736a_hoisted_7], 2), $setup.v$.username.$error ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("span", EntryFormvue_type_template_id_befe736a_hoisted_8, (0,shared_esm_bundler/* toDisplayString */.v_)($setup.v$.username.$errors[0].$message), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_befe736a_hoisted_9, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_befe736a_hoisted_10, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", EntryFormvue_type_template_id_befe736a_hoisted_11, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.usertname_label), 1)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_12, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
+    }, null, 8, ["modelValue", "disabled"]), EntryFormvue_type_template_id_1ae3a3e4_hoisted_7], 2), $setup.v$.username.$error ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("span", EntryFormvue_type_template_id_1ae3a3e4_hoisted_8, (0,shared_esm_bundler/* toDisplayString */.v_)($setup.v$.username.$errors[0].$message), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_1ae3a3e4_hoisted_9, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_1ae3a3e4_hoisted_10, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", EntryFormvue_type_template_id_1ae3a3e4_hoisted_11, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.usertname_label), 1)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_12, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
       class: (0,shared_esm_bundler/* normalizeClass */.C4)(["input-group has-validation", {
         'has-error': $setup.v$.usertname.$error
       }])
@@ -1086,7 +1086,7 @@ function EntryFormvue_type_template_id_befe736a_render(_ctx, _cache, $props, $se
     _: 1
   }, 512);
 }
-;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=template&id=befe736a
+;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=template&id=1ae3a3e4
 
 // EXTERNAL MODULE: ./node_modules/@vuelidate/core/dist/index.mjs
 var dist = __webpack_require__(7760);
@@ -1309,8 +1309,9 @@ const EntryFormvue_type_script_lang_js_defaultData = {
         else jquery_default()("#" + input).trigger("focus"); //if using id
       }
     },
-    showDialog() {
+    showDialog(callback) {
       //$("#modaldialog_layer").modal("show");
+      if (callback) jquery_default()(this.$refs.dialogForm.$el).on("shown.bs.modal", callback);
       jquery_default()(this.$refs.dialogForm.$el).modal("show");
     },
     hideDialog() {
@@ -1330,7 +1331,9 @@ const EntryFormvue_type_script_lang_js_defaultData = {
     },
     startInsertRecord() {
       this.resetRecord();
-      this.showDialog();
+      this.showDialog(() => {
+        this.$refs.username.focus();
+      });
     },
     startSaveRecord() {
       (0,will_app/* confirmSave */.ex)(() => {
@@ -1433,7 +1436,9 @@ const EntryFormvue_type_script_lang_js_defaultData = {
             });
             this.v$.$reset();
             this.disabledKeyField = true;
-            this.showDialog();
+            this.showDialog(() => {
+              this.$refs.usertname.focus();
+            });
           }
         }
       });
@@ -1512,10 +1517,10 @@ const EntryFormvue_type_script_lang_js_defaultData = {
 });
 ;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=script&lang=js
  
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-12.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/EntryForm.vue?vue&type=style&index=0&id=befe736a&lang=css
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-12.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/EntryForm.vue?vue&type=style&index=0&id=1ae3a3e4&lang=css
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=style&index=0&id=befe736a&lang=css
+;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=style&index=0&id=1ae3a3e4&lang=css
 
 ;// CONCATENATED MODULE: ./src/components/EntryForm.vue
 
@@ -1525,7 +1530,7 @@ const EntryFormvue_type_script_lang_js_defaultData = {
 ;
 
 
-const EntryForm_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(EntryFormvue_type_script_lang_js, [['render',EntryFormvue_type_template_id_befe736a_render]])
+const EntryForm_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(EntryFormvue_type_script_lang_js, [['render',EntryFormvue_type_template_id_1ae3a3e4_render]])
 
 /* harmony default export */ var EntryForm = (EntryForm_exports_);
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/AppVfte016.vue?vue&type=script&lang=js
@@ -1898,9 +1903,9 @@ console.info("Vue version", runtime_core_esm_bundler/* version */.rE);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(2213); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(408); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=index.7e2fec18.js.map
+//# sourceMappingURL=index.0e55e609.js.map

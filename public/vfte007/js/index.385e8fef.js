@@ -392,7 +392,7 @@
 
 /***/ }),
 
-/***/ 5997:
+/***/ 7907:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -409,18 +409,18 @@ var bootbox = __webpack_require__(954);
 // EXTERNAL MODULE: ./src/assets/jquery/js/jquery.maskedinput.js
 var jquery_maskedinput = __webpack_require__(8435);
 ;// CONCATENATED MODULE: ./src/assets/json/program_message.json
-var program_message_namespaceObject = /*#__PURE__*/JSON.parse('[{"code":"QS0001","TH":"คุณต้องการลบรายการนี้ใช่หรือไม่ %s","EN":"Do you want to delete this transaction? %s"},{"code":"QS0002","TH":"คุณต้องการบันทึกรายการนี้ใช่หรือไม่","EN":"Do you want to save this transaction?"},{"code":"QS0003","TH":"คุณต้องการยกเลิกรายการนี้ใช่หรือไม่","EN":"Do you want to cancel this transaction?"},{"code":"QS0004","TH":"บันทึกรายการเรียบร้อยแล้ว %s","EN":"Process Success %s"},{"code":"QS0005","TH":"ท่านต้องการลบรายการนี้ใช่หรือไม่ %s","EN":"Do you want to delete this record? %s"},{"code":"QS0006","TH":"คุณต้องการส่งรายการนี้ใช่หรือไม่","EN":"Do you want to send this transaction?"},{"code":"QS0007","TH":"คุณต้องการปรับปรุงรายการนี้ใช่หรือไม่","EN":"Do you want to update this transaction?"},{"code":"QS0008","TH":"คุณต้องการล้างรายการนี้ใช่หรือไม่","EN":"Do you want to clear this?"},{"code":"QS0009","TH":"คุณต้องการดำเนินการ รายการนี้ใช่หรือไม่","EN":"Do you want to process this transaction?"},{"code":"QS0010","TH":"คุณต้องการบันทึกเป็นรายการนี้ใช่หรือไม่","EN":"Do you want to save as this transaction ?"},{"code":"QS0011","TH":"คุณต้องการยืนยันการรับรายการนี้ใช่หรือไม่","EN":"Do you want to receive this transaction?"},{"code":"QS0012","TH":"คุณต้องการล้างและเริ่มใหม่รายการนี้ใช่หรือไม่","EN":"Do you want to reset this transaction?"},{"code":"QS0013","TH":"คุณต้องการลบ %s รายการใช่หรือไม่","EN":"Do you want to delete %s row(s)?"},{"code":"QS0014","TH":"คุณต้องการยืนยันการอนุมัติ  %s รายการนี้ใช่หรือไม่","EN":"Are you sure to confirm approve the %s request?"},{"code":"QS0015","TH":"คุณต้องการยืนยันการปฏิเสธ  %s รายการนี้ใช่หรือไม่","EN":"Are you sure to reject %s?"},{"code":"QS0016","TH":"คุณต้องการยืนยันการสร้างใบคำร้องใช่หรือไม่","EN":"Do you want to create this request?"},{"code":"QS0017","TH":"คุณต้องการนำเข้ารายการนี้ใช่หรือไม่","EN":"Do you want to import this transaction?"},{"code":"QS0018","TH":"คุณต้องการนำออกรายการนี้ใช่หรือไม่","EN":"Do you want to export this transaction?"},{"code":"QS0019","TH":"คุณต้องการส่งรายการนี้ใหม่ใช่หรือไม่?","EN":"Do you want to resend this transaction?"},{"code":"QS0020","TH":"คุณต้องการยืนยันการแก้ไขใหม่  %s รายการนี้ใช่หรือไม่","EN":"Are you sure to revise %s?"},{"code":"fsconfirmbtn","TH":"ตกลง","EN":"OK"},{"code":"fscancelbtn","TH":"ยกเลิก","EN":"Cancel"},{"code":"fssavebtn","TH":"บันทึก","EN":"Save"},{"code":"fsclosebtn","TH":"ปิด","EN":"Close"},{"code":"fsokbtn","TH":"ตกลง","EN":"OK"},{"code":"fsmessagetitle","TH":"ข้อความ","EN":"Message"},{"code":"fsaccepttitle","TH":"ยืนยัน","EN":"Confirm"},{"code":"fssuccessmsg","TH":"การดำเนินการสำเร็จ","EN":"Process success"},{"code":"fsfailmsg","TH":"การดำเนินการไม่สำเร็จ","EN":"Process fail"},{"code":"fsalert","TH":"คำเตือน","EN":"Alert"},{"code":"fswarn","TH":"คำเตือน","EN":"Warning"},{"code":"fsconfirm","TH":"ยืนยัน","EN":"Confirmation"},{"code":"fsinfo","TH":"ข้อความ","EN":"Information"},{"code":"QS8021","TH":"ท่านไม่มีสิทธิ์ดูรายการนี้","EN":"No permission to retrieve this transaction"},{"code":"QS8022","TH":"ท่านไม่มีสิทธิ์แก้ไขรายการนี้","EN":"No permission to edit this transaction"},{"code":"QS8023","TH":"ท่านไม่มีสิทธิ์ลบรายการนี้","EN":"No permission to delete this transaction"},{"code":"QS8024","TH":"ท่านไม่มีสิทธิ์สร้างรายการนี้","EN":"No permission to add this transaction"},{"code":"QS8025","TH":"ท่านไม่มีสิทธิ์นำเข้ารายการนี้","EN":"No permission to import this transaction"},{"code":"QS8026","TH":"ท่านไม่มีสิทธิ์นำออกรายการนี้","EN":"No permission to export this transaction"},{"code":"QS0101","TH":"ไม่พบข้อมูลที่ต้องการ โปรดกรุณาระบุและค้นหาใหม่","EN":"Record not found"},{"code":"QS0102","TH":"นำเข้าข้อมูลไม่ถูกต้อง","EN":"Invalid input"},{"code":"QS0103","TH":"ข้อมูลไม่ได้ระบุ","EN":"Value is undefined"},{"code":"QS0104","TH":"ปรับปรุงข้อมูลเรียบร้อย","EN":"Update success"},{"code":"QS0105","TH":"นำเข้าข้อมูลซ้ำซ้อน","EN":"Duplicate record"},{"code":"QS0201","TH":"Reset password success, Please verify your email for new password changed","EN":"Reset password success, Please verify your email for new password changed"},{"code":"QS0202","TH":"Reset Two Factor Success","EN":"Reset Two Factor Success"}]');
+var program_message_namespaceObject = /*#__PURE__*/JSON.parse('[{"code":"QS0001","TH":"คุณต้องการลบรายการนี้ใช่หรือไม่ %s","EN":"Do you want to delete this transaction? %s"},{"code":"QS0002","TH":"คุณต้องการบันทึกรายการนี้ใช่หรือไม่","EN":"Do you want to save this transaction?"},{"code":"QS0003","TH":"คุณต้องการยกเลิกรายการนี้ใช่หรือไม่","EN":"Do you want to cancel this transaction?"},{"code":"QS0004","TH":"บันทึกรายการเรียบร้อยแล้ว %s","EN":"Process Success %s"},{"code":"QS0005","TH":"ท่านต้องการลบรายการนี้ใช่หรือไม่ %s","EN":"Do you want to delete this record? %s"},{"code":"QS0006","TH":"คุณต้องการส่งรายการนี้ใช่หรือไม่","EN":"Do you want to send this transaction?"},{"code":"QS0007","TH":"คุณต้องการปรับปรุงรายการนี้ใช่หรือไม่","EN":"Do you want to update this transaction?"},{"code":"QS0008","TH":"คุณต้องการล้างรายการนี้ใช่หรือไม่","EN":"Do you want to clear this?"},{"code":"QS0009","TH":"คุณต้องการดำเนินการ รายการนี้ใช่หรือไม่","EN":"Do you want to process this transaction?"},{"code":"QS0010","TH":"คุณต้องการบันทึกเป็นรายการนี้ใช่หรือไม่","EN":"Do you want to save as this transaction ?"},{"code":"QS0011","TH":"คุณต้องการยืนยันการรับรายการนี้ใช่หรือไม่","EN":"Do you want to receive this transaction?"},{"code":"QS0012","TH":"คุณต้องการล้างและเริ่มใหม่รายการนี้ใช่หรือไม่","EN":"Do you want to reset this transaction?"},{"code":"QS0013","TH":"คุณต้องการลบ %s รายการใช่หรือไม่","EN":"Do you want to delete %s row(s)?"},{"code":"QS0014","TH":"คุณต้องการยืนยันการอนุมัติ  %s รายการนี้ใช่หรือไม่","EN":"Are you sure to confirm approve the %s request?"},{"code":"QS0015","TH":"คุณต้องการยืนยันการปฏิเสธ  %s รายการนี้ใช่หรือไม่","EN":"Are you sure to reject %s?"},{"code":"QS0016","TH":"คุณต้องการยืนยันการสร้างใบคำร้องใช่หรือไม่","EN":"Do you want to create this request?"},{"code":"QS0017","TH":"คุณต้องการนำเข้ารายการนี้ใช่หรือไม่","EN":"Do you want to import this transaction?"},{"code":"QS0018","TH":"คุณต้องการนำออกรายการนี้ใช่หรือไม่","EN":"Do you want to export this transaction?"},{"code":"QS0019","TH":"คุณต้องการส่งรายการนี้ใหม่ใช่หรือไม่?","EN":"Do you want to resend this transaction?"},{"code":"QS0020","TH":"คุณต้องการยืนยันการแก้ไขใหม่  %s รายการนี้ใช่หรือไม่","EN":"Are you sure to revise %s?"},{"code":"QS0021","TH":"คุณต้องการล้างและเริ่มใหม่การตรวจสอบเพิ่มเติมใช่หรือไม่","EN":"Do you want to reset two factor authentication?"},{"code":"fsconfirmbtn","TH":"ตกลง","EN":"OK"},{"code":"fscancelbtn","TH":"ยกเลิก","EN":"Cancel"},{"code":"fssavebtn","TH":"บันทึก","EN":"Save"},{"code":"fsclosebtn","TH":"ปิด","EN":"Close"},{"code":"fsokbtn","TH":"ตกลง","EN":"OK"},{"code":"fsmessagetitle","TH":"ข้อความ","EN":"Message"},{"code":"fsaccepttitle","TH":"ยืนยัน","EN":"Confirm"},{"code":"fssuccessmsg","TH":"การดำเนินการสำเร็จ","EN":"Process success"},{"code":"fsfailmsg","TH":"การดำเนินการไม่สำเร็จ","EN":"Process fail"},{"code":"fsalert","TH":"คำเตือน","EN":"Alert"},{"code":"fswarn","TH":"คำเตือน","EN":"Warning"},{"code":"fsconfirm","TH":"ยืนยัน","EN":"Confirmation"},{"code":"fsinfo","TH":"ข้อความ","EN":"Information"},{"code":"QS8021","TH":"ท่านไม่มีสิทธิ์ดูรายการนี้","EN":"No permission to retrieve this transaction"},{"code":"QS8022","TH":"ท่านไม่มีสิทธิ์แก้ไขรายการนี้","EN":"No permission to edit this transaction"},{"code":"QS8023","TH":"ท่านไม่มีสิทธิ์ลบรายการนี้","EN":"No permission to delete this transaction"},{"code":"QS8024","TH":"ท่านไม่มีสิทธิ์สร้างรายการนี้","EN":"No permission to add this transaction"},{"code":"QS8025","TH":"ท่านไม่มีสิทธิ์นำเข้ารายการนี้","EN":"No permission to import this transaction"},{"code":"QS8026","TH":"ท่านไม่มีสิทธิ์นำออกรายการนี้","EN":"No permission to export this transaction"},{"code":"QS0101","TH":"ไม่พบข้อมูลที่ต้องการ โปรดกรุณาระบุและค้นหาใหม่","EN":"Record not found"},{"code":"QS0102","TH":"นำเข้าข้อมูลไม่ถูกต้อง","EN":"Invalid input"},{"code":"QS0103","TH":"ข้อมูลไม่ได้ระบุ","EN":"Value is undefined"},{"code":"QS0104","TH":"ปรับปรุงข้อมูลเรียบร้อย","EN":"Update success"},{"code":"QS0105","TH":"นำเข้าข้อมูลซ้ำซ้อน","EN":"Duplicate record"},{"code":"QS0201","TH":"Reset password success, Please verify your email for new password changed","EN":"Reset password success, Please verify your email for new password changed"},{"code":"QS0202","TH":"Reset Two Factor Success","EN":"Reset Two Factor Success"}]');
 ;// CONCATENATED MODULE: ./src/assets/json/default_label.json
 var default_label_namespaceObject = /*#__PURE__*/JSON.parse('[{"language":"TH","label":[{"name":"EN_lang","value":"อังกฤษ"},{"name":"TH_lang","value":"ไทย"},{"name":"VN_lang","value":"เวียดนาม"},{"name":"CN_lang","value":"จีน"},{"name":"LA_lang","value":"ลาว"},{"name":"KM_lang","value":"กัมพูชา"},{"name":"JP_lang","value":"ญี่ปุ่น"},{"name":"english_lang","value":"อังกฤษ"},{"name":"thai_lang","value":"ไทย"},{"name":"title_new","value":"สร้างใหม่"},{"name":"title_edit","value":"แก้ไข"},{"name":"title_view","value":"มอง"},{"name":"save_button","value":"บันทึก"},{"name":"delete_button","value":"ลบ"},{"name":"retrieve_button","value":"เรียกดู"},{"name":"search_button","value":"ค้นหา"},{"name":"saveas_button","value":"บันทึกเป็น"},{"name":"submit_button","value":"ส่งข้อมูล"},{"name":"cancel_button","value":"ยกเลิก"},{"name":"clear_button","value":"ล้าง"},{"name":"reset_button","value":"ล้าง"},{"name":"update_button","value":"ปรับปรุง"},{"name":"close_button","value":"ปิด"},{"name":"send_button","value":"ส่ง"},{"name":"complete_button","value":"สำเร็จ"},{"name":"download_button","value":"ดาวน์โหลด"},{"name":"insert_button","value":"เพิ่ม"},{"name":"executebutton","value":"ปฏิบัติการ"},{"name":"ok_button","value":"ตกลง"},{"name":"import_button","value":"นำเข้า"},{"name":"export_button","value":"นำออก"},{"name":"remove_button","value":"ลบ"},{"name":"upload_button","value":"อัพโหลด"},{"name":"consend_button","value":"ส่งแบบสอบถาม"},{"name":"version_label","value":"รุ่น"},{"name":"action_label","value":" "},{"name":"active_label","value":"ใช้งาน"},{"name":"inactive_label","value":"ไม่ใช้งาน"},{"name":"all_label","value":"ทั้งหมด"},{"name":"seqno_label","value":"ลำดับที่"},{"name":"page_notfound","value":"ไม่พบหน้าใช้งาน"},{"name":"record_notfound","value":"ไม่พบรายการ"},{"name":"trx_notfound","value":"ไม่พบรายการ"},{"name":"invalid_alert","value":"กรอกข้อมูลไม่ถูกต้อง"},{"name":"empty_alert","value":"กรุณากรอกข้อมูล"}]},{"language":"EN","label":[{"name":"EN_lang","value":"English"},{"name":"TH_lang","value":"Thai"},{"name":"VN_lang","value":"Vietnam"},{"name":"CN_lang","value":"China"},{"name":"LA_lang","value":"Laos"},{"name":"KM_lang","value":"Cambodia"},{"name":"JP_lang","value":"Japan"},{"name":"english_lang","value":"English"},{"name":"thai_lang","value":"Thai"},{"name":"title_new","value":"Add New"},{"name":"title_edit","value":"Edit"},{"name":"title_view","value":"View"},{"name":"save_button","value":"Save"},{"name":"delete_button","value":"Delete"},{"name":"retrieve_button","value":"Retrieve"},{"name":"search_button","value":"Search"},{"name":"saveas_button","value":"Save As"},{"name":"submit_button","value":"Submit Data"},{"name":"cancel_button","value":"Cancel"},{"name":"clear_button","value":"Clear"},{"name":"reset_button","value":"Clear"},{"name":"close_button","value":"Close"},{"name":"update_button","value":"Update"},{"name":"send_button","value":"Send"},{"name":"complete_button","value":"Complete"},{"name":"download_button","value":"Down Load"},{"name":"insert_button","value":"Insert"},{"name":"execute_button","value":"Execute"},{"name":"ok_button","value":"OK"},{"name":"import_button","value":"Import"},{"name":"export_button","value":"Export"},{"name":"remove_button","value":"Remove"},{"name":"upload_button","value":"Upload"},{"name":"consend_button","value":"Send"},{"name":"version_label","value":"Version"},{"name":"action_label","value":" "},{"name":"active_label","value":"Active"},{"name":"inactive_label","value":"Inactive"},{"name":"all_label","value":"All"},{"name":"seqno_label","value":"No."},{"name":"page_notfound","value":"Page not found"},{"name":"record_notfound","value":"Record not found"},{"name":"trx_notfound","value":"Transaction not found"},{"name":"invalid_alert","value":"Invalid input"},{"name":"empty_alert","value":"This cannot be empty"}]}]');
 ;// CONCATENATED MODULE: ./src/assets/json/program_label.json
-var program_label_namespaceObject = /*#__PURE__*/JSON.parse('[{"language":"TH","label":[{"name":"caption_title","value":"ข้อมูลผลิตภัณฑ์"},{"name":"sequence_headerlabel","value":"ลำดับ"},{"name":"nameen_label","value":"ชื่อผลิตภัณฑ์ (ภาษาอังกฤษ)"},{"name":"product_headerlabel","value":"รหัสผลิตภัณฑ์"},{"name":"nameen_headerlabel","value":"ชื่อผลิตภัณฑ์"},{"name":"nameens_label","value":"ชื่อผลิตภัณฑ์"},{"name":"url_label","value":"ที่ตั้งหรือแหล่งที่มา"},{"name":"sequence_label","value":"ลำดับ"},{"name":"products_label","value":"รหัสผลิตภัณฑ์"},{"name":"centerflag_label","value":"สงวนสิทธิสำหรับการตั้งค่าจากส่วนกลาง"},{"name":"product_label","value":"รหัสผลิตภัณฑ์"},{"name":"verified_label","value":"ตรวจสอบการใช้งานผลิตภัณฑ์"},{"name":"iconfile_label","value":"ไอคอนไฟล์"},{"name":"nameth_label","value":"ผลิตภัณฑ์ (ภาษาไทย)"}]},{"language":"EN","label":[{"name":"caption_title","value":"Product Information"},{"name":"sequence_headerlabel","value":"Sequence"},{"name":"nameen_label","value":"Product Name (English)"},{"name":"product_headerlabel","value":"Product Code"},{"name":"nameen_headerlabel","value":"Product Name"},{"name":"nameens_label","value":"Product Name"},{"name":"url_label","value":"URL or Project Context"},{"name":"sequence_label","value":"Sequence"},{"name":"products_label","value":"Product Code"},{"name":"centerflag_label","value":"Reserved for center setting"},{"name":"product_label","value":"Product Code"},{"name":"verified_label","value":"Verify Product Permission"},{"name":"iconfile_label","value":"Icon File"},{"name":"nameth_label","value":"Product Name (Thai)"}]}]');
+var program_label_namespaceObject = /*#__PURE__*/JSON.parse('[{"language":"TH","label":[{"name":"caption_title","value":"สิทธิการใช้งาน"},{"name":"usernames_label","value":"ผู้ใช้"},{"name":"usertnames_label","value":"ชื่อ (ภาษาไทย)"},{"name":"usertsurnames_label","value":"นามสกุล (ภาษาไทย)"},{"name":"username_headerlabel","value":"ผู้ใช้"},{"name":"usertname_headerlabel","value":"ชื่อ (ภาษาไทย)"},{"name":"usertsurname_headerlabel","value":"นามสกุล (ภาษาไทย)"},{"name":"email_headerlabel","value":"อีเมล"},{"name":"username_label","value":"ผู้ใช้"},{"name":"email_label","value":"อีเมล"},{"name":"status_label","value":"สถานะ"},{"name":"branchflag_label","value":"สาขา"},{"name":"accessalls_sectionlabel","value":"การเข้าถึง"},{"name":"accessroles_sectionlabel","value":"บทบาทผู้ใช้งาน"},{"name":"accessgroups_sectionlabel","value":"สิทธิผู้ใช้งาน"},{"name":"reset_factor_button","value":"ล้างการยืนยันสองชั้น"}]},{"language":"EN","label":[{"name":"caption_title","value":"User Privilege"},{"name":"usernames_label","value":"User"},{"name":"usertnames_label","value":"First Name (Thai)"},{"name":"usertsurnames_label","value":"Last Name (Thai)"},{"name":"username_headerlabel","value":"User"},{"name":"usertname_headerlabel","value":"First Name (Thai)"},{"name":"usertsurname_headerlabel","value":"Last Name (Thai)"},{"name":"email_headerlabel","value":"Email"},{"name":"username_label","value":"User"},{"name":"email_label","value":"Email"},{"name":"status_label","value":"Status"},{"name":"branchflag_label","value":"Access Branch"},{"name":"accessalls_sectionlabel","value":"Accessing"},{"name":"accessroles_sectionlabel","value":"Roles"},{"name":"accessgroups_sectionlabel","value":"Privileges"},{"name":"reset_factor_button","value":"Reset 2FA"}]}]');
 // EXTERNAL MODULE: ./node_modules/@willsofts/will-app/index.js
 var will_app = __webpack_require__(4122);
 // EXTERNAL MODULE: ./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
 var runtime_core_esm_bundler = __webpack_require__(6768);
 // EXTERNAL MODULE: ./node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js
 var runtime_dom_esm_bundler = __webpack_require__(5130);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/AppVfte003.vue?vue&type=template&id=469a1eac
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/AppVfte007.vue?vue&type=template&id=38aa062c
 
 const _hoisted_1 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
   id: "fswaitlayer",
@@ -436,7 +436,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, [_hoisted_1, (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_2, [(0,runtime_core_esm_bundler/* createVNode */.bF)(_component_PageHeader, {
     ref: "pageHeader",
     labels: $setup.labels,
-    pid: "vfte003",
+    pid: "vfte007",
     version: "1.0.0",
     showLanguage: "true",
     onLanguageChanged: $options.changeLanguage,
@@ -444,21 +444,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["labels", "onLanguageChanged", "multiLanguages"]), (0,runtime_core_esm_bundler/* createVNode */.bF)(_component_SearchForm, {
     ref: "searchForm",
     labels: $setup.labels,
-    dataCategory: _ctx.dataCategory,
-    onDataSelect: $options.dataSelected,
-    onDataInsert: $options.dataInsert
-  }, null, 8, ["labels", "dataCategory", "onDataSelect", "onDataInsert"])]), ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createBlock */.Wv)(runtime_core_esm_bundler/* Teleport */.Im, {
+    dataCategory: $setup.dataCategory,
+    onDataSelect: $options.dataSelected
+  }, null, 8, ["labels", "dataCategory", "onDataSelect"])]), ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createBlock */.Wv)(runtime_core_esm_bundler/* Teleport */.Im, {
     to: "#modaldialog"
   }, [(0,runtime_core_esm_bundler/* createVNode */.bF)(_component_EntryForm, {
     ref: "entryForm",
     labels: $setup.labels,
-    dataCategory: _ctx.dataCategory,
-    onDataSaved: $options.dataSaved,
-    onDataUpdated: $options.dataUpdated,
-    onDataDeleted: $options.dataDeleted
-  }, null, 8, ["labels", "dataCategory", "onDataSaved", "onDataUpdated", "onDataDeleted"])]))], 64);
+    dataCategory: $setup.dataCategory,
+    onDataUpdated: $options.dataUpdated
+  }, null, 8, ["labels", "dataCategory", "onDataUpdated"])]))], 64);
 }
-;// CONCATENATED MODULE: ./src/AppVfte003.vue?vue&type=template&id=469a1eac
+;// CONCATENATED MODULE: ./src/AppVfte007.vue?vue&type=template&id=38aa062c
 
 // EXTERNAL MODULE: ./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
 var reactivity_esm_bundler = __webpack_require__(144);
@@ -466,13 +463,13 @@ var reactivity_esm_bundler = __webpack_require__(144);
 var will_control_umd = __webpack_require__(3301);
 // EXTERNAL MODULE: ./node_modules/@vue/shared/dist/shared.esm-bundler.js
 var shared_esm_bundler = __webpack_require__(4232);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/SearchForm.vue?vue&type=template&id=45546c29
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/SearchForm.vue?vue&type=template&id=53cf4bf0
 
-const SearchFormvue_type_template_id_45546c29_hoisted_1 = {
+const SearchFormvue_type_template_id_53cf4bf0_hoisted_1 = {
   id: "searchpanel",
   class: "panel-body search-panel"
 };
-const SearchFormvue_type_template_id_45546c29_hoisted_2 = {
+const SearchFormvue_type_template_id_53cf4bf0_hoisted_2 = {
   class: "row row-height"
 };
 const _hoisted_3 = {
@@ -482,48 +479,49 @@ const _hoisted_4 = {
   class: "col-height col-md-3"
 };
 const _hoisted_5 = {
+  class: "col-height col-md-3"
+};
+const _hoisted_6 = {
   class: "col-height col-md"
 };
-const _hoisted_6 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("br", null, null, -1);
-const _hoisted_7 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("i", {
+const _hoisted_7 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("br", null, null, -1);
+const _hoisted_8 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("i", {
   class: "fa fa-search fa-btn-icon",
   "aria-hidden": "true"
 }, null, -1);
-const _hoisted_8 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("i", {
-  class: "fa fa-refresh fa-btn-icon",
-  "aria-hidden": "true"
-}, null, -1);
 const _hoisted_9 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("i", {
-  class: "fa fa-plus fa-btn-icon",
+  class: "fa fa-refresh fa-btn-icon",
   "aria-hidden": "true"
 }, null, -1);
 const _hoisted_10 = {
   id: "listpanel",
   class: "table-responsive fa-list-panel"
 };
-function SearchFormvue_type_template_id_45546c29_render(_ctx, _cache, $props, $setup, $data, $options) {
+function SearchFormvue_type_template_id_53cf4bf0_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_DataTable = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("DataTable");
   const _component_DataPaging = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("DataPaging");
-  return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", SearchFormvue_type_template_id_45546c29_hoisted_1, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", SearchFormvue_type_template_id_45546c29_hoisted_2, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_3, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", null, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.products_label), 1), (0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
+  return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", SearchFormvue_type_template_id_53cf4bf0_hoisted_1, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", SearchFormvue_type_template_id_53cf4bf0_hoisted_2, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_3, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", null, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.usernames_label), 1), (0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
     type: "text",
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => $setup.localData.product = $event),
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => $setup.localData.username = $event),
     class: "form-control input-md",
     maxlength: "50"
-  }, null, 512), [[runtime_dom_esm_bundler/* vModelText */.Jo, $setup.localData.product]])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_4, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", null, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.nameens_label), 1), (0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
+  }, null, 512), [[runtime_dom_esm_bundler/* vModelText */.Jo, $setup.localData.username]])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_4, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", null, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.usertnames_label), 1), (0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
     type: "text",
-    "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => $setup.localData.nameen = $event),
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => $setup.localData.usertname = $event),
     class: "form-control input-md",
     maxlength: "50"
-  }, null, 512), [[runtime_dom_esm_bundler/* vModelText */.Jo, $setup.localData.nameen]])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_5, [_hoisted_6, (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("button", {
-    onClick: _cache[2] || (_cache[2] = (...args) => $options.searchClick && $options.searchClick(...args)),
+  }, null, 512), [[runtime_dom_esm_bundler/* vModelText */.Jo, $setup.localData.usertname]])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_5, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", null, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.usertsurnames_label), 1), (0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
+    type: "text",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = $event => $setup.localData.usertsurname = $event),
+    class: "form-control input-md",
+    maxlength: "50"
+  }, null, 512), [[runtime_dom_esm_bundler/* vModelText */.Jo, $setup.localData.usertsurname]])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_6, [_hoisted_7, (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("button", {
+    onClick: _cache[3] || (_cache[3] = (...args) => $options.searchClick && $options.searchClick(...args)),
     class: "btn btn-dark btn-sm btn-ctrl"
-  }, [_hoisted_7, (0,runtime_core_esm_bundler/* createTextVNode */.eW)((0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.search_button), 1)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("button", {
-    onClick: _cache[3] || (_cache[3] = (...args) => $options.resetClick && $options.resetClick(...args)),
+  }, [_hoisted_8, (0,runtime_core_esm_bundler/* createTextVNode */.eW)((0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.search_button), 1)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("button", {
+    onClick: _cache[4] || (_cache[4] = (...args) => $options.resetClick && $options.resetClick(...args)),
     class: "btn btn-dark btn-sm btn-ctrl"
-  }, [_hoisted_8, (0,runtime_core_esm_bundler/* createTextVNode */.eW)((0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.reset_button), 1)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("button", {
-    onClick: _cache[4] || (_cache[4] = (...args) => $options.insertClick && $options.insertClick(...args)),
-    class: "btn btn-dark btn-sm btn-ctrl pull-right"
-  }, [_hoisted_9, (0,runtime_core_esm_bundler/* createTextVNode */.eW)((0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.insert_button), 1)])])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_10, [(0,runtime_core_esm_bundler/* createVNode */.bF)(_component_DataTable, {
+  }, [_hoisted_9, (0,runtime_core_esm_bundler/* createTextVNode */.eW)((0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.reset_button), 1)])])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_10, [(0,runtime_core_esm_bundler/* createVNode */.bF)(_component_DataTable, {
     ref: "dataTable",
     settings: $setup.tableSettings,
     labels: $props.labels,
@@ -536,7 +534,7 @@ function SearchFormvue_type_template_id_45546c29_render(_ctx, _cache, $props, $s
     onPageSelect: $options.pageSelected
   }, null, 8, ["settings", "onPageSelect"])])]);
 }
-;// CONCATENATED MODULE: ./src/components/SearchForm.vue?vue&type=template&id=45546c29
+;// CONCATENATED MODULE: ./src/components/SearchForm.vue?vue&type=template&id=53cf4bf0
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/SearchForm.vue?vue&type=script&lang=js
 
@@ -545,38 +543,40 @@ function SearchFormvue_type_template_id_45546c29_render(_ctx, _cache, $props, $s
 
 
 
-const APP_URL = "/api/sfte003";
+const APP_URL = "/api/sfte007";
 const defaultData = {
-  product: '',
-  nameen: ""
+  username: '',
+  usertname: "",
+  usertsurname: ""
 };
 const tableSettings = {
   sequence: {
     label: "seqno_label"
   },
   columns: [{
-    name: "product",
+    name: "username",
     type: "STRING",
-    sorter: "product",
-    label: "product_headerlabel"
+    sorter: "username",
+    label: "username_headerlabel"
   }, {
-    name: "nameen",
+    name: "usertname",
     type: "STRING",
-    sorter: "nameen",
-    label: "nameen_headerlabel"
+    sorter: "usertname",
+    label: "usertname_headerlabel"
   }, {
-    name: "seqno",
+    name: "usertsurname",
     type: "STRING",
-    sorter: "seqno",
-    label: "sequence_headerlabel",
-    css: "text-center"
+    sorter: "usertsurname",
+    label: "usertsurname_headerlabel"
+  }, {
+    name: "email",
+    type: "STRING",
+    sorter: "email",
+    label: "email_headerlabel"
   }],
   actions: [{
     type: "button",
     action: "edit"
-  }, {
-    type: "button",
-    action: "delete"
   }]
 };
 /* harmony default export */ var SearchFormvue_type_script_lang_js = ({
@@ -586,9 +586,10 @@ const tableSettings = {
   },
   props: {
     labels: Object,
-    formData: Object
+    formData: Object,
+    dataCategory: Object
   },
-  emits: ["data-select", "data-insert"],
+  emits: ["data-select"],
   setup(props) {
     const localData = (0,reactivity_esm_bundler/* ref */.KR)({
       ...defaultData,
@@ -631,9 +632,6 @@ const tableSettings = {
       this.$refs.dataTable.clear();
       this.$refs.dataPaging.clear();
       this.pagingSettings.rows = 0;
-    },
-    insertClick() {
-      this.$emit('data-insert', this.filters);
     },
     searchClick() {
       this.filters = {
@@ -715,235 +713,309 @@ var exportHelper = __webpack_require__(1241);
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.A)(SearchFormvue_type_script_lang_js, [['render',SearchFormvue_type_template_id_45546c29_render]])
+const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.A)(SearchFormvue_type_script_lang_js, [['render',SearchFormvue_type_template_id_53cf4bf0_render]])
 
 /* harmony default export */ var SearchForm = (__exports__);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/EntryForm.vue?vue&type=template&id=472e0d39
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/EntryForm.vue?vue&type=template&id=4d722c51
 
-const EntryFormvue_type_template_id_472e0d39_hoisted_1 = {
-  key: 0,
+const EntryFormvue_type_template_id_4d722c51_hoisted_1 = {
   class: "modal-title"
 };
-const EntryFormvue_type_template_id_472e0d39_hoisted_2 = {
-  key: 1,
-  class: "modal-title"
-};
-const EntryFormvue_type_template_id_472e0d39_hoisted_3 = {
+const EntryFormvue_type_template_id_4d722c51_hoisted_2 = {
   class: "row row-height"
 };
-const EntryFormvue_type_template_id_472e0d39_hoisted_4 = {
-  class: "col-height col-md-5"
+const EntryFormvue_type_template_id_4d722c51_hoisted_3 = {
+  class: "col-height col-md-8"
 };
-const EntryFormvue_type_template_id_472e0d39_hoisted_5 = {
-  for: "product"
+const EntryFormvue_type_template_id_4d722c51_hoisted_4 = {
+  for: "username"
 };
-const EntryFormvue_type_template_id_472e0d39_hoisted_6 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", {
+const EntryFormvue_type_template_id_4d722c51_hoisted_5 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", {
   class: "required"
 }, "*", -1);
-const EntryFormvue_type_template_id_472e0d39_hoisted_7 = {
+const EntryFormvue_type_template_id_4d722c51_hoisted_6 = {
   key: 0,
   class: "has-error"
 };
-const EntryFormvue_type_template_id_472e0d39_hoisted_8 = {
+const EntryFormvue_type_template_id_4d722c51_hoisted_7 = {
   class: "row row-height"
 };
-const EntryFormvue_type_template_id_472e0d39_hoisted_9 = {
-  class: "col-height col-md-10"
+const EntryFormvue_type_template_id_4d722c51_hoisted_8 = {
+  class: "col-height col-md-4"
 };
-const EntryFormvue_type_template_id_472e0d39_hoisted_10 = {
-  for: "nameen"
+const EntryFormvue_type_template_id_4d722c51_hoisted_9 = {
+  class: "col-height col-md-4"
 };
-const _hoisted_11 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", {
-  class: "required"
-}, "*", -1);
+const EntryFormvue_type_template_id_4d722c51_hoisted_10 = {
+  class: "row row-height"
+};
+const _hoisted_11 = {
+  class: "col-height col-md-8"
+};
 const _hoisted_12 = {
-  key: 0,
-  class: "has-error"
+  class: "control-label"
 };
 const _hoisted_13 = {
   class: "row row-height"
 };
 const _hoisted_14 = {
-  class: "col-height col-md-10"
+  class: "col-height col-md-4"
 };
 const _hoisted_15 = {
-  for: "nameth"
+  for: "status"
 };
-const _hoisted_16 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", {
-  class: "required"
-}, "*", -1);
+const _hoisted_16 = ["value"];
 const _hoisted_17 = {
-  key: 0,
-  class: "has-error"
+  class: "row row-height"
 };
 const _hoisted_18 = {
-  class: "row row-height"
+  id: "accessalls",
+  class: "col-md-12 col-height"
 };
 const _hoisted_19 = {
-  class: "col-height col-md-10"
+  id: "accessallsheaderinfo"
 };
 const _hoisted_20 = {
-  for: "url"
+  id: "accessalls_legend"
 };
 const _hoisted_21 = {
-  class: "row row-height"
-};
-const _hoisted_22 = {
-  class: "col-height col-md-3"
-};
-const _hoisted_23 = {
-  for: "seqno"
-};
-const _hoisted_24 = {
-  class: "row row-height"
-};
-const _hoisted_25 = {
-  class: "col-height col-md-5"
-};
-const _hoisted_26 = {
-  class: "form-check"
-};
-const _hoisted_27 = {
-  for: "centerflag",
-  class: "form-check-label"
-};
-const _hoisted_28 = {
-  class: "col-height col-md-5"
-};
-const _hoisted_29 = {
-  class: "form-check"
-};
-const _hoisted_30 = {
-  for: "verified",
-  class: "form-check-label"
-};
-const _hoisted_31 = {
-  class: "row row-height"
-};
-const _hoisted_32 = {
-  class: "col-md-5 col-height",
-  id: "iconfilelayer"
-};
-const _hoisted_33 = {
   class: "control-label"
 };
-const _hoisted_34 = {
+const _hoisted_22 = {
+  id: "branchflaglayer",
+  class: "table-layer-class"
+};
+const _hoisted_23 = {
   class: "row row-height"
 };
-const _hoisted_35 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
-  class: "col-md-1"
-}, null, -1);
-const _hoisted_36 = {
-  class: "col-md-9 col-height"
+const _hoisted_24 = {
+  class: "col-height col-md-8"
 };
-const _hoisted_37 = ["src"];
-const _hoisted_38 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("em", {
-  class: "fa fa-save fa-btn-icon"
-}, null, -1);
-const _hoisted_39 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("em", {
-  class: "fa fa-save fa-btn-icon"
-}, null, -1);
+const _hoisted_25 = {
+  class: "checkbox form-check"
+};
+const _hoisted_26 = {
+  for: "branchflag",
+  class: "control-label form-check-label"
+};
+const _hoisted_27 = {
+  class: "row row-height"
+};
+const _hoisted_28 = {
+  id: "accessbranches",
+  class: "col-md-12 col-height"
+};
+const _hoisted_29 = ["disabled"];
+const _hoisted_30 = {
+  id: "accessbrancheslayer",
+  class: "table-layer-class"
+};
+const _hoisted_31 = {
+  class: "checkbox form-check form-group"
+};
+const _hoisted_32 = {
+  class: "form-check-label"
+};
+const _hoisted_33 = ["value"];
+const _hoisted_34 = {
+  class: "span-label"
+};
+const _hoisted_35 = {
+  class: "row row-height"
+};
+const _hoisted_36 = {
+  id: "accessroles",
+  class: "col-md-12 col-height"
+};
+const _hoisted_37 = {
+  id: "accessrolesheaderinfo"
+};
+const _hoisted_38 = {
+  id: "accessrole_legend"
+};
+const _hoisted_39 = {
+  id: "accessroles_sectionlabel",
+  class: "control-label"
+};
 const _hoisted_40 = {
+  id: "accessroleslayer",
+  class: "table-layer-class"
+};
+const _hoisted_41 = {
+  class: "checkbox form-check form-group"
+};
+const _hoisted_42 = {
+  class: "form-check-label"
+};
+const _hoisted_43 = ["value"];
+const _hoisted_44 = {
+  class: "span-label"
+};
+const _hoisted_45 = {
+  class: "row row-height"
+};
+const _hoisted_46 = {
+  id: "accessgroups",
+  class: "col-md-12 col-height"
+};
+const _hoisted_47 = {
+  id: "accessgroupsheaderinfo"
+};
+const _hoisted_48 = {
+  id: "accessgroups_legend"
+};
+const _hoisted_49 = {
+  id: "accessgroups_sectionlabel",
+  class: "control-label"
+};
+const _hoisted_50 = {
+  id: "accessgroupslayer",
+  class: "table-layer-class"
+};
+const _hoisted_51 = {
+  class: "checkbox form-check form-group"
+};
+const _hoisted_52 = {
+  class: "form-check-label"
+};
+const _hoisted_53 = ["value"];
+const _hoisted_54 = {
+  class: "span-label"
+};
+const _hoisted_55 = {
+  key: 0,
+  class: "col-md-3 pull-left"
+};
+const _hoisted_56 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("em", {
+  class: "fa fa-undo fa-btn-icon"
+}, null, -1);
+const _hoisted_57 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("em", {
+  class: "fa fa-save fa-btn-icon"
+}, null, -1);
+const _hoisted_58 = {
   class: "btn btn-dark btn-sm",
   "data-dismiss": "modal"
 };
-const _hoisted_41 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("em", {
+const _hoisted_59 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("em", {
   class: "fa fa-close fa-btn-icon"
 }, null, -1);
-function EntryFormvue_type_template_id_472e0d39_render(_ctx, _cache, $props, $setup, $data, $options) {
+function EntryFormvue_type_template_id_4d722c51_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_InputMask = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("InputMask");
-  const _component_InputNumber = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("InputNumber");
   const _component_DialogForm = (0,runtime_core_esm_bundler/* resolveComponent */.g2)("DialogForm");
   return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createBlock */.Wv)(_component_DialogForm, {
     ref: "dialogForm"
   }, {
-    header: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [$options.insertMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("h4", EntryFormvue_type_template_id_472e0d39_hoisted_1, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.title_new), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true), $options.updateMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("h4", EntryFormvue_type_template_id_472e0d39_hoisted_2, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.title_edit), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)]),
-    default: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_472e0d39_hoisted_3, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_472e0d39_hoisted_4, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", EntryFormvue_type_template_id_472e0d39_hoisted_5, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.product_label), 1), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
+    header: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("h4", EntryFormvue_type_template_id_4d722c51_hoisted_1, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.title_edit), 1)]),
+    default: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_4d722c51_hoisted_2, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_4d722c51_hoisted_3, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", EntryFormvue_type_template_id_4d722c51_hoisted_4, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.username_label), 1), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
       class: (0,shared_esm_bundler/* normalizeClass */.C4)(["input-group has-validation", {
-        'has-error': $setup.v$.product.$error
+        'has-error': $setup.v$.username.$error
       }])
     }, [(0,runtime_core_esm_bundler/* createVNode */.bF)(_component_InputMask, {
-      ref: "product",
-      modelValue: $setup.localData.product,
-      "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => $setup.localData.product = $event),
-      id: "product",
-      picture: "(15)X",
-      disabled: $setup.disabledKeyField
-    }, null, 8, ["modelValue", "disabled"]), EntryFormvue_type_template_id_472e0d39_hoisted_6], 2), $setup.v$.product.$error ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("span", EntryFormvue_type_template_id_472e0d39_hoisted_7, (0,shared_esm_bundler/* toDisplayString */.v_)($setup.v$.product.$errors[0].$message), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_472e0d39_hoisted_8, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_472e0d39_hoisted_9, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", EntryFormvue_type_template_id_472e0d39_hoisted_10, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.nameen_label), 1), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
-      class: (0,shared_esm_bundler/* normalizeClass */.C4)(["input-group has-validation", {
-        'has-error': $setup.v$.nameen.$error
-      }])
-    }, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
+      ref: "username",
+      modelValue: $setup.localData.username,
+      "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => $setup.localData.username = $event),
+      id: "username",
+      picture: "(50)x"
+    }, null, 8, ["modelValue"]), EntryFormvue_type_template_id_4d722c51_hoisted_5], 2), $setup.v$.username.$error ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("span", EntryFormvue_type_template_id_4d722c51_hoisted_6, (0,shared_esm_bundler/* toDisplayString */.v_)($setup.v$.username.$errors[0].$message), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_4d722c51_hoisted_7, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_4d722c51_hoisted_8, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
       type: "text",
-      ref: "nameen",
-      "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => $setup.localData.nameen = $event),
-      id: "nameen",
+      "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => $setup.localData.usertname = $event),
       class: "form-control input-md",
-      maxlength: "100"
-    }, null, 512), [[runtime_dom_esm_bundler/* vModelText */.Jo, $setup.localData.nameen]]), _hoisted_11], 2), $setup.v$.nameen.$error ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("span", _hoisted_12, (0,shared_esm_bundler/* toDisplayString */.v_)($setup.v$.nameen.$errors[0].$message), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_13, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_14, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_15, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.nameth_label), 1), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", {
-      class: (0,shared_esm_bundler/* normalizeClass */.C4)(["input-group has-validation", {
-        'has-error': $setup.v$.nameth.$error
-      }])
-    }, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
+      readonly: ""
+    }, null, 512), [[runtime_dom_esm_bundler/* vModelText */.Jo, $setup.localData.usertname]])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_4d722c51_hoisted_9, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
       type: "text",
-      ref: "nameth",
-      "onUpdate:modelValue": _cache[2] || (_cache[2] = $event => $setup.localData.nameth = $event),
-      id: "nameth",
+      "onUpdate:modelValue": _cache[2] || (_cache[2] = $event => $setup.localData.usertsurname = $event),
       class: "form-control input-md",
-      maxlength: "100"
-    }, null, 512), [[runtime_dom_esm_bundler/* vModelText */.Jo, $setup.localData.nameth]]), _hoisted_16], 2), $setup.v$.nameth.$error ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("span", _hoisted_17, (0,shared_esm_bundler/* toDisplayString */.v_)($setup.v$.nameth.$errors[0].$message), 1)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_18, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_19, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_20, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.url_label), 1), (0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
-      ref: "url",
+      readonly: ""
+    }, null, 512), [[runtime_dom_esm_bundler/* vModelText */.Jo, $setup.localData.usertsurname]])])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", EntryFormvue_type_template_id_4d722c51_hoisted_10, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_11, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_12, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.email_label), 1), (0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
       type: "text",
-      "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => $setup.localData.url = $event),
-      id: "url",
+      "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => $setup.localData.email = $event),
       class: "form-control input-md",
-      maxlength: "100"
-    }, null, 512), [[runtime_dom_esm_bundler/* vModelText */.Jo, $setup.localData.url]])])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_21, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_22, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_23, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.sequence_label), 1), (0,runtime_core_esm_bundler/* createVNode */.bF)(_component_InputNumber, {
-      ref: "seqno",
-      modelValue: $setup.localData.seqno,
-      "onUpdate:modelValue": _cache[4] || (_cache[4] = $event => $setup.localData.seqno = $event),
-      id: "seqno"
-    }, null, 8, ["modelValue"])])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_24, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_25, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_26, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
-      ref: "centerflag",
+      readonly: ""
+    }, null, 512), [[runtime_dom_esm_bundler/* vModelText */.Jo, $setup.localData.email]])])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_13, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_14, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_15, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.status_label), 1), (0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("select", {
+      ref: "status",
+      "onUpdate:modelValue": _cache[4] || (_cache[4] = $event => $setup.localData.status = $event),
+      class: "form-control input-md"
+    }, [((0,runtime_core_esm_bundler/* openBlock */.uX)(true), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, (0,runtime_core_esm_bundler/* renderList */.pI)($props.dataCategory.tkuserstatus, item => {
+      return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("option", {
+        key: item.id,
+        value: item.id
+      }, (0,shared_esm_bundler/* toDisplayString */.v_)(item.text), 9, _hoisted_16);
+    }), 128))], 512), [[runtime_dom_esm_bundler/* vModelSelect */.u1, $setup.localData.status]])])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_17, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_18, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("fieldset", _hoisted_19, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("legend", _hoisted_20, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_21, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.accessalls_sectionlabel), 1)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_22, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_23, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_24, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_25, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
+      ref: "branchflag",
       type: "checkbox",
-      id: "centerflag",
-      "true-value": 1,
-      "false-value": 0,
-      "onUpdate:modelValue": _cache[5] || (_cache[5] = $event => $setup.localData.centerflag = $event),
+      "true-value": "1",
+      "false-value": "0",
+      id: "branchflag",
+      "onUpdate:modelValue": _cache[5] || (_cache[5] = $event => $setup.localData.branchflag = $event),
       class: "form-control input-md form-check-input"
-    }, null, 512), [[runtime_dom_esm_bundler/* vModelCheckbox */.lH, $setup.localData.centerflag]]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_27, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.centerflag_label), 1)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_28, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_29, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
-      ref: "verified",
-      type: "checkbox",
-      id: "verified",
-      "true-value": 1,
-      "false-value": 0,
-      "onUpdate:modelValue": _cache[6] || (_cache[6] = $event => $setup.localData.verified = $event),
-      class: "form-control input-md form-check-input"
-    }, null, 512), [[runtime_dom_esm_bundler/* vModelCheckbox */.lH, $setup.localData.verified]]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_30, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.verified_label), 1)])])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_31, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_32, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_33, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.iconfile_label), 1)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_34, [_hoisted_35, (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_36, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("img", {
-      id: "iconfileimage",
-      width: "128px",
-      height: "128px",
-      src: $options.getIconImage,
-      alt: "Product Image"
-    }, null, 8, _hoisted_37)])])]),
-    footer: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [$options.insertMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("button", {
+    }, null, 512), [[runtime_dom_esm_bundler/* vModelCheckbox */.lH, $setup.localData.branchflag]]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_26, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.branchflag_label), 1)])])])])])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_27, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_28, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("fieldset", {
+      id: "accessbranchesfieldset",
+      disabled: !$options.isAccessBranch
+    }, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_30, [((0,runtime_core_esm_bundler/* openBlock */.uX)(true), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, (0,runtime_core_esm_bundler/* renderList */.pI)($options.branchLists(), (branch, index) => {
+      return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", {
+        key: index,
+        class: "row row-heighter"
+      }, [((0,runtime_core_esm_bundler/* openBlock */.uX)(true), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, (0,runtime_core_esm_bundler/* renderList */.pI)(branch, item => {
+        return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", {
+          key: item.id,
+          class: "col-height col-md-4"
+        }, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_31, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_32, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
+          type: "checkbox",
+          value: item.id,
+          "onUpdate:modelValue": _cache[6] || (_cache[6] = $event => $setup.localData.userbranches = $event),
+          class: "form-control input-md form-check-input"
+        }, null, 8, _hoisted_33), [[runtime_dom_esm_bundler/* vModelCheckbox */.lH, $setup.localData.userbranches]]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("span", _hoisted_34, (0,shared_esm_bundler/* toDisplayString */.v_)(item.text), 1)])])]);
+      }), 128))]);
+    }), 128))])], 8, _hoisted_29)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_35, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_36, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("fieldset", _hoisted_37, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("legend", _hoisted_38, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_39, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.accessroles_sectionlabel), 1)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_40, [((0,runtime_core_esm_bundler/* openBlock */.uX)(true), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, (0,runtime_core_esm_bundler/* renderList */.pI)($options.roleLists(), (role, index) => {
+      return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", {
+        key: index,
+        class: "row row-heighter"
+      }, [((0,runtime_core_esm_bundler/* openBlock */.uX)(true), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, (0,runtime_core_esm_bundler/* renderList */.pI)(role, item => {
+        return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", {
+          key: item.id,
+          class: "col-height col-md-4"
+        }, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_41, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_42, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
+          type: "checkbox",
+          value: item.id,
+          "onUpdate:modelValue": _cache[7] || (_cache[7] = $event => $setup.localData.userroles = $event),
+          class: "form-control input-md form-check-input"
+        }, null, 8, _hoisted_43), [[runtime_dom_esm_bundler/* vModelCheckbox */.lH, $setup.localData.userroles]]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("span", _hoisted_44, (0,shared_esm_bundler/* toDisplayString */.v_)(item.text), 1)])])]);
+      }), 128))]);
+    }), 128))])])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_45, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_46, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("fieldset", _hoisted_47, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("legend", _hoisted_48, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_49, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.accessgroups_sectionlabel), 1)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_50, [((0,runtime_core_esm_bundler/* openBlock */.uX)(true), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, (0,runtime_core_esm_bundler/* renderList */.pI)($options.groupLists(), (group, index) => {
+      return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", {
+        key: index,
+        class: "row row-heighter"
+      }, [((0,runtime_core_esm_bundler/* openBlock */.uX)(true), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, (0,runtime_core_esm_bundler/* renderList */.pI)(group, item => {
+        return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", {
+          key: item.id,
+          class: "col-height col-md-4"
+        }, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", _hoisted_51, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", _hoisted_52, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("input", {
+          type: "checkbox",
+          value: item.id,
+          "onUpdate:modelValue": _cache[8] || (_cache[8] = $event => $setup.localData.usergroups = $event),
+          class: "form-control input-md form-check-input"
+        }, null, 8, _hoisted_53), [[runtime_dom_esm_bundler/* vModelCheckbox */.lH, $setup.localData.usergroups]]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("span", _hoisted_54, (0,shared_esm_bundler/* toDisplayString */.v_)(item.text), 1)])])]);
+      }), 128))]);
+    }), 128))])])])]),
+    footer: (0,runtime_core_esm_bundler/* withCtx */.k6)(() => [$options.isRegisteredFactor ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", _hoisted_55, [$setup.showFactor ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("button", {
       key: 0,
-      ref: "savebutton",
-      id: "savebutton",
+      ref: "resetfactorbutton",
+      id: "resetfactorbutton",
       class: "btn btn-dark btn-sm",
-      onClick: _cache[7] || (_cache[7] = (...args) => $options.saveClick && $options.saveClick(...args))
-    }, [_hoisted_38, (0,runtime_core_esm_bundler/* createTextVNode */.eW)((0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.save_button), 1)], 512)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true), $options.updateMode ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("button", {
-      key: 1,
+      onClick: _cache[9] || (_cache[9] = (...args) => $options.resetFactorClick && $options.resetFactorClick(...args))
+    }, [_hoisted_56, (0,runtime_core_esm_bundler/* createTextVNode */.eW)((0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.reset_factor_button), 1)], 512)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)])) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("button", {
       ref: "updatebutton",
       id: "updatebutton",
       class: "btn btn-dark btn-sm",
-      onClick: _cache[8] || (_cache[8] = (...args) => $options.updateClick && $options.updateClick(...args))
-    }, [_hoisted_39, (0,runtime_core_esm_bundler/* createTextVNode */.eW)((0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.update_button), 1)], 512)) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("button", _hoisted_40, [_hoisted_41, (0,runtime_core_esm_bundler/* createTextVNode */.eW)((0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.cancel_button), 1)])]),
+      onClick: _cache[10] || (_cache[10] = (...args) => $options.updateClick && $options.updateClick(...args))
+    }, [_hoisted_57, (0,runtime_core_esm_bundler/* createTextVNode */.eW)((0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.update_button), 1)], 512), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("button", _hoisted_58, [_hoisted_59, (0,runtime_core_esm_bundler/* createTextVNode */.eW)((0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.cancel_button), 1)])]),
     _: 1
   }, 512);
 }
-;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=template&id=472e0d39
+;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=template&id=4d722c51
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.push.js
+var es_array_push = __webpack_require__(4114);
 // EXTERNAL MODULE: ./node_modules/@vuelidate/core/dist/index.mjs
 var dist = __webpack_require__(7760);
 // EXTERNAL MODULE: ./node_modules/@vuelidate/validators/dist/index.mjs
@@ -1011,64 +1083,66 @@ const DialogForm_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(DialogF
 
 
 
-const EntryFormvue_type_script_lang_js_APP_URL = "/api/sfte003";
+
+const EntryFormvue_type_script_lang_js_APP_URL = "/api/sfte007";
 const EntryFormvue_type_script_lang_js_defaultData = {
-  product: "",
-  nameen: "",
-  nameth: "",
-  seqno: 0,
-  url: "",
-  centerflag: "0",
-  verified: "0",
-  iconfile: ""
+  site: "",
+  userid: "",
+  username: "",
+  usertname: "",
+  usertsurname: "",
+  userename: "",
+  useresurname: "",
+  email: "",
+  status: "A",
+  siteflag: "",
+  branchflag: "",
+  displayname: "",
+  userbranch: "",
+  sitedesc: "",
+  factorid: "",
+  factorflag: "",
+  usersites: [],
+  userbranches: [],
+  userroles: [],
+  usergroups: []
 };
 /* harmony default export */ var EntryFormvue_type_script_lang_js = ({
   components: {
     DialogForm: DialogForm,
-    InputNumber: will_control_umd.InputNumber,
     InputMask: will_control_umd.InputMask
   },
   props: {
     modes: Object,
-    labels: Object
+    labels: Object,
+    dataCategory: Object
   },
-  emits: ["data-saved", "data-updated", "data-deleted"],
+  emits: ["data-updated", "data-reseted"],
   setup(props) {
-    const mode = (0,reactivity_esm_bundler/* ref */.KR)({
-      action: "new",
-      ...props.modes
-    });
     const localData = (0,reactivity_esm_bundler/* ref */.KR)({
       ...EntryFormvue_type_script_lang_js_defaultData
     });
-    const disabledKeyField = (0,reactivity_esm_bundler/* ref */.KR)(false);
     const reqalert = (0,reactivity_esm_bundler/* ref */.KR)(props.labels.empty_alert);
     const requiredMessage = () => {
       return validators_dist/* helpers */._$.withMessage(reqalert, validators_dist/* required */.mw);
     };
     const validateRules = (0,runtime_core_esm_bundler/* computed */.EW)(() => {
       return {
-        product: {
-          required: requiredMessage()
-        },
-        nameen: {
-          required: requiredMessage()
-        },
-        nameth: {
+        username: {
           required: requiredMessage()
         }
       };
     });
+    const showFactor = (0,reactivity_esm_bundler/* ref */.KR)(true);
     const v$ = (0,dist/* useVuelidate */.fG)(validateRules, localData, {
       $lazy: true,
       $autoDirty: true
     });
     return {
-      mode,
       v$,
       localData,
-      disabledKeyField,
-      reqalert
+      reqalert,
+      showFactor
     };
   },
   created() {
@@ -1077,14 +1151,11 @@ const EntryFormvue_type_script_lang_js_defaultData = {
     });
   },
   computed: {
-    insertMode() {
-      return this.mode.action == "insert" || this.mode.action == "new";
+    isRegisteredFactor() {
+      return this.localData.factorflag == "1";
     },
-    updateMode() {
-      return this.mode.action == "update" || this.mode.action == "edit";
-    },
-    getIconImage() {
-      return this.localData.iconfile && this.localData.iconfile.trim().length > 0 ? (0,will_app/* getImgUrl */.xn)() + "/img/module/" + this.localData.iconfile : (0,will_app/* getImgUrl */.xn)() + "/img/module/module.png";
+    isAccessBranch() {
+      return this.localData.branchflag == "1";
     }
   },
   mounted() {
@@ -1093,26 +1164,32 @@ const EntryFormvue_type_script_lang_js_defaultData = {
     });
   },
   methods: {
-    reset(newData, newMode) {
+    buildLists(category, chunkSize = 3) {
+      let results = [];
+      let tcategory = this.$props.dataCategory[category];
+      if (tcategory) {
+        for (let i = 0; i < tcategory.length; i += chunkSize) {
+          results.push(tcategory.slice(i, i + chunkSize));
+        }
+      }
+      return results;
+    },
+    branchLists() {
+      return this.buildLists("tcompbranch");
+    },
+    roleLists() {
+      return this.buildLists("trole");
+    },
+    groupLists() {
+      return this.buildLists("tgroup");
+    },
+    reset(newData) {
       if (newData) this.localData = {
         ...newData
       };
-      if (newMode) this.mode = {
-        ...newMode
-      };
-    },
-    submit() {
-      this.$emit('update:formData', this.localData);
-    },
-    async saveClick() {
-      console.log("click: save");
-      (0,will_app/* disableControls */.rv)(jquery_default()("#savebutton"));
-      let valid = await this.validateForm();
-      if (!valid) return;
-      this.startSaveRecord();
     },
     async updateClick() {
-      console.log("click: update");
+      console.log("click: update", this.isAccessBranch);
       (0,will_app/* disableControls */.rv)(jquery_default()("#updatebutton"));
       let valid = await this.validateForm();
       if (!valid) return;
@@ -1138,8 +1215,9 @@ const EntryFormvue_type_script_lang_js_defaultData = {
         else jquery_default()("#" + input).trigger("focus"); //if using id
       }
     },
-    showDialog() {
+    showDialog(callback) {
       //$("#modaldialog_layer").modal("show");
+      if (callback) jquery_default()(this.$refs.dialogForm.$el).on("shown.bs.modal", callback);
       jquery_default()(this.$refs.dialogForm.$el).modal("show");
     },
     hideDialog() {
@@ -1148,63 +1226,16 @@ const EntryFormvue_type_script_lang_js_defaultData = {
     },
     resetRecord() {
       //reset to default data 
-      this.reset(EntryFormvue_type_script_lang_js_defaultData, {
-        action: "insert"
-      });
+      this.reset(EntryFormvue_type_script_lang_js_defaultData);
       //reset validator
       this.v$.$reset();
       //enable key field
       this.disabledKeyField = false;
     },
-    startInsertRecord() {
-      this.resetRecord();
-      this.showDialog();
-    },
-    startSaveRecord() {
-      (0,will_app/* confirmSave */.ex)(() => {
-        this.saveRecord(this.localData);
-      });
-    },
     startUpdateRecord() {
       (0,will_app/* confirmUpdate */.cS)(() => {
+        if (!this.isAccessBranch) this.localData.userbranches = [];
         this.updateRecord(this.localData);
-      });
-    },
-    startDeleteRecord(dataKeys) {
-      (0,will_app/* confirmDelete */.QV)(Object.values(dataKeys), () => {
-        this.deleteRecord(dataKeys);
-      });
-    },
-    saveRecord(dataRecord) {
-      let jsondata = {
-        ajax: true
-      };
-      let formdata = (0,will_app/* serializeParameters */.L3)(jsondata, dataRecord);
-      (0,will_app/* startWaiting */.eF)();
-      jquery_default().ajax({
-        url: (0,will_app/* getApiUrl */.e9)() + EntryFormvue_type_script_lang_js_APP_URL + "/insert",
-        data: formdata.jsondata,
-        headers: formdata.headers,
-        type: "POST",
-        dataType: "json",
-        contentType: will_app/* DEFAULT_CONTENT_TYPE */.Xh,
-        error: function (transport, status, errorThrown) {
-          console.error("error: status", status, "errorThrown", errorThrown);
-          (0,will_app/* submitFailure */.pg)(transport, status, errorThrown);
-        },
-        success: data => {
-          (0,will_app/* stopWaiting */.Sk)();
-          console.log("success", data);
-          if ((0,will_app/* detectErrorResponse */.DA)(data)) return;
-          (0,will_app/* successbox */.hM)(() => {
-            //reset data for new record insert
-            this.resetRecord();
-            setTimeout(() => {
-              this.$refs.product.focus();
-            }, 100);
-          });
-          this.$emit('data-saved', dataRecord, data);
-        }
       });
     },
     updateRecord(dataRecord) {
@@ -1230,8 +1261,8 @@ const EntryFormvue_type_script_lang_js_defaultData = {
           if ((0,will_app/* detectErrorResponse */.DA)(data)) return;
           (0,will_app/* successbox */.hM)(() => {
             this.hideDialog();
+            this.$emit('data-updated', dataRecord, data);
           });
-          this.$emit('data-updated', dataRecord, data);
         }
       });
     },
@@ -1256,39 +1287,56 @@ const EntryFormvue_type_script_lang_js_defaultData = {
           (0,will_app/* stopWaiting */.Sk)();
           console.log("retrieveRecord: success", data);
           if (data.body.dataset) {
-            this.reset(data.body.dataset, {
-              action: "edit"
-            });
+            this.reset(data.body.dataset);
             this.v$.$reset();
             this.disabledKeyField = true;
-            this.showDialog();
+            this.showDialog(() => {
+              this.$refs.username.focus();
+            });
           }
         }
       });
     },
-    deleteRecord(dataKeys) {
+    resetFactorClick() {
+      (0,will_app/* disableControls */.rv)(jquery_default()("#resetfactorbutton"));
+      this.startResetFactor();
+    },
+    startResetFactor() {
+      this.confirmResetFactor(() => {
+        this.resetFactor({
+          userid: this.localData.userid,
+          factorid: this.localData.factorid
+        });
+      });
+    },
+    confirmResetFactor(okFn, cancelFn, width, height) {
+      if (!(0,will_app/* confirmDialogBox */.A3)("QS0021", null, "Do you want to reset two factor authentication?", okFn, cancelFn, width, height)) return false;
+      return true;
+    },
+    resetFactor(dataKeys) {
       let jsondata = {
         ajax: true
       };
       let formdata = (0,will_app/* serializeParameters */.L3)(jsondata, dataKeys);
       (0,will_app/* startWaiting */.eF)();
       jquery_default().ajax({
-        url: (0,will_app/* getApiUrl */.e9)() + EntryFormvue_type_script_lang_js_APP_URL + "/remove",
+        url: (0,will_app/* getApiUrl */.e9)() + EntryFormvue_type_script_lang_js_APP_URL + "/resetfactor",
         data: formdata.jsondata,
         headers: formdata.headers,
         type: "POST",
         dataType: "json",
         contentType: will_app/* DEFAULT_CONTENT_TYPE */.Xh,
         error: function (transport, status, errorThrown) {
-          console.error("deleteRecord: error: status", status, "errorThrown", errorThrown);
+          console.error("resetfactor: error: status", status, "errorThrown", errorThrown);
           (0,will_app/* submitFailure */.pg)(transport, status, errorThrown);
         },
         success: data => {
           (0,will_app/* stopWaiting */.Sk)();
-          console.log("deleteRecord: success", data);
-          if ((0,will_app/* detectErrorResponse */.DA)(data)) return;
-          (0,will_app/* successbox */.hM)();
-          this.$emit('data-deleted', dataKeys, data);
+          console.log("resetFactor: success", data);
+          this.showFactor = false;
+          (0,will_app/* alertmsg */.iR)("QS0202", "Reset Two Factor Success", undefined, () => {
+            this.$emit('data-reseted', dataKeys, data);
+          });
         }
       });
     }
@@ -1296,16 +1344,23 @@ const EntryFormvue_type_script_lang_js_defaultData = {
 });
 ;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=script&lang=js
  
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-12.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/EntryForm.vue?vue&type=style&index=0&id=4d722c51&lang=css
+// extracted by mini-css-extract-plugin
+
+;// CONCATENATED MODULE: ./src/components/EntryForm.vue?vue&type=style&index=0&id=4d722c51&lang=css
+
 ;// CONCATENATED MODULE: ./src/components/EntryForm.vue
 
 
 
 
 ;
-const EntryForm_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(EntryFormvue_type_script_lang_js, [['render',EntryFormvue_type_template_id_472e0d39_render]])
+
+
+const EntryForm_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(EntryFormvue_type_script_lang_js, [['render',EntryFormvue_type_template_id_4d722c51_render]])
 
 /* harmony default export */ var EntryForm = (EntryForm_exports_);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/AppVfte003.vue?vue&type=script&lang=js
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/AppVfte007.vue?vue&type=script&lang=js
 
 
 
@@ -1313,19 +1368,38 @@ const EntryForm_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(EntryFor
 
 
 
-/* harmony default export */ var AppVfte003vue_type_script_lang_js = ({
+
+/* harmony default export */ var AppVfte007vue_type_script_lang_js = ({
   components: {
     PageHeader: will_control_umd.PageHeader,
     SearchForm: SearchForm,
     EntryForm: EntryForm
   },
   setup() {
+    const dataChunk = {};
+    const dataCategory = {
+      tcompbranch: [],
+      trole: [],
+      tgroup: [],
+      tkuserstatus: [{
+        id: "A",
+        text: "Activated"
+      }, {
+        id: "C",
+        text: "Closed"
+      }, {
+        id: "P",
+        text: "Pending"
+      }]
+    };
     let labels = (0,reactivity_esm_bundler/* ref */.KR)((0,will_app/* getLabelModel */.aU)());
     let alreadyLoading = (0,reactivity_esm_bundler/* ref */.KR)(false);
     const multiLanguages = (0,reactivity_esm_bundler/* ref */.KR)((0,will_app/* getMultiLanguagesModel */.Hx)());
     return {
       multiLanguages,
       labels,
+      dataCategory,
+      dataChunk,
       alreadyLoading
     };
   },
@@ -1333,10 +1407,12 @@ const EntryForm_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(EntryFor
     console.log("App: mounted ...");
     this.$nextTick(async () => {
       //ensure ui completed then invoke startApplication 
-      (0,will_app/* startApplication */.xL)("vfte003", data => {
+      (0,will_app/* startApplication */.xL)("vfte007", data => {
         this.multiLanguages = (0,will_app/* getMultiLanguagesModel */.Hx)();
         this.messagingHandler(data);
-        this.$refs.pageHeader.changeLanguage((0,will_app/* getDefaultLanguage */.i5)());
+        this.loadDataCategories(!this.alreadyLoading, () => {
+          this.$refs.pageHeader.changeLanguage((0,will_app/* getDefaultLanguage */.i5)());
+        });
       });
     });
   },
@@ -1348,57 +1424,118 @@ const EntryForm_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(EntryFor
       (0,will_app/* setDefaultLanguage */.Qq)(lang);
       let labelModel = (0,will_app/* getLabelModel */.aU)(lang);
       this.labels = labelModel;
+      this.resetDataCategories(lang);
+    },
+    loadDataCategories(loading, callback) {
+      console.log("loadDataCategories: loading", loading);
+      if (!loading) return;
+      let jsondata = {
+        names: ["tcompbranch", "trole", "tgroup", "tkuserstatus"]
+      };
+      let formdata = (0,will_app/* serializeParameters */.L3)(jsondata);
+      jquery_default().ajax({
+        url: (0,will_app/* getApiUrl */.e9)() + "/api/category/lists",
+        data: formdata.jsondata,
+        headers: formdata.headers,
+        type: "POST",
+        dataType: "json",
+        contentType: will_app/* DEFAULT_CONTENT_TYPE */.Xh,
+        error: function (transport, status, errorThrown) {
+          console.error("loadDataCategories: error: status", status, "errorThrown", errorThrown);
+        },
+        success: data => {
+          this.alreadyLoading = true;
+          console.log("loadDataCategories: success", data);
+          if (data.body) {
+            for (let item of data.body) {
+              if (item.category && item.resultset && item.resultset.rows) {
+                this.dataChunk[item.category] = item.resultset.rows;
+              }
+            }
+            console.log("data chunk", this.dataChunk);
+            this.resetDataCategories();
+            if (callback) callback();
+          }
+        }
+      });
+    },
+    resetDataCategories(lang) {
+      if (!lang) lang = (0,will_app/* getDefaultLanguage */.i5)();
+      if (!lang || lang.trim().length == 0) lang = "EN";
+      let tcompbranch;
+      let trole;
+      let tgroup;
+      let tkuserstatus;
+      let tk_category = this.dataChunk["tcompbranch"];
+      if (tk_category) {
+        tcompbranch = tk_category.map(item => {
+          return {
+            id: item.branch,
+            text: "TH" == lang ? item.nameth : item.nameen
+          };
+        });
+      }
+      tk_category = this.dataChunk["trole"];
+      if (tk_category) {
+        trole = tk_category.map(item => {
+          return {
+            id: item.roleid,
+            text: "TH" == lang ? item.nameth : item.nameen
+          };
+        });
+      }
+      tk_category = this.dataChunk["tgroup"];
+      if (tk_category) {
+        tgroup = tk_category.map(item => {
+          return {
+            id: item.groupname,
+            text: "TH" == lang ? item.nameth : item.nameen
+          };
+        });
+      }
+      tk_category = this.dataChunk["tkuserstatus"];
+      if (tk_category) {
+        tkuserstatus = tk_category.map(item => {
+          return {
+            id: item.typeid,
+            text: "TH" == lang ? item.nameth : item.nameen
+          };
+        });
+      }
+      if (tcompbranch) this.dataCategory.tcompbranch = tcompbranch;
+      if (trole) this.dataCategory.trole = trole;
+      if (tgroup) this.dataCategory.tgroup = tgroup;
+      if (tkuserstatus) this.dataCategory.tkuserstatus = tkuserstatus;
     },
     dataSelected(item, action) {
       //listen action from search form
       console.log("App: dataSelected", item, "action", action);
       if ("edit" == action) {
         this.$refs.entryForm.retrieveRecord({
-          product: item.product
-        });
-      } else if ("delete" == action) {
-        this.$refs.entryForm.startDeleteRecord({
-          product: item.product
+          userid: item.userid
         });
       }
-    },
-    dataInsert(filters) {
-      //listen action from search form
-      console.log("App: record insert", filters);
-      this.$refs.entryForm.startInsertRecord();
-    },
-    dataSaved(data, response) {
-      //listen action from entry form when after saved
-      console.log("App: record saved");
-      console.log("data", data, "response", response);
-      this.$refs.searchForm.search();
     },
     dataUpdated(data, response) {
       //listen action from entry form when after updated
       console.log("App: record updated");
       console.log("data", data, "response", response);
       this.$refs.searchForm.search();
-    },
-    dataDeleted(data, response) {
-      //listen action from entry form when after deleted
-      console.log("App: record deleted");
-      console.log("data", data, "response", response);
-      this.$refs.searchForm.search(true);
     }
   }
 });
-;// CONCATENATED MODULE: ./src/AppVfte003.vue?vue&type=script&lang=js
+;// CONCATENATED MODULE: ./src/AppVfte007.vue?vue&type=script&lang=js
  
-;// CONCATENATED MODULE: ./src/AppVfte003.vue
+;// CONCATENATED MODULE: ./src/AppVfte007.vue
 
 
 
 
 ;
-const AppVfte003_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(AppVfte003vue_type_script_lang_js, [['render',render]])
+const AppVfte007_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(AppVfte007vue_type_script_lang_js, [['render',render]])
 
-/* harmony default export */ var AppVfte003 = (AppVfte003_exports_);
-;// CONCATENATED MODULE: ./src/vfte003.js
+/* harmony default export */ var AppVfte007 = (AppVfte007_exports_);
+;// CONCATENATED MODULE: ./src/vfte007.js
 
 
 
@@ -1423,7 +1560,7 @@ const AppVfte003_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(AppVfte
 
 
 console.info("Vue version", runtime_core_esm_bundler/* version */.rE);
-(0,runtime_dom_esm_bundler/* createApp */.Ef)(AppVfte003).mount('#app');
+(0,runtime_dom_esm_bundler/* createApp */.Ef)(AppVfte007).mount('#app');
 
 /***/ }),
 
@@ -1600,7 +1737,7 @@ console.info("Vue version", runtime_core_esm_bundler/* version */.rE);
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkvfte003"] = self["webpackChunkvfte003"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunkvfte007"] = self["webpackChunkvfte007"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	}();
@@ -1610,9 +1747,9 @@ console.info("Vue version", runtime_core_esm_bundler/* version */.rE);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(5997); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(7907); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=index.d99005aa.js.map
+//# sourceMappingURL=index.385e8fef.js.map
