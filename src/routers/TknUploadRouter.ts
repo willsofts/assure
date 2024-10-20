@@ -10,36 +10,43 @@ import { UPLOAD_RESOURCES_PATH, UPLOAD_FILE_TYPES, UPLOAD_FILE_SIZE } from "../u
 import { TknAttachHandler } from '../handlers/TknAttachHandler';
 import { TknBaseRouter } from './TknBaseRouter';
 
-const buddystorage = multer.diskStorage({
-	destination: function(req, file, cb) {
-		let dir = path.join(UPLOAD_RESOURCES_PATH,"uploaded","files");
-		if(!fs.existsSync(dir)) {
-			fs.mkdirSync(dir, { recursive: true });
-		}
-		cb(null, dir);
-	},  
-	filename: function(req, file, cb) {
-		let extension = path.extname(file.originalname);
-		let fileid = uuid();
-		let filename = fileid+extension;
-		req.params.fileid = fileid;
-		cb(null, filename.toLowerCase());
-	}
-});
-
 export class TknUploadRouter extends TknBaseRouter {
-	private fileuploader : multer.Multer;
-	private uploadfile : RequestHandler;
+	protected fileuploader : multer.Multer;
+	protected uploadfile : RequestHandler;
 
-    constructor(service: Service, dir?: string, paramname: string = "filename", fileTypes?: RegExp, fileSize?: number) {
+	constructor(service: Service, dir?: string, filePath?: string, paramname: string = "filename", fileTypes?: RegExp, fileSize?: number) {
 		super(service, dir);
-		this.fileuploader = this.buildMulter(fileTypes, fileSize);
+		this.fileuploader = this.buildMulter(filePath,fileTypes, fileSize);
 		this.uploadfile = this.fileuploader.single(paramname);
     }
 
-	private buildMulter(fileTypes: RegExp = new RegExp(UPLOAD_FILE_TYPES,"i"), fileSize: number = UPLOAD_FILE_SIZE) : multer.Multer {
+	public getUploadPath() : string {
+		return path.join(UPLOAD_RESOURCES_PATH,"uploaded","files");;
+	}
+	
+	protected getUploadStorage(filePath?: string) {
+		let dir = this.getUploadPath();
+		if(filePath && filePath.trim().length > 0)  dir = filePath;
+		return multer.diskStorage({
+			destination: function(req, file, cb) {
+				if(!fs.existsSync(dir)) {
+					fs.mkdirSync(dir, { recursive: true });
+				}
+				cb(null, dir);
+			},  
+			filename: function(req, file, cb) {
+				let extension = path.extname(file.originalname);
+				let fileid = uuid();
+				let filename = fileid+extension;
+				req.params.fileid = fileid;
+				cb(null, filename.toLowerCase());
+			}
+		});
+	}
+	
+	protected buildMulter(filePath?: string, fileTypes: RegExp = new RegExp(UPLOAD_FILE_TYPES,"i"), fileSize: number = UPLOAD_FILE_SIZE) : multer.Multer {
 		return multer({ 
-			storage: buddystorage,
+			storage: this.getUploadStorage(filePath),
 			limits : { fileSize : fileSize }, 
 			fileFilter:  function (req, file, cb) {    
 				console.log("fileFilter:",file);

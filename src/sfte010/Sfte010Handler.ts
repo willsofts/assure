@@ -141,7 +141,7 @@ export class Sfte010Handler extends TknOperateHandler {
                 let row = handler.transformData(rs.rows[0]);
                 return this.createDataTable(KnOperation.RETRIEVAL, row, {}, "sfte010/sfte010");
             }
-            return this.createDataTable(KnOperation.ADD, {}, {}, "sfte010/sfte010");
+            return this.createDataTable(KnOperation.ADD, {userid: "DEFAULT"}, {}, "sfte010/sfte010");
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
             return Promise.reject(this.getDBError(ex));
@@ -172,7 +172,7 @@ export class Sfte010Handler extends TknOperateHandler {
                 let row = handler.transformData(rs.rows[0]);
                 return this.createDataTable(KnOperation.RETRIEVE, row);
             }
-            return this.recordNotFound();
+            return this.createDataTable(KnOperation.ADD, {userid: "DEFAULT"});
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
             return Promise.reject(this.getDBError(ex));

@@ -5,6 +5,7 @@ import { TknAssureHandler } from "./handlers/TknAssureHandler";
 import { TknRouteManager } from './routers/TknRouteManager';
 import { TknSAMLManager } from './routers/TknSAMLManager';
 import { TknReportManager } from "./routers/TknReportManager";
+import { UploadFileManager } from "./routers/UploadFileManager";
 
 const ExpressService : ServiceSchema = {
     name: "api",
@@ -43,6 +44,8 @@ runner.start(process.argv).then(() => {
         new TknSAMLManager(runner.service, __dirname).route(app);
         //this is for report operator
         new TknReportManager(runner.service, __dirname).route(app);
+        //this is private upload file router
+        new UploadFileManager(runner.service, __dirname).route(app);
     }
     if(runner.broker) {
         runner.broker.call("$node.services").then((services: any) => {
