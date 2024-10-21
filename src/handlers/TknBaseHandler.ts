@@ -10,9 +10,6 @@ import { VerifyError } from "../models/VerifyError";
 import { KnAuthorizationInfo, KnContextInfo, KnValidateInfo, RESERVED_FIELDS } from '../models/KnCoreAlias';
 import { VALIDATE_TOKEN, DB_SECTION, VALIDATE_ANOMYMOUS_TOKEN} from "../utils/EnvironmentVariable";
 
-import { ServiceBroker } from "moleculer";
-import { KnLoggerInterface, KnBase } from "@willsofts/will-db";
-
 export class TknBaseHandler extends KnHandler {
     public accessor?: KnAccessor;
     public section: string = DB_SECTION;

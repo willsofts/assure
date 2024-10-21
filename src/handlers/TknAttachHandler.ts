@@ -47,14 +47,26 @@ export class TknAttachHandler extends TknSchemeHandler {
         return this.createRecordSet(rs);
     }
 
-    public async removeAttach(attachid: string, model: KnModel = this.model) : Promise<KnRecordSet> {
+    public async getAttachNo(attachno: string, db: KnDBConnector, context?: KnContextInfo, model: KnModel = this.model) : Promise<KnRecordSet> {
+        if(!attachno || attachno.trim().length==0) return this.createRecordSet();        
+        let sql = new KnSQL("select * from tattachfile ");
+        sql.append("where attachno = ?attachno ");
+        sql.set("attachno",attachno);
+        this.logger.info(this.constructor.name+".getAttachNo",sql);
+        let rs = await sql.executeQuery(db,context);
+        return this.createRecordSet(rs);
+    }
+
+    public async removeAttach(attachid: string, context?: KnContextInfo, model: KnModel = this.model) : Promise<KnRecordSet> {
         this.logger.debug(this.constructor.name+".removeAttach: id="+attachid);
         if(!attachid || attachid.trim().length==0) {
             return Promise.reject(new VerifyError("Attach id is undefined",HTTP.NOT_ACCEPTABLE,-16010));
         }
         let db = this.getPrivateConnector(model);
         try {
-            let rs = await this.performRemoveAttach(attachid,db);
+            let ars = await this.getAttachRecord(attachid,db,context);
+            await this.removeAttachFiles(ars);
+            let rs = await this.performRemoveAttach(attachid,db,context);
             return this.createRecordSet(rs);
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
@@ -64,24 +76,26 @@ export class TknAttachHandler extends TknSchemeHandler {
         }
     }
 
-    public async performRemoveAttach(attachid: string, db: KnDBConnector) : Promise<KnRecordSet> {
+    public async performRemoveAttach(attachid: string, db: KnDBConnector, context?: KnContextInfo) : Promise<KnRecordSet> {
         if(!attachid || attachid.trim().length==0) return this.createRecordSet();
         let sql = new KnSQL("delete from tattachfile ");
         sql.append("where attachid = ?attachid ");
         sql.set("attachid",attachid);
         this.logger.info(this.constructor.name+".performRemoveAttach",sql);
-        let rs = await sql.executeUpdate(db);
+        let rs = await sql.executeUpdate(db,context);
         return this.createRecordSet(rs);
     }
 
-    public async removeAttachNo(attachno: string, model: KnModel = this.model) : Promise<KnRecordSet> {
+    public async removeAttachNo(attachno: string, context?: KnContextInfo, model: KnModel = this.model) : Promise<KnRecordSet> {
         this.logger.debug(this.constructor.name+".removeAttach: no="+attachno);
         if(!attachno || attachno.trim().length==0) {
             return Promise.reject(new VerifyError("Attach no is undefined",HTTP.NOT_ACCEPTABLE,-16010));
         }
         let db = this.getPrivateConnector(model);
         try {
-            let rs = await this.performRemoveAttachNo(attachno,db);
+            let ars = await this.getAttachNo(attachno,db,context);
+            await this.removeAttachFiles(ars);
+            let rs = await this.performRemoveAttachNo(attachno,db,context);
             return this.createRecordSet(rs);
         } catch(ex: any) {
             this.logger.error(this.constructor.name,ex);
@@ -91,13 +105,13 @@ export class TknAttachHandler extends TknSchemeHandler {
         }
     }
 
-    public async performRemoveAttachNo(attachno: string, db: KnDBConnector) : Promise<KnRecordSet> {
+    public async performRemoveAttachNo(attachno: string, db: KnDBConnector, context?: KnContextInfo) : Promise<KnRecordSet> {
         if(!attachno || attachno.trim().length==0) return this.createRecordSet();
         let sql = new KnSQL("delete from tattachfile ");
         sql.append("where attachno = ?attachno ");
         sql.set("attachno",attachno);
         this.logger.info(this.constructor.name+".performRemoveAttachNo",sql);
-        let rs = await sql.executeUpdate(db);
+        let rs = await sql.executeUpdate(db,context);
         return this.createRecordSet(rs);
     }
 
@@ -206,16 +220,33 @@ export class TknAttachHandler extends TknSchemeHandler {
 
     protected override async doRemove(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
         let attachno = context.params.no || context.params.attachno;
-        if(attachno && attachno.trim().length > 0) {
-            return this.removeAttachNo(attachno,model);
+        if(attachno && attachno.trim().length > 0) {            
+            return this.removeAttachNo(attachno,context,model);
         }
         let attachid = context.params.id || context.params.attachid;
-        return this.removeAttach(attachid,model);
+        return this.removeAttach(attachid,context,model);
     }
 
     protected override async doList(context: KnContextInfo, model: KnModel) : Promise<KnRecordSet> {
         let rs = await this.doFinding(context,model,"list");
         return this.createRecordSet(rs);
+    }
+
+    public async removeAttachFiles(rs: KnRecordSet) : Promise<void> {
+        if(rs && rs.rows.length > 0) {
+            for(let row of rs.rows) {
+                let filename = row.attachpath;
+                if(filename && filename.trim().length > 0) {
+                    fs.unlink(filename, (err) => { 
+                        if(err) {
+                            this.logger.error(this.constructor.name+".removeAttachFiles: ["+filename+"] delete error:",err);
+                        } else {
+                            this.logger.info(this.constructor.name+".removeAttachFiles: ["+filename+"] deleted.");
+                        }
+                    });
+                }
+            }
+        }
     }
 
 }
