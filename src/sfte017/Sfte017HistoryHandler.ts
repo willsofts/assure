@@ -97,9 +97,8 @@ export class Sfte017HistoryHandler extends TknOperateHandler {
      * @returns KnDataTable
      */
     public override async getDataSearch(context: KnContextInfo, model: KnModel) : Promise<KnDataTable> {
-        let rs = await this.doCollecting(context, model);
-        let dt = this.createDataTable(KnOperation.COLLECT, this.createRecordSet(rs), {}, "sfte017/sfte017_history_data");
-        dt.meta = {userid: context.params.userid};
+        let dt = await this.doCollect(context, model);
+        dt.renderer = "sfte017/sfte017_history_data";
         return dt;
     }
 
@@ -110,10 +109,8 @@ export class Sfte017HistoryHandler extends TknOperateHandler {
      * @returns KnDataTable
      */
     public override async getDataRetrieval(context: KnContextInfo, model: KnModel) : Promise<KnDataTable> {
-        let name = await this.getAccountName(context, model);
         let dt = await this.getDataSearch(context, model);
         dt.renderer = "sfte017/sfte017_dialog";
-        dt.meta = {userid: context.params.userid, userfullname: name};
         return dt;
     }
 
@@ -145,6 +142,22 @@ export class Sfte017HistoryHandler extends TknOperateHandler {
             return rs.rows[0].username+" "+rs.rows[0].usersurname;
         }
         return "";
+    }
+
+    protected override async doCollect(context: KnContextInfo, model: KnModel) : Promise<KnDataTable> {
+        let db = this.getPrivateConnector(model);
+        try {
+            let rs = await this.performFinding(context, model, db, KnOperation.COLLECT);
+            let name = await this.fetchAccountName(db, context.params.userid, context);
+            let dt = this.createDataTable(KnOperation.COLLECT, this.createRecordSet(rs));
+            dt.meta = {userid: context.params.userid, userfullname: name};
+            return dt;
+        } catch(ex: any) {
+            this.logger.error(this.constructor.name,ex);
+            return Promise.reject(this.getDBError(ex));
+        } finally {
+            if(db) db.close();
+        }
     }
 
 }
