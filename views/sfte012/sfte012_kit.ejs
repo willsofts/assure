@@ -115,6 +115,56 @@
 		</div>
 	</div>
 
+	<table  class="partition-table"><tr><td class="partition-head-column"><%=label.get('s3setting_label','AWS S3 Setting')%></td><td class="partition-label-column"><a href="javascript:void(0);" onclick="toggleCollapseExpand(this)" class="pull-right part-linker" tabIndex="-1"><i class="fa fa-chevron-circle-up fa-partition-toggle"></i></a></td></tr></table>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-10">
+<label for="accesskey" id="accesskey_label" class="control-label"><%=label.get('accesskey_label','Access Key')%></label>
+<div class="input-group"><input type="text" id="accesskey" name="accesskey" class="form-control input-md irequired alert-input" value="<%=data.dataset?.accesskey%>" /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="accesskey_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('accesskey_alert','You can not leave this empty')%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-10">
+<label for="secretkey" id="secretkey_label" class="control-label"><%=label.get('secretkey_label','Secret Key')%></label>
+<div class="input-group"><input type="text" id="secretkey" name="secretkey" class="form-control input-md irequired alert-input" value="<%=data.dataset?.secretkey%>" /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="secretkey_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('secretkey_alert','You can not leave this empty')%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-5">
+<label for="region" id="region_label" class="control-label"><%=label.get('region_label','Region')%></label>
+<div class="input-group"><input type="text" id="region" name="region" class="form-control input-md irequired alert-input" value="<%=data.dataset?.region%>" /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="region_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('region_alert','You can not leave this empty')%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-md-12 col-height">
+				<div class="table-layer-class">
+					<div class="row row-height">
+						<div class="col-height col-md-5">
+<label for="bucket" id="bucket_label" class="control-label"><%=label.get('bucket_label','Bucket')%></label>
+<div class="input-group"><input type="text" id="bucket" name="bucket" class="form-control input-md irequired alert-input" value="<%=data.dataset?.bucket%>" /><span></span><div class="input-group-required"><label class="required">*</label></div></div><div id="bucket_alert" role="alert" class="has-feedback has-error fa-hidden"><%=label.get('bucket_alert','You can not leave this empty')%></div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+
 	<table  class="partition-table"><tr><td class="partition-head-column"><%=label.get('othersetting_label','Other Setting')%></td><td class="partition-label-column"><a href="javascript:void(0);" onclick="toggleCollapseExpand(this)" class="pull-right part-linker" tabIndex="-1"><i class="fa fa-chevron-circle-up fa-partition-toggle"></i></a></td></tr></table>
 	<div class="row row-height">
 		<div class="col-md-12 col-height">

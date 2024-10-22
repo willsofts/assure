@@ -22,7 +22,11 @@ export class Sfte012Handler extends TknOperateHandler {
             factorverify: { type: "STRING", calculated: true },
             factorissuer: { type: "STRING", calculated: true },
             approveurl: { type: "STRING", calculated: true },
-            activateurl: { type: "STRING", calculated: true }
+            activateurl: { type: "STRING", calculated: true },
+            accesskey: { type: "STRING", calculated: true },
+            secretkey: { type: "STRING", calculated: true },
+            region: { type: "STRING", calculated: true },
+            bucket: { type: "STRING", calculated: true },
         },
     };
 
@@ -38,6 +42,10 @@ export class Sfte012Handler extends TknOperateHandler {
         {category: "CONFIGURATION", colname: "ACTIVATE_URL", fieldname: "activateurl", columnOnly: false},
         {category: "2FA", colname: "FACTORVERIFY", fieldname: "factorverify", columnOnly: false, boolflag: true},
         {category: "2FA", colname: "FACTORISSUER", fieldname: "factorissuer", columnOnly: false},
+        {category: "S3", colname: "ACCESS_KEY", fieldname: "accesskey", columnOnly: false},
+        {category: "S3", colname: "SECRET_KEY", fieldname: "secretkey", columnOnly: false},
+        {category: "S3", colname: "REGION", fieldname: "region", columnOnly: false},
+        {category: "S3", colname: "BUCKET", fieldname: "bucket", columnOnly: false},
     ];
 
     /* override to handle launch router when invoked from menu */
@@ -62,7 +70,7 @@ export class Sfte012Handler extends TknOperateHandler {
         let record : KnDataSet = {};
         let knsql = new KnSQL();
         knsql.append("select * from tconfig ");
-        knsql.append("where category in ('CONFIGMAIL','CONFIGURATION','notification','2FA') ");
+        knsql.append("where category in ('CONFIGMAIL','CONFIGURATION','notification','2FA','S3') ");
         let rs = await knsql.executeQuery(db,context);
         if(rs && rs.rows.length>0) {
             for(let row of rs.rows) {
