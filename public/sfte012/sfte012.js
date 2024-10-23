@@ -99,11 +99,7 @@ var fs_requiredfields = {
 	"mailto":{msg:""}, 
 	"approveurl":{msg:""},
 	"activateurl":{msg:""},
-	"factorissuer":{msg:""},
-	"accesskey":{msg:""},		
-	"secretkey":{msg:""},		
-	"region":{msg:""},		
-	"bucket":{msg:""}		
+	"factorissuer":{msg:""}
 };
 //#(390000) programmer code begin;
 //#(390000) programmer code end;
