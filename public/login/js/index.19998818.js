@@ -1,7 +1,7 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 4023:
+/***/ 8443:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1762,53 +1762,53 @@ function LoginFormvue_type_template_id_1cc29bac_render(_ctx, _cache, $props, $se
 var dist = __webpack_require__(7760);
 // EXTERNAL MODULE: ./node_modules/@vuelidate/validators/dist/index.mjs
 var validators_dist = __webpack_require__(9428);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/form/SSOPanel.vue?vue&type=template&id=47f37d7f&scoped=true
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/form/SSOPanel.vue?vue&type=template&id=61cb47f4&scoped=true
 
-const _withScopeId = n => ((0,runtime_core_esm_bundler/* pushScopeId */.Qi)("data-v-47f37d7f"), n = n(), (0,runtime_core_esm_bundler/* popScopeId */.jt)(), n);
-const SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_1 = {
+const _withScopeId = n => ((0,runtime_core_esm_bundler/* pushScopeId */.Qi)("data-v-61cb47f4"), n = n(), (0,runtime_core_esm_bundler/* popScopeId */.jt)(), n);
+const SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_1 = {
   id: "ssologinlayer"
 };
-const SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_2 = {
+const SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_2 = {
   class: "loading-layer"
 };
-const SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_3 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("span", {
+const SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_3 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("span", {
   class: "loading-span"
 }, [/*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("em", {
   class: "fa fa-spinner fa-spin"
 })], -1));
-const SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_4 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("br", null, null, -1));
-const SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_5 = [SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_3, SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_4];
-const SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_6 = {
+const SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_4 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("br", null, null, -1));
+const SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_5 = [SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_3, SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_4];
+const SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_6 = {
   key: 0,
   class: "login_button_layer"
 };
-const SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_7 = {
+const SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_7 = {
   class: "login-field-set"
 };
-const SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_8 = {
+const SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_8 = {
   class: "login-legend"
 };
-const SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_9 = {
+const SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_9 = {
   class: "login-label"
 };
-const SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_10 = {
+const SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_10 = {
   class: "link-button-cover"
 };
-const SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_11 = ["data-domain", "onClick"];
-function SSOPanelvue_type_template_id_47f37d7f_scoped_true_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_1, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_2, SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_5, 512), [[runtime_dom_esm_bundler/* vShow */.aG, $setup.loadingVisible]]), $setup.ssolists.length > 0 ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_6, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("fieldset", SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_7, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("legend", SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_8, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_9, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.sso_label), 1)])])])) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true), ((0,runtime_core_esm_bundler/* openBlock */.uX)(true), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, (0,runtime_core_esm_bundler/* renderList */.pI)($setup.ssolists, item => {
+const SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_11 = ["data-domain", "onClick"];
+function SSOPanelvue_type_template_id_61cb47f4_scoped_true_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_1, [(0,runtime_core_esm_bundler/* withDirectives */.bo)((0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_2, SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_5, 512), [[runtime_dom_esm_bundler/* vShow */.aG, $setup.loadingVisible]]), $setup.ssolists.length > 0 ? ((0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_6, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("fieldset", SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_7, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("legend", SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_8, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("label", SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_9, (0,shared_esm_bundler/* toDisplayString */.v_)($props.labels.sso_label), 1)])])])) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true), ((0,runtime_core_esm_bundler/* openBlock */.uX)(true), (0,runtime_core_esm_bundler/* createElementBlock */.CE)(runtime_core_esm_bundler/* Fragment */.FK, null, (0,runtime_core_esm_bundler/* renderList */.pI)($setup.ssolists, item => {
     return (0,runtime_core_esm_bundler/* openBlock */.uX)(), (0,runtime_core_esm_bundler/* createElementBlock */.CE)("div", {
       class: "login_button_layer",
       key: item.domainid
-    }, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_10, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("a", {
+    }, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("div", SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_10, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("a", {
       class: "link-button form-control input-md fa-link-sso-biz",
       href: "javascript:void(0)",
       "data-domain": item.domainid,
       onClick: $event => _ctx.$emit('sso-selected', item)
-    }, (0,shared_esm_bundler/* toDisplayString */.v_)(item.description), 9, SSOPanelvue_type_template_id_47f37d7f_scoped_true_hoisted_11)])]);
+    }, (0,shared_esm_bundler/* toDisplayString */.v_)(item.description), 9, SSOPanelvue_type_template_id_61cb47f4_scoped_true_hoisted_11)])]);
   }), 128))]);
 }
-;// CONCATENATED MODULE: ./src/components/form/SSOPanel.vue?vue&type=template&id=47f37d7f&scoped=true
+;// CONCATENATED MODULE: ./src/components/form/SSOPanel.vue?vue&type=template&id=61cb47f4&scoped=true
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/form/SSOPanel.vue?vue&type=script&lang=js
 
@@ -1834,8 +1834,22 @@ function SSOPanelvue_type_template_id_47f37d7f_scoped_true_render(_ctx, _cache, 
     });
   },
   methods: {
+    enableSSO() {
+      try {
+        let appcfg = window.getAppConfigs();
+        if (appcfg) return appcfg.ALLOW_AUTHEN_SAML == "true";
+      } catch (ex) {
+        console.error(ex);
+      }
+      return false;
+    },
     setting() {
       console.log("SSOPanel.vue: setting ...");
+      if (!this.enableSSO()) {
+        this.loadingVisible = false;
+        this.$emit("sso-setting", this.ssolists);
+        return;
+      }
       this.loadSettings();
     },
     loadSettings() {
@@ -1863,10 +1877,10 @@ function SSOPanelvue_type_template_id_47f37d7f_scoped_true_render(_ctx, _cache, 
 });
 ;// CONCATENATED MODULE: ./src/components/form/SSOPanel.vue?vue&type=script&lang=js
  
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-12.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/form/SSOPanel.vue?vue&type=style&index=0&id=47f37d7f&scoped=true&lang=css
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-12.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/form/SSOPanel.vue?vue&type=style&index=0&id=61cb47f4&scoped=true&lang=css
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./src/components/form/SSOPanel.vue?vue&type=style&index=0&id=47f37d7f&scoped=true&lang=css
+;// CONCATENATED MODULE: ./src/components/form/SSOPanel.vue?vue&type=style&index=0&id=61cb47f4&scoped=true&lang=css
 
 ;// CONCATENATED MODULE: ./src/components/form/SSOPanel.vue
 
@@ -1876,7 +1890,7 @@ function SSOPanelvue_type_template_id_47f37d7f_scoped_true_render(_ctx, _cache, 
 ;
 
 
-const SSOPanel_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(SSOPanelvue_type_script_lang_js, [['render',SSOPanelvue_type_template_id_47f37d7f_scoped_true_render],['__scopeId',"data-v-47f37d7f"]])
+const SSOPanel_exports_ = /*#__PURE__*/(0,exportHelper/* default */.A)(SSOPanelvue_type_script_lang_js, [['render',SSOPanelvue_type_template_id_61cb47f4_scoped_true_render],['__scopeId',"data-v-61cb47f4"]])
 
 /* harmony default export */ var SSOPanel = (SSOPanel_exports_);
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/form/LoginForm.vue?vue&type=script&lang=js
@@ -4537,9 +4551,9 @@ console.log("Vue version", runtime_core_esm_bundler/* version */.rE);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(4023); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(8443); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=index.3d0db97c.js.map
+//# sourceMappingURL=index.19998818.js.map
