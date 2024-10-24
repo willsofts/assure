@@ -84,9 +84,9 @@ export class Sftq003Handler extends TknOperateHandler {
                     filter = " and ";
                 }
             }
-            if(params.status && params.status!="") {
-                knsql.append(filter).append(model.name).append(".status = ?status ");
-                knsql.set("status",params.status);
+            if(params.trxstatus && params.trxstatus!="") {
+                knsql.append(filter).append(model.name).append(".trxstatus = ?trxstatus ");
+                knsql.set("trxstatus",params.trxstatus);
                 filter = " and ";
             }
             if(params.owner && params.owner!="") {
